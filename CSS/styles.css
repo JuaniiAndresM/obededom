@@ -1,0 +1,297 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Montserrat';
+}
+
+/*-----------------------------
+
+Import CSS
+
+-----------------------------*/
+header {
+  background-color: white;
+  -webkit-box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .header-wrapper {
+  width: 80%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .header-wrapper .header-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: blueviolet;
+}
+
+header .header-wrapper .header-links a {
+  padding: 0 10px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: blueviolet;
+  color: white;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .header-wrapper .header-links a i {
+  margin-right: 5px;
+}
+
+.propiedad-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 70% 1fr;
+      grid-template-columns: 70% 1fr;
+  background-color: #cfc1db;
+}
+
+.propiedad-wrapper .propiedad-left {
+  width: 95%;
+  margin: 20px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+  -webkit-box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.propiedad-wrapper .propiedad-left h1 {
+  font-size: 30px;
+  text-align: center;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section {
+  width: 95%;
+  margin: 20px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+  -webkit-box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background-color: #e7e7e7;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section h1 {
+  color: #555;
+  text-align: left;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section hr {
+  width: 100%;
+  border: 1px solid #999;
+  margin: 10px 0;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .input {
+  width: 100%;
+  max-width: 200px;
+  margin: 10px;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .input p {
+  margin: 5px 0;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .input input,
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .input select {
+  width: 100%;
+  border: 1px solid #888;
+  background-color: white;
+  height: 30px;
+  border-radius: 10px;
+  outline: none;
+  padding: 0 10px;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .input input option[value="1"],
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .input select option[value="1"] {
+  color: #aaa;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .input .checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .input .checkbox input[type="checkbox"] {
+  width: 20px;
+  margin-right: 5px;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .input .checkbox-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .input .checkbox-wrapper .checkbox input {
+  width: auto;
+  margin: 0 10px;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .panel-izquierdo,
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .panel-medio,
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .panel-derecho {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .section-medio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.propiedad-wrapper .propiedad-right {
+  width: 95%;
+  margin: 20px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+  -webkit-box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.propiedad-wrapper .propiedad-right h1 {
+  font-size: 30px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1180px) {
+  .propiedad-wrapper .propiedad-left .panel-section .input-wrappers {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .propiedad-wrapper {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .propiedad-wrapper .propiedad-left .panel-section .input-wrappers {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obed-Edom | Nueva Propiedad</title>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>    
+    <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+
+
+    <header>
+        <div class="header-wrapper">
+            <div class="header-icon">
+                <img src="" alt="">
+            </div>
+            <div class="header-links">
+                <a href=""><i class="fas fa-arrow-circle-left"></i> Volver al Inicio</a>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="propiedad-wrapper">
+        <div class="propiedad-left">
+
+
+
+            <div class="panel-section">
+                <h1><i class="fas fa-home"></i> Alta Propiedades:</h1>
+                <hr>
+
+                <div class="input-wrappers">
+                    
+                    <div class="panel-izquierdo">
+                        <div class="input">
+                            <p>Titulo de la Propiedad</p>
+                            <input type="text" name="titulo">
+                        </div>
+                        <div class="input">
+                            <p>Tipo de Operación</p>
+                            <select name="tipooperacion" id="">
+                                <option value="1" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="">Venta</option>
+                                <option value="">Alquiler</option>
+                                <option value="">Alquiler Temporal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="panel-medio">
+                        <div class="input">
+                            <p>Precio de Venta en Dolares</p>
+                            <input type="number" name="precio">
+                            <div class="checkbox">
+                                <input type="checkbox" name="" id="" checked>Mostrar precio de venta
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-derecho">
+                        <div class="input">
+                            <p>¿Acepta Permuta?</p>
+                            <div class="checkbox-wrapper">
+                                <div class="checkbox">
+                                    <input type="radio" name="permuta" id=""><p>Si</p>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="radio" name="permuta" id="" checked><p>No</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input">
+                            <p>¿Financia?</p>
+                            <div class="checkbox-wrapper">
+                                <div class="checkbox">
+                                    <input type="radio" name="financia" id=""><p>Si</p>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="radio" name="financia" id="" checked><p>No</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="panel-section">
+                <h1><i class="fas fa-info-circle"></i> Datos Generales:</h1>
+                <hr>
+
+                <div class="input-wrappers">
+
+
+                    <div class="panel-izquierdo">
+                        <div class="input">
+                            <p>Tipo de Propiedad</p>
+                            <select name="tipopropiedad" id="">
+                                <option value="1" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="">Casa</option>
+                                <option value="">Apartamento</option>
+                                <option value="">Terrenos</option>
+                                <option value="">Cargar los demas de la BD</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="section-medio">
+                        <div class="input">
+                            <p>Departamento</p>
+                            <select name="departamento" id="">
+                                <option value="1" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="">Canelones</option>
+                                <option value="">Montevideo</option>
+                                <option value="">Cerro Largo</option>
+                                <option value="">Cargar los demas de la BD</option>
+                            </select>
+                        </div>
+                        <div class="input">
+                            <p>Localidad / Barrio</p>
+                            <select name="departamento" id="">
+                                <option value="1" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="">Canelones</option>
+                                <option value="">Montevideo</option>
+                                <option value="">Cerro Largo</option>
+                                <option value="">Cargar los demas de la BD</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="panel-derecho">
+                        <div class="input">
+                            <p>Titulo de la Propiedad</p>
+                            <input type="text" name="titulo">
+                        </div>
+                        <div class="input">
+                            <p>¿Visible dentro de la ficha de Propiedad?</p>
+                            <div class="checkbox-wrapper">
+                                <div class="checkbox">
+                                    <input type="radio" name="financia" id=""><p>Si</p>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="radio" name="financia" id="" checked><p>No</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="panel-section">
+                <h1><i class="fas fa-clipboard-list"></i> Detalle de la Propiedad:</h1>
+                <hr>
+
+                <div class="input-wrappers">
+                    
+                    <div class="panel-izquierdo">
+                        <div class="input">
+                            <p>Año de Construcción</p>
+                            <input type="number" name="añoconstruccion">
+                        </div>
+                        <div class="input">
+                            <p>Tipo de Operación</p>
+                            <select name="tipooperacion" id="">
+                                <option value="1" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="">Venta</option>
+                                <option value="">Alquiler</option>
+                                <option value="">Alquiler Temporal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="panel-medio">
+                        <div class="input">
+                            <p>Precio de Venta en Dolares</p>
+                            <input type="number" name="precio">
+                            <div class="checkbox">
+                                <input type="checkbox" name="" id="" checked>Mostrar precio de venta
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-derecho">
+                        <div class="input">
+                            <p>¿Acepta Permuta?</p>
+                            <div class="checkbox-wrapper">
+                                <div class="checkbox">
+                                    <input type="radio" name="permuta" id=""><p>Si</p>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="radio" name="permuta" id="" checked><p>No</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input">
+                            <p>¿Financia?</p>
+                            <div class="checkbox-wrapper">
+                                <div class="checkbox">
+                                    <input type="radio" name="financia" id=""><p>Si</p>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="radio" name="financia" id="" checked><p>No</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+        <div class="propiedad-right">
+            <h1>Panel Derecho</h1>
+        </div>
+    </div>
+
+
+</body>
+</html>

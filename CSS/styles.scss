@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Montserrat';
+}
+/*-----------------------------
+
+Import CSS
+
+-----------------------------*/
+
+// Variables
+
+$color1: #fdc72b;
+$color2: #8e019d;
+
+// Header
+@import "components/header";
+
+// Backend
+@import 'components/backend';
