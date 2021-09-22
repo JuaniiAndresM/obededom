@@ -8,6 +8,10 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>    
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="../JS/backend.js"></script>
+    <script src="../JS/functionsBackend.js"></script>
 
 
     <link rel="stylesheet" href="../CSS/styles.css">
@@ -46,11 +50,8 @@
                         </div>
                         <div class="input">
                             <p>Tipo de Operación</p>
-                            <select name="tipooperacion" id="">
-                                <option value="1" id="selected" selected disabled>Seleccione una Opción</option>
-                                <option value="">Venta</option>
-                                <option value="">Alquiler</option>
-                                <option value="">Alquiler Temporal</option>
+                            <select name="tipooperacion" id="selectOperaciones">
+                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
                             </select>
                         </div>
                     </div>
@@ -105,12 +106,8 @@
                     <div class="panel-izquierdo">
                         <div class="input">
                             <p>Tipo de Propiedad</p>
-                            <select name="tipopropiedad" id="">
-                                <option value="1" id="selected" selected disabled>Seleccione una Opción</option>
-                                <option value="">Casa</option>
-                                <option value="">Apartamento</option>
-                                <option value="">Terrenos</option>
-                                <option value="">Cargar los demas de la BD</option>
+                            <select name="tipopropiedad" id="selectTipoPropiedad">
+                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
                             </select>
                         </div>
                     </div>
@@ -118,22 +115,14 @@
                     <div class="section-medio">
                         <div class="input">
                             <p>Departamento</p>
-                            <select name="departamento" id="">
-                                <option value="1" id="selected" selected disabled>Seleccione una Opción</option>
-                                <option value="">Canelones</option>
-                                <option value="">Montevideo</option>
-                                <option value="">Cerro Largo</option>
-                                <option value="">Cargar los demas de la BD</option>
+                            <select name="departamento" id="selectDepartamentos">
+                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
                             </select>
                         </div>
                         <div class="input">
                             <p>Localidad / Barrio</p>
-                            <select name="departamento" id="">
-                                <option value="1" id="selected" selected disabled>Seleccione una Opción</option>
-                                <option value="">Canelones</option>
-                                <option value="">Montevideo</option>
-                                <option value="">Cerro Largo</option>
-                                <option value="">Cargar los demas de la BD</option>
+                            <select name="departamento" id="selectLocalidades">
+                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
                             </select>
                         </div>
                     </div>
