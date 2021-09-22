@@ -1,0 +1,89 @@
+$color1: #F7C70F;
+$color2: #91009D;
+
+.buscador-content{
+
+    position: absolute;
+
+    .buscador{
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .title{
+            color: $color1;
+            font-size: 2.3em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .buscar{
+            background-color: #b9b9b980;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+            border-radius: 10px;
+            margin: 0 20px;
+
+            .select{
+                position: relative;
+
+                select{
+                    height: 40px;
+                    background-color: white;
+                    border: 1px solid #ccc;
+                    border-radius: 10px;
+                    outline: none;
+                    margin: 5px;
+
+                    padding-left: 25px;
+                }
+
+                i{
+                    position: absolute;
+                    top: 17px;
+                    left: 10px;
+
+                    color: $color2;
+                }
+            }
+
+            button{
+                background-color: $color2;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                color: white;
+                height: 40px;
+                width: 120px;
+                margin-right: 10px;
+
+                border-radius: 10px;
+            }
+
+            
+        }
+    }
+}
+
+@media screen and(max-width: 881px) {
+    .buscador-content{
+        .buscador{
+            .buscar{
+                .select{
+                    flex: 0 0 50%;
+
+                    select{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }    
+}

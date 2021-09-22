@@ -62,8 +62,15 @@ $color2: #91009D;
         font-size: 2em;
         color: $color2;
         font-weight: 600;
-        margin-bottom: 30px;
         text-align: center;
+    }
+
+    hr{
+        width: 150px;
+        margin: 10px 0;
+        border: 1px solid $color2;
+
+        margin-bottom: 30px;
     }
 
     .cards-wrapper{
@@ -87,6 +94,8 @@ $color2: #91009D;
 
             background-color: white;
             overflow: hidden;
+
+            transition: .5s;
 
             .estado{
                 top: 20px;
@@ -198,6 +207,9 @@ $color2: #91009D;
                     }
                 }
             }
+        }
+        .card:hover{
+            transform: scale(1.03);
         }
     }
 }

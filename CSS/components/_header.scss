@@ -81,9 +81,14 @@ header {
         justify-content: center;
         align-items: center;
 
+        transition: .3s;
+
         i {
           margin-right: 5px;
         }
+      }
+      .button:hover{
+        background-color: #71107c;
       }
     }
   }
