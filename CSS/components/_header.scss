@@ -1,3 +1,6 @@
+$color1: #F7C70F;
+$color2: #91009D;
+
 header {
   background-color: white;
 
@@ -22,21 +25,55 @@ header {
     align-items: center;
 
     .header-icon {
-      width: 50px;
-      height: 50px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
 
-      background-color: blueviolet;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
 
     .header-links {
-      a {
-        padding: 0 10px;
-        height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-        border-radius: 10px;
+      a{
+        margin-left: 40px;
+        text-decoration: none;
 
-        background-color: blueviolet;
+        color: $color2;
+        font-weight: 500;
+
+        position: relative;
+      }
+
+      .link::before{
+        position: absolute;
+        
+        bottom: -15px;
+        width: 0%;
+        height: 2px;
+        content: '';
+
+        transition: .5s;
+
+        background-color: $color2;
+      }
+
+      .link:hover:before{
+        width: 100%;
+      }
+
+      .button{
+        padding: 13px 20px;
+
+        border-radius: 15px;
+
+        background-color: $color2;
         color: white;
         text-decoration: none;
 
@@ -50,4 +87,22 @@ header {
       }
     }
   }
+}
+
+/*-----------------------
+|                       |
+|       RESPONSIVE      |
+|                       |
+------------------------*/
+
+@media screen and(max-width: 1200px) {
+  header{
+    .header-wrapper{
+      .header-links{
+        .link{
+          display: none;
+        }
+      }
+    }
+  }  
 }

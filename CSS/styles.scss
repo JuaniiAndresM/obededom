@@ -1,23 +1,56 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 
-    font-family: 'Montserrat';
+// Variables
+
+$color1: #f7c70f;
+$color2: #91009d;
+
+//--------------
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Montserrat";
 }
+
+//-----------------------------
+//  Scrollbar
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $color2;
+  border-radius: 1em;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6c1774;
+}
+
+//-----------------------------
+
 /*-----------------------------
 
 Import CSS
 
 -----------------------------*/
 
-// Variables
-
-$color1: #fdc72b;
-$color2: #8e019d;
-
 // Header
 @import "components/header";
 
+// Index
+@import "components/index";
+
 // Backend
-@import 'components/backend';
+@import "components/backend";
