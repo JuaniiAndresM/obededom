@@ -116,15 +116,21 @@ $color2: #91009D;
             }
 
             .card-content{
-                margin: 10px;
+                margin: 20px;
 
                 h3{
                     font-size: 1.3em;
                     color: $color2;
                 }
                 p{
+                    margin-top: 5px;
                     font-size: 0.9em;
                     color: #555;
+
+                    i{
+                        color: $color2;
+                        margin-right: 5px;
+                    }
                 }
                 
                 .info-propiedad{
@@ -152,7 +158,6 @@ $color2: #91009D;
                 }
 
                 .precio{
-                    margin: 20px 10px;
                     
                     display: flex;
                     justify-content: space-between;

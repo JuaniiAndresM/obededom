@@ -275,7 +275,7 @@ header .header-wrapper .header-links .button i {
 }
 
 .cards .cards-wrapper .card .card-content {
-  margin: 10px;
+  margin: 20px;
 }
 
 .cards .cards-wrapper .card .card-content h3 {
@@ -284,8 +284,14 @@ header .header-wrapper .header-links .button i {
 }
 
 .cards .cards-wrapper .card .card-content p {
+  margin-top: 5px;
   font-size: 0.9em;
   color: #555;
+}
+
+.cards .cards-wrapper .card .card-content p i {
+  color: #91009D;
+  margin-right: 5px;
 }
 
 .cards .cards-wrapper .card .card-content .info-propiedad {
@@ -325,7 +331,6 @@ header .header-wrapper .header-links .button i {
 }
 
 .cards .cards-wrapper .card .card-content .precio {
-  margin: 20px 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
