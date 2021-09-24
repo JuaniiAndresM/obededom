@@ -1,0 +1,12 @@
+RewriteEngine On
+
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+
+RewriteRule ^ https://www.%1%{REQUEST_URI} [L,NE,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !/pagina-mantenimiento.html$
+RewriteCond %{REMOTE_ADDR} !^mi-Ip-Publica
+RewriteRule $ /pagina-mantenimiento.html [R=302,L]
