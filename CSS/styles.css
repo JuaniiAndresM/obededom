@@ -573,11 +573,6 @@ header .header-wrapper .header-links .button:hover {
   padding: 0 10px;
 }
 
-.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .input input option[value="1"],
-.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .input select option[value="1"] {
-  color: #aaa;
-}
-
 .propiedad-wrapper .propiedad-left .panel-section .input-wrappers .input .checkbox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -646,6 +641,64 @@ header .header-wrapper .header-links .button:hover {
           flex-direction: column;
 }
 
+.propiedad-wrapper .propiedad-left .panel-section .checkboxcomfort {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 10px;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .checkboxcomfort input {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .comfort, .propiedad-wrapper .propiedad-left .panel-section .seguridad {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .comfort .checkbox, .propiedad-wrapper .propiedad-left .panel-section .seguridad .checkbox {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+  min-width: 200px;
+  margin: 10px;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .comfort .checkbox input, .propiedad-wrapper .propiedad-left .panel-section .seguridad .checkbox input {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
 .propiedad-wrapper .propiedad-right {
   width: 95%;
   margin: 20px auto;
@@ -667,8 +720,104 @@ header .header-wrapper .header-links .button:hover {
 }
 
 .propiedad-wrapper .propiedad-right h1 {
-  font-size: 30px;
+  color: #555;
+  font-size: 25px;
   text-align: center;
+  margin: 10px;
+}
+
+.propiedad-wrapper .propiedad-right #cke_garantias {
+  width: 100%;
+}
+
+.propiedad-wrapper .propiedad-right #cke_descripcion {
+  width: 100%;
+}
+
+.propiedad-wrapper .propiedad-right .gestor-img {
+  max-width: 500px;
+  width: 100%;
+  height: 300px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.propiedad-wrapper .propiedad-right .gestor-img h3 {
+  color: #666;
+  margin: 10px;
+}
+
+.propiedad-wrapper .propiedad-right .gestor-img i {
+  color: #666;
+  font-size: 3em;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.propiedad-wrapper .propiedad-right .gestor-img i:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.propiedad-wrapper .propiedad-right .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.propiedad-wrapper .propiedad-right .buttons button {
+  padding: 0 10px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: blueviolet;
+  color: white;
+  text-decoration: none;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.propiedad-wrapper .propiedad-right .buttons button i {
+  margin-right: 5px;
+}
+
+.propiedad-wrapper .propiedad-right .buttons button:hover {
+  background-color: #691cb1;
 }
 
 @media screen and (max-width: 1180px) {

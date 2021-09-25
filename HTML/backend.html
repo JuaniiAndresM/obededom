@@ -151,8 +151,8 @@
                             <input type="number" name="añoconstruccion">
                         </div>
                         <div class="input">
-                            <p>Cantidad Dormitorios</p>
-                            <select name="tipooperacion" id="selectOperaciones">
+                            <p>Dormitorios</p>
+                            <select name="dormitorios">
                                 <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
                                 <option value="1">1 AMB</option>
                                 <option value="2">1</option>
@@ -162,32 +162,26 @@
                                 <option value="2">5+</option>
                             </select>
                         </div>
-                    </div>
-
-                    <div class="panel-medio">
                         <div class="input">
-                            <p>Precio de Venta en Dolares</p>
-                            <input type="number" name="precio">
-                            <div class="checkbox">
-                                <input type="checkbox" name="" id="" checked>Mostrar precio de venta
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel-derecho">
-                        <div class="input">
-                            <p>¿Acepta Permuta?</p>
-                            <div class="checkbox-wrapper">
-                                <div class="checkbox">
-                                    <input type="radio" name="permuta" id=""><p>Si</p>
-                                </div>
-                                <div class="checkbox">
-                                    <input type="radio" name="permuta" id="" checked><p>No</p>
-                                </div>
-                            </div>
+                            <p>Baños</p>
+                            <select name="baños">
+                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3+</option>
+                            </select>
                         </div>
                         <div class="input">
-                            <p>¿Financia?</p>
+                            <p>Garage</p>
+                            <select name="garage">
+                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3+</option>
+                            </select>
+                        </div>
+                        <div class="input">
+                            <p>¿Vista al Mar?</p>
                             <div class="checkbox-wrapper">
                                 <div class="checkbox">
                                     <input type="radio" name="financia" id=""><p>Si</p>
@@ -197,16 +191,210 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="input">
+                            <p>Distancia al Mar</p>
+                            <select name="orientacion">
+                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="1">No Aplica</option>
+                                <option value="2">< 1km</option>
+                                <option value="3">< 10km</option>
+                                <option value="4">< 20km</option>
+                                <option value="5">< 50km</option>
+                            </select>
+                        </div>
                     </div>
 
+                    <div class="panel-medio">
+                        <div class="input">
+                            <p>Metros Edificados</p>
+                            <input type="number" name="mts_edificados">
+                        </div>
+                        <div class="input">
+                            <p>Metros de la Terraza</p>
+                            <input type="number" name="mts_terraza">
+                        </div>
+                        <div class="input">
+                            <p>Metros del Terreno</p>
+                            <input type="number" name="mts_terreno">
+                        </div>
+                        <div class="input">
+                            <p>Sobre</p>
+                            <select name="orientacion">
+                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="1">No Aplica</option>
+                                <option value="2">Rambla</option>
+                                <option value="3">Avenida</option>
+                                <option value="4">Otros</option>
+                            </select>
+                        </div>
+                        <div class="input">
+                            <p>Estado</p>
+                            <select name="estado">
+                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="1">Sin Definir</option>
+                                <option value="2">Reciclada</option>
+                                <option value="3">A Reciclar</option>
+                                <option value="4">Lo demas traer de BD.</option>
+                            </select>
+                        </div>
+                        <div class="input">
+                            <p>Disposición</p>
+                            <select name="disposicion">
+                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="1">Al Frente</option>
+                                <option value="2">Inferior</option>
+                                <option value="3">Lateral</option>
+                                <option value="4">Contrafrente</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+
+                    <div class="panel-derecho">
+                        <div class="input">
+                            <p>Orientación</p>
+                            <select name="orientacion">
+                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="1">N</option>
+                                <option value="2">S</option>
+                                <option value="3">E</option>
+                                <option value="4">O</option>
+                            </select>
+                        </div>
+                        <div class="input">
+                            <p>¿Apto para oficina?</p>
+                            <div class="checkbox-wrapper">
+                                <div class="checkbox">
+                                    <input type="radio" name="financia" id=""><p>Si</p>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="radio" name="financia" id="" checked><p>No</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input">
+                            <p>¿Vivienda Social?</p>
+                            <div class="checkbox-wrapper">
+                                <div class="checkbox">
+                                    <input type="radio" name="financia" id=""><p>Si</p>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="radio" name="financia" id="" checked><p>No</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input">
+                            <p>Cantidad de Plantas</p>
+                            <select name="plantas">
+                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3+</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkboxcomfort">
+                    <input type="checkbox" name="" id=""> No aplican datos de comfort y seguridad para esta propiedad.
+                </div>
+
+                <h1><i class="fas fa-couch"></i> Comfort</h1>
+                <hr>
+
+                <div class="comfort">
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Acceso a Internet
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Aire Acondicionado
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Calefacción
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Amueblada
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Chimenea
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Gimnasio
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Jacuzzi
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Piscina
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Traer las otras de la BD
+                    </div>
+                </div>
+
+                <h1><i class="fas fa-lock"></i> Seguridad</h1>
+                <hr>
+
+                <div class="seguridad">
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Cámaras CCTV
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Alarma
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Cerca Perimetral
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Portería 24 horas
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Portón Automático
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Rejas
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Guardia de Seguridad
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id=""> Traer las otras de la BD
+                    </div>
                 </div>
             </div>
             
+            
         </div>
         <div class="propiedad-right">
-            <h1>Panel Derecho</h1>
+            <h1><i class="fas fa-scroll"></i> Garantías</h1>
+            <textarea name="garantias" id="garantias"></textarea>
+
+            <h1><i class="fas fa-home"></i> Descripción de la Propiedad</h1>
+            <textarea name="descripcion" id="descripcion"></textarea>
+
+            <h1><i class="fas fa-images"></i> Gestor de Imágenes</h1>
+            <div class="gestor-img">
+                <h3>Hacer un gestor de imágenes para subir mas de 10 imágenes.</h3>
+                <i class="fas fa-plus-circle"></i>
+            </div>
+
+            <h1><i class="fas fa-file-pdf"></i> Gestor de Archivos</h1>
+            <div class="gestor-img">
+                <h3>Hacer un gestor de archivos para subir pdf.</h3>
+                <i class="fas fa-plus-circle"></i>
+            </div>
+
+            <div class="buttons">
+                <button><i class="fas fa-cart-plus"></i> Subir Propiedad</button>
+                <button><i class="fas fa-ban"></i> Cancelar</button>
+            </div>
         </div>
     </div>
+
+    <script src="/obededom/Plugins/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('garantias');
+        CKEDITOR.replace('descripcion');
+    </script>
 
 
 </body>
