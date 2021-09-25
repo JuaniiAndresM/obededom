@@ -150,6 +150,151 @@ header .header-wrapper .header-links .button:hover {
   }
 }
 
+footer {
+  width: 100%;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 -5px 10px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 -5px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+footer .footer-wrapper {
+  max-width: 1300px;
+  width: calc(100% - 20px);
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+footer .footer-wrapper .footer-section1 {
+  max-width: 300px;
+  width: 100%;
+  margin: 20px;
+}
+
+footer .footer-wrapper .footer-section1 .footer-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .footer-wrapper .footer-section1 .footer-logo img {
+  max-width: 100px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+footer .footer-wrapper .footer-section1 p {
+  text-align: center;
+  font-size: 0.8em;
+  color: #91009d;
+  font-weight: 500;
+}
+
+footer .footer-wrapper .footer-section2 {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+footer .footer-wrapper .footer-section2 h1 {
+  color: #91009d;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+footer .footer-wrapper .footer-section2 p {
+  font-size: 0.9em;
+  color: #91009d;
+  text-align: left;
+}
+
+footer .footer-wrapper .footer-section3 {
+  width: 100%;
+  max-width: 300px;
+  margin: 20px;
+}
+
+footer .footer-wrapper .footer-section3 h1 {
+  font-weight: 500;
+  text-align: center;
+  color: #91009d;
+  font-size: 1.5em;
+}
+
+footer .footer-wrapper .footer-section3 .info-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .footer-wrapper .footer-section3 .info-wrapper .info a {
+  text-decoration: none;
+  color: #91009d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+}
+
+footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon {
+  width: 45px;
+  height: 45px;
+  margin: 10px;
+  border-radius: 50%;
+  background-color: #91009d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
+  color: white;
+}
+
 .landing {
   width: 100%;
   height: 90vh;

@@ -1,0 +1,115 @@
+$color1: #f7c70f;
+$color2: #91009d;
+
+footer {
+  width: 100%;
+  background-color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 -5px 10px 0 rgba($color: #000000, $alpha: 0.3);
+
+  .footer-wrapper {
+    max-width: 1300px;
+    width: calc(100% - 20px);
+
+    margin: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .footer-section1 {
+      max-width: 300px;
+      width: 100%;
+      margin: 20px;
+
+      .footer-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          max-width: 100px;
+          width: 100%;
+          margin-bottom: 10px;
+        }
+      }
+      p {
+        text-align: center;
+        font-size: 0.8em;
+        color: $color2;
+        font-weight: 500;
+      }
+    }
+
+    .footer-section2 {
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+
+      h1 {
+        color: $color2;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 0.9em;
+        color: $color2;
+        text-align: left;
+      }
+    }
+
+    .footer-section3 {
+      width: 100%;
+      max-width: 300px;
+      margin: 20px;
+
+      h1 {
+        font-weight: 500;
+        text-align: center;
+        color: $color2;
+        font-size: 1.5em;
+      }
+      .info-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .info {
+          a {
+            text-decoration: none;
+            color: $color2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+            text-align: center;
+
+            .icon {
+              width: 45px;
+              height: 45px;
+
+              margin: 10px;
+
+              border-radius: 50%;
+
+              background-color: $color2;
+
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              i {
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
