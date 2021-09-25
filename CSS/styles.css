@@ -726,11 +726,7 @@ header .header-wrapper .header-links .button:hover {
   margin: 10px;
 }
 
-.propiedad-wrapper .propiedad-right #cke_garantias {
-  width: 100%;
-}
-
-.propiedad-wrapper .propiedad-right #cke_descripcion {
+.propiedad-wrapper .propiedad-right #cke_garantias, .propiedad-wrapper .propiedad-right #cke_descripcion {
   width: 100%;
 }
 
@@ -773,6 +769,17 @@ header .header-wrapper .header-links .button:hover {
 .propiedad-wrapper .propiedad-right .gestor-img i:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+.propiedad-wrapper .propiedad-right .extra {
+  border: 1px solid #888;
+  background-color: white;
+  height: 30px;
+  border-radius: 10px;
+  outline: none;
+  padding: 0 10px;
+  width: 100%;
+  height: 40px;
 }
 
 .propiedad-wrapper .propiedad-right .buttons {
