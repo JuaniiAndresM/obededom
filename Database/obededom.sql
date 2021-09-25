@@ -688,7 +688,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoLocalidad`(IN Dep int)
 BEGIN
-	Select * from tabla_localidades where id_departamento = Dep;
+	Select * from localidades where id_departamento = Dep;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -838,4 +838,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-20 18:05:11
+-- Dump completed on 2021-09-25 10:44:25
