@@ -76,14 +76,13 @@
     </section>
 
     <section class="cards">
-
       <img class="wave" src="/media/svg/Wave.svg" alt="" />
-      <h1 class="title">Propiedades Destacadas</h1>
-      <hr />
 
       <div class="slider">
-        <div class="slider-wrapper">
+        <h1 class="title">Propiedades Destacadas</h1>
+        <hr />
 
+        <div class="slider-wrapper">
           <button aria-label="Anterior" class="slider-anterior">
             <i class="fas fa-chevron-left"></i>
           </button>
@@ -309,17 +308,56 @@
           <button aria-label="Siguiente" class="slider-siguiente">
             <i class="fas fa-chevron-right"></i>
           </button>
-
         </div>
 
         <div role="tablist" class="slider-indicators"></div>
-
       </div>
 
+      <img class="wave-reverse" src="/media/svg/Wave.svg" alt="" />
+    </section>
+
+    <section class="contacto">
+      <img class="wave" src="/media/svg/Wave.svg" alt="" />
+
+      <div class="contacto-content">
+        <div class="contacto-wrapper">
+          <div class="contacto-left">
+            <h2>Contacto</h2>
+            <h3>¿Tienes alguna consulta?</h3>
+            <p>
+              Llena el formulario y te contestaremos a
+              la brevedad.
+            </p>
+            <form action="">
+              <label for="Nombre">Nombre</label>
+              <input type="text" name="Nombre" />
+              <label for="">Correo Electrónico</label>
+              <input type="email" name="Email" />
+              <label for="">Tipo de Consulta</label>
+              <select name="consulta" id="">
+                <option value="0" disabled selected>
+                  Seleccione una Opción
+                </option>
+                <option value="1">Venta</option>
+                <option value="2">Alquiler</option>
+              </select>
+              <label for="comentario">Comentario</label>
+              <textarea name="comentario"></textarea>
+            </form>
+          </div>
+          <div class="contacto-right">
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+
+      <img class="wave-reverse" src="/media/svg/Wave.svg" alt="" />
     </section>
 
     <div id="footer"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoUdhFH3MOul-vRKU3Tbf6FkftQU2kEV0&callback=initMap"
+    type="text/javascript"></script>
   </body>
 </html>

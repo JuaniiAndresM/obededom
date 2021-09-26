@@ -1,269 +1,392 @@
-$color1: #F7C70F;
-$color2: #91009D;
+$color1: #f7c70f;
+$color2: #91009d;
 
-.landing{
+.landing {
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .background {
     width: 100%;
-    height: 90vh;
-    overflow: hidden;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+  }
 
-    position: relative;
+  .landing-content {
+    width: 80%;
+    position: absolute;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    .content {
+      width: 100%;
+      max-width: 700px;
 
-    .background{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .landing-content{
-        width: 80%;
-        position: absolute;
-
-        .content{
-            width: 100%;
-            max-width: 700px;
-
-            h2{
-                color: $color1;
-                font-size: 2.3em;
-                font-weight: 600;
-                margin-bottom: 10px;
-            }
-            p{
-                color: white;
-                font-size: 1.1em;
-            }
-        }
-    }
-}
-
-.cards{
-    position: relative;
-    z-index: 5;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    margin-top: -120px;
-
-    .wave{
-        width: 100%;
-        height: 150px;
-    }
-
-    .title{
-        margin: 0 20px;
-        font-size: 2em;
-        color: $color2;
+      h2 {
+        color: $color1;
+        font-size: 2.3em;
         font-weight: 600;
-        text-align: center;
+        margin-bottom: 10px;
+      }
+      p {
+        color: white;
+        font-size: 1.1em;
+      }
     }
-
-    hr{
-        width: 150px;
-        margin: 10px 0;
-        border: 1px solid $color2;
-
-        margin-bottom: 30px;
-    }
-    .slider{
-        overflow: hidden;
-        width: 100%;
-
-        .slider-wrapper{
-            position: relative;
-
-            .slider-anterior,.slider-siguiente{
-                position: absolute;
-                z-index: 10;
-                background: none;
-                border: none;
-                outline: none;
-                cursor: pointer;
-
-                width: 30px;
-                height: 30px;
-
-                top: calc(50% - 35px);
-                line-height: 30px;
-                text-align: center;
-
-                transition: .3s;
-
-                i{
-                    font-size: 3em;
-                    color: $color2;
-                }
-            }
-            .slider-anterior{
-                left: 2%;
-            }
-            .slider-siguiente{
-                right: 2%;
-            }
-
-            .slider-anterior:hover, .slider-siguiente:hover{
-                transform: scale(1.2);
-            }
-
-            .slider-content{
-                width: 90%;
-                .card{
-                    position: relative;
-        
-                    width: 300px;
-        
-                    margin: 10px;
-                    border-radius: 20px;
-        
-                    box-shadow: 0 5px 15px 0 rgba($color: #000000, $alpha: .5);
-
-                    background-color: white;
-                    overflow: hidden;
-        
-                    transition: .5s;
-        
-                    .estado{
-                        top: 20px;
-                        left: 0;
-        
-                        width: 150px;
-                        height: 40px;
-                        background-color: rgb(172, 253, 139);
-                        position: absolute;
-        
-                        border-radius: 0 20px 20px 0;
-        
-                        color: rgb(94, 156, 70);
-        
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-        
-                        font-size: .8em;
-                    }
-        
-                    .alquiler{
-                        background-color: #F7C70F;
-                        color: #99832a;
-                    }
-        
-                    .vendido{
-                        background-color: rgb(255, 102, 102);
-                        color: rgb(141, 46, 46);
-                    }
-        
-                    .card-img{
-                        width: 100%;
-                        height: 240px;
-        
-                        img{
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                        }
-        
-                    }
-        
-                    .card-content{
-                        margin: 20px;
-        
-                        h3{
-                            font-size: 1.3em;
-                            color: $color2;
-                        }
-                        p{
-                            margin-top: 5px;
-                            font-size: 0.9em;
-                            color: #555;
-        
-                            i{
-                                color: $color2;
-                                margin-right: 5px;
-                            }
-                        }
-                        
-                        .info-propiedad{
-                            width: 100%;
-                            display: flex;
-                            justify-content: space-evenly;
-                            align-items: center;
-        
-                            margin: 20px 0;
-        
-                            .habitaciones, .bath, .size{
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                color: $color2;
-        
-                                i{
-                                    font-size: 1.3em;
-                                    margin-right: 10px;
-                                }
-                                p{
-                                    font-weight: 600;
-                                }
-                            }
-                        }
-        
-                        .precio{
-                            
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-        
-                            h1{
-                                font-size: 1.3em;
-                                color: #333;
-                            }
-                            button{
-                                border: none;
-                                background-color: $color2;
-                                color: white;
-                                cursor: pointer;
-                                width: 100px;
-                                height: 40px;
-                                border-radius: 10px;
-        
-                                transition: .2s;
-                            }
-                            button:hover{
-                                background-color: #56085e;
-                            }
-                        }
-                    }
-                }
-                .card:hover{
-                    transform: scale(1.03);
-                }
-            }
-        }
-        .slider-indicators .glider-dot{
-            display: block;
-            width: 30px;
-            height: 4px;
-            background-color: $color2;
-
-            opacity: .3;
-
-            border-radius: 0;
-        }
-        .slider-indicators .glider-dot:hover{
-            opacity: .5;
-        }
-        .slider-indicators .glider-dot.active{
-            opacity: 1;
-        }
-    }
+  }
 }
 
+.wave {
+  width: 100%;
+  height: 150px;
+}
+.wave-reverse {
+  width: 100%;
+  height: 150px;
+
+  transform: scale(-1);
+}
+
+.cards {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  margin-top: -120px;
+
+  .slider {
+    overflow: hidden;
+    width: 100%;
+    background-color: white;
+
+    .title {
+      margin: 0 20px;
+      font-size: 2em;
+      color: $color2;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    hr {
+      width: 150px;
+      margin: 10px auto;
+      border: 1px solid $color2;
+
+      margin-bottom: 30px;
+    }
+
+    .slider-wrapper {
+      position: relative;
+
+      .slider-anterior,
+      .slider-siguiente {
+        position: absolute;
+        z-index: 10;
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+
+        width: 30px;
+        height: 30px;
+
+        top: calc(50% - 35px);
+        line-height: 30px;
+        text-align: center;
+
+        transition: 0.3s;
+
+        i {
+          font-size: 3em;
+          color: $color2;
+        }
+      }
+      .slider-anterior {
+        left: 2%;
+      }
+      .slider-siguiente {
+        right: 2%;
+      }
+
+      .slider-anterior:hover,
+      .slider-siguiente:hover {
+        transform: scale(1.2);
+      }
+
+      .slider-content {
+        width: 90%;
+        .card {
+          position: relative;
+
+          width: 300px;
+
+          margin: 10px;
+          border-radius: 20px;
+
+          box-shadow: 0 5px 15px 0 rgba($color: #000000, $alpha: 0.5);
+
+          background-color: white;
+          overflow: hidden;
+
+          transition: 0.5s;
+
+          .estado {
+            top: 20px;
+            left: 0;
+
+            width: 150px;
+            height: 40px;
+            background-color: rgb(172, 253, 139);
+            position: absolute;
+
+            border-radius: 0 20px 20px 0;
+
+            color: rgb(94, 156, 70);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 0.8em;
+          }
+
+          .alquiler {
+            background-color: #f7c70f;
+            color: #99832a;
+          }
+
+          .vendido {
+            background-color: rgb(255, 102, 102);
+            color: rgb(141, 46, 46);
+          }
+
+          .card-img {
+            width: 100%;
+            height: 240px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+
+          .card-content {
+            margin: 20px;
+
+            h3 {
+              font-size: 1.3em;
+              color: $color2;
+            }
+            p {
+              margin-top: 5px;
+              font-size: 0.9em;
+              color: #555;
+
+              i {
+                color: $color2;
+                margin-right: 5px;
+              }
+            }
+
+            .info-propiedad {
+              width: 100%;
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
+
+              margin: 20px 0;
+
+              .habitaciones,
+              .bath,
+              .size {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: $color2;
+
+                i {
+                  font-size: 1.3em;
+                  margin-right: 10px;
+                }
+                p {
+                  font-weight: 600;
+                }
+              }
+            }
+
+            .precio {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              h1 {
+                font-size: 1.3em;
+                color: #333;
+              }
+              button {
+                border: none;
+                background-color: $color2;
+                color: white;
+                cursor: pointer;
+                width: 100px;
+                height: 40px;
+                border-radius: 10px;
+
+                transition: 0.2s;
+              }
+              button:hover {
+                background-color: #56085e;
+              }
+            }
+          }
+        }
+        .card:hover {
+          transform: scale(1.03);
+        }
+      }
+    }
+    .slider-indicators .glider-dot {
+      display: block;
+      width: 30px;
+      height: 4px;
+      background-color: $color2;
+
+      opacity: 0.3;
+
+      border-radius: 0;
+    }
+    .slider-indicators .glider-dot:hover {
+      opacity: 0.5;
+    }
+    .slider-indicators .glider-dot.active {
+      opacity: 1;
+    }
+  }
+}
+
+.contacto {
+  width: 100%;
+
+  margin: 40px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .contacto-content {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: white;
+
+    .contacto-wrapper {
+      max-width: 1000px;
+      width: 100%;
+
+      margin: 0 20px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      .contacto-left,
+      .contacto-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .contacto-left {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        h2 {
+          font-size: 2em;
+          color: $color2;
+          font-weight: 600;
+        }
+        h3 {
+          font-size: 1.2em;
+          font-weight: 500;
+        }
+        p {
+          margin: 0 15px;
+          color: #666;
+        }
+
+        form {
+          max-width: 400px;
+          width: 100%;
+
+          margin: 20px;
+
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          flex-direction: column;
+
+          label {
+            color: $color2;
+          }
+
+          input,
+          textarea,
+          select {
+            border: 1px solid $color2;
+            width: 100%;
+
+            height: 35px;
+            border-radius: 10px;
+            outline: none;
+
+            margin-bottom: 10px;
+
+            padding: 0 10px;
+            color: $color2;
+            resize: vertical;
+          }
+          select {
+            padding: 0 5px;
+          }
+          textarea {
+            height: 150px;
+            padding: 10px;
+          }
+        }
+      }
+      .contacto-right{
+          #map{
+              width: 100%;
+              height: 500px;
+
+              border-radius: 10px;
+          }
+      }
+    }
+  }
+}
 
 /*-----------------------
 |                       |
@@ -272,13 +395,13 @@ $color2: #91009D;
 ------------------------*/
 
 @media screen and(max-width: 500px) {
-    .landing{
-        justify-content: flex-start;
+  .landing {
+    justify-content: flex-start;
 
-        .buscador-content{
-            text-align: center;
-            margin: 20px;
-            margin-top: 80px;
-        }
+    .buscador-content {
+      text-align: center;
+      margin: 20px;
+      margin-top: 80px;
     }
+  }
 }
