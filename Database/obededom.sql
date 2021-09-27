@@ -384,6 +384,54 @@ INSERT INTO `propiedades` VALUES (1,'Monoambiente totalmente equipado en Buceo.'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `propiedades_borrador`
+--
+
+DROP TABLE IF EXISTS `propiedades_borrador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `propiedades_borrador` (
+  `id_propiedad` int NOT NULL DEFAULT '0',
+  `titulo` varchar(100) NOT NULL,
+  `tipo_operacion` int NOT NULL,
+  `Precio_Venta` int NOT NULL,
+  `Permuta` int NOT NULL,
+  `Financia` int NOT NULL,
+  `tipo_propiedad` int NOT NULL,
+  `departamento` int NOT NULL,
+  `localidad` int NOT NULL,
+  `año_construccion` int NOT NULL,
+  `dormitorios` int NOT NULL,
+  `baños` int NOT NULL,
+  `garage` int NOT NULL,
+  `estado` int NOT NULL,
+  `oficina` int NOT NULL,
+  `vivienda_social` int NOT NULL,
+  `disposicion` int NOT NULL,
+  `orientacion` int NOT NULL,
+  `sobre` int NOT NULL,
+  `distancia_mar` int NOT NULL,
+  `metros_edificados` int NOT NULL,
+  `metros_terraza` int NOT NULL,
+  `metros_terreno` int NOT NULL,
+  `plantas` int NOT NULL,
+  `extras` varchar(200) NOT NULL,
+  `garantias` longtext NOT NULL,
+  `descripcion_propiedad` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `propiedades_borrador`
+--
+
+LOCK TABLES `propiedades_borrador` WRITE;
+/*!40000 ALTER TABLE `propiedades_borrador` DISABLE KEYS */;
+INSERT INTO `propiedades_borrador` VALUES (1,'Monoambiente totalmente equipado en Buceo.',2,19000,0,1,2,10,1269,2003,2,1,1,5,1,0,1,2,3,2,25,2,30,3,'no','DESPOSITO EN BHU, SURA Y CGN','OBED-EDOM Alquila Monoambiente totalmente Equipado.');
+/*!40000 ALTER TABLE `propiedades_borrador` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `seguridad`
 --
 
@@ -838,4 +886,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-25 10:44:25
+-- Dump completed on 2021-09-27  1:10:07
