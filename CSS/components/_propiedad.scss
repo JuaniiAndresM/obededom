@@ -90,8 +90,8 @@ $color2: #91009d;
                             margin-right: 5px;
                         }
                         p{
-                            color: #555;
-                            font-size: 1.2em;
+                            color: $color2;
+                            font-size: 1.4em;
                         }
                     }
                     .prop-info{
@@ -245,4 +245,55 @@ $color2: #91009d;
             }
         }
     }
+}
+
+@media screen and(max-width: 1110px) {
+    .propiedad-dinamica{
+        .propiedad-wrapper{
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+@media screen and(max-width: 850px) {
+    .propiedad-dinamica{
+        .propiedad-wrapper{
+            .panel-left{
+                .propiedad-info{
+                    .propiedad-head{
+                        grid-template-columns: 1fr;
+
+                        .precio{
+                            justify-content: flex-start;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 725px) {
+    .propiedad-dinamica{
+        .propiedad-wrapper{
+            .panel-left{
+                .propiedad-info{
+                    .propiedad-body{
+                        .detalles{
+                            .details{
+                                grid-template-columns: 1fr;
+
+                                .info{
+                                    p, b{
+                                        font-size: 0.8em;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
 }

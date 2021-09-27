@@ -1386,8 +1386,8 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .location p {
-  color: #555;
-  font-size: 1.2em;
+  color: #91009d;
+  font-size: 1.4em;
 }
 
 .propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .prop-info {
@@ -1579,5 +1579,34 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
   font-weight: 400;
   font-size: 1.1em;
   height: 40px;
+}
+
+@media screen and (max-width: 1110px) {
+  .propiedad-dinamica .propiedad-wrapper {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-head {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-head .precio {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 725px) {
+  .propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .detalles .details {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .detalles .details .info p, .propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .detalles .details .info b {
+    font-size: 0.8em;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
