@@ -51,7 +51,7 @@ header {
           align-items: center;
 }
 
-header .header-wrapper {
+header .header-wrapper, header .header-wrapper-admin {
   width: 80%;
   height: 100%;
   display: -webkit-box;
@@ -65,19 +65,35 @@ header .header-wrapper {
           align-items: center;
 }
 
-header .header-wrapper .header-icon {
+header .header-wrapper .sidebar-button, header .header-wrapper-admin .sidebar-button {
+  background-color: transparent;
+  border: none;
+  font-size: 2em;
+  color: #91009D;
+  margin-right: 20px;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+header .header-wrapper .sidebar-button:hover, header .header-wrapper-admin .sidebar-button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+header .header-wrapper .header-icon, header .header-wrapper-admin .header-icon {
   height: 70px;
   border-radius: 50%;
 }
 
-header .header-wrapper .header-icon img {
+header .header-wrapper .header-icon img, header .header-wrapper-admin .header-icon img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-header .header-wrapper .header-links {
+header .header-wrapper .header-links, header .header-wrapper-admin .header-links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -89,7 +105,7 @@ header .header-wrapper .header-links {
           align-items: center;
 }
 
-header .header-wrapper .header-links a {
+header .header-wrapper .header-links a, header .header-wrapper-admin .header-links a {
   margin-left: 40px;
   text-decoration: none;
   color: #91009D;
@@ -97,7 +113,7 @@ header .header-wrapper .header-links a {
   position: relative;
 }
 
-header .header-wrapper .header-links .link::before {
+header .header-wrapper .header-links .link::before, header .header-wrapper-admin .header-links .link::before {
   position: absolute;
   bottom: -15px;
   width: 0%;
@@ -108,11 +124,11 @@ header .header-wrapper .header-links .link::before {
   background-color: #91009D;
 }
 
-header .header-wrapper .header-links .link:hover:before {
+header .header-wrapper .header-links .link:hover:before, header .header-wrapper-admin .header-links .link:hover:before {
   width: 100%;
 }
 
-header .header-wrapper .header-links .button {
+header .header-wrapper .header-links .button, header .header-wrapper-admin .header-links .button {
   padding: 13px 20px;
   border-radius: 15px;
   background-color: #91009D;
@@ -131,12 +147,22 @@ header .header-wrapper .header-links .button {
   transition: .3s;
 }
 
-header .header-wrapper .header-links .button i {
+header .header-wrapper .header-links .button i, header .header-wrapper-admin .header-links .button i {
   margin-right: 5px;
 }
 
-header .header-wrapper .header-links .button:hover {
+header .header-wrapper .header-links .button:hover, header .header-wrapper-admin .header-links .button:hover {
   background-color: #71107c;
+}
+
+header .header-wrapper-admin {
+  width: calc(100% - 40px);
+}
+
+.header-admin {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 /*-----------------------
@@ -1704,5 +1730,470 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
   .propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .detalles .details .info b {
     font-size: 0.8em;
   }
+}
+
+.sidebar-menu {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  z-index: 30;
+  width: 80px;
+  height: calc(100vh - 80px);
+  background-color: #91009d;
+  -webkit-box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.sidebar-menu .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sidebar-menu .buttons .icon {
+  background-color: white;
+  height: 60px;
+  width: 60px;
+  margin: 5px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar-menu .buttons .icon i {
+  font-size: 1.5em;
+  color: #91009d;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sidebar-menu .buttons .icon p {
+  display: none;
+}
+
+.sidebar-menu .buttons .icon:hover i {
+  font-size: 1.7em;
+}
+
+.sidebar-menu .profile .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar-menu .profile .icon .img {
+  height: 60px;
+  width: 60px;
+  padding: 2px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.sidebar-menu .profile .icon .profile-info h2 {
+  display: none;
+  color: white;
+  font-size: 1.2em;
+  margin-left: 10px;
+}
+
+.sidebar-menu .profile .icon .profile-info p {
+  display: none;
+  margin-left: 10px;
+  color: #f7c70f;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.sidebar-menu .profile .icon-exit {
+  background-color: white;
+  height: 60px;
+  width: 60px;
+  margin: 5px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar-menu .profile .icon-exit i {
+  font-size: 1.5em;
+  color: #91009d;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sidebar-menu .profile .icon-exit p {
+  display: none;
+}
+
+.sidebar-menu .profile .icon-exit:hover i {
+  font-size: 1.7em;
+}
+
+.desplegado {
+  width: 250px;
+}
+
+.desplegado .buttons .icon {
+  background-color: white;
+  padding: 20px;
+  width: calc(100% - 10px);
+  height: 60px;
+  margin: 5px 0;
+  margin-left: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px 0 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.desplegado .buttons .icon i {
+  font-size: 1.5em;
+  color: #91009d;
+}
+
+.desplegado .buttons .icon p {
+  display: block;
+  margin-left: 20px;
+  text-align: left;
+  color: #91009d;
+  font-size: 1.2em;
+  font-weight: 500;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.desplegado .buttons .icon:hover p {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.desplegado .profile {
+  width: 100%;
+}
+
+.desplegado .profile .icon .profile-info p,
+.desplegado .profile .icon .profile-info h2 {
+  display: block;
+}
+
+.desplegado .profile .icon-exit {
+  background-color: white;
+  padding: 20px;
+  width: calc(100% - 10px);
+  height: 60px;
+  margin: 10px 0;
+  margin-left: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px 0 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.desplegado .profile .icon-exit i {
+  font-size: 1.5em;
+  color: #91009d;
+}
+
+.desplegado .profile .icon-exit p {
+  display: block;
+  margin-left: 20px;
+  text-align: left;
+  color: #91009d;
+  font-size: 1.2em;
+  font-weight: 500;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.desplegado .profile .icon-exit:hover p {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.admin-panel {
+  width: calc(100% - 80px);
+  margin-left: 80px;
+}
+
+.admin-panel .content-propiedades {
+  width: 100%;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.admin-panel .content-propiedades .title {
+  color: #91009d;
+  font-size: 2em;
+}
+
+.admin-panel .content-propiedades .buscador {
+  max-width: 250px;
+  width: 100%;
+  position: relative;
+}
+
+.admin-panel .content-propiedades .buscador i {
+  position: absolute;
+  top: calc(50% - 10px);
+  color: #91009d;
+  left: 8px;
+}
+
+.admin-panel .content-propiedades .buscador input {
+  width: 100%;
+  height: 35px;
+  border: 1px solid #aaa;
+  border-radius: 20px;
+  padding-right: 20px;
+  padding-left: 30px;
+  outline: none;
+  color: #91009d;
+}
+
+.admin-panel .content-propiedades .buscador input::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+.admin-panel .content-propiedades .buscador input:-ms-input-placeholder {
+  color: #aaa;
+}
+
+.admin-panel .content-propiedades .buscador input::-ms-input-placeholder {
+  color: #aaa;
+}
+
+.admin-panel .content-propiedades .buscador input::placeholder {
+  color: #aaa;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  margin: 20px 0;
+  background-color: white;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card {
+  position: relative;
+  width: 300px;
+  margin: 10px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.5);
+  background-color: white;
+  overflow: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .estado {
+  top: 20px;
+  left: 0;
+  width: 150px;
+  height: 40px;
+  background-color: #acfd8b;
+  position: absolute;
+  border-radius: 0 20px 20px 0;
+  color: #5e9c46;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.8em;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .alquiler {
+  background-color: #f7c70f;
+  color: #99832a;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .vendido {
+  background-color: #ff6666;
+  color: #8d2e2e;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-img {
+  width: 100%;
+  height: 240px;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content {
+  margin: 20px;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content h3 {
+  font-size: 1.3em;
+  color: #91009d;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content p {
+  margin-top: 5px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content p i {
+  color: #91009d;
+  margin-right: 5px;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content .info-propiedad {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content .info-propiedad .habitaciones,
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content .info-propiedad .bath,
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content .info-propiedad .size {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #91009d;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content .info-propiedad .habitaciones i,
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content .info-propiedad .bath i,
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content .info-propiedad .size i {
+  font-size: 1.3em;
+  margin-right: 10px;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content .info-propiedad .habitaciones p,
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content .info-propiedad .bath p,
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content .info-propiedad .size p {
+  font-weight: 600;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content .precio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content .precio h1 {
+  font-size: 1.3em;
+  color: #333;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content .precio button {
+  border: none;
+  background-color: #91009d;
+  color: white;
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.admin-panel .content-propiedades .propiedad-wrapper .card .card-content .precio button:hover {
+  background-color: #56085e;
 }
 /*# sourceMappingURL=styles.css.map */
