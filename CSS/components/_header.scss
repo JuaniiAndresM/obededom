@@ -16,13 +16,29 @@ header {
   justify-content: center;
   align-items: center;
 
-  .header-wrapper {
+
+  .header-wrapper, .header-wrapper-admin {
     width: 80%;
     height: 100%;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .sidebar-button{
+      background-color: transparent;
+      border: none;
+  
+      font-size: 2em;
+      color: $color2;
+      margin-right: 20px;
+      cursor: pointer;
+
+      transition: .3s;
+    }
+    .sidebar-button:hover{
+      transform: scale(1.1);
+    }
 
     .header-icon {
       height: 70px;
@@ -91,6 +107,13 @@ header {
       }
     }
   }
+  .header-wrapper-admin{
+    width: calc(100% - 40px);
+  }
+}
+.header-admin{
+  position: sticky;
+  top: 0;
 }
 
 /*-----------------------
