@@ -97,6 +97,10 @@ $color2: #91009d;
             .img-propiedad {
               position: relative;
 
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
               width: 300px;
 
               background-color: white;
