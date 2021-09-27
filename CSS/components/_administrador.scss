@@ -219,6 +219,72 @@ $color2: #91009d;
   width: calc(100% - 80px);
   margin-left: 80px;
 
+  .content-inicio {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .inicio-wrapper {
+      max-width: 700px;
+      width: 100%;
+
+      margin: 10px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      img {
+        max-width: 150px;
+        width: 100%;
+        margin: 20px;
+      }
+      h1 {
+        text-align: center;
+        color: $color2;
+        font-weight: 600;
+      }
+      p {
+        text-align: center;
+        color: $color2;
+      }
+      .indice {
+        margin: 40px 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+
+          margin: 10px;
+
+          max-width: 300px;
+          width: 100%;
+
+          i {
+            color: $color2;
+            font-size: 1.5em;
+          }
+          h2 {
+            text-align: center;
+            font-size: 1.2em;
+            color: $color2;
+          }
+        }
+      }
+    }
+  }
+
   .content-propiedades {
     width: 100%;
 

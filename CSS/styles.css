@@ -261,7 +261,6 @@ footer .footer-wrapper .footer-section2 p {
 footer .footer-wrapper .footer-section3 {
   width: 100%;
   max-width: 300px;
-  margin: 20px;
 }
 
 footer .footer-wrapper .footer-section3 h1 {
@@ -1964,6 +1963,101 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 .admin-panel {
   width: calc(100% - 80px);
   margin-left: 80px;
+}
+
+.admin-panel .content-inicio {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.admin-panel .content-inicio .inicio-wrapper {
+  max-width: 700px;
+  width: 100%;
+  margin: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.admin-panel .content-inicio .inicio-wrapper img {
+  max-width: 150px;
+  width: 100%;
+  margin: 20px;
+}
+
+.admin-panel .content-inicio .inicio-wrapper h1 {
+  text-align: center;
+  color: #91009d;
+  font-weight: 600;
+}
+
+.admin-panel .content-inicio .inicio-wrapper p {
+  text-align: center;
+  color: #91009d;
+}
+
+.admin-panel .content-inicio .inicio-wrapper .indice {
+  margin: 40px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.admin-panel .content-inicio .inicio-wrapper .indice .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px;
+  max-width: 300px;
+  width: 100%;
+}
+
+.admin-panel .content-inicio .inicio-wrapper .indice .icon i {
+  color: #91009d;
+  font-size: 1.5em;
+}
+
+.admin-panel .content-inicio .inicio-wrapper .indice .icon h2 {
+  text-align: center;
+  font-size: 1.2em;
+  color: #91009d;
 }
 
 .admin-panel .content-propiedades {

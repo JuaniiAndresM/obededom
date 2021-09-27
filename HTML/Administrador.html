@@ -39,40 +39,64 @@
     </header>
 
     <div class="sidebar-menu">
-
       <div class="buttons">
-          <button class="icon">
-            <i class="fas fa-home"></i>
-            <p>Propiedades</p>
-          </button>
-          <button class="icon">
-            <i class="fas fa-tag"></i>
-            <p>Nomencladores</p>
-          </button>
-          <button class="icon">
-            <i class="fas fa-envelope"></i>
-            <p>Bandeja de Entrada</p>
-          </button>
+        <button onclick="seccion('propiedades')" class="icon">
+          <i class="fas fa-home"></i>
+          <p>Propiedades</p>
+        </button>
+        <button onclick="seccion('nomencladores')" class="icon">
+          <i class="fas fa-tag"></i>
+          <p>Nomencladores</p>
+        </button>
+        <button onclick="seccion('mensajes')" class="icon">
+          <i class="fas fa-envelope"></i>
+          <p>Bandeja de Entrada</p>
+        </button>
       </div>
       <div class="profile">
-          <div class="icon">
-              <div class="img">
-                  <img src="/media/svg/Logo.svg" alt="">
-                </div>
-              <div class="profile-info">
-                  <h2>Obed-Edom</h2>
-                  <p>Administrador</p>
-              </div>
+        <div class="icon">
+          <div class="img">
+            <img src="/media/svg/Logo.svg" alt="" />
           </div>
-          <button class="icon-exit">
-            <i class="fas fa-sign-out-alt"></i>
-            <p>Cerrar Sesión</p>
-          </button>
+          <div class="profile-info">
+            <h2>Obed-Edom</h2>
+            <p>Administrador</p>
+          </div>
+        </div>
+        <button class="icon-exit">
+          <i class="fas fa-sign-out-alt"></i>
+          <p>Cerrar Sesión</p>
+        </button>
       </div>
-
     </div>
 
     <section class="admin-panel">
+      <div class="content-inicio">
+          <div class="inicio-wrapper">
+              <img src="/media/svg/Logo.svg" alt="">
+              <h1>Bienvenid@ al panel de Administrador.</h1>
+              <p>Aquí podras modificar las propiedades, agregar o eliminar nomencladores, y revisar la bandeja de entrada.</p>
+              <div class="indice">
+                  <div class="icon">  
+                      <h2><i class="fas fa-home"></i> Propiedades</h2>
+                      <p>Ver todas las propiedades y editarlas.</p>
+                  </div>
+                  <div class="icon">  
+                      <h2><i class="fas fa-tag"></i> Nomencladores</h2>
+                      <p>Agregar o Eliminar Nomencladores.</p>
+                  </div>
+                  <div class="icon">  
+                      <h2><i class="fas fa-envelope"></i> Bandeja de Entrada</h2>
+                      <p>Aquí veras tus ultimas notificaciones (Contacto, Mail, etc).</p>
+                  </div>
+                  <div class="icon">  
+                      <h2><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</h2>
+                      <p>Cerrar Sesión del usuario actual.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
       <div class="content-propiedades">
         <h1 class="title">Propiedades</h1>
         <div class="buscador">
@@ -81,7 +105,6 @@
         </div>
 
         <div class="propiedad-wrapper">
-
           <div class="card">
             <div class="estado venta">
               <h2><i class="fas fa-shopping-cart"></i> Venta</h2>
@@ -214,7 +237,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
