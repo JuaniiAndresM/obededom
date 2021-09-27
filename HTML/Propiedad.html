@@ -19,6 +19,7 @@
     ></script>
 
     <script src="/JS/web.js"></script>
+    <script src="/JS/propiedad.js"></script>
 
     <title>Obed-Edom | Propiedad</title>
   </head>
@@ -28,7 +29,33 @@
     <section class="propiedad-dinamica">
       <div class="propiedad-wrapper">
         <div class="panel-left">
-          <div class="carrusel"></div>
+
+          <div class="carrusel">
+            <div class="slider-wrapper">
+
+              <button aria-label="Anterior" class="slider-anterior">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+
+              <div class="slider-content-propiedad">
+                <div class="img-propiedad">
+                  <img src="/media/img/Background.png" alt="">
+                </div>
+                <div class="img-propiedad">
+                  <img src="/media/img/Background.png" alt="">
+                </div>
+              </div>
+
+              <button aria-label="Anterior" class="slider-siguiente">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+
+            </div>
+
+            <div role="tablist" class="slider-indicators"></div>
+
+          </div>
+
           <div class="propiedad-info">
             <div class="propiedad-head">
               <h2>Titulo de la Propiedad</h2>
@@ -207,5 +234,7 @@
     </section>
 
     <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
+
   </body>
 </html>
