@@ -1000,8 +1000,12 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
   margin-right: 10px;
 }
 
-.propiedad-wrapper .propiedad-left .panel-section .comfort,
-.propiedad-wrapper .propiedad-left .panel-section .seguridad {
+.propiedad-wrapper .propiedad-left .panel-section .section-comfort-seguridad {
+  width: 100%;
+}
+
+.propiedad-wrapper .propiedad-left .panel-section .section-comfort-seguridad .comfort,
+.propiedad-wrapper .propiedad-left .panel-section .section-comfort-seguridad .seguridad {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1015,8 +1019,8 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
       flex-wrap: wrap;
 }
 
-.propiedad-wrapper .propiedad-left .panel-section .comfort .checkbox,
-.propiedad-wrapper .propiedad-left .panel-section .seguridad .checkbox {
+.propiedad-wrapper .propiedad-left .panel-section .section-comfort-seguridad .comfort .checkbox,
+.propiedad-wrapper .propiedad-left .panel-section .section-comfort-seguridad .seguridad .checkbox {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 25%;
           flex: 0 0 25%;
@@ -1034,8 +1038,8 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
           align-items: center;
 }
 
-.propiedad-wrapper .propiedad-left .panel-section .comfort .checkbox input,
-.propiedad-wrapper .propiedad-left .panel-section .seguridad .checkbox input {
+.propiedad-wrapper .propiedad-left .panel-section .section-comfort-seguridad .comfort .checkbox input,
+.propiedad-wrapper .propiedad-left .panel-section .section-comfort-seguridad .seguridad .checkbox input {
   width: 20px;
   height: 20px;
   margin-right: 10px;
