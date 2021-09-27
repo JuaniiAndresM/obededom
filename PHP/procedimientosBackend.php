@@ -82,5 +82,185 @@ class  DatosBackend{
         return $arrayLocalidades;
 }
 
+ //trae la cantidad de dormitorios de la bdd
+ public function TraerDormitorios(){
+    $arrayDormitorios=array();
+     include "../Database/server.php";
+     $sentencia = '';
+   if ($sentencia = $mysqli->prepare("CALL TraigoDormitorios();")) {   
+       if ($sentencia->execute()) {    
+           $sentencia->bind_result($id_dormitorios, $cantidad_dormitorios);
+                while ($sentencia->fetch()) {
+                    array_push($arrayDormitorios,$id_dormitorios,$cantidad_dormitorios);   
+                }
+            }else{
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }else{
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+        return $arrayDormitorios;
+}
+
+ //trae la cantidad de baños de la bdd
+ public function TraerBaños(){
+    $arrayBaños=array();
+     include "../Database/server.php";
+     $sentencia = '';
+   if ($sentencia = $mysqli->prepare("CALL TraigoBaños();")) {   
+       if ($sentencia->execute()) {    
+           $sentencia->bind_result($id_baños, $cantidad_baños);
+                while ($sentencia->fetch()) {
+                    array_push($arrayBaños,$id_baños,$cantidad_baños);   
+                }
+            }else{
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }else{
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+        return $arrayBaños;
+}
+
+//trae la cantidad de garages de la bdd
+public function TraerGarages(){
+    $arrayGarages=array();
+     include "../Database/server.php";
+     $sentencia = '';
+   if ($sentencia = $mysqli->prepare("CALL TraigoGarage();")) {   
+       if ($sentencia->execute()) {    
+           $sentencia->bind_result($id_garage, $cantidad_garage);
+                while ($sentencia->fetch()) {
+                    array_push($arrayGarages,$id_garage,$cantidad_garage);   
+                }
+            }else{
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }else{
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+        return $arrayGarages;
+}
+
+//trae la distancia del mar de la bdd
+public function TraerDistanciaMar(){
+    $arrayDistanciaMar=array();
+     include "../Database/server.php";
+     $sentencia = '';
+   if ($sentencia = $mysqli->prepare("CALL TraigoDistanciaMar();")) {   
+       if ($sentencia->execute()) {    
+           $sentencia->bind_result($id_distancia_mar, $distancia_mar);
+                while ($sentencia->fetch()) {
+                    array_push($arrayDistanciaMar,$id_distancia_mar,$distancia_mar);   
+                }
+            }else{
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }else{
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+        return $arrayDistanciaMar;
+}
+
+//trae sobre donde queda la propiedad de la bdd
+public function TraerSobre(){
+    $arraySobre=array();
+     include "../Database/server.php";
+     $sentencia = '';
+   if ($sentencia = $mysqli->prepare("CALL TraigoSobre();")) {   
+       if ($sentencia->execute()) {    
+           $sentencia->bind_result($id_Sobre, $propiedad_sobre);
+                while ($sentencia->fetch()) {
+                    array_push($arraySobre,$id_Sobre,$propiedad_sobre);   
+                }
+            }else{
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }else{
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+        return $arraySobre;
+}
+
+//trae sobre donde queda la propiedad de la bdd
+public function TraerEstado(){
+    $arrayEstados=array();
+     include "../Database/server.php";
+     $sentencia = '';
+   if ($sentencia = $mysqli->prepare("CALL TraigoEstados();")) {   
+       if ($sentencia->execute()) {    
+           $sentencia->bind_result($id_estados, $tipo_estados);
+                while ($sentencia->fetch()) {
+                    array_push($arrayEstados,$id_estados,$tipo_estados);   
+                }
+            }else{
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }else{
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+        return $arrayEstados;
+}
+
+//trae la cantidad de plantas de la propiedad de la bdd
+public function TraerPlantas(){
+    $arrayPlantas=array();
+     include "../Database/server.php";
+     $sentencia = '';
+   if ($sentencia = $mysqli->prepare("CALL TraigoPlantas();")) {   
+       if ($sentencia->execute()) {    
+           $sentencia->bind_result($id_plantas, $cantidad_plantas);
+                while ($sentencia->fetch()) {
+                    array_push($arrayPlantas,$id_plantas,$cantidad_plantas);   
+                }
+            }else{
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }else{
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+        return $arrayPlantas;
+}
+
+//trae sobre donde queda la propiedad de la bdd
+public function TraerComfort(){
+    $arrayComfort=array();
+     include "../Database/server.php";
+     $sentencia = '';
+   if ($sentencia = $mysqli->prepare("CALL TraigoComfort();")) {   
+       if ($sentencia->execute()) {    
+           $sentencia->bind_result($id_Comfort, $tipo_comfort);
+                while ($sentencia->fetch()) {
+                    array_push($arrayComfort,$id_Comfort,$tipo_comfort);   
+                }
+            }else{
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }else{
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+        return $arrayComfort;
+}
+
+//trae sobre donde queda la propiedad de la bdd
+public function TraerSeguridad(){
+    $arraySeguridad=array();
+     include "../Database/server.php";
+     $sentencia = '';
+   if ($sentencia = $mysqli->prepare("CALL TraigoSeguridad();")) {   
+       if ($sentencia->execute()) {    
+           $sentencia->bind_result($id_seguridad, $tipo_seguridad);
+                while ($sentencia->fetch()) {
+                    array_push($arraySeguridad,$id_seguridad,$tipo_seguridad);   
+                }
+            }else{
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }else{
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+        return $arraySeguridad;
+}
+
 }
 ?>

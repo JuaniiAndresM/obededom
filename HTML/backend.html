@@ -151,28 +151,18 @@
                         </div>
                         <div class="input">
                             <p>Dormitorios</p>
-                            <select name="dormitorios">
+                            <select name="dormitorios" id="selectDormitorios">
                                 <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
-                                <option value="1">1 AMB</option>
-                                <option value="2">1</option>
-                                <option value="2">2</option>
-                                <option value="2">3</option>
-                                <option value="2">4</option>
-                                <option value="2">5+</option>
                             </select>
                         </div>
                         <div class="input">
                             <p>Baños</p>
-                            <select name="baños">
-                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3+</option>
+                            <select name="baños" id="selectBaños">
                             </select>
                         </div>
                         <div class="input">
                             <p>Garage</p>
-                            <select name="garage">
+                            <select name="garage" id="selectGarages">
                                 <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -183,22 +173,16 @@
                             <p>¿Vista al Mar?</p>
                             <div class="checkbox-wrapper">
                                 <div class="checkbox">
-                                    <input type="radio" name="financia" id=""><p>Si</p>
+                                    <input type="radio" name="vistamar" id=""><p>Si</p>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="radio" name="financia" id="" checked><p>No</p>
+                                    <input type="radio" name="vistamar" id="" checked><p>No</p>
                                 </div>
                             </div>
                         </div>
                         <div class="input">
                             <p>Distancia al Mar</p>
-                            <select name="orientacion">
-                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
-                                <option value="1">No Aplica</option>
-                                <option value="2">< 1km</option>
-                                <option value="3">< 10km</option>
-                                <option value="4">< 20km</option>
-                                <option value="5">< 50km</option>
+                            <select name="distanciamar" id="selectDistanciamar">
                             </select>
                         </div>
                     </div>
@@ -218,27 +202,17 @@
                         </div>
                         <div class="input">
                             <p>Sobre</p>
-                            <select name="orientacion">
-                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
-                                <option value="1">No Aplica</option>
-                                <option value="2">Rambla</option>
-                                <option value="3">Avenida</option>
-                                <option value="4">Otros</option>
+                            <select name="sobre" id="selectSobre">
                             </select>
                         </div>
                         <div class="input">
                             <p>Estado</p>
-                            <select name="estado">
-                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
-                                <option value="1">Sin Definir</option>
-                                <option value="2">Reciclada</option>
-                                <option value="3">A Reciclar</option>
-                                <option value="4">Lo demas traer de BD.</option>
+                            <select name="estado" id="selectEstado">
                             </select>
                         </div>
                         <div class="input">
                             <p>Disposición</p>
-                            <select name="disposicion">
+                            <select name="selectDisposicion">
                                 <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
                                 <option value="1">Al Frente</option>
                                 <option value="2">Inferior</option>
@@ -264,10 +238,10 @@
                             <p>¿Apto para oficina?</p>
                             <div class="checkbox-wrapper">
                                 <div class="checkbox">
-                                    <input type="radio" name="financia" id=""><p>Si</p>
+                                    <input type="radio" name="aptooficina" id=""><p>Si</p>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="radio" name="financia" id="" checked><p>No</p>
+                                    <input type="radio" name="aptooficina" id="" checked><p>No</p>
                                 </div>
                             </div>
                         </div>
@@ -275,16 +249,16 @@
                             <p>¿Vivienda Social?</p>
                             <div class="checkbox-wrapper">
                                 <div class="checkbox">
-                                    <input type="radio" name="financia" id=""><p>Si</p>
+                                    <input type="radio" name="viviendasocial" id=""><p>Si</p>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="radio" name="financia" id="" checked><p>No</p>
+                                    <input type="radio" name="viviendasocial" id="" checked><p>No</p>
                                 </div>
                             </div>
                         </div>
                         <div class="input">
                             <p>Cantidad de Plantas</p>
-                            <select name="plantas">
+                            <select name="plantas" id="selectPlantas">
                                 <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -300,64 +274,13 @@
                 <h1><i class="fas fa-couch"></i> Comfort</h1>
                 <hr>
 
-                <div class="comfort">
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Acceso a Internet
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Aire Acondicionado
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Calefacción
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Amueblada
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Chimenea
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Gimnasio
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Jacuzzi
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Piscina
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Traer las otras de la BD
-                    </div>
+                <div class="comfort" id="comfort">
                 </div>
 
                 <h1><i class="fas fa-lock"></i> Seguridad</h1>
                 <hr>
 
-                <div class="seguridad">
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Cámaras CCTV
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Alarma
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Cerca Perimetral
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Portería 24 horas
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Portón Automático
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Rejas
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Guardia de Seguridad
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="" id=""> Traer las otras de la BD
-                    </div>
+                <div class="seguridad" id="seguridad">
                 </div>
             </div>
             

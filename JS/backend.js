@@ -64,4 +64,148 @@ class BackendObj {
         return Localidades;
       }
 
+      traerDormitorios() {
+        var Dormitorios = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 5 },
+          dataType: 'json',
+          success: function (data) {
+            Dormitorios = data;
+            console.log("estos son los dormitorios: " + data)
+          },
+        });
+        return Dormitorios;
+      }
+
+      traerBaños() {
+        var Baños = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 6 },
+          dataType: 'json',
+          success: function (data) {
+            Baños = data;
+            console.log("estos son los baños: " + data)
+          },
+        });
+        return Baños;
+      }
+      
+      traerGarages() {
+        var Garages = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 7 },
+          dataType: 'json',
+          success: function (data) {
+            Garages = data;
+            console.log("estos son los Garages: " + data)
+          },
+        });
+        return Garages;
+      }
+
+      traerDistanciamar() {
+        var Distanciamar = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 8 },
+          dataType: 'json',
+          success: function (data) {
+            Distanciamar = data;
+            console.log("estos son los Distanciamar: " + data)
+          },
+        });
+        return Distanciamar;
+      }
+
+      traerSobre() {
+        var Sobre = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 9 },
+          dataType: 'json',
+          success: function (data) {
+            Sobre = data;
+            console.log("estos son los Sobre: " + data)
+          },
+        });
+        return Sobre;
+      }
+
+      traerEstados() {
+        var Estados = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 10 },
+          dataType: 'json',
+          success: function (data) {
+            Estados = data;
+            console.log("estos son los Estados: " + data)
+          },
+        });
+        return Estados;
+      }
+
+      traerPlantas() {
+        var Plantas = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 11 },
+          dataType: 'json',
+          success: function (data) {
+            Plantas = data;
+            console.log("estos son los Plantas: " + data)
+          },
+        });
+        return Plantas;
+      }
+
+      traerComfort() {
+        var Comfort = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 12 },
+          dataType: 'json',
+          success: function (data) {
+            Comfort = data;
+            console.log("estos son los Comfort: " + data)
+          },
+        });
+        return Comfort;
+      }
+
+      traerSeguridad() {
+        var Seguridad = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 13 },
+          dataType: 'json',
+          success: function (data) {
+            Seguridad = data;
+            console.log("estos son los Seguridad: " + data)
+          },
+        });
+        return Seguridad;
+      }
+
 }
