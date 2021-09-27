@@ -62,7 +62,7 @@ function initMap() {
 
   const coord = { lat: -34.9061805, lng: -56.1931176 };
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 4,
+    zoom: 17,
     center: coord,
   });
 

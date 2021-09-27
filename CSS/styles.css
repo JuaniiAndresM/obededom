@@ -900,6 +900,10 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
   margin-right: 5px;
 }
 
+.propiedad-wrapper .propiedad-left .panel-section .input-wrappers .input #checkbox-precio {
+  margin-top: 10px;
+}
+
 .propiedad-wrapper .propiedad-left .panel-section .input-wrappers .input .checkbox-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -971,7 +975,8 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
   margin-right: 10px;
 }
 
-.propiedad-wrapper .propiedad-left .panel-section .comfort, .propiedad-wrapper .propiedad-left .panel-section .seguridad {
+.propiedad-wrapper .propiedad-left .panel-section .comfort,
+.propiedad-wrapper .propiedad-left .panel-section .seguridad {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -985,7 +990,8 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
       flex-wrap: wrap;
 }
 
-.propiedad-wrapper .propiedad-left .panel-section .comfort .checkbox, .propiedad-wrapper .propiedad-left .panel-section .seguridad .checkbox {
+.propiedad-wrapper .propiedad-left .panel-section .comfort .checkbox,
+.propiedad-wrapper .propiedad-left .panel-section .seguridad .checkbox {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 25%;
           flex: 0 0 25%;
@@ -1003,7 +1009,8 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
           align-items: center;
 }
 
-.propiedad-wrapper .propiedad-left .panel-section .comfort .checkbox input, .propiedad-wrapper .propiedad-left .panel-section .seguridad .checkbox input {
+.propiedad-wrapper .propiedad-left .panel-section .comfort .checkbox input,
+.propiedad-wrapper .propiedad-left .panel-section .seguridad .checkbox input {
   width: 20px;
   height: 20px;
   margin-right: 10px;
@@ -1036,7 +1043,8 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
   margin: 10px;
 }
 
-.propiedad-wrapper .propiedad-right #cke_garantias, .propiedad-wrapper .propiedad-right #cke_descripcion {
+.propiedad-wrapper .propiedad-right #cke_garantias,
+.propiedad-wrapper .propiedad-right #cke_descripcion {
   width: 100%;
 }
 
@@ -1072,8 +1080,8 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
   color: #666;
   font-size: 3em;
   cursor: pointer;
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .propiedad-wrapper .propiedad-right .gestor-img i:hover {
@@ -1125,8 +1133,8 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
           align-items: center;
   margin: 10px;
   cursor: pointer;
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .propiedad-wrapper .propiedad-right .buttons button i {
@@ -1245,5 +1253,331 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
   .buscador-content .buscador .buscar .select select {
     width: 100%;
   }
+}
+
+.propiedad-dinamica {
+  margin: 20px 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.propiedad-dinamica .propiedad-wrapper {
+  width: calc(100% - 40px);
+  background-color: white;
+  -webkit-box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 70% 1fr;
+      grid-template-columns: 70% 1fr;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left, .propiedad-dinamica .propiedad-wrapper .panel-right {
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left {
+  width: calc(100% - 20px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 0;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .carrusel {
+  width: calc(100% - 20px);
+  height: 500px;
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info {
+  width: 100%;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-head {
+  margin: 10px 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 70% 1fr;
+      grid-template-columns: 70% 1fr;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-head h2 {
+  font-size: 1.5em;
+  color: #555;
+  font-weight: 600;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-head .precio {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-head .precio h3 {
+  font-size: 2em;
+  color: #91009d;
+  font-weight: 500;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body {
+  margin: 0 20px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .location i {
+  color: #91009d;
+  margin-right: 5px;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .location p {
+  color: #555;
+  font-size: 1.2em;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .prop-info {
+  max-width: 250px;
+  width: 100%;
+  margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .prop-info .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .prop-info .info i {
+  color: #91009d;
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .prop-info .info p {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #555;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .detalles {
+  width: 100%;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .detalles h2 {
+  font-size: 1.5em;
+  color: #555;
+  margin: 30px 0;
+  margin-bottom: 0;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .detalles hr {
+  width: calc(100% - 40px);
+  border: 1px solid #bbb;
+  margin: 10px 0;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .detalles .details {
+  width: calc(100% - 40px);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 25px 30px;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .detalles .details .info {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .detalles .details .info .line {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin: 0 10px;
+  border-bottom: 2px dotted #ccc;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .detalles .descripcion {
+  width: calc(100% - 40px);
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-left .propiedad-info .propiedad-body .detalles .descripcion p {
+  color: #555;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-right {
+  width: calc(100% - 20px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-right .consulta {
+  width: calc(100% - 20px);
+  padding: 20px 0;
+  margin: 10px 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-right .consulta form {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-right .consulta form h2 {
+  text-align: center;
+  margin: 10px auto;
+  color: #91009d;
+  font-size: 1.6em;
+  font-weight: 600;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-right .consulta form p {
+  color: #555;
+  text-align: left;
+  margin: 10px 0;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-right .consulta form label {
+  color: #91009d;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-right .consulta form input, .propiedad-dinamica .propiedad-wrapper .panel-right .consulta form textarea {
+  width: 100%;
+  height: 35px;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 10px;
+  resize: vertical;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-right .consulta form textarea {
+  height: 100px;
+  max-height: 200px;
+}
+
+.propiedad-dinamica .propiedad-wrapper .panel-right .consulta form input[type="submit"] {
+  margin-top: 10px;
+  background-color: #91009d;
+  color: white;
+  font-weight: 400;
+  font-size: 1.1em;
+  height: 40px;
 }
 /*# sourceMappingURL=styles.css.map */
