@@ -285,7 +285,7 @@ $color2: #91009d;
     }
   }
 
-  .content-propiedades {
+  .content-propiedades, .content-nomencladores {
     width: 100%;
 
     padding: 20px;
@@ -500,6 +500,94 @@ $color2: #91009d;
           }
         }
       }
+    }
+  }
+  .content-nomencladores{
+    .nomencladores-wrapper{
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .nomenclador{
+        max-width: 250px;
+        width: 100%;
+        margin: 10px;
+
+        border: 1px solid $color2;
+        border-radius: 15px;
+
+        padding: 10px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        h2{
+          color: $color2;
+        }
+        .input{
+          input{
+            border: 1px solid #888;
+            border-radius: 10px;
+            height: 30px;
+            outline: none;
+  
+            padding: 10px;
+          }
+          button{
+            background-color: $color2;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            color: white;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+          }
+          button:hover{
+            background-color: #6c0075;
+          }
+        }
+        .nomencladores-actuales{
+          height: 150px;
+          overflow: auto;
+          margin-top: 20px;
+
+          .input{
+            margin: 2px;
+            input{
+              width: 180px;
+            }
+          }
+          
+        }
+
+        ::-webkit-scrollbar {
+          width: 5px;
+        }
+        
+        /* Track */
+        ::-webkit-scrollbar-track {
+          background: #f1f1f1;
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+          background: $color2;
+          border-radius: 1em;
+        }
+        
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+          background: #6c1774;
+        }
+        
+      }
+
     }
   }
 }
