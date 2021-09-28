@@ -23,6 +23,18 @@ $(document).ready(function () {
     $('#selectDepartamentos').on('change', function() {
         cargarLocalidad(this.value);
       });
+
+    $("#checkboxcomfort").change(function() {
+    if(this.checked) {
+            $("#section-comfort-seguridad").hide();
+        }else{
+            $("#section-comfort-seguridad").show();
+        }
+    });
+
+    $("#subirpropiedad").on('click', function() {
+        subirPropiedad();
+        });
 });
 
 
@@ -224,4 +236,8 @@ function cargarSeguridad(){
         $('#seguridad').append("<div class='checkbox'><input type='checkbox' name='" + arraySeguridad[i+1] + "' id='" + arraySeguridad[i] + "'> " + arraySeguridad[i+1] + " </div>");
     }
     
+}
+
+function subirPropiedad(){
+    alert("hola")
 }
