@@ -208,4 +208,20 @@ class BackendObj {
         return Seguridad;
       }
 
+      guardarPropiedad(arrayDatos) {
+        console.log(arrayDatos)
+        var resultado;
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 14, datosJSON: arrayDatos},
+          success: function (data) {
+            resultado = data;
+            console.log("estos son los datos: " + data)
+          },
+        });
+        return resultado;
+      }
+
 }

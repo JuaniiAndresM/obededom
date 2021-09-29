@@ -42,6 +42,9 @@ switch ($_POST["accion"]) {
     case 13:
         echo json_encode($llamarFunction->TraerSeguridad());
     break;
+    case 14:
+        echo json_encode($llamarFunction->GuardarPropiedad($_POST['datosJSON']));
+    break;
 
 }
 ?>
