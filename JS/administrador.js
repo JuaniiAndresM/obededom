@@ -29,5 +29,10 @@ function seccion(seccion) {
     $(".content-propiedades").hide();
     $(".content-nomencladores").hide();
     $(".content-mensajes").show();
+  } else if (seccion == "inicio") {
+    $(".content-inicio").show();
+    $(".content-propiedades").hide();
+    $(".content-nomencladores").hide();
+    $(".content-mensajes").hide();
   }
 }
