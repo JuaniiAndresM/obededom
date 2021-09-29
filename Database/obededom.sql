@@ -16,28 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `baños`
+-- Table structure for table `banio`
 --
 
-DROP TABLE IF EXISTS `baños`;
+DROP TABLE IF EXISTS `banio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `baños` (
+CREATE TABLE `banio` (
   `id_baños` int NOT NULL AUTO_INCREMENT,
   `cantidad_baños` int NOT NULL,
-  `bañoscol` varchar(45) NOT NULL,
   PRIMARY KEY (`id_baños`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `baños`
+-- Dumping data for table `banio`
 --
 
-LOCK TABLES `baños` WRITE;
-/*!40000 ALTER TABLE `baños` DISABLE KEYS */;
-INSERT INTO `baños` VALUES (1,1,''),(2,2,''),(3,3,'');
-/*!40000 ALTER TABLE `baños` ENABLE KEYS */;
+LOCK TABLES `banio` WRITE;
+/*!40000 ALTER TABLE `banio` DISABLE KEYS */;
+INSERT INTO `banio` VALUES (1,1),(2,2),(3,3);
+/*!40000 ALTER TABLE `banio` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -359,7 +358,7 @@ CREATE TABLE `propiedades` (
   KEY `sobre_idx` (`sobre`),
   KEY `distancia_mar_idx` (`distancia_mar`),
   KEY `plantas_idx` (`plantas`),
-  CONSTRAINT `baños` FOREIGN KEY (`baños`) REFERENCES `baños` (`id_baños`),
+  CONSTRAINT `baños` FOREIGN KEY (`baños`) REFERENCES `banio` (`id_baños`),
   CONSTRAINT `departamento` FOREIGN KEY (`departamento`) REFERENCES `departamentos` (`id_departamento`),
   CONSTRAINT `distancia_mar` FOREIGN KEY (`distancia_mar`) REFERENCES `distancia_mar` (`id_distancia_mar`),
   CONSTRAINT `dormitorios` FOREIGN KEY (`dormitorios`) REFERENCES `dormitorios` (`id_dormitorios`),
@@ -781,6 +780,25 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `TraigoPropiedadFiltro` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoPropiedadFiltro`(IN tipoop INT, IN tipoprop INT, IN dep INT, IN localid INT)
+BEGIN
+	SELECT * from propiedades WHERE tipo_operacion = tipoop AND tipo_propiedad = tipoprop AND departamento = dep AND localidad = localid;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoSeguridad` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -886,4 +904,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-27  1:10:07
+-- Dump completed on 2021-09-27 20:19:33
