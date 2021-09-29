@@ -108,6 +108,40 @@
           <i class="fas fa-search"></i>
           <input class="buscar" type="text" placeholder="Buscar" />
         </div>
+        <div class="filtros">
+          <div class="select">
+            <p>Estado: </p>
+            <select name="activo">
+              <option value="0" selected>Todos</option>
+              <option value="1">Activo</option>
+              <option value="2">Inactivo</option>
+            </select>
+          </div>
+          <div class="select">
+            <p>Tipo de Propiedad: </p>
+            <select name="activo">
+              <option value="0" selected>Todos</option>
+              <option value="1">Activo</option>
+              <option value="2">Inactivo</option>
+            </select>
+          </div>
+          <div class="select">
+            <p>Departamento: </p>
+            <select name="activo">
+              <option value="0" selected>Todos</option>
+              <option value="1">Activo</option>
+              <option value="2">Inactivo</option>
+            </select>
+          </div>
+          <div class="select">
+            <p>Localidad: </p>
+            <select name="activo">
+              <option value="0" selected>Todos</option>
+              <option value="1">Activo</option>
+              <option value="2">Inactivo</option>
+            </select>
+          </div>
+        </div>
         <div class="button-crear">
           <a href="/HTML/backend.html"><i class="fas fa-plus-circle"></i> Crear Propiedad</a>
         </div>
@@ -186,9 +220,9 @@
         <div class="nomencladores-wrapper">
 
           <div class="nomenclador">
-            <h2>Lorem Ipsum</h2>
+            <h2><i class="fas fa-home"></i> Tipo Propiedad</h2>
             <div class="input">
-              <input type="text" name="">
+              <input type="text" name="" placeholder="Tipo de Propiedad">
               <button><i class="fas fa-plus"></i></button>
             </div>
             <div class="nomencladores-actuales">
@@ -212,9 +246,13 @@
           </div>
           
           <div class="nomenclador">
-            <h2>Lorem Ipsum</h2>
+            <h2><i class="fas fa-map-marker-alt"></i> Localidad</h2>
             <div class="input">
-              <input type="text" name="">
+              <select name="departamento" id="">
+                <option value="0">Seleccione una opción</option>
+                <option value="1">Traer de la BD.</option>
+              </select>
+              <input type="text" name="" placeholder="Localidad">
               <button><i class="fas fa-plus"></i></button>
             </div>
             <div class="nomencladores-actuales">
@@ -238,9 +276,9 @@
           </div>
           
           <div class="nomenclador">
-            <h2>Lorem Ipsum</h2>
+            <h2><i class="fas fa-bed"></i> Dormitorios</h2>
             <div class="input">
-              <input type="text" name="">
+              <input type="number" name="" placeholder="Cantidad de Baños">
               <button><i class="fas fa-plus"></i></button>
             </div>
             <div class="nomencladores-actuales">
@@ -264,9 +302,9 @@
           </div>
           
           <div class="nomenclador">
-            <h2>Lorem Ipsum</h2>
+            <h2><i class="fas fa-bath"></i> Baños</h2>
             <div class="input">
-              <input type="text" name="">
+              <input type="number" name="" placeholder="Cantidad de Baños">
               <button><i class="fas fa-plus"></i></button>
             </div>
             <div class="nomencladores-actuales">
@@ -278,6 +316,180 @@
                 <input type="text" name="" value="Traer de la BD">
                 <button><i class="fas fa-times"></i></button>
               </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="nomenclador">
+            <h2><i class="fas fa-warehouse"></i> Garage</h2>
+            <div class="input">
+              <input type="number" name="" placeholder="Cantidad de Garages">
+              <button><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="nomencladores-actuales">
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="nomenclador">
+            <h2><i class="fas fa-check-square"></i> Estado Propiedad</h2>
+            <div class="input">
+              <input type="text" name="" placeholder="Estado de la Propiedad">
+              <button><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="nomencladores-actuales">
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="nomenclador">
+            <h2><i class="fas fa-road"></i> Propiedad Sobre</h2>
+            <div class="input">
+              <input type="text" name="" placeholder="Propiedad Sobre">
+              <button><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="nomencladores-actuales">
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="nomenclador">
+            <h2><i class="fas fa-water"></i> Distancia al Mar</h2>
+            <div class="input">
+              <input type="text" name="" placeholder="Distancia al mar">
+              <button><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="nomencladores-actuales">
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="nomenclador">
+            <h2><i class="fas fa-building"></i> Plantas</h2>
+            <div class="input">
+              <input type="number" name="" placeholder="Cantidad de Plantas">
+              <button><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="nomencladores-actuales">
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="nomenclador">
+            <h2><i class="fas fa-couch"></i> Comfort</h2>
+            <div class="input">
+              <input type="text" name="" placeholder="Tipo de Comfort">
+              <button><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="nomencladores-actuales">
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+              <div class="input">
+                <input type="text" name="" value="Traer de la BD">
+                <button><i class="fas fa-times"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="nomenclador">
+            <h2><i class="fas fa-lock"></i> Seguridad</h2>
+            <div class="input">
+              <input type="text" name="" placeholder="Tipo de Seguridad">
+              <button><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="nomencladores-actuales">
               <div class="input">
                 <input type="text" name="" value="Traer de la BD">
                 <button><i class="fas fa-times"></i></button>
@@ -298,6 +510,7 @@
           </div>
 
         </div>
+        <button class="guardar"><i class="fas fa-save"></i> Guardar</button>
       </div>
     </section>
   </body>
