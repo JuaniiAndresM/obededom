@@ -1,4 +1,5 @@
 let Backend = new BackendObj();
+var añoActual = new Date().getFullYear()
 
 $(document).ready(function () {
     //Carga los tipos de operacion
@@ -17,6 +18,8 @@ $(document).ready(function () {
     cargarPlantas();
     cargarComfort();
     cargarSeguridad();
+    //carga el maximo de años con el año actual
+    document.getElementById("fechaConstruccion").setAttribute("max", añoActual);
     //Carga una opcion default antes de cargar la localidad del departamento elegido
     $("#selectLocalidades").empty().append($("<option></option>").attr({"value": 0,"selected": selected, 'disabled': true}).text('Elija un Departamento'));
     //Carga las localidades del departamento que elija
@@ -221,23 +224,108 @@ function cargarPlantas(){
         //agrega el elemento al elemento con la id selectLocalidades
         selectPlantas.appendChild(opt);
     }
+    //crea el ultimo elemento con un simbolo de más
+    var opt = document.createElement('option');
+    opt.value = arrayPlantas.at(-2);
+    opt.text = arrayPlantas.at(-1) + "+";
+    selectPlantas.appendChild(opt);
 }
 
 function cargarComfort(){
     var arrayComfort = Backend.traerComfort();
     for (var i = 0; i < arrayComfort.length; i = i+2){
-        $('#comfort').append("<div class='checkbox'><input type='checkbox' name='" + arrayComfort[i+1] + "' id='" + arrayComfort[i] + "'> " + arrayComfort[i+1] + " </div>");
+        $('#comfort').append("<div class='checkbox'><input type='checkbox' name='comfort' value='" + arrayComfort[i] + "'> " + arrayComfort[i+1] + " </div>");
     } 
 }
 
 function cargarSeguridad(){
     var arraySeguridad = Backend.traerSeguridad();
     for (var i = 0; i < arraySeguridad.length; i = i+2){
-        $('#seguridad').append("<div class='checkbox'><input type='checkbox' name='" + arraySeguridad[i+1] + "' id='" + arraySeguridad[i] + "'> " + arraySeguridad[i+1] + " </div>");
+        $('#seguridad').append("<div class='checkbox'><input type='checkbox' name='seguridad' value='" + arraySeguridad[i] + "'> " + arraySeguridad[i+1] + " </div>");
     }
     
 }
 
 function subirPropiedad(){
     alert("hola")
+    var comfortSeguridad;
+    var mandarDatos = Backend;
+    var arrayDatos = [];
+    var tituloPropiedad = document.getElementById('tituloPropiedad').value;
+    var tipoOperacion = document.getElementById('selectOperaciones').value;
+    var precioVenta = document.getElementById('precioDolares').value;
+    var mostrarPrecio = $('#mostrarPrecio').is(":checked");
+    var permuta = document.querySelector('input[name="permuta"]:checked').value;
+    var financia = document.querySelector('input[name="financia"]:checked').value;
+    var tipoPropiedad = document.getElementById('selectTipoPropiedad').value;
+    var departamento = document.getElementById('selectDepartamentos').value;
+    var localidad = document.getElementById('selectLocalidades').value;
+    var direccion = document.getElementById('direccion').value;
+    var fechaConstruccion = document.getElementById('fechaConstruccion').value;
+    var dormitorios = document.getElementById('selectDormitorios').value;
+    var baños = document.getElementById('selectBaños').value;
+    var garage = document.getElementById('selectGarages').value;
+    var permuta = document.querySelector('input[name="vistamar"]:checked').value;
+    var distanciaMar = document.getElementById('selectDistanciamar').value;
+    var metrosEdificados = document.getElementById('metrosEdificados').value;
+    var metrosTerraza = document.getElementById('metrosTerraza').value;
+    var metrosTerreno = document.getElementById('metrosTerreno').value;
+    var propiedadSobre = document.getElementById('selectSobre').value;
+    var estadoPropiedad = document.getElementById('selectEstado').value;
+    var disposicion = document.getElementById('selectDisposicion').value;
+    var orientacion = document.getElementById('selectOrientacion').value;
+    var aptoOficina = document.querySelector('input[name="aptooficina"]:checked').value;
+    var viviendaSocial = document.querySelector('input[name="viviendasocial"]:checked').value;
+    var cantidadPlantas = document.getElementById('selectPlantas').value;
+    if($('#checkboxcomfort').is(":checked") != true){
+        alert("true");
+        var arrayComfort = []
+        $("input:checkbox[name='comfort']:checked").each(function(){
+            arrayComfort.push($(this).val());
+        });
+        var arraySeguridad = []
+        $("input:checkbox[name='seguridad']:checked").each(function(){
+            arraySeguridad.push($(this).val());
+        });
+        console.log(arrayComfort)
+        console.log(arraySeguridad)
+    }else{
+        comfortSeguridad = "";
+    }
+    var garantias = CKEDITOR.instances['garantias'].getData();
+    var descripcion = CKEDITOR.instances['descripcion'].getData();
+    var extras = document.querySelector('input[name="extra"]').value;
+    //comprueba que los selects no estén en la opcion default
+    if ( [tipoOperacion, tipoPropiedad, departamento, localidad, dormitorios, baños, garage, distanciaMar, propiedadSobre, estadoPropiedad, disposicion, orientacion, cantidadPlantas].indexOf("0") < 0 ) {
+        alert("hola");
+        //comprueba que los otros campos no estén vacios
+        if ([tituloPropiedad, precioVenta, direccion, fechaConstruccion, metrosEdificados, metrosTerraza, metrosTerreno].indexOf("") < 0){
+            //comprueba que las garantias y la descripción tengan algo.
+            if([garantias, descripcion].indexOf("") < 0 ){
+                //verifica si seleccionó garantías o no
+                if(comfortSeguridad != ""){
+                    if( arrayComfort.length == 0 && arraySeguridad.length == 0){
+                        alert("debe seleccionar al menos un elemento de comfort y seguridad. Si no tiene elementos, desactivelos.")
+                    }else{
+                        alert("viene acá si todo salió bien")
+                    }
+                }else{
+                    alert("viene acá si está todo bien y no seleccionó comfort")
+                    arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad,
+                        fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
+                         cantidadPlantas, extras, garantias, descripcion];
+                    mandarDatos.guardarPropiedad(JSON.stringify(arrayDatos));
+                }
+            }else{
+                alert("debe agregar descripción de la propiedad y garantías")
+            }
+        }else{
+            alert("debe completar todos los campos")
+        }
+    }else{
+        alert("debe completar todas las opciones seleccionables")
+    }
+    
 }
+
+

@@ -45,7 +45,7 @@
                     <div class="panel-izquierdo">
                         <div class="input">
                             <p>Titulo de la Propiedad</p>
-                            <input type="text" name="titulo">
+                            <input type="text" name="titulo" id="tituloPropiedad">
                         </div>
                         <div class="input">
                             <p>Tipo de Operación</p>
@@ -58,9 +58,9 @@
                     <div class="panel-medio">
                         <div class="input">
                             <p>Precio de Venta en Dolares</p>
-                            <input type="number" name="precio">
+                            <input type="number" name="precio" id="precioDolares">
                             <div class="checkbox" id="checkbox-precio">
-                                <input type="checkbox" name="" id="" checked>Mostrar precio de venta
+                                <input type="checkbox" name="" id="mostrarPrecio" checked>Mostrar precio de venta
                             </div>
                         </div>
                     </div>
@@ -70,10 +70,10 @@
                             <p>¿Acepta Permuta?</p>
                             <div class="checkbox-wrapper">
                                 <div class="checkbox">
-                                    <input type="radio" name="permuta" id=""><p>Si</p>
+                                    <input type="radio" name="permuta" id="premutasi" value="1"><p>Si</p>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="radio" name="permuta" id="" checked><p>No</p>
+                                    <input type="radio" name="permuta" id="premutano" value="0" checked><p>No</p>
                                 </div>
                             </div>
                         </div>
@@ -81,10 +81,10 @@
                             <p>¿Financia?</p>
                             <div class="checkbox-wrapper">
                                 <div class="checkbox">
-                                    <input type="radio" name="financia" id=""><p>Si</p>
+                                    <input type="radio" name="financia" id="" value="1"><p>Si</p>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="radio" name="financia" id="" checked><p>No</p>
+                                    <input type="radio" name="financia" id="" checked value="0"><p>No</p>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                     <div class="panel-derecho">
                         <div class="input">
                             <p>Dirección de la Propiedad</p>
-                            <input type="text" name="direccion">
+                            <input type="text" name="direccion" id="direccion">
                         </div>
                     </div>
 
@@ -147,7 +147,7 @@
                     <div class="panel-izquierdo">
                         <div class="input">
                             <p>Año de Construcción</p>
-                            <input type="number" name="añoconstruccion">
+                            <input type="number" name="añoconstruccion" id="fechaConstruccion" min="1000">
                         </div>
                         <div class="input">
                             <p>Dormitorios</p>
@@ -163,20 +163,16 @@
                         <div class="input">
                             <p>Garage</p>
                             <select name="garage" id="selectGarages">
-                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3+</option>
                             </select>
                         </div>
                         <div class="input">
                             <p>¿Vista al Mar?</p>
                             <div class="checkbox-wrapper">
                                 <div class="checkbox">
-                                    <input type="radio" name="vistamar" id=""><p>Si</p>
+                                    <input type="radio" name="vistamar" value="1"><p>Si</p>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="radio" name="vistamar" id="" checked><p>No</p>
+                                    <input type="radio" name="vistamar" value="0" checked><p>No</p>
                                 </div>
                             </div>
                         </div>
@@ -190,15 +186,15 @@
                     <div class="panel-medio">
                         <div class="input">
                             <p>Metros Edificados</p>
-                            <input type="number" name="mts_edificados">
+                            <input type="number" name="mts_edificados" id="metrosEdificados">
                         </div>
                         <div class="input">
                             <p>Metros de la Terraza</p>
-                            <input type="number" name="mts_terraza">
+                            <input type="number" name="mts_terraza" id="metrosTerraza">
                         </div>
                         <div class="input">
                             <p>Metros del Terreno</p>
-                            <input type="number" name="mts_terreno">
+                            <input type="number" name="mts_terreno" id="metrosTerreno">
                         </div>
                         <div class="input">
                             <p>Sobre</p>
@@ -212,7 +208,7 @@
                         </div>
                         <div class="input">
                             <p>Disposición</p>
-                            <select name="selectDisposicion">
+                            <select name="selectDisposicion" id="selectDisposicion">
                                 <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
                                 <option value="1">Al Frente</option>
                                 <option value="2">Inferior</option>
@@ -226,7 +222,7 @@
                     <div class="panel-derecho">
                         <div class="input">
                             <p>Orientación</p>
-                            <select name="orientacion">
+                            <select name="orientacion" id="selectOrientacion">
                                 <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
                                 <option value="1">N</option>
                                 <option value="2">S</option>
@@ -238,10 +234,10 @@
                             <p>¿Apto para oficina?</p>
                             <div class="checkbox-wrapper">
                                 <div class="checkbox">
-                                    <input type="radio" name="aptooficina" id=""><p>Si</p>
+                                    <input type="radio" name="aptooficina" value="1"><p>Si</p>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="radio" name="aptooficina" id="" checked><p>No</p>
+                                    <input type="radio" name="aptooficina" value="0" checked><p>No</p>
                                 </div>
                             </div>
                         </div>
@@ -249,10 +245,10 @@
                             <p>¿Vivienda Social?</p>
                             <div class="checkbox-wrapper">
                                 <div class="checkbox">
-                                    <input type="radio" name="viviendasocial" id=""><p>Si</p>
+                                    <input type="radio" name="viviendasocial" value="1"><p>Si</p>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="radio" name="viviendasocial" id="" checked><p>No</p>
+                                    <input type="radio" name="viviendasocial" value="0" checked><p>No</p>
                                 </div>
                             </div>
                         </div>
@@ -305,7 +301,7 @@
             </div>
 
             <h1><i class="fas fa-plus"></i> Extras</h1>
-            <input type="text" name="extra" class="extra" placeholder="Ej: Link Youtube, etc.">
+            <input type="text" name="extra" class="extra" id="extra" placeholder="Ej: Link Youtube, etc.">
 
             <div class="buttons">
                 <button id="subirpropiedad"><i class="fas fa-cart-plus"></i> Subir Propiedad</button>

@@ -262,5 +262,23 @@ public function TraerSeguridad(){
         return $arraySeguridad;
 }
 
+//trae sobre donde queda la propiedad de la bdd
+public function GuardarPropiedad($arrayJSON){
+    $arrayDatos = json_decode($arrayJSON);
+     include "../Database/server.php";
+     $sentencia = '';
+   if ($sentencia = $mysqli->prepare("CALL CrearPropiedad(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);")) {  
+    $sentencia->bind_param('siiiiiiiiiiiiiiiiiiiiiisss',$arrayDatos[0],$arrayDatos[1],$arrayDatos[2],$arrayDatos[3],$arrayDatos[4],$arrayDatos[5],$arrayDatos[6],$arrayDatos[7],$arrayDatos[8],$arrayDatos[9],$arrayDatos[10],$arrayDatos[11],$arrayDatos[12],$arrayDatos[13],$arrayDatos[14],$arrayDatos[15],$arrayDatos[16],$arrayDatos[17],$arrayDatos[18],$arrayDatos[19],$arrayDatos[20],$arrayDatos[21],$arrayDatos[22],$arrayDatos[23],$arrayDatos[24],$arrayDatos[25]); 
+       if ($sentencia->execute()) {    
+                echo 1;
+            }else{
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }else{
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+        return $arrayDatos;
+}
+
 }
 ?>
