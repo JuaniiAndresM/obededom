@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="media/img/Logo.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/media/img/Logo.png" type="image/x-icon" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css"
     />
-    <link rel="stylesheet" href="CSS/styles.css" />
+    <link rel="stylesheet" href="/CSS/styles.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script
@@ -324,10 +324,7 @@
           <div class="contacto-left">
             <h2>Contacto</h2>
             <h3>¿Tienes alguna consulta?</h3>
-            <p>
-              Llena el formulario y te contestaremos a
-              la brevedad.
-            </p>
+            <p>Llena el formulario y te contestaremos a la brevedad.</p>
             <form action="">
               <label for="Nombre">Nombre</label>
               <input type="text" name="Nombre" />
@@ -348,7 +345,16 @@
             </form>
           </div>
           <div class="contacto-right">
-            <div id="map"></div>
+            <div id="map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d324.62465561405037!2d-56.193132062000615!3d-34.906163855934494!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959f8152197a1265%3A0x97b9d242606bc8db!2sPunto%20Cell%20-%20Accesorios%20para%20Celulares!5e0!3m2!1sen!2suy!4v1632958934897!5m2!1sen!2suy"
+                width="100%"
+                height="500"
+                style="border: 0; border-radius: 10px;"
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
@@ -359,7 +365,5 @@
     <div id="footer"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoUdhFH3MOul-vRKU3Tbf6FkftQU2kEV0&callback=initMap"
-    type="text/javascript"></script>
   </body>
 </html>
