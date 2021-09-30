@@ -49,7 +49,6 @@ DROP TABLE IF EXISTS `comfort`;
 CREATE TABLE `comfort` (
   `id_Comfort` int NOT NULL AUTO_INCREMENT,
   `tipo_comfort` varchar(60) NOT NULL,
-  `comfortcol` varchar(45) NOT NULL,
   PRIMARY KEY (`id_Comfort`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -60,7 +59,7 @@ CREATE TABLE `comfort` (
 
 LOCK TABLES `comfort` WRITE;
 /*!40000 ALTER TABLE `comfort` DISABLE KEYS */;
-INSERT INTO `comfort` VALUES (1,'Acceso a Internet',''),(2,'Aire Acondicionado',''),(3,'Calefacción',''),(4,'Amueblada',''),(5,'Chimenea',''),(6,'Gimnasio',''),(7,'Jacuzzi',''),(8,'Piscina',''),(9,'Gas por Cañería',''),(10,'Sauna',''),(11,'Living Comedor','');
+INSERT INTO `comfort` VALUES (1,'Acceso a Internet'),(2,'Aire Acondicionado'),(3,'Calefacción'),(4,'Amueblada'),(5,'Chimenea'),(6,'Gimnasio'),(7,'Jacuzzi'),(8,'Piscina'),(9,'Gas por Cañería'),(10,'Sauna'),(11,'Living Comedor');
 /*!40000 ALTER TABLE `comfort` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,6 +327,7 @@ CREATE TABLE `propiedades` (
   `tipo_propiedad` int NOT NULL,
   `departamento` int NOT NULL,
   `localidad` int NOT NULL,
+  `direccion` varchar(200) NOT NULL,
   `año_construccion` int NOT NULL,
   `dormitorios` int NOT NULL,
   `baños` int NOT NULL,
@@ -346,6 +346,7 @@ CREATE TABLE `propiedades` (
   `extras` varchar(200) NOT NULL,
   `garantias` longtext NOT NULL,
   `descripcion_propiedad` longtext NOT NULL,
+  `activo` int NOT NULL,
   PRIMARY KEY (`id_propiedad`),
   KEY `operacion_idx` (`tipo_operacion`),
   KEY `tipo_propiedad_idx` (`tipo_propiedad`),
@@ -378,56 +379,8 @@ CREATE TABLE `propiedades` (
 
 LOCK TABLES `propiedades` WRITE;
 /*!40000 ALTER TABLE `propiedades` DISABLE KEYS */;
-INSERT INTO `propiedades` VALUES (1,'Monoambiente totalmente equipado en Buceo.',2,19000,0,1,2,10,1269,2003,2,1,1,5,1,0,1,2,3,2,25,2,30,3,'no','DESPOSITO EN BHU, SURA Y CGN','OBED-EDOM Alquila Monoambiente totalmente Equipado.');
+INSERT INTO `propiedades` VALUES (1,'Monoambiente totalmente equipado en Buceo.',2,19000,0,1,2,10,1269,'M54, S12',2003,2,1,1,5,1,0,1,2,3,2,25,2,30,3,'no','DESPOSITO EN BHU, SURA Y CGN','OBED-EDOM Alquila Monoambiente totalmente Equipado.',0);
 /*!40000 ALTER TABLE `propiedades` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `propiedades_borrador`
---
-
-DROP TABLE IF EXISTS `propiedades_borrador`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `propiedades_borrador` (
-  `id_propiedad` int NOT NULL DEFAULT '0',
-  `titulo` varchar(100) NOT NULL,
-  `tipo_operacion` int NOT NULL,
-  `Precio_Venta` int NOT NULL,
-  `Permuta` int NOT NULL,
-  `Financia` int NOT NULL,
-  `tipo_propiedad` int NOT NULL,
-  `departamento` int NOT NULL,
-  `localidad` int NOT NULL,
-  `año_construccion` int NOT NULL,
-  `dormitorios` int NOT NULL,
-  `baños` int NOT NULL,
-  `garage` int NOT NULL,
-  `estado` int NOT NULL,
-  `oficina` int NOT NULL,
-  `vivienda_social` int NOT NULL,
-  `disposicion` int NOT NULL,
-  `orientacion` int NOT NULL,
-  `sobre` int NOT NULL,
-  `distancia_mar` int NOT NULL,
-  `metros_edificados` int NOT NULL,
-  `metros_terraza` int NOT NULL,
-  `metros_terreno` int NOT NULL,
-  `plantas` int NOT NULL,
-  `extras` varchar(200) NOT NULL,
-  `garantias` longtext NOT NULL,
-  `descripcion_propiedad` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `propiedades_borrador`
---
-
-LOCK TABLES `propiedades_borrador` WRITE;
-/*!40000 ALTER TABLE `propiedades_borrador` DISABLE KEYS */;
-INSERT INTO `propiedades_borrador` VALUES (1,'Monoambiente totalmente equipado en Buceo.',2,19000,0,1,2,10,1269,2003,2,1,1,5,1,0,1,2,3,2,25,2,30,3,'no','DESPOSITO EN BHU, SURA Y CGN','OBED-EDOM Alquila Monoambiente totalmente Equipado.');
-/*!40000 ALTER TABLE `propiedades_borrador` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -533,6 +486,25 @@ UNLOCK TABLES;
 --
 -- Dumping routines for database 'obededom'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `CambiarEstado` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CambiarEstado`(IN idprop INT, IN estado INT)
+BEGIN
+	 update propiedades set activo = estado where id_propiedad;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `CrearPropiedad` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -543,9 +515,275 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CrearPropiedad`(IN title varchar(100),IN tipo_op INT,IN precio INT,IN perm INT,IN fin INT,IN tipo_prop INT,IN dep INT,IN loc INT,IN año INT,IN dorm INT,IN baño INT,IN garag INT,IN state INT,IN ofi INT,IN vivi_social INT,IN dispo INT,IN orient INT,IN sob INT,IN dis_mar INT,IN metros_edif INT,IN metros_terraz INT,IN mts_terreno INT,IN plant INT,IN extr varchar(200),IN garanti LONGTEXT,IN desc_prop LONGTEXT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CrearPropiedad`(IN title varchar(100),IN tipo_op INT,IN precio INT,IN perm INT,IN fin INT,IN tipo_prop INT,IN dep INT,IN loc INT,IN direcc VARCHAR(200), IN año INT,IN dorm INT,IN baño INT,IN garag INT,IN state INT,IN ofi INT,IN vivi_social INT,IN dispo INT,IN orient INT,IN sob INT,IN dis_mar INT,IN metros_edif INT,IN metros_terraz INT,IN mts_terreno INT,IN plant INT,IN extr varchar(200),IN garanti LONGTEXT,IN desc_prop LONGTEXT, IN act INT)
 BEGIN
-	insert into propiedades (titulo,tipo_operacion,Precio_Venta,Permuta,Financia,tipo_propiedad,departamento,localidad,año_construccion,dormitorios,baños,garage,estado,oficina,vivienda_social,disposicion,orientacion,sobre,distancia_mar,metros_edificados,metros_terraza,metros_terreno,plantas,extras,garantias,descripcion_propiedad)value(title,tipo_op,precio,perm,fin,tipo_prop,dep,loc,año,dorm,baño,garag,state,ofi,vivi_social,dispo,orient,sob,dis_mar,metros_edif,metros_terraz,mts_terreno,plant,extr,garanti,desc_prop);
+	insert into propiedades (titulo,tipo_operacion,Precio_Venta,Permuta,Financia,tipo_propiedad,departamento,localidad,direccion,año_construccion,dormitorios,baños,garage,estado,oficina,vivienda_social,disposicion,orientacion,sobre,distancia_mar,metros_edificados,metros_terraza,metros_terreno,plantas,extras,garantias,descripcion_propiedad,activo)value(title,tipo_op,precio,perm,fin,tipo_prop,dep,loc,direcc,año,dorm,baño,garag,state,ofi,vivi_social,dispo,orient,sob,dis_mar,metros_edif,metros_terraz,mts_terreno,plant,extr,garanti,desc_prop,act);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertBanios` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertBanios`(IN cant INT)
+BEGIN
+	insert into Banios(cantidad_baños)value(cant);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertComfort` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertComfort`(IN tipo VARCHAR(100))
+BEGIN
+	insert into comfort(tipo_comfort)value(tipo);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertComfortPropiedad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertComfortPropiedad`(IN idprop INT, IN idcomfort INT)
+BEGIN
+	insert into comfort_propiedad(id_propiedad,id_comfort)value(idprop,idcomfort);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertDistanciaMar` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertDistanciaMar`(IN dist VARCHAR(100))
+BEGIN
+	insert into distancia_mar(distancia_mar)value(dist);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertDormitorio` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertDormitorio`(IN cant INT)
+BEGIN
+	insert into dormitorios(cantidad_dormitorios)value(cant);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertEstado` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertEstado`(IN estado VARCHAR(100))
+BEGIN
+	insert into estados(tipo_estados)value(estado);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertGarage` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertGarage`(IN cant INT)
+BEGIN
+	insert into garage(cantidad_garage)value(cant);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertImagen` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertImagen`(IN idprop INT, IN foto VARCHAR(300))
+BEGIN
+	insert into imagenes(id_propiedad,imagen)value(idprop,foto);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertLocalidad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertLocalidad`(IN iddepart INT, IN localidad VARCHAR(60))
+BEGIN
+	insert into localidades(id_departamento,nombre_localidad)value(iddepart,localidad);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertPlantas` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertPlantas`(IN cant INT)
+BEGIN
+	insert into plantas(cantidad_plantas)value(cant);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertSeguridad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertSeguridad`(IN tipo VARCHAR(100))
+BEGIN
+	insert into seguridad(tipo_seguridad)value(tipo);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertSeguridadPropiedad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertSeguridadPropiedad`(IN idprop INT, IN idseguridad INT)
+BEGIN
+	insert into seguridad_propiedad(id_propiedad,id_seguridad)value(idprop,idseguridad);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertSobre` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertSobre`(IN sobre VARCHAR(60))
+BEGIN
+	insert into plantas(propiedad_sobre)value(sobre);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertTipoPropiedad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertTipoPropiedad`(IN tipoprop VARCHAR(60))
+BEGIN
+	insert into tipo_propiedad(tipo_propiedad)value(tipoprop);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -564,7 +802,7 @@ DELIMITER ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoBaños`()
 BEGIN
-	Select * from baños;
+	Select * from banios;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -904,4 +1142,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-27 20:19:33
+-- Dump completed on 2021-09-29 22:03:58
