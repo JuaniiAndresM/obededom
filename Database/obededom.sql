@@ -496,7 +496,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CambiarEstado`(IN idprop INT, IN estado INT)
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `CambiarEstado`(IN idprop INT, IN estado INT)
 BEGIN
 	 update propiedades set activo = estado where id_propiedad;
 END ;;
@@ -515,7 +515,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CrearPropiedad`(IN title varchar(100),IN tipo_op INT,IN precio INT,IN perm INT,IN fin INT,IN tipo_prop INT,IN dep INT,IN loc INT,IN direcc VARCHAR(200), IN año INT,IN dorm INT,IN baño INT,IN garag INT,IN state INT,IN ofi INT,IN vivi_social INT,IN dispo INT,IN orient INT,IN sob INT,IN dis_mar INT,IN metros_edif INT,IN metros_terraz INT,IN mts_terreno INT,IN plant INT,IN extr varchar(200),IN garanti LONGTEXT,IN desc_prop LONGTEXT, IN act INT)
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `CrearPropiedad`(IN title varchar(100),IN tipo_op INT,IN precio INT,IN perm INT,IN fin INT,IN tipo_prop INT,IN dep INT,IN loc INT,IN direcc VARCHAR(200), IN año INT,IN dorm INT,IN baño INT,IN garag INT,IN state INT,IN ofi INT,IN vivi_social INT,IN dispo INT,IN orient INT,IN sob INT,IN dis_mar INT,IN metros_edif INT,IN metros_terraz INT,IN mts_terreno INT,IN plant INT,IN extr varchar(200),IN garanti LONGTEXT,IN desc_prop LONGTEXT, IN act INT)
 BEGIN
 	insert into propiedades (titulo,tipo_operacion,Precio_Venta,Permuta,Financia,tipo_propiedad,departamento,localidad,direccion,año_construccion,dormitorios,baños,garage,estado,oficina,vivienda_social,disposicion,orientacion,sobre,distancia_mar,metros_edificados,metros_terraza,metros_terreno,plantas,extras,garantias,descripcion_propiedad,activo)value(title,tipo_op,precio,perm,fin,tipo_prop,dep,loc,direcc,año,dorm,baño,garag,state,ofi,vivi_social,dispo,orient,sob,dis_mar,metros_edif,metros_terraz,mts_terreno,plant,extr,garanti,desc_prop,act);
 END ;;
@@ -534,7 +534,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertBanios`(IN cant INT)
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `InsertBanios`(IN cant INT)
 BEGIN
 	insert into Banios(cantidad_baños)value(cant);
 END ;;
@@ -553,7 +553,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertComfort`(IN tipo VARCHAR(100))
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `InsertComfort`(IN tipo VARCHAR(100))
 BEGIN
 	insert into comfort(tipo_comfort)value(tipo);
 END ;;
@@ -572,7 +572,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertComfortPropiedad`(IN idprop INT, IN idcomfort INT)
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `InsertComfortPropiedad`(IN idprop INT, IN idcomfort INT)
 BEGIN
 	insert into comfort_propiedad(id_propiedad,id_comfort)value(idprop,idcomfort);
 END ;;
@@ -591,7 +591,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertDistanciaMar`(IN dist VARCHAR(100))
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `InsertDistanciaMar`(IN dist VARCHAR(100))
 BEGIN
 	insert into distancia_mar(distancia_mar)value(dist);
 END ;;
@@ -610,7 +610,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertDormitorio`(IN cant INT)
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `InsertDormitorio`(IN cant INT)
 BEGIN
 	insert into dormitorios(cantidad_dormitorios)value(cant);
 END ;;
@@ -629,7 +629,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertEstado`(IN estado VARCHAR(100))
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `InsertEstado`(IN estado VARCHAR(100))
 BEGIN
 	insert into estados(tipo_estados)value(estado);
 END ;;
@@ -648,7 +648,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertGarage`(IN cant INT)
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `InsertGarage`(IN cant INT)
 BEGIN
 	insert into garage(cantidad_garage)value(cant);
 END ;;
@@ -667,7 +667,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertImagen`(IN idprop INT, IN foto VARCHAR(300))
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `InsertImagen`(IN idprop INT, IN foto VARCHAR(300))
 BEGIN
 	insert into imagenes(id_propiedad,imagen)value(idprop,foto);
 END ;;
@@ -686,7 +686,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertLocalidad`(IN iddepart INT, IN localidad VARCHAR(60))
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `InsertLocalidad`(IN iddepart INT, IN localidad VARCHAR(60))
 BEGIN
 	insert into localidades(id_departamento,nombre_localidad)value(iddepart,localidad);
 END ;;
@@ -705,7 +705,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertPlantas`(IN cant INT)
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `InsertPlantas`(IN cant INT)
 BEGIN
 	insert into plantas(cantidad_plantas)value(cant);
 END ;;
@@ -724,7 +724,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertSeguridad`(IN tipo VARCHAR(100))
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `InsertSeguridad`(IN tipo VARCHAR(100))
 BEGIN
 	insert into seguridad(tipo_seguridad)value(tipo);
 END ;;
@@ -743,7 +743,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertSeguridadPropiedad`(IN idprop INT, IN idseguridad INT)
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `InsertSeguridadPropiedad`(IN idprop INT, IN idseguridad INT)
 BEGIN
 	insert into seguridad_propiedad(id_propiedad,id_seguridad)value(idprop,idseguridad);
 END ;;
@@ -762,7 +762,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertSobre`(IN sobre VARCHAR(60))
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `InsertSobre`(IN sobre VARCHAR(60))
 BEGIN
 	insert into plantas(propiedad_sobre)value(sobre);
 END ;;
@@ -781,7 +781,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertTipoPropiedad`(IN tipoprop VARCHAR(60))
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `InsertTipoPropiedad`(IN tipoprop VARCHAR(60))
 BEGIN
 	insert into tipo_propiedad(tipo_propiedad)value(tipoprop);
 END ;;
@@ -800,7 +800,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoBaños`()
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoBaños`()
 BEGIN
 	Select * from banios;
 END ;;
@@ -819,7 +819,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoComfort`()
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoComfort`()
 BEGIN
 	Select * from comfort;
 END ;;
@@ -838,7 +838,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoComfortPropiedad`(IN prop_id int)
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoComfortPropiedad`(IN prop_id int)
 BEGIN
 	Select * from comfort_propiedad where id_propiedad = prop_id;
 END ;;
@@ -857,7 +857,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoDepartamentos`()
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoDepartamentos`()
 BEGIN
 	Select * from departamentos;
 END ;;
@@ -876,7 +876,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoDistanciaMar`()
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoDistanciaMar`()
 BEGIN
 	Select * from distancia_mar;
 END ;;
@@ -895,7 +895,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoDormitorios`()
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoDormitorios`()
 BEGIN
 	Select * from dormitorios;
 END ;;
@@ -914,7 +914,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoEstados`()
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoEstados`()
 BEGIN
 	Select * from estados;
 END ;;
@@ -933,7 +933,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoGarage`()
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoGarage`()
 BEGIN
 	Select * from garage;
 END ;;
@@ -952,7 +952,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoImagenes`(IN prop_id int)
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoImagenes`(IN prop_id int)
 BEGIN
 	Select * from baños where id_propiedad = prop_id;
 END ;;
@@ -971,7 +971,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoLocalidad`(IN Dep int)
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoLocalidad`(IN Dep int)
 BEGIN
 	Select * from localidades where id_departamento = Dep;
 END ;;
@@ -990,7 +990,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoPlantas`()
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoPlantas`()
 BEGIN
 	Select * from plantas;
 END ;;
@@ -1009,7 +1009,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoPropiedad`(IN prop int)
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoPropiedad`(IN prop int)
 BEGIN
 	Select * from propiedades where id_propiedad = prop;
 END ;;
@@ -1028,7 +1028,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoPropiedadFiltro`(IN tipoop INT, IN tipoprop INT, IN dep INT, IN localid INT)
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoPropiedadFiltro`(IN tipoop INT, IN tipoprop INT, IN dep INT, IN localid INT)
 BEGIN
 	SELECT * from propiedades WHERE tipo_operacion = tipoop AND tipo_propiedad = tipoprop AND departamento = dep AND localidad = localid;
 END ;;
@@ -1047,7 +1047,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoSeguridad`()
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoSeguridad`()
 BEGIN
 	Select * from seguridad;
 END ;;
@@ -1066,7 +1066,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoSeguridadPropiedad`(IN prop_id int)
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoSeguridadPropiedad`(IN prop_id int)
 BEGIN
 	Select * from seguridad_propiedad where id_propiedad = prop_id;
 END ;;
@@ -1085,7 +1085,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoSobre`()
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoSobre`()
 BEGIN
 	Select * from propiedad_sobre;
 END ;;
@@ -1104,7 +1104,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoTipoOperacion`()
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoTipoOperacion`()
 BEGIN
 	Select * from tipo_operacion;
 END ;;
@@ -1123,7 +1123,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoTipoPropiedad`()
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `TraigoTipoPropiedad`()
 BEGIN
 	Select * from tipo_propiedad;
 END ;;
@@ -1142,4 +1142,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-29 22:03:58
+-- Dump completed on 2021-09-30 22:23:55
