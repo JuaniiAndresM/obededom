@@ -3,6 +3,7 @@
 
 //Abrir nueva conexion con server MySQL
 $mysqli = new mysqli('localhost','root','root','obededom');
+//$mysqli = new mysqli('obededompropiedades.com.uy','obededom_giovanna','giovanna2021*','obededom_obededom');
 
 //Error de conexion
 if ($mysqli->connect_error) {
