@@ -267,13 +267,47 @@ public function GuardarPropiedad($arrayJSON){
     $arrayDatos = json_decode($arrayJSON);
      include "../Database/server.php";
      $sentencia = '';
-   if ($sentencia = $mysqli->prepare("CALL CrearPropiedad(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);")) {  
-    $sentencia->bind_param('siiiiiiiiiiiiiiiiiiiiiisss',$arrayDatos[0],$arrayDatos[1],$arrayDatos[2],$arrayDatos[3],$arrayDatos[4],$arrayDatos[5],$arrayDatos[6],$arrayDatos[7],$arrayDatos[8],$arrayDatos[9],$arrayDatos[10],$arrayDatos[11],$arrayDatos[12],$arrayDatos[13],$arrayDatos[14],$arrayDatos[15],$arrayDatos[16],$arrayDatos[17],$arrayDatos[18],$arrayDatos[19],$arrayDatos[20],$arrayDatos[21],$arrayDatos[22],$arrayDatos[23],$arrayDatos[24],$arrayDatos[25]); 
-       if ($sentencia->execute()) {    
-                echo 1;
-            }else{
-                throw new Exception('Error en prepare: ' . $mysqli->error);
+   if ($sentencia = $mysqli->prepare("CALL CrearPropiedad(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);")) {  
+    $sentencia->bind_param('siiiiiiisiiiiiiiiiiiiiiisssi',$arrayDatos[0],$arrayDatos[1],$arrayDatos[2],$arrayDatos[3],$arrayDatos[4],$arrayDatos[5],$arrayDatos[6],$arrayDatos[7],$arrayDatos[8],$arrayDatos[9],$arrayDatos[10],$arrayDatos[11],$arrayDatos[12],$arrayDatos[13],$arrayDatos[14],$arrayDatos[15],$arrayDatos[16],$arrayDatos[17],$arrayDatos[18],$arrayDatos[19],$arrayDatos[20],$arrayDatos[21],$arrayDatos[22],$arrayDatos[23],$arrayDatos[24],$arrayDatos[25],$arrayDatos[26], $arrayDatos[27]); 
+        if($sentencia->execute()) {
+            $sentencia->bind_result($id);
+            if($sentencia->fetch()){
+                //se fija si hay comfort y seguridad
+                if(isset($arrayDatos[28]) && isset($arrayDatos[29])){
+                    $arrayComfort = $arrayDatos[28];
+                    $arraySeguridad = $arrayDatos[29];
+                    echo "este es el largo".count($arrayComfort);
+                    //hace un for insertando los comfort con el id de la propiedad creada y el id de los comfort
+                    for($i=-1; $i<count($arrayComfort); $i++){
+                        if ($sentencia = $mysqli->prepare("CALL InsertComfortPropiedad(?, ?);")) {
+                            $sentencia->bind_param('ii', $id, $arrayComfort[$i]);
+                            if($sentencia->execute()) {
+                                echo "este es el id comfort".$arrayComfort[$i];
+                            }else{
+                                throw new Exception('Error en prepare: ' . $mysqli->error);
+                            }
+                        }
+                    }
+                    //hace un for insertando la seguridad con el id de la propiedad creada y el id de la seguridad
+                    for($i=0; $i<count($arraySeguridad); $i++){
+                        if ($sentencia = $mysqli->prepare("CALL InsertSeguridadPropiedad(?, ?);")) {
+                            $sentencia->bind_param('ii', $id, $arraySeguridad[$i]);
+                            if($sentencia->execute()) {
+                                echo "este es el id de la seguridad".$arraySeguridad[$i];
+                            }else{
+                                throw new Exception('Error en prepare: ' . $mysqli->error);
+                            }
+                        }
+                    }
+                }else{
+                    echo 1;
+                }
             }
+            
+            
+        }else{
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
         }else{
             throw new Exception('Error en prepare: ' . $mysqli->error);
         }
