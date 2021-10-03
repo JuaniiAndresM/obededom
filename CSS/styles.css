@@ -1819,7 +1819,36 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
   margin: 5px;
   border-radius: 20px;
   border: none;
+  position: relative;
   cursor: pointer;
+}
+
+.sidebar-menu .buttons .icon .not-mensajes {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: #fa5454;
+  border-radius: 50%;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sidebar-menu .buttons .icon .not-mensajes p {
+  font-size: 10px;
 }
 
 .sidebar-menu .buttons .icon i {
@@ -2098,7 +2127,9 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-propiedades,
-.admin-panel .content-nomencladores {
+.admin-panel .content-nomencladores,
+.admin-panel .content-mensajes,
+.admin-panel .content-soporte {
   width: 100%;
   padding: 20px;
   display: -webkit-box;
@@ -2117,21 +2148,27 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-propiedades .title,
-.admin-panel .content-nomencladores .title {
+.admin-panel .content-nomencladores .title,
+.admin-panel .content-mensajes .title,
+.admin-panel .content-soporte .title {
   color: #91009d;
   font-size: 2em;
   text-align: center;
 }
 
 .admin-panel .content-propiedades .buscador,
-.admin-panel .content-nomencladores .buscador {
+.admin-panel .content-nomencladores .buscador,
+.admin-panel .content-mensajes .buscador,
+.admin-panel .content-soporte .buscador {
   max-width: 250px;
   width: 100%;
   position: relative;
 }
 
 .admin-panel .content-propiedades .buscador i,
-.admin-panel .content-nomencladores .buscador i {
+.admin-panel .content-nomencladores .buscador i,
+.admin-panel .content-mensajes .buscador i,
+.admin-panel .content-soporte .buscador i {
   position: absolute;
   top: calc(50% - 10px);
   color: #91009d;
@@ -2139,7 +2176,9 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-propiedades .buscador input,
-.admin-panel .content-nomencladores .buscador input {
+.admin-panel .content-nomencladores .buscador input,
+.admin-panel .content-mensajes .buscador input,
+.admin-panel .content-soporte .buscador input {
   width: 100%;
   height: 35px;
   border: 1px solid #aaa;
@@ -2151,27 +2190,37 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-propiedades .buscador input::-webkit-input-placeholder,
-.admin-panel .content-nomencladores .buscador input::-webkit-input-placeholder {
+.admin-panel .content-nomencladores .buscador input::-webkit-input-placeholder,
+.admin-panel .content-mensajes .buscador input::-webkit-input-placeholder,
+.admin-panel .content-soporte .buscador input::-webkit-input-placeholder {
   color: #aaa;
 }
 
 .admin-panel .content-propiedades .buscador input:-ms-input-placeholder,
-.admin-panel .content-nomencladores .buscador input:-ms-input-placeholder {
+.admin-panel .content-nomencladores .buscador input:-ms-input-placeholder,
+.admin-panel .content-mensajes .buscador input:-ms-input-placeholder,
+.admin-panel .content-soporte .buscador input:-ms-input-placeholder {
   color: #aaa;
 }
 
 .admin-panel .content-propiedades .buscador input::-ms-input-placeholder,
-.admin-panel .content-nomencladores .buscador input::-ms-input-placeholder {
+.admin-panel .content-nomencladores .buscador input::-ms-input-placeholder,
+.admin-panel .content-mensajes .buscador input::-ms-input-placeholder,
+.admin-panel .content-soporte .buscador input::-ms-input-placeholder {
   color: #aaa;
 }
 
 .admin-panel .content-propiedades .buscador input::placeholder,
-.admin-panel .content-nomencladores .buscador input::placeholder {
+.admin-panel .content-nomencladores .buscador input::placeholder,
+.admin-panel .content-mensajes .buscador input::placeholder,
+.admin-panel .content-soporte .buscador input::placeholder {
   color: #aaa;
 }
 
 .admin-panel .content-propiedades .filtros,
-.admin-panel .content-nomencladores .filtros {
+.admin-panel .content-nomencladores .filtros,
+.admin-panel .content-mensajes .filtros,
+.admin-panel .content-soporte .filtros {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2189,7 +2238,9 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-propiedades .filtros .select,
-.admin-panel .content-nomencladores .filtros .select {
+.admin-panel .content-nomencladores .filtros .select,
+.admin-panel .content-mensajes .filtros .select,
+.admin-panel .content-soporte .filtros .select {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2203,14 +2254,18 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-propiedades .filtros .select p,
-.admin-panel .content-nomencladores .filtros .select p {
+.admin-panel .content-nomencladores .filtros .select p,
+.admin-panel .content-mensajes .filtros .select p,
+.admin-panel .content-soporte .filtros .select p {
   color: white;
   font-weight: 400;
   margin-right: 10px;
 }
 
 .admin-panel .content-propiedades .filtros .select select,
-.admin-panel .content-nomencladores .filtros .select select {
+.admin-panel .content-nomencladores .filtros .select select,
+.admin-panel .content-mensajes .filtros .select select,
+.admin-panel .content-soporte .filtros .select select {
   width: 100%;
   border: 1px solid #aaa;
   border-radius: 10px;
@@ -2221,12 +2276,16 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-propiedades .button-crear,
-.admin-panel .content-nomencladores .button-crear {
+.admin-panel .content-nomencladores .button-crear,
+.admin-panel .content-mensajes .button-crear,
+.admin-panel .content-soporte .button-crear {
   margin-top: 10px;
 }
 
 .admin-panel .content-propiedades .button-crear a,
-.admin-panel .content-nomencladores .button-crear a {
+.admin-panel .content-nomencladores .button-crear a,
+.admin-panel .content-mensajes .button-crear a,
+.admin-panel .content-soporte .button-crear a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2245,12 +2304,16 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-propiedades .button-crear a i,
-.admin-panel .content-nomencladores .button-crear a i {
+.admin-panel .content-nomencladores .button-crear a i,
+.admin-panel .content-mensajes .button-crear a i,
+.admin-panel .content-soporte .button-crear a i {
   margin-right: 10px;
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper,
-.admin-panel .content-nomencladores .propiedad-wrapper {
+.admin-panel .content-nomencladores .propiedad-wrapper,
+.admin-panel .content-mensajes .propiedad-wrapper,
+.admin-panel .content-soporte .propiedad-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2268,7 +2331,9 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad {
   position: relative;
   width: 100%;
   max-width: 300px;
@@ -2283,7 +2348,9 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .estado,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .estado {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .estado,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .estado,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .estado {
   top: 20px;
   left: 0;
   width: 150px;
@@ -2306,24 +2373,32 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .estado p,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .estado p {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .estado p,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .estado p,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .estado p {
   font-weight: 600;
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .inactivo,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .inactivo {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .inactivo,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .inactivo,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .inactivo {
   background-color: #ff6666;
   color: #8d2e2e;
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .card-img,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-img {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-img,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .card-img,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .card-img {
   width: 100%;
   height: 240px;
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .card-img img,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-img img {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-img img,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .card-img img,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .card-img img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -2331,57 +2406,75 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .card-content,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .card-content,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .card-content {
   margin: 20px;
   margin-top: 10px;
   text-align: center;
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .card-content h2,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content h2 {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content h2,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .card-content h2,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .card-content h2 {
   font-size: 1.1em;
   color: #91009d;
   font-weight: 600;
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .card-content .direccion,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content .direccion {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content .direccion,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .card-content .direccion,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .card-content .direccion {
   margin-top: 5px;
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .card-content .direccion p,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content .direccion p {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content .direccion p,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .card-content .direccion p,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .card-content .direccion p {
   color: #555;
   font-size: 1em;
   font-weight: 500;
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .card-content .direccion i,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content .direccion i {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content .direccion i,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .card-content .direccion i,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .card-content .direccion i {
   color: #91009d;
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .card-content .tipo,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content .tipo {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content .tipo,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .card-content .tipo,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .card-content .tipo {
   width: 100%;
   text-align: center;
   margin: 10px 0;
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .card-content .tipo p,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content .tipo p {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content .tipo p,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .card-content .tipo p,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .card-content .tipo p {
   color: #666;
   font-weight: 500;
   font-size: 1.3em;
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .card-content .precio,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content .precio {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content .precio,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .card-content .precio,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .card-content .precio {
   margin-top: 10px;
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .card-content .precio p,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content .precio p {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .card-content .precio p,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .card-content .precio p,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .card-content .precio p {
   color: #91009d;
   margin-top: 10px;
   font-size: 1.5em;
@@ -2389,7 +2482,9 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .buttons,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .buttons {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .buttons,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .buttons,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .buttons {
   position: absolute;
   top: 0;
   left: 0;
@@ -2411,7 +2506,9 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .buttons button,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .buttons button {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .buttons button,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .buttons button,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .buttons button {
   width: 50px;
   height: 50px;
   margin: 10px 5px;
@@ -2427,7 +2524,9 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-propiedades .propiedad-wrapper .propiedad .buttons button:hover,
-.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .buttons button:hover {
+.admin-panel .content-nomencladores .propiedad-wrapper .propiedad .buttons button:hover,
+.admin-panel .content-mensajes .propiedad-wrapper .propiedad .buttons button:hover,
+.admin-panel .content-soporte .propiedad-wrapper .propiedad .buttons button:hover {
   background-color: #6c0075;
 }
 
@@ -2557,6 +2656,238 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .admin-panel .content-nomencladores .guardar:hover {
+  background-color: #6c1774;
+}
+
+.admin-panel .content-mensajes .boton-eliminar {
+  margin-top: 10px;
+}
+
+.admin-panel .content-mensajes .boton-eliminar a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  border-radius: 10px;
+  width: 200px;
+  height: 40px;
+  background-color: #91009d;
+  color: white;
+}
+
+.admin-panel .content-mensajes .boton-eliminar a i {
+  margin-right: 10px;
+}
+
+.admin-panel .content-mensajes .mensajes-wrapper {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
+
+.admin-panel .content-mensajes .mensajes-wrapper .mensaje {
+  max-width: 300px;
+  width: 100%;
+  height: 300px;
+  background-color: white;
+  -webkit-box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  position: relative;
+}
+
+.admin-panel .content-mensajes .mensajes-wrapper .mensaje button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px !important;
+  height: 40px !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.admin-panel .content-mensajes .mensajes-wrapper .mensaje button i {
+  font-size: 30px;
+  margin: 0;
+}
+
+.admin-panel .content-mensajes .mensajes-wrapper .mensaje button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.admin-panel .content-mensajes .mensajes-wrapper .mensaje i {
+  font-size: 4em;
+  color: #91009d;
+  margin-bottom: 20px;
+}
+
+.admin-panel .content-mensajes .mensajes-wrapper .mensaje h1 {
+  color: #91009d;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.admin-panel .content-mensajes .mensajes-wrapper .mensaje p {
+  color: #666;
+}
+
+.admin-panel .content-soporte {
+  width: 100%;
+  height: calc(100vh - 100px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.admin-panel .content-soporte p {
+  color: #666;
+}
+
+.admin-panel .content-soporte .soporte-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.admin-panel .content-soporte .soporte-buttons button {
+  background-color: #91009d;
+  border: none;
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  margin: 10px;
+  color: white;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 1.1em;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.admin-panel .content-soporte .soporte-buttons button i {
+  margin-right: 5px;
+}
+
+.admin-panel .content-soporte .soporte-buttons button:hover {
+  background-color: #6c1774;
+}
+
+.admin-panel .content-soporte .soporte-form {
+  display: none;
+  max-width: 300px;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.admin-panel .content-soporte .soporte-form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.admin-panel .content-soporte .soporte-form form input,
+.admin-panel .content-soporte .soporte-form form textarea {
+  width: 100%;
+  height: 35px;
+  border-radius: 10px;
+  border: 1px solid #666;
+  margin: 5px 0;
+  padding: 10px;
+  resize: none;
+  font-family: 'Montserrat', 'sans-serif';
+  outline: none;
+}
+
+.admin-panel .content-soporte .soporte-form form textarea {
+  height: 120px;
+}
+
+.admin-panel .content-soporte .soporte-form form input[type="submit"] {
+  background-color: #91009d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.admin-panel .content-soporte .soporte-form form input[type="submit"]:hover {
   background-color: #6c1774;
 }
 
