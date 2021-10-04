@@ -262,7 +262,7 @@ public function TraerSeguridad(){
         return $arraySeguridad;
 }
 
-//trae sobre donde queda la propiedad de la bdd
+//guarda la propiedad en la bdd
 public function GuardarPropiedad($arrayJSON){
     $arrayDatos = json_decode($arrayJSON);
      include "../Database/server.php";
@@ -276,13 +276,11 @@ public function GuardarPropiedad($arrayJSON){
                 if(isset($arrayDatos[28]) && isset($arrayDatos[29])){
                     $arrayComfort = $arrayDatos[28];
                     $arraySeguridad = $arrayDatos[29];
-                    echo "este es el largo".count($arrayComfort);
                     //hace un for insertando los comfort con el id de la propiedad creada y el id de los comfort
                     for($i=-1; $i<count($arrayComfort); $i++){
                         if ($sentencia = $mysqli->prepare("CALL InsertComfortPropiedad(?, ?);")) {
                             $sentencia->bind_param('ii', $id, $arrayComfort[$i]);
                             if($sentencia->execute()) {
-                                echo "este es el id comfort".$arrayComfort[$i];
                             }else{
                                 throw new Exception('Error en prepare: ' . $mysqli->error);
                             }
@@ -293,14 +291,11 @@ public function GuardarPropiedad($arrayJSON){
                         if ($sentencia = $mysqli->prepare("CALL InsertSeguridadPropiedad(?, ?);")) {
                             $sentencia->bind_param('ii', $id, $arraySeguridad[$i]);
                             if($sentencia->execute()) {
-                                echo "este es el id de la seguridad".$arraySeguridad[$i];
                             }else{
                                 throw new Exception('Error en prepare: ' . $mysqli->error);
                             }
                         }
                     }
-                }else{
-                    echo 1;
                 }
             }
             

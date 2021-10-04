@@ -190,4 +190,106 @@ class AdministradorObj {
         });
         return Seguridad;
       }
+
+      
+      crearTipoPropiedad(nuevoTipoPropiedad) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 2, nuevoTipoPropiedad: nuevoTipoPropiedad},
+        });
+      }
+
+      crearLocalidad(idDepartamento, nuevaLocalidad) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 3, idDepartamento: idDepartamento, nuevaLocalidad: nuevaLocalidad},
+        });
+      }
+
+      crearDormitorio(nuevoDormitorio) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 4, nuevoDormitorio: nuevoDormitorio},
+        });
+      }
+      
+      crearBaño(nuevoBanio) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 5, nuevoBanio: nuevoBanio},
+        });
+      }
+
+      crearGarage(nuevoGarage) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 6, nuevoGarage: nuevoGarage},
+        });
+      }
+
+      crearEstado(nuevoEstado) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 7, nuevoEstado: nuevoEstado},
+        });
+      }
+
+      crearSobre(nuevoSobre) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 8, nuevoSobre: nuevoSobre},
+        });
+      }
+
+      crearDistanciaMar(nuevaDistanciaMar) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 9, nuevaDistanciaMar: nuevaDistanciaMar},
+        });
+      }
+
+      
+      crearPlanta(nuevaPlanta) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 10, nuevaPlanta: nuevaPlanta},
+        });
+      }
+
+      crearComfort(nuevoComfort) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 11, nuevoComfort: nuevoComfort},
+        });
+      }
+
+      crearSeguridad(nuevaSeguridad) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 12, nuevaSeguridad: nuevaSeguridad},
+        });
+      }
+      
 }
