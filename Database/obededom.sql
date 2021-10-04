@@ -272,6 +272,7 @@ DROP TABLE IF EXISTS `mensajes`;
 CREATE TABLE `mensajes` (
   `idmensajes` int NOT NULL,
   `cont_mensaje` varchar(300) NOT NULL,
+  `tipo_mensaje` int NOT NULL,
   PRIMARY KEY (`idmensajes`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -343,25 +344,25 @@ DROP TABLE IF EXISTS `propiedades`;
 CREATE TABLE `propiedades` (
   `id_propiedad` int NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) NOT NULL,
-  `tipo_operacion` int NOT NULL,
+  `tipo_operacion` varchar(200) NOT NULL,
   `Precio_Venta` int NOT NULL,
   `Permuta` int NOT NULL,
   `Financia` int NOT NULL,
-  `tipo_propiedad` int NOT NULL,
-  `departamento` int NOT NULL,
-  `localidad` int NOT NULL,
+  `tipo_propiedad` varchar(200) NOT NULL,
+  `departamento` varchar(200) NOT NULL,
+  `localidad` varchar(200) NOT NULL,
   `direccion` varchar(200) NOT NULL,
   `año_construccion` int NOT NULL,
   `dormitorios` int NOT NULL,
   `baños` int NOT NULL,
   `garage` int NOT NULL,
-  `estado` int NOT NULL,
+  `estado` varchar(200) NOT NULL,
   `oficina` int NOT NULL,
   `vivienda_social` int NOT NULL,
-  `disposicion` int NOT NULL,
-  `orientacion` int NOT NULL,
-  `sobre` int NOT NULL,
-  `distancia_mar` int NOT NULL,
+  `disposicion` varchar(200) NOT NULL,
+  `orientacion` varchar(200) NOT NULL,
+  `sobre` varchar(200) NOT NULL,
+  `distancia_mar` varchar(200) NOT NULL,
   `metros_edificados` int NOT NULL,
   `metros_terraza` int NOT NULL,
   `metros_terreno` int NOT NULL,
@@ -370,29 +371,7 @@ CREATE TABLE `propiedades` (
   `garantias` longtext NOT NULL,
   `descripcion_propiedad` longtext NOT NULL,
   `activo` int NOT NULL,
-  PRIMARY KEY (`id_propiedad`),
-  KEY `operacion_idx` (`tipo_operacion`),
-  KEY `tipo_propiedad_idx` (`tipo_propiedad`),
-  KEY `departamento_idx` (`departamento`),
-  KEY `localidad_idx` (`localidad`),
-  KEY `dormitorios_idx` (`dormitorios`),
-  KEY `baños_idx` (`baños`),
-  KEY `garage_idx` (`garage`),
-  KEY `estado_idx` (`estado`),
-  KEY `sobre_idx` (`sobre`),
-  KEY `distancia_mar_idx` (`distancia_mar`),
-  KEY `plantas_idx` (`plantas`),
-  CONSTRAINT `baños` FOREIGN KEY (`baños`) REFERENCES `banio` (`id_baños`),
-  CONSTRAINT `departamento` FOREIGN KEY (`departamento`) REFERENCES `departamentos` (`id_departamento`),
-  CONSTRAINT `distancia_mar` FOREIGN KEY (`distancia_mar`) REFERENCES `distancia_mar` (`id_distancia_mar`),
-  CONSTRAINT `dormitorios` FOREIGN KEY (`dormitorios`) REFERENCES `dormitorios` (`id_dormitorios`),
-  CONSTRAINT `estado` FOREIGN KEY (`estado`) REFERENCES `estados` (`id_estados`),
-  CONSTRAINT `garage` FOREIGN KEY (`garage`) REFERENCES `garage` (`id_garage`),
-  CONSTRAINT `localidad` FOREIGN KEY (`localidad`) REFERENCES `localidades` (`id_barrios`),
-  CONSTRAINT `operacion` FOREIGN KEY (`tipo_operacion`) REFERENCES `tipo_operacion` (`id_tipooperacion`),
-  CONSTRAINT `plantas` FOREIGN KEY (`plantas`) REFERENCES `plantas` (`id_plantas`),
-  CONSTRAINT `sobre` FOREIGN KEY (`sobre`) REFERENCES `propiedad_sobre` (`id_Sobre`),
-  CONSTRAINT `tipo_propiedad` FOREIGN KEY (`tipo_propiedad`) REFERENCES `tipo_propiedad` (`id_tipopropiedad`)
+  PRIMARY KEY (`id_propiedad`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -402,7 +381,7 @@ CREATE TABLE `propiedades` (
 
 LOCK TABLES `propiedades` WRITE;
 /*!40000 ALTER TABLE `propiedades` DISABLE KEYS */;
-INSERT INTO `propiedades` VALUES (1,'Monoambiente totalmente equipado en Buceo.',2,19000,0,1,2,10,1269,'M54, S12',2003,2,1,1,5,1,0,1,2,3,2,25,2,30,3,'no','DESPOSITO EN BHU, SURA Y CGN','OBED-EDOM Alquila Monoambiente totalmente Equipado.',0);
+INSERT INTO `propiedades` VALUES (1,'Monoambiente totalmente equipado en Buceo.','2',19000,0,1,'2','10','1269','M54, S12',2003,2,1,1,'5',1,0,'1','2','3','2',25,2,30,3,'no','DESPOSITO EN BHU, SURA Y CGN','OBED-EDOM Alquila Monoambiente totalmente Equipado.',0);
 /*!40000 ALTER TABLE `propiedades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -563,9 +542,313 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `CrearPropiedad`(IN title varchar(100),IN tipo_op INT,IN precio INT,IN perm INT,IN fin INT,IN tipo_prop INT,IN dep INT,IN loc INT,IN direcc VARCHAR(200), IN año INT,IN dorm INT,IN baño INT,IN garag INT,IN state INT,IN ofi INT,IN vivi_social INT,IN dispo INT,IN orient INT,IN sob INT,IN dis_mar INT,IN metros_edif INT,IN metros_terraz INT,IN mts_terreno INT,IN plant INT,IN extr varchar(200),IN garanti LONGTEXT,IN desc_prop LONGTEXT, IN act INT)
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `CrearPropiedad`(IN title varchar(100),IN tipo_op VARCHAR(200),IN precio INT,IN perm INT,IN fin INT,IN tipo_prop VARCHAR(200),IN dep VARCHAR(200),IN loc VARCHAR(200),IN direcc VARCHAR(200), IN año INT,IN dorm INT,IN baño INT,IN garag INT,IN state VARCHAR(200),IN ofi INT,IN vivi_social INT,IN dispo VARCHAR(200),IN orient VARCHAR(200),IN sob VARCHAR(200),IN dis_mar VARCHAR(200),IN metros_edif INT,IN metros_terraz INT,IN mts_terreno INT,IN plant INT,IN extr varchar(200),IN garanti LONGTEXT,IN desc_prop LONGTEXT, IN act INT)
 BEGIN
 	insert into propiedades (titulo,tipo_operacion,Precio_Venta,Permuta,Financia,tipo_propiedad,departamento,localidad,direccion,año_construccion,dormitorios,baños,garage,estado,oficina,vivienda_social,disposicion,orientacion,sobre,distancia_mar,metros_edificados,metros_terraza,metros_terreno,plantas,extras,garantias,descripcion_propiedad,activo)value(title,tipo_op,precio,perm,fin,tipo_prop,dep,loc,direcc,año,dorm,baño,garag,state,ofi,vivi_social,dispo,orient,sob,dis_mar,metros_edif,metros_terraz,mts_terreno,plant,extr,garanti,desc_prop,act);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarBanios` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `EliminarBanios`(IN id INT)
+BEGIN
+	DELETE FROM banios WHERE id_baños = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarComfort` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `EliminarComfort`(IN id INT)
+BEGIN
+	DELETE FROM comfort WHERE id_comfort = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarComfortPropiedad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarComfortPropiedad`(IN id INT)
+BEGIN
+	DELETE FROM comfort_propiedad WHERE id_tabla_comfort = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarDistanciaMar` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarDistanciaMar`(IN id INT)
+BEGIN
+	DELETE FROM distancia_mar WHERE id_distancia_mar = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarDormitorios` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarDormitorios`(IN id INT)
+BEGIN
+	DELETE FROM dormitorios WHERE id_dormitorios = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarEstados` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarEstados`(IN id INT)
+BEGIN
+	DELETE FROM estados WHERE id_estados = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarGarage` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarGarage`(IN id INT)
+BEGIN
+	DELETE FROM garage WHERE id_garage = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarLocalidad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarLocalidad`(IN id INT)
+BEGIN
+	DELETE FROM localidades WHERE id_barrios = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarMensajes` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarMensajes`(IN id INT)
+BEGIN
+	DELETE FROM mensajes WHERE idmensajes = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarPlantas` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarPlantas`(IN id INT)
+BEGIN
+	DELETE FROM plantas WHERE id_plantas = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarPropiedad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarPropiedad`(IN id INT)
+BEGIN
+	DELETE FROM propiedades WHERE id_propiedad = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarSeguridad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarSeguridad`(IN id INT)
+BEGIN
+	DELETE FROM seguridad WHERE id_seguridad = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarSeguridadPropiedad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarSeguridadPropiedad`(IN id INT)
+BEGIN
+	DELETE FROM seguridad_propiedad WHERE id_tabla_seguridad = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarSobre` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarSobre`(IN id INT)
+BEGIN
+	DELETE FROM propiedad_sobre WHERE id_sobre = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarTipoOperacion` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarTipoOperacion`(IN id INT)
+BEGIN
+	DELETE FROM tipo_operacion WHERE id_tipooperacion = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `EliminarTipoPropiedad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarTipoPropiedad`(IN id INT)
+BEGIN
+	DELETE FROM tipo_propiedad WHERE id_tipopropiedad = id;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -737,6 +1020,25 @@ DELIMITER ;;
 CREATE DEFINER=`cpses_ob8zuifvmh`@`localhost` PROCEDURE `InsertLocalidad`(IN iddepart INT, IN localidad VARCHAR(60))
 BEGIN
 	insert into localidades(id_departamento,nombre_localidad)value(iddepart,localidad);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `InsertMensaje` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertMensaje`(IN cont INT, IN tipo INT)
+BEGIN
+	insert into mensajes(cont_mensaje,tipo_mensaje)value(cont,tipo);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1247,4 +1549,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-02 17:28:18
+-- Dump completed on 2021-10-04 15:32:04
