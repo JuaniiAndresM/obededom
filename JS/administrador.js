@@ -1,60 +1,295 @@
-$(document).ready(function () {
-  $(".content-inicio").show();
-  $(".content-propiedades").hide();
-  $(".content-nomencladores").hide();
-  $(".content-mensajes").hide();
-});
+class AdministradorObj {
+    //Trae los tipos de propiedad
+    traerTiposPropiedad() {
+        var TiposPropiedad = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 2 },
+          dataType: 'json',
+          success: function (data) {
+            TiposPropiedad = data;
+          },
+        });
+        return TiposPropiedad;
+      }
+    
+    //Trae los Departamentos
+    traerDepartamentos() {
+        var Departamentos = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 3 },
+          dataType: 'json',
+          success: function (data) {
+            Departamentos = data;
+          },
+        });
+        return Departamentos;
+      }
 
-function desplegar() {
-  if ($(".sidebar-menu").hasClass("desplegado") == false) {
-    $(".sidebar-menu").addClass("desplegado");
-  } else {
-    $(".sidebar-menu").removeClass("desplegado");
-  }
-}
+      //trae las localidades de un departamento especifico
+      traerLocalidades(idDepartamento) {
+        var Localidades = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 4, idDepartamento: idDepartamento },
+          dataType: 'json',
+          success: function (data) {
+            Localidades = data;
+          },
+        });
+        return Localidades;
+      }
 
-function seccion(seccion) {
+      traerDormitorios() {
+        var Dormitorios = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 5 },
+          dataType: 'json',
+          success: function (data) {
+            Dormitorios = data;
+            console.log("estos son los dormitorios: " + data)
+          },
+        });
+        return Dormitorios;
+      }
 
-  $(".content-inicio").hide();
+      traerBaños() {
+        var Baños = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 6 },
+          dataType: 'json',
+          success: function (data) {
+            Baños = data;
+            console.log("estos son los baños: " + data)
+          },
+        });
+        return Baños;
+      }
+      
+      traerGarages() {
+        var Garages = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 7 },
+          dataType: 'json',
+          success: function (data) {
+            Garages = data;
+            console.log("estos son los Garages: " + data)
+          },
+        });
+        return Garages;
+      }
 
-  if (seccion == "propiedades") {
-    $(".content-propiedades").show();
-    $(".content-nomencladores").hide();
-    $(".content-mensajes").hide();
-    $(".content-soporte").hide();
-  } else if (seccion == "nomencladores") {
-    $(".content-propiedades").hide();
-    $(".content-nomencladores").show();
-    $(".content-mensajes").hide();
-    $(".content-soporte").hide();
-  } else if (seccion == "mensajes") {
-    $(".content-propiedades").hide();
-    $(".content-nomencladores").hide();
-    $(".content-mensajes").show();
-    $(".content-soporte").hide();
-  } else if (seccion == "inicio") {
-    $(".content-inicio").show();
-    $(".content-propiedades").hide();
-    $(".content-nomencladores").hide();
-    $(".content-mensajes").hide();
-    $(".content-soporte").hide();
-  } else if (seccion == "soporte"){
-    $(".content-inicio").hide();
-    $(".content-propiedades").hide();
-    $(".content-nomencladores").hide();
-    $(".content-mensajes").hide();
+      traerDistanciamar() {
+        var Distanciamar = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 8 },
+          dataType: 'json',
+          success: function (data) {
+            Distanciamar = data;
+            console.log("estos son los Distanciamar: " + data)
+          },
+        });
+        return Distanciamar;
+      }
 
-    $(".content-soporte").show();
-    $(".soporte-buttons").show();
-    $(".soporte-form").hide();
-  }
-}
+      traerSobre() {
+        var Sobre = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 9 },
+          dataType: 'json',
+          success: function (data) {
+            Sobre = data;
+            console.log("estos son los Sobre: " + data)
+          },
+        });
+        return Sobre;
+      }
 
-function soporte(soporte){
-  $(".soporte-buttons").hide();
+      traerEstados() {
+        var Estados = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 10 },
+          dataType: 'json',
+          success: function (data) {
+            Estados = data;
+            console.log("estos son los Estados: " + data)
+          },
+        });
+        return Estados;
+      }
 
-  if(soporte == "form"){
-    $(".soporte-form").show();
-  }
+      traerPlantas() {
+        var Plantas = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 11 },
+          dataType: 'json',
+          success: function (data) {
+            Plantas = data;
+            console.log("estos son los Plantas: " + data)
+          },
+        });
+        return Plantas;
+      }
 
+      traerComfort() {
+        var Comfort = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 12 },
+          dataType: 'json',
+          success: function (data) {
+            Comfort = data;
+            console.log("estos son los Comfort: " + data)
+          },
+        });
+        return Comfort;
+      }
+
+      traerSeguridad() {
+        var Seguridad = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/backend.php",
+          data: { accion: 13 },
+          dataType: 'json',
+          success: function (data) {
+            Seguridad = data;
+            console.log("estos son los Seguridad: " + data)
+          },
+        });
+        return Seguridad;
+      }
+
+      
+      crearTipoPropiedad(nuevoTipoPropiedad) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 2, nuevoTipoPropiedad: nuevoTipoPropiedad},
+        });
+      }
+
+      crearLocalidad(idDepartamento, nuevaLocalidad) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 3, idDepartamento: idDepartamento, nuevaLocalidad: nuevaLocalidad},
+        });
+      }
+
+      crearDormitorio(nuevoDormitorio) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 4, nuevoDormitorio: nuevoDormitorio},
+        });
+      }
+      
+      crearBaño(nuevoBanio) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 5, nuevoBanio: nuevoBanio},
+        });
+      }
+
+      crearGarage(nuevoGarage) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 6, nuevoGarage: nuevoGarage},
+        });
+      }
+
+      crearEstado(nuevoEstado) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 7, nuevoEstado: nuevoEstado},
+        });
+      }
+
+      crearSobre(nuevoSobre) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 8, nuevoSobre: nuevoSobre},
+        });
+      }
+
+      crearDistanciaMar(nuevaDistanciaMar) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 9, nuevaDistanciaMar: nuevaDistanciaMar},
+        });
+      }
+
+      
+      crearPlanta(nuevaPlanta) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 10, nuevaPlanta: nuevaPlanta},
+        });
+      }
+
+      crearComfort(nuevoComfort) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 11, nuevoComfort: nuevoComfort},
+        });
+      }
+
+      crearSeguridad(nuevaSeguridad) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 12, nuevaSeguridad: nuevaSeguridad},
+        });
+      }
+      
 }
