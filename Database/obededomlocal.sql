@@ -21,7 +21,7 @@
 
 DROP TABLE IF EXISTS `banio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `banio` (
   `id_baños` int NOT NULL AUTO_INCREMENT,
   `cantidad_baños` int NOT NULL,
@@ -45,7 +45,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `comfort`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comfort` (
   `id_Comfort` int NOT NULL AUTO_INCREMENT,
   `tipo_comfort` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -69,7 +69,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `comfort_propiedad`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comfort_propiedad` (
   `id_tabla_comfort` int NOT NULL AUTO_INCREMENT,
   `id_propiedad` int NOT NULL,
@@ -97,7 +97,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `departamentos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `departamentos` (
   `id_departamento` int NOT NULL AUTO_INCREMENT,
   `nombre_departamento` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -121,7 +121,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `distancia_mar`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `distancia_mar` (
   `id_distancia_mar` int NOT NULL AUTO_INCREMENT,
   `distancia_mar` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -145,7 +145,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `dormitorios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `dormitorios` (
   `id_dormitorios` int NOT NULL AUTO_INCREMENT,
   `cantidad_dormitorios` int NOT NULL,
@@ -169,7 +169,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `estados`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `estados` (
   `id_estados` int NOT NULL AUTO_INCREMENT,
   `tipo_estados` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -193,7 +193,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `garage`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `garage` (
   `id_garage` int NOT NULL AUTO_INCREMENT,
   `cantidad_garage` int NOT NULL,
@@ -217,7 +217,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `imagenes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `imagenes` (
   `id_propiedad` int NOT NULL,
   `imagen` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -241,7 +241,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `localidades`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `localidades` (
   `id_barrios` int NOT NULL AUTO_INCREMENT,
   `id_departamento` int NOT NULL,
@@ -268,7 +268,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `mensajes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `mensajes` (
   `idmensajes` int NOT NULL,
   `cont_mensaje` varchar(300) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -292,7 +292,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `plantas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `plantas` (
   `id_plantas` int NOT NULL AUTO_INCREMENT,
   `cantidad_plantas` int NOT NULL,
@@ -316,7 +316,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `propiedad_sobre`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `propiedad_sobre` (
   `id_Sobre` int NOT NULL AUTO_INCREMENT,
   `propiedad_sobre` varchar(45) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -340,7 +340,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `propiedades`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `propiedades` (
   `id_propiedad` int NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -371,8 +371,10 @@ CREATE TABLE `propiedades` (
   `garantias` longtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `descripcion_propiedad` longtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `activo` int NOT NULL,
+  `vista_mar` int NOT NULL,
+  `mostrar_precio` int NOT NULL,
   PRIMARY KEY (`id_propiedad`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -381,7 +383,7 @@ CREATE TABLE `propiedades` (
 
 LOCK TABLES `propiedades` WRITE;
 /*!40000 ALTER TABLE `propiedades` DISABLE KEYS */;
-INSERT INTO `propiedades` VALUES (1,'Monoambiente totalmente equipado en Buceo.','2',19000,0,1,'2','10','1269','M54, S12',2003,2,1,1,'5',1,0,'1','2','3','2',25,2,30,3,'no','DESPOSITO EN BHU, SURA Y CGN','OBED-EDOM Alquila Monoambiente totalmente Equipado.',0);
+INSERT INTO `propiedades` VALUES (1,'Monoambiente totalmente equipado en Buceo.','2',19000,0,1,'2','10','1269','M54, S12',2003,2,1,1,'5',1,0,'1','2','3','2',25,2,30,3,'no','DESPOSITO EN BHU, SURA Y CGN','OBED-EDOM Alquila Monoambiente totalmente Equipado.',0,0,0),(2,'Propiedad Ejemplo','1',150000,1,0,'1','2','234','18 de Julio',2015,1,0,2,'2',1,0,'1','1','2','3',45,30,10,2,'','<p>Ejemplo Garant&iacute;a</p>','<p>Ejemplo Descripci&oacute;n</p>',1,0,0);
 /*!40000 ALTER TABLE `propiedades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -391,7 +393,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `seguridad`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `seguridad` (
   `id_seguridad` int NOT NULL AUTO_INCREMENT,
   `tipo_seguridad` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -415,7 +417,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `seguridad_propiedad`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `seguridad_propiedad` (
   `id_tabla_seguridad` int NOT NULL AUTO_INCREMENT,
   `id_propiedad` int NOT NULL,
@@ -443,7 +445,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tipo_operacion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tipo_operacion` (
   `id_tipooperacion` int NOT NULL AUTO_INCREMENT,
   `Tipo_Operacion` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -467,7 +469,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tipo_propiedad`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tipo_propiedad` (
   `id_tipopropiedad` int NOT NULL AUTO_INCREMENT,
   `Tipo_Propiedad` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -491,7 +493,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
   `idusuario` int NOT NULL AUTO_INCREMENT,
   `usuario` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -533,28 +535,26 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `CrearPropiedad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_bin */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CrearPropiedad`(IN title varchar(100),IN tipo_op VARCHAR(200),IN precio INT,IN perm INT,IN fin INT,IN tipo_prop VARCHAR(200),IN dep VARCHAR(200),IN loc VARCHAR(200),IN direcc VARCHAR(200), IN año INT,IN dorm INT,IN baño INT,IN garag INT,IN state VARCHAR(200),IN ofi INT,IN vivi_social INT,IN dispo VARCHAR(200),IN orient VARCHAR(200),IN sob VARCHAR(200),IN dis_mar VARCHAR(200),IN metros_edif INT,IN metros_terraz INT,IN mts_terreno INT,IN plant INT,IN extr varchar(200),IN garanti LONGTEXT,IN desc_prop LONGTEXT, IN act INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CrearPropiedad`(IN title varchar(100),IN tipo_op VARCHAR(200),IN precio INT,IN perm INT,IN fin INT,IN tipo_prop VARCHAR(200),IN dep VARCHAR(200),IN loc VARCHAR(200),IN direcc VARCHAR(200), IN año INT,IN dorm INT,IN baño INT,IN garag INT,IN state VARCHAR(200),IN ofi INT,IN vivi_social INT,IN dispo VARCHAR(200),IN orient VARCHAR(200),IN sob VARCHAR(200),IN dis_mar VARCHAR(200),IN metros_edif INT,IN metros_terraz INT,IN mts_terreno INT,IN plant INT,IN extr varchar(200),IN garanti LONGTEXT,IN desc_prop LONGTEXT, IN act INT, IN vistamar INT, IN mostprecio INT)
 BEGIN
-	insert into propiedades (titulo,tipo_operacion,Precio_Venta,Permuta,Financia,tipo_propiedad,departamento,localidad,direccion,año_construccion,dormitorios,baños,garage,estado,oficina,vivienda_social,disposicion,orientacion,sobre,distancia_mar,metros_edificados,metros_terraza,metros_terreno,plantas,extras,garantias,descripcion_propiedad,activo)value(title,tipo_op,precio,perm,fin,tipo_prop,dep,loc,direcc,año,dorm,baño,garag,state,ofi,vivi_social,dispo,orient,sob,dis_mar,metros_edif,metros_terraz,mts_terreno,plant,extr,garanti,desc_prop,act);
+	insert into propiedades (titulo,tipo_operacion,Precio_Venta,Permuta,Financia,tipo_propiedad,departamento,localidad,direccion,año_construccion,dormitorios,baños,garage,estado,oficina,vivienda_social,disposicion,orientacion,sobre,distancia_mar,metros_edificados,metros_terraza,metros_terreno,plantas,extras,garantias,descripcion_propiedad,activo,vista_mar,mostrar_precio)value(title,tipo_op,precio,perm,fin,tipo_prop,dep,loc,direcc,año,dorm,baño,garag,state,ofi,vivi_social,dispo,orient,sob,dis_mar,metros_edif,metros_terraz,mts_terreno,plant,extr,garanti,desc_prop,act,vistamar,mostprecio);
+	SELECT LAST_INSERT_ID() as id;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarBanios` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -573,9 +573,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarComfort` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -594,9 +592,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarComfortPropiedad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -615,9 +611,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarDistanciaMar` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -636,9 +630,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarDormitorios` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -657,9 +649,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarEstados` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -678,9 +668,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarGarage` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -699,9 +687,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarLocalidad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -720,9 +706,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarMensajes` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -741,9 +725,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarPlantas` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -762,9 +744,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarPropiedad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -783,9 +763,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarSeguridad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -804,9 +782,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarSeguridadPropiedad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -825,9 +801,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarSobre` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -846,9 +820,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarTipoOperacion` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -867,9 +839,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `EliminarTipoPropiedad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -888,9 +858,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `InsertBanios` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -909,9 +877,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `InsertComfort` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -930,9 +896,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `InsertComfortPropiedad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -951,9 +915,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `InsertDistanciaMar` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -972,9 +934,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `InsertDormitorio` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -993,9 +953,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `InsertEstado` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1014,9 +972,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `InsertGarage` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1035,9 +991,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `InsertImagen` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1056,9 +1010,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `InsertLocalidad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1077,9 +1029,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `InsertMensaje` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1098,9 +1048,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `InsertPlantas` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1119,9 +1067,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `InsertSeguridad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1140,9 +1086,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `InsertSeguridadPropiedad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1161,9 +1105,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `InsertSobre` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1182,9 +1124,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `InsertTipoPropiedad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1203,9 +1143,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `Login` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1224,30 +1162,26 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoBaños` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_bin */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `TraigoBaños`()
 BEGIN
-	Select * from banios;
+	Select * from banio;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoComfort` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1266,9 +1200,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoComfortPropiedad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1287,9 +1219,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoDepartamentos` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1308,9 +1238,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoDistanciaMar` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1329,9 +1257,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoDormitorios` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1350,9 +1276,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoEstados` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1371,9 +1295,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoGarage` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1392,9 +1314,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoImagenes` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1413,9 +1333,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoLocalidad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1434,9 +1352,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoMensajes` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1455,9 +1371,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoPlantas` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1476,9 +1390,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoPropiedad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1497,9 +1409,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoPropiedades` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1518,9 +1428,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoPropiedadFiltro` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1539,9 +1447,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoSeguridad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1560,9 +1466,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoSeguridadPropiedad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1581,9 +1485,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoSobre` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1602,9 +1504,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoTipoOperacion` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1623,9 +1523,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 DROP PROCEDURE IF EXISTS `TraigoTipoPropiedad` */;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1644,7 +1542,6 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*ALTER DATABASE `obededom` CHARACTER SET utf8 COLLATE utf8_bin ;*/
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -1655,4 +1552,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-06 21:57:24
+-- Dump completed on 2021-10-07 23:04:12
