@@ -50,7 +50,7 @@ function cargarOperaciones(){
     var selectOperaciones = document.getElementById('selectOperaciones');
     for (var i = 0; i < arrayOperaciones.length; i = i+2){
         var opt = document.createElement('option');
-        opt.value = arrayOperaciones[i];
+        opt.value = arrayOperaciones[i+1];
         opt.text = arrayOperaciones[i+1];
         selectOperaciones.appendChild(opt);
     }
@@ -62,7 +62,7 @@ function cargarTipoPropiedad(){
     var selectTipoPropiedad = document.getElementById('selectTipoPropiedad');
     for (var i = 0; i < arrayTipoPropiedad.length; i = i+2){
         var opt = document.createElement('option');
-        opt.value = arrayTipoPropiedad[i];
+        opt.value = arrayTipoPropiedad[i+1];
         opt.text = arrayTipoPropiedad[i+1];
         selectTipoPropiedad.appendChild(opt);
     }
@@ -91,7 +91,7 @@ function cargarLocalidad(idDepartamento){
         //crea un elemento option
         var opt = document.createElement('option');
         //le agrega el id de la localidad al value
-        opt.value = arrayLocalidades[i];
+        opt.value = arrayLocalidades[i+1];
         //le agrega el nombre de la localidad al option
         opt.text = arrayLocalidades[i+1];
         //agrega el elemento al elemento con la id selectLocalidades
@@ -107,7 +107,7 @@ function cargarDormitorios(){
             //crea un elemento option
             var opt = document.createElement('option');
             //le agrega el id de la localidad al value
-            opt.value = arrayDormitorios[i];
+            opt.value = arrayDormitorios[i+1];
             //le agrega el nombre de la localidad al option
             opt.text = arrayDormitorios[i+1];
             //agrega el elemento al elemento con la id selectLocalidades
@@ -116,7 +116,7 @@ function cargarDormitorios(){
     //crea el ultimo elemento con un simbolo de más
     var opt = document.createElement('option');
     opt.value = arrayDormitorios.at(-2);
-    opt.text = arrayDormitorios.at(-1) + "+";
+    opt.text = arrayDormitorios.at(-2) + "+";
     selectDormitorios.appendChild(opt);
 }
 
@@ -128,7 +128,7 @@ function cargarBaños(){
         //crea un elemento option
         var opt = document.createElement('option');
         //le agrega el id de la localidad al value
-        opt.value = arrayBaños[i];
+        opt.value = arrayBaños[i+1];
         //le agrega el nombre de la localidad al option
         opt.text = arrayBaños[i+1];
         //agrega el elemento al elemento con la id selectLocalidades
@@ -137,7 +137,7 @@ function cargarBaños(){
     //crea el ultimo elemento con un simbolo de más
     var opt = document.createElement('option');
     opt.value = arrayBaños.at(-2);
-    opt.text = arrayBaños.at(-1) + "+";
+    opt.text = arrayBaños.at(-2) + "+";
     selectBaños.appendChild(opt);
 }
 
@@ -149,7 +149,7 @@ function cargarGarages(){
         //crea un elemento option
         var opt = document.createElement('option');
         //le agrega el id de la localidad al value
-        opt.value = arrayGarages[i];
+        opt.value = arrayGarages[i+1];
         //le agrega el nombre de la localidad al option
         opt.text = arrayGarages[i+1];
         //agrega el elemento al elemento con la id selectLocalidades
@@ -158,7 +158,7 @@ function cargarGarages(){
     //crea el ultimo elemento con un simbolo de más
     var opt = document.createElement('option');
     opt.value = arrayGarages.at(-2);
-    opt.text = arrayGarages.at(-1) + "+";
+    opt.text = arrayGarages.at(-2) + "+";
     selectGarages.appendChild(opt);
 }
 
@@ -174,7 +174,7 @@ function cargarDistanciamar(){
         //crea un elemento option
         var opt = document.createElement('option');
         //le agrega el id de la localidad al value
-        opt.value = arrayDistanciamar[i];
+        opt.value = arrayDistanciamar[i+1];
         //le agrega el nombre de la localidad al option
         opt.text = "<" + arrayDistanciamar[i+1];
         //agrega el elemento al elemento con la id selectLocalidades
@@ -190,7 +190,7 @@ function cargarSobre(){
         //crea un elemento option
         var opt = document.createElement('option');
         //le agrega el id de la localidad al value
-        opt.value = arraySobre[i];
+        opt.value = arraySobre[i+1];
         //le agrega el nombre de la localidad al option
         opt.text = arraySobre[i+1];
         //agrega el elemento al elemento con la id selectLocalidades
@@ -206,7 +206,7 @@ function cargarEstado(){
         //crea un elemento option
         var opt = document.createElement('option');
         //le agrega el id de la localidad al value
-        opt.value = arrayEstado[i];
+        opt.value = arrayEstado[i+1];
         //le agrega el nombre de la localidad al option
         opt.text = arrayEstado[i+1];
         //agrega el elemento al elemento con la id selectLocalidades
@@ -222,7 +222,7 @@ function cargarPlantas(){
         //crea un elemento option
         var opt = document.createElement('option');
         //le agrega el id de la localidad al value
-        opt.value = arrayPlantas[i];
+        opt.value = arrayPlantas[i+1];
         //le agrega el nombre de la localidad al option
         opt.text = arrayPlantas[i+1];
         //agrega el elemento al elemento con la id selectLocalidades
@@ -231,7 +231,7 @@ function cargarPlantas(){
     //crea el ultimo elemento con un simbolo de más
     var opt = document.createElement('option');
     opt.value = arrayPlantas.at(-2);
-    opt.text = arrayPlantas.at(-1) + "+";
+    opt.text = arrayPlantas.at(-2) + "+";
     selectPlantas.appendChild(opt);
 }
 
@@ -251,7 +251,6 @@ function cargarSeguridad(){
 }
 
 function subirPropiedad(){
-    alert("hola")
     var comfortSeguridad;
     var mandarDatos = Backend;
     var arrayDatos = [];
@@ -269,7 +268,7 @@ function subirPropiedad(){
     var dormitorios = document.getElementById('selectDormitorios').value;
     var baños = document.getElementById('selectBaños').value;
     var garage = document.getElementById('selectGarages').value;
-    var permuta = document.querySelector('input[name="vistamar"]:checked').value;
+    var vistamar = document.querySelector('input[name="vistamar"]:checked').value;
     var distanciaMar = document.getElementById('selectDistanciamar').value;
     var metrosEdificados = document.getElementById('metrosEdificados').value;
     var metrosTerraza = document.getElementById('metrosTerraza').value;
@@ -282,7 +281,6 @@ function subirPropiedad(){
     var viviendaSocial = document.querySelector('input[name="viviendasocial"]:checked').value;
     var cantidadPlantas = document.getElementById('selectPlantas').value;
     if($('#checkboxcomfort').is(":checked") != true){
-        alert("true");
         var arrayComfort = []
         $("input:checkbox[name='comfort']:checked").each(function(){
             arrayComfort.push($(this).val());
@@ -302,7 +300,6 @@ function subirPropiedad(){
     var estado = 1;
     //comprueba que los selects no estén en la opcion default
     if ( [tipoOperacion, tipoPropiedad, departamento, localidad, dormitorios, baños, garage, distanciaMar, propiedadSobre, estadoPropiedad, disposicion, orientacion, cantidadPlantas].indexOf("0") < 0 ) {
-        alert("hola");
         //comprueba que los otros campos no estén vacios
         if ([tituloPropiedad, precioVenta, direccion, fechaConstruccion, metrosEdificados, metrosTerraza, metrosTerreno].indexOf("") < 0){
             //comprueba que las garantias y la descripción tengan algo.
@@ -313,6 +310,8 @@ function subirPropiedad(){
                         alert("debe seleccionar al menos un elemento de comfort y seguridad. Si no tiene elementos, desactivelos.")
                     }else{
                         alert("viene acá si todo salió bien")
+                        alert(permuta)
+                        alert(financia)
                         arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
                             fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
                              cantidadPlantas, extras, garantias, descripcion, estado, arrayComfort, arraySeguridad];
@@ -339,7 +338,6 @@ function subirPropiedad(){
 }
 
 function subirBorrador(){
-    alert("hola")
     var comfortSeguridad;
     var mandarDatos = Backend;
     var arrayDatos = [];
