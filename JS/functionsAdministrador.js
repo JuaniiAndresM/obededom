@@ -86,7 +86,7 @@ function cargoNomencladores(){
   }
   divtipoPropiedad.innerHTML = contenttipoPropiedad;
 
-  //cargo localidades
+  //cargo departamentos
   var arrayDepartamentos = Administrador.traerDepartamentos();
   var selectDepartamentos = document.getElementById('selectDepartamentos');
   for (var i = 0; i < arrayDepartamentos.length; i = i+2){
