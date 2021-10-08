@@ -1,0 +1,102 @@
+$color1: #f7c70f;
+$color2: #91009d;
+
+.modal{
+    width: 100%;
+    height: 100vh;
+
+    position: fixed;
+    z-index: 100;
+
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: rgba(0, 0, 0, 0.199);
+
+    .modal-wrapper{
+        max-width: 450px;
+        width: 100%;
+
+        padding: 20px;
+
+        border-radius: 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        background-color: white;
+
+        transform: translateY(-100%);
+        animation: modal .3s linear forwards;
+
+        .modal-logo{
+            max-width: 100px;
+            width: 100%;
+        }
+        .modal-content{
+            margin: 10px;
+            text-align: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            h1{
+                color: $color2;
+                font-weight: 600;
+            }
+            hr{
+                width: 100%;
+                margin: 5px auto;
+                border: 1px solid $color2;
+            }
+            p{
+                color: #444;
+            }
+
+            a{
+                width: 100px;
+                height: 35px;
+
+                margin-top: 10px;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                background-color: $color2;
+                color: white;
+                border-radius: 10px;
+
+                cursor: pointer;
+
+                transition: .3s;
+
+                i{
+                    margin-right: 5px;
+                }
+            }
+            a:hover{
+                background-color: #6d0077;
+            }
+        }
+    }
+}
+
+@keyframes modal {
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+    
+}

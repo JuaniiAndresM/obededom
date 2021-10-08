@@ -3361,4 +3361,141 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 .login .login-wrapper form input[type="submit"]:hover {
   background-color: #6d0077;
 }
+
+.modal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.199);
+}
+
+.modal .modal-wrapper {
+  max-width: 450px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-animation: modal .3s linear forwards;
+          animation: modal .3s linear forwards;
+}
+
+.modal .modal-wrapper .modal-logo {
+  max-width: 100px;
+  width: 100%;
+}
+
+.modal .modal-wrapper .modal-content {
+  margin: 10px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.modal .modal-wrapper .modal-content h1 {
+  color: #91009d;
+  font-weight: 600;
+}
+
+.modal .modal-wrapper .modal-content hr {
+  width: 100%;
+  margin: 5px auto;
+  border: 1px solid #91009d;
+}
+
+.modal .modal-wrapper .modal-content p {
+  color: #444;
+}
+
+.modal .modal-wrapper .modal-content a {
+  width: 100px;
+  height: 35px;
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #91009d;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.modal .modal-wrapper .modal-content a i {
+  margin-right: 5px;
+}
+
+.modal .modal-wrapper .modal-content a:hover {
+  background-color: #6d0077;
+}
+
+@-webkit-keyframes modal {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes modal {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
 /*# sourceMappingURL=styles.css.map */
