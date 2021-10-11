@@ -267,8 +267,8 @@ public function GuardarPropiedad($arrayJSON){
     $arrayDatos = json_decode($arrayJSON);
      include "../Database/server.php";
      $sentencia = '';
-   if ($sentencia = $mysqli->prepare("CALL CrearPropiedad(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);")) {  
-    $sentencia->bind_param('ssiiissssiiiisiissssiiiisssi',$arrayDatos[0],$arrayDatos[1],$arrayDatos[2],$arrayDatos[3],$arrayDatos[4],$arrayDatos[5],$arrayDatos[6],$arrayDatos[7],$arrayDatos[8],$arrayDatos[9],$arrayDatos[10],$arrayDatos[11],$arrayDatos[12],$arrayDatos[13],$arrayDatos[14],$arrayDatos[15],$arrayDatos[16],$arrayDatos[17],$arrayDatos[18],$arrayDatos[19],$arrayDatos[20],$arrayDatos[21],$arrayDatos[22],$arrayDatos[23],$arrayDatos[24],$arrayDatos[25],$arrayDatos[26], $arrayDatos[27]); 
+   if ($sentencia = $mysqli->prepare("CALL CrearPropiedad(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);")) {  
+    $sentencia->bind_param('ssiiissssiiiisiissssiiiisssiii',$arrayDatos[0],$arrayDatos[1],$arrayDatos[2],$arrayDatos[3],$arrayDatos[4],$arrayDatos[5],$arrayDatos[6],$arrayDatos[7],$arrayDatos[8],$arrayDatos[9],$arrayDatos[10],$arrayDatos[11],$arrayDatos[12],$arrayDatos[13],$arrayDatos[14],$arrayDatos[15],$arrayDatos[16],$arrayDatos[17],$arrayDatos[18],$arrayDatos[19],$arrayDatos[20],$arrayDatos[21],$arrayDatos[22],$arrayDatos[23],$arrayDatos[24],$arrayDatos[25],$arrayDatos[26], $arrayDatos[27], $arrayDatos[28], $arrayDatos[29]); 
         if($sentencia->execute()) {
             $sentencia->bind_result($id);
             if($sentencia->fetch()){
