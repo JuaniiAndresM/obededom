@@ -34,6 +34,11 @@ $(document).ready(function () {
     crearNomenclador(this.id)
   });
 
+  $('.propiedad-wrapper').on('click', '.propiedad .borrarPropiedad', function(event){
+    alert("entró al boton xd" + this.id)
+    eliminarPropiedad(this.id);
+  });
+
   $('#buscador').on('keyup', function() {
     buscador(this.value);
   });
@@ -147,7 +152,7 @@ function cargoPropiedades(){
                         </div>
                         <div class="buttons">
                           <button class="editar" id=`+ propiedades[i] +`><i class="fas fa-edit"></i></button>
-                          <button class="borrar" id=`+ propiedades[i] +`><i class="fas fa-trash-alt"></i></button>
+                          <button class="borrarPropiedad" id=`+ propiedades[i] +`><i class="fas fa-trash-alt"></i></button>
                         </div>
                       </div>`
     }else{
@@ -176,7 +181,7 @@ function cargoPropiedades(){
                           <div class="buttons">
                             <button class="habilitar" id=`+ propiedades[i] +`><i class="fas fa-check-circle"></i></button>
                             <button class="editar" id=`+ propiedades[i] +`><i class="fas fa-edit"></i></button>
-                            <button class="borrar" id=`+ propiedades[i] +`><i class="fas fa-trash-alt"></i></button>
+                            <button class="borrarPropiedad" id=`+ propiedades[i] +`><i class="fas fa-trash-alt"></i></button>
                           </div>
                           
                         </div>`
@@ -606,4 +611,10 @@ function crearNomenclador(nomenclador){
       alert("no se como pero rompiste los id")
       break;
   }
+}
+
+function eliminarPropiedad(idPropiedad){
+  Administrador.eliminarPropiedad(idPropiedad);
+  modal("propiedadEliminada")
+  cargoPropiedades();
 }

@@ -315,5 +315,17 @@ class AdministradorObj {
           data: { accion: 13, tipoNomenclador: tipoNomenclador, idNomenclador: idNomenclador},
         });
       }
+
+      eliminarPropiedad(idPropiedad) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 14, idPropiedad: idPropiedad},
+          success: function (data) {
+            console.log("error de eliminar propiedades: " + data)
+          },
+        });
+      }
       
 }
