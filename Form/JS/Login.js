@@ -20,7 +20,7 @@ function login(){
       console.log(log);
       
       if(log == 1){
-          location.href = "/obededom/HTML/Administrador.php";
+          location.href = "/obededom/Administrador";
       }else{
         var numero_mensaje = "LoginIncorrecto";
 

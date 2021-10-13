@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['Usuario'])){
-    header('Location: /obededom/HTML/Administrador.php');
+    header('Location: /obededom/Administrador');
 }
 ?>
 

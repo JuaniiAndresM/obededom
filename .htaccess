@@ -1,0 +1,17 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+RewriteRule ^Login /obededom/Form/Login.php
+RewriteRule ^Administrador /obededom/HTML/Administrador.php
+RewriteRule ^Nueva_Propiedad /obededom/HTML/Backend
+RewriteRule ^Propiedad /obededom/HTML/Propiedad
+RewriteRule ^Buscar /obededom/HTML/Buscador
+
+ErrorDocument 404 /obededom/Error/404.html
+ErrorDocument 403 /obededom/Error/403.html
+Options All -Indexes
