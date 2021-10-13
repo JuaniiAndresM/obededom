@@ -4,11 +4,11 @@ class  DatosAdministrador{
         $arrayPropiedades=array();
         include "../Database/server.php";
         $sentencia = '';
-        if ($sentencia = $mysqli->prepare("CALL TraigoPropiedadesAdmin();")) {   
+        if ($sentencia = $mysqli->prepare("CALL TraigoPropiedades();")) {   
           if ($sentencia->execute()) {    
-              $sentencia->bind_result($id_tipooperacion,$tipo_operacion);
+              $sentencia->bind_result($id_propiedad,$titulo,$tipo_operacion,$precio_venta,$permuta,$financia,$tipo_propiedad,$departamento,$localidad,$direccion,$fecha_construccion,$dormitorios,$baños,$garage,$estado,$oficina,$vivienda_social,$disposicion,$orientacion,$sobre,$distancia_mar,$metros_edificados,$metros_terraza,$metros_terreno,$plantas,$extras,$garantias,$descripcion_propiedad,$activo,$vista_mar,$mostrar_precio);
                    while ($sentencia->fetch()) {
-                       array_push($arrayPropiedades,$id_tipooperacion,$tipo_operacion);   
+                       array_push($arrayPropiedades,$id_propiedad,$titulo,$tipo_operacion,$precio_venta,$permuta,$financia,$tipo_propiedad,$departamento,$localidad,$direccion,$fecha_construccion,$dormitorios,$baños,$garage,$estado,$oficina,$vivienda_social,$disposicion,$orientacion,$sobre,$distancia_mar,$metros_edificados,$metros_terraza,$metros_terreno,$plantas,$extras,$garantias,$descripcion_propiedad,$activo,$vista_mar,$mostrar_precio);   
                    }
                }else{
                    throw new Exception('Error en prepare: ' . $mysqli->error);
@@ -166,6 +166,56 @@ class  DatosAdministrador{
         $sentencia = '';
         if ($sentencia = $mysqli->prepare("CALL InsertSeguridad(?);")) {
             $sentencia->bind_param('s', $nuevoSeguridad);
+            if ($sentencia->execute()) {
+                echo "Funciona";
+            }
+        } else {
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+    }
+
+    //crea un nuevo tipo de seguridad
+    public function EliminarNomenclador($tipoNomenclador, $idNomenclador){
+        include "../Database/server.php";
+        $sentencia = '';
+        $sentenciaNomenclador = '';
+        switch($tipoNomenclador){
+            case 1: 
+                $sentenciaNomenclador = "CALL EliminarTipoPropiedad(?);";
+            break;
+            case 2:
+                $sentenciaNomenclador = "CALL EliminarDormitorios(?);";
+            break;
+            case 3:
+                $sentenciaNomenclador = "CALL EliminarBanios(?);";
+            break;
+            case 4:
+                $sentenciaNomenclador = "CALL EliminarGarage(?);";
+            break;
+            case 5:
+                $sentenciaNomenclador = "CALL EliminarEstados(?);";
+            break;
+            case 6:
+                $sentenciaNomenclador = "CALL EliminarSobre(?);";
+            break;
+            case 7:
+                $sentenciaNomenclador = "CALL EliminarDistanciaMar(?);";
+            break;
+            case 8:
+                $sentenciaNomenclador = "CALL EliminarPlantas(?);";
+            break;
+            case 9:
+                $sentenciaNomenclador = "CALL EliminarComfort(?);";
+            break;
+            case 10:
+                $sentenciaNomenclador = "CALL EliminarSeguridad(?);";
+            break;
+            case 11:
+                $sentenciaNomenclador = "CALL EliminarLocalidad(?);";
+            break;
+        }
+        if ($sentencia = $mysqli->prepare($sentenciaNomenclador)) {
+            $sentencia->bind_param('i', $idNomenclador);
             if ($sentencia->execute()) {
                 echo "Funciona";
             }

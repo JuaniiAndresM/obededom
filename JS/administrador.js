@@ -1,4 +1,19 @@
 class AdministradorObj {
+
+  traerPropiedades() {
+    var Propiedades = [];
+    $.ajax({
+      type: "POST",
+      async: false,
+      url: "../PHP/administrador.php",
+      data: { accion: 1 },
+      dataType: 'json',
+      success: function (data) {
+        Propiedades = data;
+      },
+    });
+    return Propiedades;
+  }
     //Trae los tipos de propiedad
     traerTiposPropiedad() {
         var TiposPropiedad = [];
@@ -289,6 +304,15 @@ class AdministradorObj {
           async: false,
           url: "../PHP/administrador.php",
           data: { accion: 12, nuevaSeguridad: nuevaSeguridad},
+        });
+      }
+
+      eliminarNomenclador(tipoNomenclador, idNomenclador) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 13, tipoNomenclador: tipoNomenclador, idNomenclador: idNomenclador},
         });
       }
       

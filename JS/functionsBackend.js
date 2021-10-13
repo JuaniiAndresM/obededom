@@ -312,30 +312,31 @@ function subirPropiedad(){
                 //verifica si seleccionó garantías o no
                 if(comfortSeguridad != ""){
                     if( arrayComfort.length == 0 && arraySeguridad.length == 0){
-                        alert("debe seleccionar al menos un elemento de comfort y seguridad. Si no tiene elementos, desactivelos.")
+                        modal(4);
                     }else{
-                        alert("viene acá si todo salió bien")
                         arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
                             fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
                              cantidadPlantas, extras, garantias, descripcion, estado, arrayComfort, arraySeguridad, mostrarPrecio, vistamar];
                              console.log
                         mandarDatos.guardarPropiedad(JSON.stringify(arrayDatos));
+                        modal(5);
                     }
                 }else{
-                    alert("viene acá si está todo bien y no seleccionó comfort")
                     arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
                         fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
                          cantidadPlantas, extras, garantias, descripcion, estado];
                     mandarDatos.guardarPropiedad(JSON.stringify(arrayDatos));
+                    modal(5);
                 }
             }else{
-                alert("debe agregar descripción de la propiedad y garantías")
+                modal(3);
             }
         }else{
-            alert("debe completar todos los campos")
+            modal(2);
         }
     }else{
-        alert("debe completar todas las opciones seleccionables")
+        modal(1);
+
     }
     
 }

@@ -19,6 +19,7 @@
     ></script>
 
     <script src="../JS/web.js"></script>
+    <script src="../JS/modal.js"></script>
     <script src="../JS/backend.js"></script>
     <script src="../JS/administrador.js"></script>
     <script src="../JS/functionsAdministrador.js"></script>
@@ -26,6 +27,7 @@
     <title>Obed-Edom | Administrador</title>
   </head>
   <body>
+    <div class="modal"></div>
     <header class="header-admin">
       <div class="header-wrapper-admin">
         <button onclick="desplegar()" class="sidebar-button">
@@ -115,39 +117,37 @@
         <h1 class="title"><i class="fas fa-home"></i> Propiedades</h1>
         <div class="buscador">
           <i class="fas fa-search"></i>
-          <input class="buscar" type="text" placeholder="Buscar" />
+          <input class="buscar" id="buscador" type="text" placeholder="Buscar" />
         </div>
         <div class="filtros">
           <div class="select">
             <p>Estado: </p>
-            <select name="activo">
+            <select id="filtroEstado" name="activo">
               <option value="0" selected>Todos</option>
               <option value="1">Activo</option>
               <option value="2">Inactivo</option>
             </select>
           </div>
-          <div class="select">
+          <div  class="select">
             <p>Tipo de Propiedad: </p>
-            <select name="activo">
+            <select id="filtroTipo" name="activo">
               <option value="0" selected>Todos</option>
               <option value="1">Activo</option>
               <option value="2">Inactivo</option>
             </select>
           </div>
-          <div class="select">
+          <div  class="select">
             <p>Departamento: </p>
-            <select name="activo">
+            <select id="filtroDepartamento" name="activo">
               <option value="0" selected>Todos</option>
               <option value="1">Activo</option>
               <option value="2">Inactivo</option>
             </select>
           </div>
-          <div class="select">
+          <div  class="select">
             <p>Localidad: </p>
-            <select name="activo">
-              <option value="0" selected>Todos</option>
-              <option value="1">Activo</option>
-              <option value="2">Inactivo</option>
+            <select id="filtroLocalidad" name="activo">
+              <option value="0" selected>Seleccione un Departamento</option>
             </select>
           </div>
         </div>
@@ -155,7 +155,7 @@
           <a href="/obededom/HTML/backend.html"><i class="fas fa-plus-circle"></i> Crear Propiedad</a>
         </div>
 
-        <div class="propiedad-wrapper">
+        <div class="propiedad-wrapper" id="seccionPropiedades">
 
 
           <div class="propiedad">
@@ -173,18 +173,18 @@
               </div>
 
               <div class="direccion">
-                <p><i class="fas fa-map-marker-alt"></i> Lorem ipsum dolor sit amet, El Pinar, Canelones</p>
+                <p><i class="fas fa-map-marker-alt"></i> Lorem ipsum dolor sit amet, <span id="localidad">El Pinar</span>, <span id="departamento">Canelones</span></p>
               </div>
               <div class="precio">
                 <hr>
-                <p>U$S 26.000</p>
+                <p>U$S <span id="precioDolares">26.000</span></p>
               </div>
               
             </div>
             
             <div class="buttons">
-              <button><i class="fas fa-edit"></i></button>
-              <button><i class="fas fa-trash-alt"></i></button>
+              <button class="editar" id=""><i class="fas fa-edit"></i></button>
+              <button class="borrar" id=""><i class="fas fa-trash-alt"></i></button>
             </div>
           </div>
 

@@ -39,6 +39,9 @@ switch ($_POST["accion"]) {
     case 12:
         echo json_encode($llamarFunction->CrearSeguridad($_POST["nuevaSeguridad"]));
     break;
+    case 13:
+        echo json_encode($llamarFunction->EliminarNomenclador($_POST["tipoNomenclador"], $_POST["idNomenclador"]));
+    break;
 
 }
 ?>

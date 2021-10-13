@@ -188,7 +188,7 @@ public function TraerEstado(){
      include "../Database/server.php";
      $sentencia = '';
    if ($sentencia = $mysqli->prepare("CALL TraigoEstados();")) {   
-       if ($sentencia->execute()) {    
+       if ($sentencia->execute()) {
            $sentencia->bind_result($id_estados, $tipo_estados);
                 while ($sentencia->fetch()) {
                     array_push($arrayEstados,$id_estados,$tipo_estados);   
