@@ -42,6 +42,9 @@ switch ($_POST["accion"]) {
     case 13:
         echo json_encode($llamarFunction->EliminarNomenclador($_POST["tipoNomenclador"], $_POST["idNomenclador"]));
     break;
+    case 14:
+        echo json_encode($llamarFunction->EliminarPropiedad($_POST["idPropiedad"]));
+    break;
 
 }
 ?>

@@ -223,5 +223,21 @@ class  DatosAdministrador{
             throw new Exception('Error en prepare: ' . $mysqli->error);
         }
     }
+
+        //crea un nuevo tipo de seguridad
+        public function EliminarPropiedad($idPropiedad){
+            include "../Database/server.php";
+            $sentencia = '';
+            if ($sentencia = $mysqli->prepare("CALL EliminarPropiedad(?);")) {
+                $sentencia->bind_param('i', $idPropiedad);
+                if ($sentencia->execute()) {
+                    echo "Funciona";
+                }else{
+                    throw new Exception('Error en prepare: ' . $mysqli->error);
+                }
+            } else {
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }
 }
 ?>
