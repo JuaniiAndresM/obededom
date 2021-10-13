@@ -54,7 +54,7 @@ $color2: #91009d;
       text-align: center;
     }
 
-    form {
+    .form {
       width: 90%;
       display: flex;
       justify-content: center;
@@ -87,7 +87,7 @@ $color2: #91009d;
         border-radius: 12px;
         outline: none;
       }
-      input[type="submit"] {
+      button{
         margin-top: 20px;
         background-color: $color2;
         color: white;
@@ -97,7 +97,7 @@ $color2: #91009d;
 
         transition: 0.3s;
       }
-      input[type="submit"]:hover {
+      button:hover {
         background-color: #6d0077;
       }
     }

@@ -618,3 +618,10 @@ function eliminarPropiedad(idPropiedad){
   modal("propiedadEliminada")
   cargoPropiedades();
 }
+
+function cerrarSesion(){
+  let user = new Usuario();
+  user.cerrarsesion();
+
+  location.reload();
+}

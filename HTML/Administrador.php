@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['Usuario'])){
+    header('Location: /obededom/Form/Login.php');
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,6 +31,7 @@
     <script src="../JS/backend.js"></script>
     <script src="../JS/administrador.js"></script>
     <script src="../JS/functionsAdministrador.js"></script>
+    <script src="../Form/JS/Usuario.js"></script>
 
     <title>Obed-Edom | Administrador</title>
   </head>
@@ -74,7 +83,7 @@
             <p>Administrador</p>
           </div>
         </div>
-        <button class="icon-exit">
+        <button onclick="cerrarSesion()" class="icon-exit">
           <i class="fas fa-sign-out-alt"></i>
           <p>Cerrar Sesión</p>
         </button>

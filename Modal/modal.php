@@ -50,6 +50,15 @@ switch($numero_mensaje){
     case "propiedadEliminada":
         $mensaje_1 = "Éxito!";
         $mensaje = "La propiedad fue borrada con éxito.";
+        
+    case "LoginCamposVacios":
+        $mensaje_1 = "Login:";
+        $mensaje = "Debe completar todos lo campos.";
+        break;
+
+    case "LoginIncorrecto":
+        $mensaje_1 = "Login:";
+        $mensaje = "El usuario o contraseña no es correcto.";
         break;
 }
 
