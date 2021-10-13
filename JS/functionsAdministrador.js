@@ -607,3 +607,10 @@ function crearNomenclador(nomenclador){
       break;
   }
 }
+
+function cerrarSesion(){
+  let user = new Usuario();
+  user.cerrarsesion();
+
+  location.reload();
+}

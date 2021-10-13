@@ -8,20 +8,24 @@ class Usuario{
             data: {usuario: usuario, pass: password},
             success: function(log){
                 var txt = log;
-                var est2 = JSON.parse(txt);
-
-                if(est2.error == true){
-                    x = false;
-                }else{
-                    sessionStorage.setItem("usuario", est2.usuario);
-                    sessionStorage.setItem("tipo", est2.tipo);
-                    x = true;
-                }
+                
+                x = txt;
+                console.log(txt);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) { 
                 alert("Status: " + textStatus); alert("Error: " + errorThrown); 
             }   
         });
         return x;
+    }
+    cerrarsesion(){
+        $.ajax({
+            async: false,
+            type: "POST",
+            url: "/obededom/Form/PHP/CerrarSesion.php",
+            success: function(log){
+                
+            } 
+        });
     }
 }

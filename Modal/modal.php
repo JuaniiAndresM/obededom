@@ -50,6 +50,12 @@ switch($numero_mensaje){
     case "LoginCamposVacios":
         $mensaje_1 = "Login:";
         $mensaje = "Debe completar todos lo campos.";
+        break;
+
+    case "LoginIncorrecto":
+        $mensaje_1 = "Login:";
+        $mensaje = "El usuario o contraseña no es correcto.";
+        break;
 }
 
 

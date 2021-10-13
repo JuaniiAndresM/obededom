@@ -16,18 +16,21 @@ function login(){
     }else{
       let user = new Usuario();
       var log = user.login(usuario, password);
+
+      console.log(log);
       
-        if(log == true){
-          location.href = "/ChessUY/Inicio";
+      if(log == 1){
+          location.href = "/obededom/HTML/Administrador.php";
       }else{
-        var numero_mensaje = 1;
+        var numero_mensaje = "LoginIncorrecto";
 
         $.ajax({
-          url: "/ChessUY/Modal/modal.php",
+          url: "/obededom/Modal/modal.php",
           type: "POST",
           data: { numero_mensaje: numero_mensaje},
           success: function (data) {
               document.getElementById("modal").innerHTML = data;
+              $(".modal").css('display','flex');
           }
       });
       }

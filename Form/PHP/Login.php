@@ -1,14 +1,16 @@
 <?php
-include '../../Database/server.php';
-$server= new servidor();
+include '../../PHP/procedimientosForm.php';
+$login= new Login();
 
 $log = array();
+
 if(isset($_POST['usuario'])){
     $user = $_POST["usuario"];
     $pwd = $_POST["pass"];
-    echo json_encode($server->login($user, $pwd)); 
+
+    echo $login->login($user, $pwd); 
 }else{
     $log = array('error'=> true);
-    echo json_encode($log);
+    echo "Result: " + json_encode($log);
 }
 ?>
