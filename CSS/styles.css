@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -3308,7 +3309,7 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
   text-align: center;
 }
 
-.login .login-wrapper form {
+.login .login-wrapper .form {
   width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3323,18 +3324,18 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
   margin-top: 10px;
 }
 
-.login .login-wrapper form .input {
+.login .login-wrapper .form .input {
   position: relative;
 }
 
-.login .login-wrapper form .input i {
+.login .login-wrapper .form .input i {
   position: absolute;
   top: calc(50% - 8px);
   left: 10px;
   color: #91009d;
 }
 
-.login .login-wrapper form input {
+.login .login-wrapper .form input {
   width: 100%;
   height: 35px;
   margin: 5px 0;
@@ -3347,7 +3348,7 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
   outline: none;
 }
 
-.login .login-wrapper form input[type="submit"] {
+.login .login-wrapper .form button {
   margin-top: 20px;
   background-color: #91009d;
   color: white;
@@ -3358,7 +3359,7 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
   transition: 0.3s;
 }
 
-.login .login-wrapper form input[type="submit"]:hover {
+.login .login-wrapper .form button:hover {
   background-color: #6d0077;
 }
 

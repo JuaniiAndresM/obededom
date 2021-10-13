@@ -47,6 +47,9 @@ switch($numero_mensaje){
         $mensaje_1 = "Error:";
         $mensaje = "El valor del nomenclador ingresado no puede superar los 45 caracteres.";
         break;
+    case "LoginCamposVacios":
+        $mensaje_1 = "Login:";
+        $mensaje = "Debe completar todos lo campos.";
 }
 
 
