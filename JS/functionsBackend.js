@@ -258,6 +258,11 @@ function subirPropiedad(){
     var tipoOperacion = document.getElementById('selectOperaciones').value;
     var precioVenta = document.getElementById('precioDolares').value;
     var mostrarPrecio = $('#mostrarPrecio').is(":checked");
+    if(mostrarPrecio = true){
+        mostrarPrecio = 1
+    }else{
+        mostrarPrecio = 0
+    }
     var permuta = document.querySelector('input[name="permuta"]:checked').value;
     var financia = document.querySelector('input[name="financia"]:checked').value;
     var tipoPropiedad = document.getElementById('selectTipoPropiedad').value;
@@ -310,11 +315,9 @@ function subirPropiedad(){
                         alert("debe seleccionar al menos un elemento de comfort y seguridad. Si no tiene elementos, desactivelos.")
                     }else{
                         alert("viene acá si todo salió bien")
-                        alert(permuta)
-                        alert(financia)
                         arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
                             fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
-                             cantidadPlantas, extras, garantias, descripcion, estado, arrayComfort, arraySeguridad];
+                             cantidadPlantas, extras, garantias, descripcion, estado, arrayComfort, arraySeguridad, mostrarPrecio, vistamar];
                              console.log
                         mandarDatos.guardarPropiedad(JSON.stringify(arrayDatos));
                     }
