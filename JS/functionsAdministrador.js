@@ -12,19 +12,17 @@ $(document).ready(function () {
   });
   
   //filtros
-  $('#filtroEstado').on('change', function() {
+  $('.filtro').on('change', function(e) {
     if(this.value == -1){
       $('.propiedad').filter(':not(.'+ this.value +')').show()
+      if(this.id = 'filtroDepartamento'){
+        $("#filtroLocalidad").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Seleccione un Departamento.'));
+      }
     }else{
-      $('.propiedad').show().filter(':not(.'+ this.value +')').hide();
-    }
-  });
-
-  $('#filtroTipo').on('change', function() {
-    if(this.value == -1){
-      $('.propiedad').filter(':not(.'+ this.value +')').show()
-    }else{
-      $('.propiedad').show().filter(':not(.'+ this.value +')').hide();
+      $('.propiedad').filter(':not(.'+ this.value +')').hide();
+      if(this.id = 'filtroDepartamento'){
+        cargarFiltroLocalidad(e.target.options[e.target.selectedIndex].getAttribute('id'));
+      }
     }
   });
 
@@ -124,7 +122,7 @@ function cargoPropiedades(){
     //comprueba el estado de la propiedad
     if(propiedades[i+28] == 1){
       departamento = comprueboDepartamento(propiedades[i+7]);
-      nuevaPropiedad = `<div class='propiedad `+ propiedades[i+28] +` `+ propiedades[i+6].split(" ").join("") + ` `+ propiedades[i+14].split(" ").join("") +` `+ departamento.split(" ").join("") +`' >
+      nuevaPropiedad = `<div class='propiedad `+ propiedades[i+28] +` `+ propiedades[i+6].split(" ").join("") + ` `+ propiedades[i+8].split(" ").join("") +` `+ departamento.split(" ").join("") +`' >
                         <div class='estado'>
                           <p><i class="fas fa-check-circle"></i> Activo</p>
                         </div>
@@ -154,7 +152,7 @@ function cargoPropiedades(){
                       </div>`
     }else{
       departamento = comprueboDepartamento(propiedades[i+7]);
-      nuevaPropiedad = `<div class='propiedad `+ propiedades[i+28] +` `+ propiedades[i+6].split(" ").join("") +` `+ propiedades[i+14].split(" ").join("") +` `+ departamento.split(" ").join("") +`'>
+      nuevaPropiedad = `<div class='propiedad `+ propiedades[i+28] +` `+ propiedades[i+6].split(" ").join("") +` `+ propiedades[i+8].split(" ").join("") +` `+ departamento.split(" ").join("") +`'>
                         <div class='estado inactivo'>
                           <p><i class="fas fa-times-circle"></i> Inactivo</p>
                         </div>
@@ -188,20 +186,6 @@ function cargoPropiedades(){
 }
 
 function cargoFiltros(){
-  //carga los estados
-  var arrayEstado = Backend.traerEstados();
-  var selectEstado = document.getElementById('filtroEstado');
-  $("#filtroEstado").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Todos'));
-  for (var i = 0; i < arrayEstado.length; i = i+2){
-      //crea un elemento option
-      var opt = document.createElement('option');
-      //le agrega el id de la localidad al value
-      opt.value = arrayEstado[i+1].split(" ").join("");
-      //le agrega el nombre de la localidad al option
-      opt.text = arrayEstado[i+1];
-      //agrega el elemento al elemento con la id selectLocalidades
-      selectEstado.appendChild(opt);
-    }
   //carga los tipos de propiedad
   var arrayTipoPropiedad = Backend.traerTiposPropiedad();
   $("#filtroTipo").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Todos'));
@@ -226,6 +210,23 @@ function cargoFiltros(){
       opt.text = arrayDepartamentos[i+1];
       //agrega el elemento al elemento con la id selectDepartamento
       selectDepartamentos.appendChild(opt);
+  }
+}
+
+function cargarFiltroLocalidad(idDepartamento){
+  var arrayLocalidades = Backend.traerLocalidades(idDepartamento);
+  var selectLocalidades;
+  selectLocalidades = document.getElementById('filtroLocalidad')
+  $("#filtroLocalidad").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Todos'));
+  for (var i = 0; i < arrayLocalidades.length; i = i+2){
+      //crea un elemento option
+      var opt = document.createElement('option');
+      //le agrega el id de la localidad al value
+      opt.value = arrayLocalidades[i+1].split(" ").join("");
+      //le agrega el nombre de la localidad al option
+      opt.text = arrayLocalidades[i+1];
+      //agrega el elemento al elemento con la id selectLocalidades
+      selectLocalidades.appendChild(opt);
   }
 }
 
