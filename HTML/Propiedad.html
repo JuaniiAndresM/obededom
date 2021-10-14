@@ -20,6 +20,10 @@
 
     <script src="/obededom/JS/web.js"></script>
     <script src="/obededom/JS/propiedad.js"></script>
+    <script src="/obededom/JS/modal.js"></script>
+    <script src="/obededom/JS/backend.js"></script>
+    <script src="/obededom/JS/administrador.js"></script>
+    <script src="/obededom/JS/functionsPropiedad.js"></script>
 
     <title>Obed-Edom | Propiedad</title>
   </head>
@@ -67,29 +71,29 @@
 
           <div class="propiedad-info">
             <div class="propiedad-head">
-              <h2>Titulo de la Propiedad</h2>
+              <h2 id="tituloPropiedad">Titulo de la Propiedad</h2>
               <div class="precio">
-                <h3>U$S 26.000</h3>
+                <h3>U$S <span id="precioVenta">26.000</span></h3>
               </div>
             </div>
             <div class="propiedad-body">
               <div class="location">
                 <i class="fas fa-map-marker-alt"></i>
-                <p>Canelones, Uruguay.</p>
+                <p><span id="departamentoInicio">Canelones</span>, Uruguay.</p>
               </div>
 
               <div class="prop-info">
                 <div class="info">
                   <i class="fas fa-bed"></i>
-                  <p>3</p>
+                  <p id="dormitoriosInicio">3</p>
                 </div>
                 <div class="info">
                   <i class="fas fa-bath"></i>
-                  <p>2</p>
+                  <p id="inodorosInicio">2</p>
                 </div>
                 <div class="info">
                   <i class="fas fa-ruler-combined"></i>
-                  <p>30 mts²</p>
+                  <p><span id="edificadosInicio">30</span> mts²</p>
                 </div>
               </div>
 
@@ -101,104 +105,104 @@
                   <div class="info">
                     <p>Tipo de Propiedad</p>
                     <div class="line"></div>
-                    <b>Apartamento</b>
+                    <b id="tipoPropiedad">Apartamento</b>
                   </div>
                   <div class="info">
                     <p>Estado</p>
                     <div class="line"></div>
-                    <b>Excelente estado</b>
+                    <b id="estado">Excelente estado</b>
                   </div>
                   <div class="info">
                     <p>Departamento</p>
                     <div class="line"></div>
-                    <b>Canelones</b>
+                    <b id="departamento">Canelones</b>
                   </div>
                   <div class="info">
                     <p>Localidad</p>
                     <div class="line"></div>
-                    <b>El Pinar</b>
+                    <b id="localidad">El Pinar</b>
                   </div>
                   <div class="info">
                     <p>Disposición</p>
                     <div class="line"></div>
-                    <b>Al Frente</b>
+                    <b id="disposicion">Al Frente</b>
                   </div>
                   <div class="info">
                     <p>Orientación</p>
                     <div class="line"></div>
-                    <b>Norte</b>
+                    <b id="orientacion">Norte</b>
                   </div>
                   <div class="info">
                     <p>Baños</p>
                     <div class="line"></div>
-                    <b>1</b>
+                    <b id="inodoros">1</b>
                   </div>
                   <div class="info">
                     <p>Habitaciones</p>
                     <div class="line"></div>
-                    <b>3</b>
+                    <b id="dormitorios">3</b>
                   </div>
                   <div class="info">
                     <p>Garajes</p>
                     <div class="line"></div>
-                    <b>2</b>
+                    <b id="garajes">2</b>
                   </div>
                   <div class="info">
                     <p>M² Edificados</p>
                     <div class="line"></div>
-                    <b>30 mts²</b>
+                    <b><span id="mEdificados">30</span> mts²</b>
                   </div>
                   <div class="info">
                     <p>M² de Terraza</p>
                     <div class="line"></div>
-                    <b>3 mts²</b>
+                    <b><span id="mTerraza">3</span> mts²</b>
                   </div>
                   <div class="info">
                     <p>M² del Terreno</p>
                     <div class="line"></div>
-                    <b>120 mts²</b>
+                    <b><span id="mTerreno">120</span> mts²</b>
                   </div>
                   <div class="info">
                     <p>Año de Construcción</p>
                     <div class="line"></div>
-                    <b>2012</b>
+                    <b id="fechaConstruccion">2012</b>
                   </div>
                   <div class="info">
                     <p>Plantas</p>
                     <div class="line"></div>
-                    <b>3</b>
+                    <b id="plantas">3</b>
                   </div>
                   <div class="info">
                     <p>Sobre</p>
                     <div class="line"></div>
-                    <b>Avenida</b>
+                    <b id="propiedadSobre">Avenida</b>
                   </div>
                   <div class="info">
                     <p>¿Apto para Oficina?</p>
                     <div class="line"></div>
-                    <b>Si</b>
+                    <b id="aptoOficina">Si</b>
                   </div>
                   <div class="info">
                     <p>Vivienda Social</p>
                     <div class="line"></div>
-                    <b>No</b>
+                    <b id="viviendaSocial">No</b>
                   </div>
                   <div class="info">
                     <p>¿Vista al Mar?</p>
                     <div class="line"></div>
-                    <b>Si</b>
+                    <b id="vistaMar">Si</b>
                   </div>
                   <div class="info">
                     <p>Distancia al Mar</p>
                     <div class="line"></div>
-                    <b>< 1km</b>
+                    <b ><  <span id="distanciaMar">1km</span></b>
                   </div>
                 </div>
 
                 <h2>Descripción de la Propiedad</h2>
                 <hr />
                 <div class="descripcion">
-                  <p>
+                  <p id="descripcion">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Tempora rerum, fugiat quos doloribus, pariatur ipsa cumque
                     exercitationem recusandae, nemo suscipit sint deleniti
@@ -211,7 +215,7 @@
                 <h2>Garantías</h2>
                 <hr />
                 <div class="descripcion">
-                  <p>ANDA, CGN Y SURA.</p>
+                  <p id="garantias">ANDA, CGN Y SURA.</p>
                 </div>
               </div>
             </div>

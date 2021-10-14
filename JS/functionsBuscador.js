@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
     //cargo propiedades
     cargoPropiedades()
@@ -15,9 +17,13 @@ $(document).ready(function () {
         }
         }
     });
+    //mando a propiedad especifica
+    $('.propiedades').on('click', '.card .card-content .precio .verPropiedad', function() {
+      sessionStorage.setItem("idPropiedad", this.id);
+      location.href = '../HTML/Propiedad.html';
+    });
 
 });
-
 function cargoPropiedades(){
     var propiedades = Administrador.traerPropiedades();
     var divPropiedades = document.getElementById("divPropiedades");
