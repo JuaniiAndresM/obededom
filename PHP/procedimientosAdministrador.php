@@ -224,12 +224,29 @@ class  DatosAdministrador{
         }
     }
 
-        //crea un nuevo tipo de seguridad
+        //elimina una propiedad
         public function EliminarPropiedad($idPropiedad){
             include "../Database/server.php";
             $sentencia = '';
             if ($sentencia = $mysqli->prepare("CALL EliminarPropiedad(?);")) {
                 $sentencia->bind_param('i', $idPropiedad);
+                if ($sentencia->execute()) {
+                    echo "Funciona";
+                }else{
+                    throw new Exception('Error en prepare: ' . $mysqli->error);
+                }
+            } else {
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }
+
+        //
+        public function HabilitarPropiedad($idPropiedad){
+            include "../Database/server.php";
+            $estado = 1;
+            $sentencia = '';
+            if ($sentencia = $mysqli->prepare("CALL CambiarEstado(?,?);")) {
+                $sentencia->bind_param('ii', $idPropiedad, $estado);
                 if ($sentencia->execute()) {
                     echo "Funciona";
                 }else{

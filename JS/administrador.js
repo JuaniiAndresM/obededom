@@ -322,8 +322,17 @@ class AdministradorObj {
           async: false,
           url: "../PHP/administrador.php",
           data: { accion: 14, idPropiedad: idPropiedad},
+        });
+      }
+
+      habilitarPropiedad(idPropiedad) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          data: { accion: 15, idPropiedad: idPropiedad},
           success: function (data) {
-            console.log("error de eliminar propiedades: " + data)
+            console.log("error habilitar: " + data)
           },
         });
       }

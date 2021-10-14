@@ -45,6 +45,9 @@ switch ($_POST["accion"]) {
     case 14:
         echo json_encode($llamarFunction->EliminarPropiedad($_POST["idPropiedad"]));
     break;
+    case 15:
+        echo json_encode($llamarFunction->HabilitarPropiedad($_POST["idPropiedad"]));
+    break;
 
 }
 ?>

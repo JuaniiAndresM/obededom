@@ -60,6 +60,10 @@ switch($numero_mensaje){
         $mensaje_1 = "Login:";
         $mensaje = "El usuario o contraseña no es correcto.";
         break;
+    case "propiedadHabilitada":
+        $mensaje_1 = "Éxito!";
+        $mensaje = "La propiedad se ha habilitado, ahora será visible para todo el público.";
+        break;
 }
 
 
