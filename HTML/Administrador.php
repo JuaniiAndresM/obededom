@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['Usuario'])){
-    header('Location: /obededom/Form/Login.php');
+    header('Location: /obededom/Login');
 }
 ?>
 
@@ -18,7 +18,7 @@ if(!isset($_SESSION['Usuario'])){
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css"
     />
-    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="stylesheet" href="/obededom/CSS/styles.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script
@@ -26,12 +26,12 @@ if(!isset($_SESSION['Usuario'])){
       crossorigin="anonymous"
     ></script>
 
-    <script src="../JS/web.js"></script>
-    <script src="../JS/modal.js"></script>
-    <script src="../JS/backend.js"></script>
-    <script src="../JS/administrador.js"></script>
-    <script src="../JS/functionsAdministrador.js"></script>
-    <script src="../Form/JS/Usuario.js"></script>
+    <script src="/obededom/JS/web.js"></script>
+    <script src="/obededom/JS/modal.js"></script>
+    <script src="/obededom/JS/backend.js"></script>
+    <script src="/obededom/JS/administrador.js"></script>
+    <script src="/obededom/JS/functionsAdministrador.js"></script>
+    <script src="/obededom/Form/JS/Usuario.js"></script>
 
     <title>Obed-Edom | Administrador</title>
   </head>
