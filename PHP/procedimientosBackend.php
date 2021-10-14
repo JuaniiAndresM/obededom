@@ -107,7 +107,7 @@ class  DatosBackend{
     $arrayBaños=array();
      include "../Database/server.php";
      $sentencia = '';
-   if ($sentencia = $mysqli->prepare("CALL TraigoBaños();")) {   
+   if ($sentencia = $mysqli->prepare("CALL TraigoBanios();")) {   
        if ($sentencia->execute()) {    
            $sentencia->bind_result($id_baños, $cantidad_baños);
                 while ($sentencia->fetch()) {

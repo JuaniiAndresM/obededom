@@ -258,7 +258,7 @@ function subirPropiedad(){
     var tipoOperacion = document.getElementById('selectOperaciones').value;
     var precioVenta = document.getElementById('precioDolares').value;
     var mostrarPrecio = $('#mostrarPrecio').is(":checked");
-    if(mostrarPrecio = true){
+    if(mostrarPrecio == true){
         mostrarPrecio = 1
     }else{
         mostrarPrecio = 0
@@ -324,7 +324,7 @@ function subirPropiedad(){
                 }else{
                     arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
                         fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
-                         cantidadPlantas, extras, garantias, descripcion, estado];
+                         cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar];
                     mandarDatos.guardarPropiedad(JSON.stringify(arrayDatos));
                     modal(5);
                 }
