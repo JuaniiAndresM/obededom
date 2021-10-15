@@ -6,7 +6,6 @@ $(document).ready(function () {
   $(".content-propiedades").hide();
   $(".content-nomencladores").hide();
   $(".content-mensajes").hide();
-
   $('#selectDepartamentos').on('change', function() {
     cargarLocalidad(this.value);
   });
