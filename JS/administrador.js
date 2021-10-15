@@ -331,10 +331,22 @@ class AdministradorObj {
           async: false,
           url: "../PHP/administrador.php",
           data: { accion: 15, idPropiedad: idPropiedad},
+        });
+      }
+
+      traerPropiedad(idPropiedad) {
+        var Propiedades = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "../PHP/administrador.php",
+          dataType: 'json',
+          data: { accion: 16, idPropiedad: idPropiedad},
           success: function (data) {
-            console.log("error habilitar: " + data)
+            Propiedades = data;
           },
         });
+        return Propiedades;
       }
       
 }

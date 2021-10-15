@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=UTF-8');
 include "procedimientosAdministrador.php";
 $llamarFunction = new DatosAdministrador();
 
@@ -47,6 +48,9 @@ switch ($_POST["accion"]) {
     break;
     case 15:
         echo json_encode($llamarFunction->HabilitarPropiedad($_POST["idPropiedad"]));
+    break;
+    case 16:
+        echo json_encode($llamarFunction->TraerPropiedad($_POST["idPropiedad"]));
     break;
 
 }
