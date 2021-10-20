@@ -4,17 +4,17 @@ class Usuario{
         $.ajax({
             async: false,
             type: "POST",
-            url: "/obededom/Form/PHP/Login.php",
+            url: "Form/PHP/Login.php",
             data: {usuario: usuario, pass: password},
             success: function(log){
                 var txt = log;
-                
                 x = txt;
-                console.log(txt);
             },
-            error: function(XMLHttpRequest, textStatus, errorThrown) { 
-                alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-            }   
+            error: function (request, error) {
+                console.log(arguments);
+                console.log(request.responseText);
+                console.log(error);
+            }
         });
         return x;
     }
@@ -22,7 +22,7 @@ class Usuario{
         $.ajax({
             async: false,
             type: "POST",
-            url: "/obededom/Form/PHP/CerrarSesion.php",
+            url: "Form/PHP/CerrarSesion.php",
             success: function(log){
                 
             } 

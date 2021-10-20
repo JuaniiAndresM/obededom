@@ -16,8 +16,6 @@ function login(){
     }else{
       let user = new Usuario();
       var log = user.login(usuario, password);
-
-      console.log(log);
       
       if(log == 1){
           location.href = "/obededom/Administrador";

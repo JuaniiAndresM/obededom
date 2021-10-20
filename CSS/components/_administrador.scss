@@ -427,6 +427,7 @@ $color2: #91009d;
 
         width: 100%;
         max-width: 300px;
+        min-height: 450px;
 
         margin: 10px;
         border-radius: 20px;
@@ -483,6 +484,11 @@ $color2: #91009d;
           margin: 20px;
           margin-top: 10px;
           text-align: center;
+          height: 180px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-direction: column;
 
           h2 {
             font-size: 1.1em;
@@ -856,6 +862,19 @@ $color2: #91009d;
         }
         input[type="submit"]:hover{
           background-color: #6c1774;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 770px) {
+  .admin-panel {
+    .content-propiedades {
+      .filtros{
+        .select{
+          width: 100%;
+
         }
       }
     }

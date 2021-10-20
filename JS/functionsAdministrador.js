@@ -6,6 +6,8 @@ $(document).ready(function () {
   $(".content-propiedades").hide();
   $(".content-nomencladores").hide();
   $(".content-mensajes").hide();
+  $(".content-soporte").hide();
+
   $('#selectDepartamentos').on('change', function() {
     cargarLocalidad(this.value);
   });
@@ -34,11 +36,8 @@ $(document).ready(function () {
   });
 
   $('.propiedad-wrapper').on('click', '.propiedad .borrarPropiedad', function(event){
+    alert("entró al boton xd" + this.id)
     eliminarPropiedad(this.id);
-  });
-
-  $('.propiedad-wrapper').on('click', '.propiedad .habilitarPropiedad', function(event){
-    habilitarPropiedad(this.id);
   });
 
   $('#buscador').on('keyup', function() {
@@ -181,7 +180,7 @@ function cargoPropiedades(){
                             <p>U$S <span id="precioDolares">`+ precio +`</span></p>
                           </div>
                           <div class="buttons">
-                            <button class="habilitarPropiedad" id=`+ propiedades[i] +`><i class="fas fa-check-circle"></i></button>
+                            <button class="habilitar" id=`+ propiedades[i] +`><i class="fas fa-check-circle"></i></button>
                             <button class="editar" id=`+ propiedades[i] +`><i class="fas fa-edit"></i></button>
                             <button class="borrarPropiedad" id=`+ propiedades[i] +`><i class="fas fa-trash-alt"></i></button>
                           </div>
@@ -618,12 +617,6 @@ function crearNomenclador(nomenclador){
 function eliminarPropiedad(idPropiedad){
   Administrador.eliminarPropiedad(idPropiedad);
   modal("propiedadEliminada")
-  cargoPropiedades();
-}
-
-function habilitarPropiedad(idPropiedad){
-  Administrador.habilitarPropiedad(idPropiedad);
-  modal("propiedadHabilitada")
   cargoPropiedades();
 }
 

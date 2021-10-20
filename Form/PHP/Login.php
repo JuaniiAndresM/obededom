@@ -10,9 +10,10 @@ if(isset($_POST['usuario'])){
 
     $contra = hash('sha256', $pwd);
 
-    echo $login->login($user, $contra); 
+    echo $login->loginUser($user, $contra); 
 }else{
     $log = array('error'=> true);
     echo "Result: " + json_encode($log);
 }
+
 ?>
