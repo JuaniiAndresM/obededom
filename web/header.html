@@ -1,22 +1,48 @@
 <header>
     <div class="header-wrapper">
 
-      <a class="header-icon" href="/obededom/index.html">
+      <a class="header-icon" href="/obededom/">
 
         <img src="/obededom/media/svg/Logo.svg" alt="" />
 
       </a>
 
       <div class="header-links">
-        <a class="link" href="/obededom/Index.html"><i class="fas fa-home"></i> Inicio</a>
-        <a class="link" href="/obededom/HTML/Buscador.html"><i class="fas fa-shopping-cart"></i> Propiedades</a>
-        <a class="link" href="/obededom/Index.html#Nosotros"><i class="fas fa-users"></i> Nosotros</a>
-        <a class="link" href="/obededom/Index.html#Contacto"><i class="fas fa-envelope"></i> Contacto</a>
 
-        <a class="button" href="/obededom/Index.html#Buscador"
-          ><i class="fas fa-arrow-circle-down"></i> Comenzar</a
-        >
+        <a class="link" href="/obededom/"><i class="fas fa-home"></i> Inicio</a>
+        <a class="link" href="/obededom/Buscar"><i class="fas fa-shopping-cart"></i> Propiedades</a>
+        <a class="link" href="/obededom/#Nosotros"><i class="fas fa-users"></i> Nosotros</a>
+        <a class="link" href="/obededom/#Contacto"><i class="fas fa-envelope"></i> Contacto</a>
+
       </div>
+
+        <div class="burger-mobile" onclick="myFunction(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+
+        <div id="links-mobile" style="transform: translateY(-120%);">
+          <div class="links-wrapper">
+            <img src="/obededom/media/svg/Logo.svg" alt="" />
+            <a href="/obededom/"><i class="fas fa-home"></i> Inicio</a>
+            <a href="/obededom/Buscar"><i class="fas fa-shopping-cart"></i> Propiedades</a>
+            <a href="/obededom/#Nosotros"><i class="fas fa-users"></i> Nosotros</a>
+            <a href="/obededom/#Contacto"><i class="fas fa-envelope"></i> Contacto</a>
+          </div>
+        </div>
 
     </div>
   </header>
+
+  <script>
+    function myFunction(x) {
+        x.classList.toggle("change");
+  
+        if (document.getElementById("links-mobile").style.transform == "translateY(0%)") {
+            document.getElementById("links-mobile").style.transform = "translateY(-120%)";
+        } else {
+            document.getElementById("links-mobile").style.transform = "translateY(-0%)";
+        }
+    }
+  </script>

@@ -333,6 +333,12 @@ $color2: #91009d;
   .propiedad-dinamica {
     .propiedad-wrapper {
       grid-template-columns: 1fr;
+
+      .panel-right{
+        .consulta{
+          box-shadow: none;
+        }
+      }
     }
   }
 }
@@ -378,4 +384,24 @@ $color2: #91009d;
       }
     }
   }
+}
+@media screen and (max-width: 500px) {
+  .propiedad-dinamica{
+    .propiedad-wrapper{
+      .panel-left{
+        .carrusel{
+          .slider-wrapper{
+            .slider-anterior{
+              left: -2px;
+            }
+            .slider-siguiente{
+              right: -2px;
+            }
+            
+          }
+        }
+      }
+    }
+  }
+  
 }

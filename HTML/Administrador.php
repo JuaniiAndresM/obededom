@@ -161,10 +161,74 @@ if(!isset($_SESSION['Usuario'])){
           </div>
         </div>
         <div class="button-crear">
-          <a href="/obededom/HTML/backend.html"><i class="fas fa-plus-circle"></i> Crear Propiedad</a>
+          <a href="/obededom/Backend"><i class="fas fa-plus-circle"></i> Crear Propiedad</a>
         </div>
 
         <div class="propiedad-wrapper" id="seccionPropiedades">
+
+
+          <div class="propiedad">
+            <div class="estado">
+              <p><i class="fas fa-check-circle"></i> Activo</p>
+            </div>
+            <div class="card-img">
+              <img src="/obededom/media/img/Ejemplo1.jpg" alt="" />
+            </div>
+            <div class="card-content">
+              <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+
+              <div class="tipo">
+                <p>Casa</p>
+              </div>
+
+              <div class="direccion">
+                <p><i class="fas fa-map-marker-alt"></i> Lorem ipsum dolor sit amet, <span id="localidad">El Pinar</span>, <span id="departamento">Canelones</span></p>
+              </div>
+              <div class="precio">
+                <hr>
+                <p>U$S <span id="precioDolares">26.000</span></p>
+              </div>
+              
+            </div>
+            
+            <div class="buttons">
+              <button class="editar" id=""><i class="fas fa-edit"></i></button>
+              <button class="borrar" id=""><i class="fas fa-trash-alt"></i></button>
+            </div>
+          </div>
+
+
+          <div class="propiedad">
+            <div class="estado inactivo">
+              <p><i class="fas fa-times-circle"></i> Inactivo</p>
+            </div>
+            <div class="card-img">
+              <img src="/obededom/media/img/Ejemplo2.jpg" alt="" />
+            </div>
+            <div class="card-content">
+              <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+
+              <div class="tipo">
+                <p>Casa</p>
+              </div>
+
+              <div class="direccion">
+                <p><i class="fas fa-map-marker-alt"></i> Lorem ipsum dolor sit amet, El Pinar, Canelones</p>
+              </div>
+              <div class="precio">
+                <hr>
+                <p>U$S 34.200</p>
+              </div>
+            </div>
+            
+            <div class="buttons">
+              <button><i class="fas fa-check-circle"></i></button>
+              <button><i class="fas fa-edit"></i></button>
+              <button><i class="fas fa-trash-alt"></i></button>
+            </div>
+          </div>
+
+
         </div>
       </div>
 

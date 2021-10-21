@@ -6,7 +6,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 1 },
           dataType: 'json',
           success: function (data) {
@@ -22,7 +22,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 2 },
           dataType: 'json',
           success: function (data) {
@@ -38,7 +38,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 3 },
           dataType: 'json',
           success: function (data) {
@@ -54,7 +54,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 4, idDepartamento: idDepartamento },
           dataType: 'json',
           success: function (data) {
@@ -69,7 +69,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 5 },
           dataType: 'json',
           success: function (data) {
@@ -85,7 +85,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 6 },
           dataType: 'json',
           success: function (data) {
@@ -101,7 +101,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 7 },
           dataType: 'json',
           success: function (data) {
@@ -117,7 +117,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 8 },
           dataType: 'json',
           success: function (data) {
@@ -133,7 +133,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 9 },
           dataType: 'json',
           success: function (data) {
@@ -149,7 +149,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 10 },
           dataType: 'json',
           success: function (data) {
@@ -165,7 +165,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 11 },
           dataType: 'json',
           success: function (data) {
@@ -181,7 +181,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 12 },
           dataType: 'json',
           success: function (data) {
@@ -197,7 +197,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 13 },
           dataType: 'json',
           success: function (data) {
@@ -214,7 +214,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 14, datosJSON: arrayDatos},
           success: function (data) {
             resultado = data;

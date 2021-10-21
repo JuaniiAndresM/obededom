@@ -77,12 +77,18 @@ $color2: #91009D;
 @media screen and(max-width: 881px) {
     .buscador-content{
         .buscador{
+            width: calc(100% - 20px);
+            text-align: center;
+            margin: 0 auto;
+            
             .buscar{
+                width: 100%;
+                padding: 10px;
                 .select{
                     flex: 0 0 50%;
 
                     select{
-                        width: 100%;
+                        width: calc(100% - 10px);
                     }
                 }
             }

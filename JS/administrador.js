@@ -18,7 +18,7 @@ class AdministradorObj {
     $.ajax({
       type: "POST",
       async: false,
-      url: "../PHP/administrador.php",
+      url: "/obededom/PHP/administrador.php",
       data: { accion: 1 },
       dataType: 'json',
       success: function (data) {
@@ -33,7 +33,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 2 },
           dataType: 'json',
           success: function (data) {
@@ -49,7 +49,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 3 },
           dataType: 'json',
           success: function (data) {
@@ -65,7 +65,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 4, idDepartamento: idDepartamento },
           dataType: 'json',
           success: function (data) {
@@ -80,7 +80,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 5 },
           dataType: 'json',
           success: function (data) {
@@ -96,7 +96,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 6 },
           dataType: 'json',
           success: function (data) {
@@ -112,7 +112,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 7 },
           dataType: 'json',
           success: function (data) {
@@ -128,7 +128,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 8 },
           dataType: 'json',
           success: function (data) {
@@ -144,7 +144,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 9 },
           dataType: 'json',
           success: function (data) {
@@ -160,7 +160,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 10 },
           dataType: 'json',
           success: function (data) {
@@ -176,7 +176,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 11 },
           dataType: 'json',
           success: function (data) {
@@ -192,7 +192,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 12 },
           dataType: 'json',
           success: function (data) {
@@ -208,7 +208,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/backend.php",
+          url: "PHP/backend.php",
           data: { accion: 13 },
           dataType: 'json',
           success: function (data) {
@@ -224,7 +224,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 2, nuevoTipoPropiedad: nuevoTipoPropiedad},
         });
       }
@@ -233,7 +233,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 3, idDepartamento: idDepartamento, nuevaLocalidad: nuevaLocalidad},
         });
       }
@@ -242,7 +242,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 4, nuevoDormitorio: nuevoDormitorio},
         });
       }
@@ -251,7 +251,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 5, nuevoBanio: nuevoBanio},
         });
       }
@@ -260,7 +260,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 6, nuevoGarage: nuevoGarage},
         });
       }
@@ -269,7 +269,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 7, nuevoEstado: nuevoEstado},
         });
       }
@@ -278,7 +278,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 8, nuevoSobre: nuevoSobre},
         });
       }
@@ -287,7 +287,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 9, nuevaDistanciaMar: nuevaDistanciaMar},
         });
       }
@@ -297,7 +297,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 10, nuevaPlanta: nuevaPlanta},
         });
       }
@@ -306,7 +306,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 11, nuevoComfort: nuevoComfort},
         });
       }
@@ -315,7 +315,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 12, nuevaSeguridad: nuevaSeguridad},
         });
       }
@@ -324,7 +324,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 13, tipoNomenclador: tipoNomenclador, idNomenclador: idNomenclador},
         });
       }
@@ -333,7 +333,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 14, idPropiedad: idPropiedad},
         });
       }
@@ -342,7 +342,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 15, idPropiedad: idPropiedad},
         });
       }
@@ -352,7 +352,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "../PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           dataType: 'json',
           data: { accion: 16, idPropiedad: idPropiedad},
           success: function (data) {
