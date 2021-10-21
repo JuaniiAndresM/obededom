@@ -36,74 +36,58 @@
           <div class="buscar">
             <div class="input">
               <i class="fas fa-search"></i>
-              <input type="text" placeholder="Buscar Propiedad" />
+              <input type="text" placeholder="Buscar Propiedad" id="buscadorIndex" />
             </div>
             <div class="select">
               <i class="fas fa-sign"></i>
-              <select name="" id="">
-                <option value="" selected>Todos</option>
-                <option value="">Venta</option>
-                <option value="">Alquiler</option>
-                <option value="">Alquiler Temporal</option>
+              <select name="" id="filtroTipoOperacion">
+                <option value="-1" selected>Todos</option>
+                <option value="Venta">Venta</option>
+                <option value="Alquiler">Alquiler</option>
+                <option value="AlquilerTemporal">Alquiler Temporal</option>
               </select>
             </div>
 
             <div class="select">
               <i class="fas fa-home"></i>
-              <select name="" id="">
-                <option value="" selected>Venta</option>
-                <option value="">Casa</option>
-                <option value="">Apartamento</option>
-                <option value="">Traer de BD</option>
+              <select name="" id="filtroTipoPropiedad">
               </select>
             </div>
 
             <div class="select">
               <i class="fas fa-map-marker-alt"></i>
-              <select name="" id="">
-                <option value="" selected>Todos</option>
-                <option value="">Canelones</option>
-                <option value="">Montevideo</option>
-                <option value="">Traer de BD</option>
+              <select name="" id="filtroDepartamento">
               </select>
             </div>
 
             <div class="select">
               <i class="fas fa-map"></i>
-              <select name="" id="">
-                <option value="" selected>Todos</option>
-                <option value="">El Pinar</option>
-                <option value="">Solymar</option>
-                <option value="">Traer de BD</option>
+              <select name="" id="filtroLocalidad">
+                <option value="-1" selected>Seleccione un Departamento</option>
               </select>
             </div>
 
             <div class="input">
               <i class="fas fa-dollar-sign"></i>
-              <input type="text" placeholder="Menor al precio ingresado" />
+              <input type="number" id="filtroPrecio" placeholder="Menor al precio ingresado" />
             </div>
 
             <div class="input">
               <i class="far fa-calendar-alt"></i>
-              <input type="number" placeholder="Año de Construcción" />
+              <input type="number" id="filtroConstruccion" placeholder="Año de Construcción" />
             </div>
 
             <div class="input">
               <i class="fas fa-bed"></i>
-              <input type="number" placeholder="Cantidad de Dormitorios" />
+              <input type="number" id="filtroDormitorios" placeholder="Cantidad de Dormitorios" />
             </div>
 
             <div class="input">
               <i class="fas fa-bath"></i>
-              <input type="number" placeholder="Cantidad de Baños" />
-            </div>
-
-            <div class="input">
-              <i class="far fa-calendar-alt"></i>
-              <input type="number" placeholder="Año de Construcción" />
+              <input type="number" id="filtroInodoros" placeholder="Cantidad de Baños" />
             </div>
           </div>
-          <button>Buscar</button>
+          <button id="buttonBuscar">Buscar</button>
         </div>
       </div>
 

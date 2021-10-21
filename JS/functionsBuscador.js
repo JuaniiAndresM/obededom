@@ -3,25 +3,21 @@
 $(document).ready(function () {
     //cargo propiedades
     cargoPropiedades()
+    cargoFiltros()
+    //carga las localidades cuando cambia el departamento
+    $('#filtroDepartamento').on('change', function(e) {
+      cargarFiltroLocalidad(e.target.options[e.target.selectedIndex].getAttribute('id'));
+    });
     //filtros
-    $('.filtro').on('change', function(e) {
-        if(this.value == -1){
-        $('.propiedad').filter(':not(.'+ this.value +')').show()
-        if(this.id = 'filtroDepartamento'){
-            $("#filtroLocalidad").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Seleccione un Departamento.'));
-        }
-        }else{
-        $('.propiedad').filter(':not(.'+ this.value +')').hide();
-        if(this.id = 'filtroDepartamento'){
-            cargarFiltroLocalidad(e.target.options[e.target.selectedIndex].getAttribute('id'));
-        }
-        }
+    $('#buttonBuscar').on('click', function() {
+      filtrarPropiedad();
     });
     //mando a propiedad especifica
     $('.propiedades').on('click', '.card .card-content .precio .verPropiedad', function() {
       sessionStorage.setItem("idPropiedad", this.id);
       location.href = '../HTML/Propiedad.html';
     });
+    
 
 });
 function cargoPropiedades(){
@@ -30,6 +26,7 @@ function cargoPropiedades(){
     var nuevaPropiedad = "";
     var departamento = "";
     var precio = "";
+    var precioFiltro = "";
     //vacio los elementos anteriores
     divPropiedades.innerHTML = "";
     for (var i = 0; i < propiedades.length; i = i+31){
@@ -38,14 +35,16 @@ function cargoPropiedades(){
         //comprueba si se muestra el precio
         if(propiedades[i+30] == 1){
           precio = Number(propiedades[i+3]).toLocaleString()
+          precioFiltro = propiedades[i+3]
         }else{
-          precio = "A Convenir"
+          precio = "Convenir";
+          precioFiltro = "Convenir";
         }
         //comprueba el estado de la propiedad
-        if(propiedades[i+2] == "Venta" || propiedades[i+2] == "Venta"){
+        if(propiedades[i+2] == "Alquiler" || propiedades[i+2] == "Alquiler Temporal"){
           departamento = comprueboDepartamento(propiedades[i+7]);
           nuevaPropiedad = `
-          <div class="card" id=`+ propiedades[i] +`>
+          <div class="card" id=`+ propiedades[i] +` data-tipo-operacion=`+ propiedades[i+2].split(" ").join("") +` data-tipo-propiedad=`+ propiedades[i+6].split(" ").join("") +` data-departamento=`+ departamento.split(" ").join("") +` data-localidad=`+ propiedades[i+8].split(" ").join("") +` data-precio=`+ precioFiltro +` data-construccion=`+ propiedades[i+10] +` data-habitaciones=`+ propiedades[i+11] +` data-inodoros=`+ propiedades[i+12] +`>
           <div class="estado alquiler">
             <h2><i class="fas fa-key"></i> Alquiler</h2>
           </div>
@@ -84,7 +83,7 @@ function cargoPropiedades(){
           departamento = comprueboDepartamento(propiedades[i+7]);
           nuevaPropiedad = 
           `
-          <div class="card">
+          <div class="card" id=`+ propiedades[i] +` data-tipo-operacion=`+ propiedades[i+2].split(" ").join("") +` data-tipo-propiedad=`+ propiedades[i+6].split(" ").join("") +` data-departamento=`+ departamento.split(" ").join("") +` data-localidad=`+ propiedades[i+8].split(" ").join("") +` data-precio=`+ precioFiltro +` data-construccion=`+ propiedades[i+10] +` data-habitaciones=`+ propiedades[i+11] +` data-inodoros=`+ propiedades[i+12] +`>
           <div class="estado venta">
               <h2><i class="fas fa-shopping-cart"></i> Venta</h2>
           </div>
@@ -166,5 +165,119 @@ function cargoPropiedades(){
       case 19:
         return "Treinta y Tres";
       default: "Error"
+    }
+  }
+
+  function buscador(value) {
+    // Declare variables
+    var filter = value.toUpperCase();
+    var seccionPropiedades = document.getElementById("divPropiedades");
+    var tituloPropiedades = seccionPropiedades.getElementsByTagName('h3');
+  
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < tituloPropiedades.length; i++) {
+      txtValue = tituloPropiedades[i].textContent || tituloPropiedades[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tituloPropiedades[i].parentElement.parentElement.style.display = "";
+      } else {
+        tituloPropiedades[i].parentElement.parentElement.style.display = "none";
+      }
+    }
+  }
+
+  function cargoFiltros(){
+    //carga los tipos de propiedad
+    var arrayTipoPropiedad = Backend.traerTiposPropiedad();
+    $("#filtroTipoPropiedad").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Todos'));
+    var selectTipoPropiedad = document.getElementById('filtroTipoPropiedad');
+    for (var i = 0; i < arrayTipoPropiedad.length; i = i+2){
+        var opt = document.createElement('option');
+        opt.value = arrayTipoPropiedad[i+1].split(" ").join("");
+        opt.text = arrayTipoPropiedad[i+1];
+        selectTipoPropiedad.appendChild(opt);
+    }
+    //carga los departamentos
+    var arrayDepartamentos = Backend.traerDepartamentos();
+    $("#filtroDepartamento").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Todos'));
+    var selectDepartamentos = document.getElementById('filtroDepartamento');
+    for (var i = 0; i < arrayDepartamentos.length; i = i+2){
+        //crea un elemento option
+        var opt = document.createElement('option');
+        opt.id = arrayDepartamentos[i];
+        //le agrega el id del departamento al value
+        opt.value = arrayDepartamentos[i+1].split(" ").join("");
+        //le agrega el nombre del departamento al option
+        opt.text = arrayDepartamentos[i+1];
+        //agrega el elemento al elemento con la id selectDepartamento
+        selectDepartamentos.appendChild(opt);
+    }
+  }
+  
+  function cargarFiltroLocalidad(idDepartamento){
+    var arrayLocalidades = Backend.traerLocalidades(idDepartamento);
+    var selectLocalidades;
+    selectLocalidades = document.getElementById('filtroLocalidad')
+    $("#filtroLocalidad").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Todos'));
+    for (var i = 0; i < arrayLocalidades.length; i = i+2){
+        //crea un elemento option
+        var opt = document.createElement('option');
+        //le agrega el id de la localidad al value
+        opt.value = arrayLocalidades[i+1].split(" ").join("");
+        //le agrega el nombre de la localidad al option
+        opt.text = arrayLocalidades[i+1];
+        //agrega el elemento al elemento con la id selectLocalidades
+        selectLocalidades.appendChild(opt);
+    }
+  }
+
+  function filtrarPropiedad(){
+    propiedades = document.getElementsByClassName("card");
+    filtroBuscador = document.getElementById("buscadorIndex").value;
+    filtroTipoOperacion = document.getElementById("filtroTipoOperacion").value;
+    filtroTipoPropiedad = document.getElementById("filtroTipoPropiedad").value;
+    filtroDepartamento = document.getElementById("filtroDepartamento").value;
+    filtroLocalidad = document.getElementById("filtroLocalidad").value;
+    filtroPrecio = document.getElementById("filtroPrecio").value;
+    filtroConstruccion = document.getElementById("filtroConstruccion").value;
+    filtroDormitorios = document.getElementById("filtroDormitorios").value;
+    filtroInodoros = document.getElementById("filtroInodoros").value;
+    $('.card').show();
+    if(filtroBuscador !== ""){
+      buscador(filtroBuscador);
+    }
+    if(filtroTipoOperacion != -1){
+      $('.card').filter('[data-tipo-operacion!="'+ filtroTipoOperacion +'"]').hide();
+    }
+    if(filtroTipoPropiedad != -1){
+      $('.card').filter('[data-tipo-propiedad!="'+ filtroTipoPropiedad +'"]').hide();
+    }
+    if(filtroDepartamento != -1){
+      $('.card').filter('[data-departamento!="'+ filtroDepartamento +'"]').hide();
+      if(filtroLocalidad != -1){
+        $('.card').filter('[data-localidad!="'+ filtroLocalidad +'"]').hide();
+      }
+    }
+    if(filtroPrecio !== ""){
+      $('.card').filter('[data-precio="Convenir"]').hide();
+      if(Number.isInteger(parseInt(filtroPrecio))){
+        $("[data-precio]").filter(function () {
+          return parseInt($(this).attr('data-precio'), 10) > filtroPrecio;
+       }).hide();
+      }
+    }
+    if(filtroConstruccion !== ""){
+      if(Number.isInteger(parseInt(filtroConstruccion))){
+        $('.card').filter('[data-construccion!="'+ filtroConstruccion +'"]').hide();
+      }
+    }
+    if(filtroDormitorios !== ""){
+      if(Number.isInteger(parseInt(filtroDormitorios))){
+        $('.card').filter('[data-dormitorios!="'+ filtroDormitorios +'"]').hide();
+      }
+    }
+    if(filtroInodoros !== ""){
+      if(Number.isInteger(parseInt(filtroInodoros))){
+        $('.card').filter('[data-inodoros!="'+ filtroInodoros +'"]').hide();
+      }
     }
   }

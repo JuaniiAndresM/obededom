@@ -1,5 +1,18 @@
 class AdministradorObj {
-
+  traerPropiedadesIndex() {
+    var Propiedades = [];
+    $.ajax({
+      type: "POST",
+      async: false,
+      url: "PHP/administrador.php",
+      data: { accion: 1 },
+      dataType: 'json',
+      success: function (data) {
+        Propiedades = data;
+      },
+    });
+    return Propiedades;
+  }
   traerPropiedades() {
     var Propiedades = [];
     $.ajax({
