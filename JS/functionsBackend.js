@@ -1,4 +1,5 @@
 let Backend = new BackendObj();
+let Administrador = new AdministradorObj();
 var añoActual = new Date().getFullYear()
 
 $(document).ready(function () {
@@ -42,6 +43,10 @@ $(document).ready(function () {
     $("#subirborrador").on('click', function() {
         subirBorrador();
         });
+
+    if(sessionStorage.getItem("idPropiedadEditar")){
+        cargoDatos(sessionStorage.getItem("idPropiedadEditar"));
+    }
 });
 
 
@@ -399,3 +404,82 @@ function subirBorrador(){
     
 }
 
+ function cargoDatos(idPropiedad){
+    var propiedad = Administrador.traerPropiedad(idPropiedad);
+    var comforts = Backend.traerComfortPropiedad(idPropiedad);
+    var seguridades = Backend.traerSeguridadPropiedad(idPropiedad);
+    $("#subirpropiedad").attr("id", "actualizarpropiedad");
+    document.getElementById("actualizarpropiedad").innerHTML = "<i class='fas fa-save'></i> Guardar Cambios"
+
+    $("#tituloPropiedad").val(propiedad[1]).change();
+    $("#selectOperaciones").val(propiedad[2]).change();
+    $("#precioDolares").val(propiedad[3]).change();
+    //se fija si tiene que checkear el precio o no
+    if(propiedad[30] == 1){
+        $("#mostrarPrecio").prop('checked', true);
+    }else{
+        $("#mostrarPrecio").prop('checked', false);
+    }
+    //se fija cual permuta seleccionar
+    if(propiedad[4] == 1){
+        document.getElementById('premutasi').checked = true;
+    }else{
+        document.getElementById('premutano').checked = true;
+    }
+    //se fija cual financia seleccionar
+    if(propiedad[5] == 1){
+        document.getElementById('financiasi').checked = true;
+    }else{
+        document.getElementById('financiano').checked = true;
+    }
+    $("#selectTipoPropiedad").val(propiedad[6]).change();
+    $("#selectDepartamentos").val(propiedad[7]).change();
+    cargarLocalidad(propiedad[7]);
+    $("#selectLocalidades").val(propiedad[8]).change();
+    $("#direccion").val(propiedad[9]).change();
+    $("#fechaConstruccion").val(propiedad[10]).change();
+    $("#selectDormitorios").val(propiedad[11]).change();
+    $("#selectBaños").val(propiedad[12]).change();
+    $("#selectGarages").val(propiedad[13]).change();
+    //se fija cual vistamar seleccionar
+    if(propiedad[29] == 1){
+        document.getElementById('vistamarsi').checked = true;
+    }else{
+        document.getElementById('vistamarno').checked = true;
+    }
+    $("#selectDistanciamar").val(propiedad[15]).change();
+    $("#metrosEdificados").val(propiedad[21]).change();
+    $("#metrosTerraza").val(propiedad[22]).change();
+    $("#metrosTerreno").val(propiedad[23]).change();
+    $("#selectSobre").val(propiedad[19]).change();
+    $("#selectEstado").val(propiedad[14]).change();
+    $("#selectDisposicion").val(propiedad[17]).change();
+    $("#selectOrientacion").val(propiedad[18]).change();
+    //se fija si es apto para oficina 
+    if(propiedad[15] == 1){
+        document.getElementById('oficinasi').checked = true;
+    }else{
+        document.getElementById('oficinano').checked = true;
+    }
+    //se fija si es una vivienda social
+    if(propiedad[16] == 1){
+        document.getElementById('viviendasi').checked = true;
+    }else{
+        document.getElementById('viviendano').checked = true;
+    }
+    $("#selectPlantas").val(propiedad[24]).change();
+    if(comforts == "" && seguridades == ""){
+        $("#checkboxcomfort").prop('checked', true);
+        $("#section-comfort-seguridad").hide();
+    }else{
+        for(var i = 0; i < comforts.length; i++){
+            $( "#comfort [value='"+ comforts[i] +"']" ).prop('checked', true);
+        }
+
+        for(var i = 0; i < seguridades.length; i++){
+            $( "#seguridad [value='"+ seguridades[i] +"']" ).prop('checked', true);
+        } 
+    }
+    CKEDITOR.instances['garantias'].setData(propiedad[26]);
+    CKEDITOR.instances['descripcion'].setData(propiedad[27]);
+}

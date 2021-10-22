@@ -1,8 +1,12 @@
 let Administrador = new AdministradorObj();
 
 $(document).ready(function () {
+  if(sessionStorage.getItem("idPropiedad")){
     cargoPropiedad(sessionStorage.getItem("idPropiedad"));
     createSliderPropiedad();
+  }else{
+    location.href = 'Buscador.html';
+  }
 });
 
 function createSliderPropiedad(){
@@ -47,6 +51,7 @@ function cargoPropiedad(idPropiedad){
     document.getElementById("inodorosInicio").innerHTML = propiedad[12];
     document.getElementById("edificadosInicio").innerHTML = propiedad[21];
     document.getElementById("tipoPropiedad").innerHTML = propiedad[6];
+    document.getElementById("estado").innerHTML = propiedad[14];
     document.getElementById("departamento").innerHTML = departamento;
     document.getElementById("localidad").innerHTML = propiedad[8];
     document.getElementById("disposicion").innerHTML = propiedad[17];
@@ -74,9 +79,9 @@ function cargoPropiedad(idPropiedad){
     }
     //comprueba si tiene vista al mar
     if(propiedad[29] == 1){
-        document.getElementById("viviendaSocial").innerHTML = "Si";
+        document.getElementById("vistaMar").innerHTML = "Si";
     }else{
-        document.getElementById("viviendaSocial").innerHTML = "No";
+        document.getElementById("vistaMar").innerHTML = "No";
     }
     document.getElementById("distanciaMar").innerHTML = propiedad[20];
     document.getElementById("descripcion").innerHTML = propiedad[26];

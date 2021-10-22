@@ -46,6 +46,12 @@ switch ($_POST["accion"]) {
     case 14:
         echo json_encode($llamarFunction->GuardarPropiedad($_POST['datosJSON']));
     break;
+    case 15:
+        echo json_encode($llamarFunction->ComfortPropiedad($_POST['idPropiedad']));
+    break;
+    case 16:
+        echo json_encode($llamarFunction->SeguridadPropiedad($_POST['idPropiedad']));
+    break;
 
 }
 ?>

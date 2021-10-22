@@ -258,6 +258,23 @@ class  DatosAdministrador{
             }
         }
 
+        //habilita la propiedad
+        public function DeshabilitarPropiedad($idPropiedad){
+            include "../Database/server.php";
+            $estado = 0;
+            $sentencia = '';
+            if ($sentencia = $mysqli->prepare("CALL CambiarEstado(?,?);")) {
+                $sentencia->bind_param('ii', $idPropiedad, $estado);
+                if ($sentencia->execute()) {
+                    echo "Funciona";
+                }else{
+                    throw new Exception('Error en prepare: ' . $mysqli->error);
+                }
+            } else {
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }
+
         //trae una propiedad especifica (se usa para propiedad.html)
         public function TraerPropiedad($idPropiedad){
             $arrayPropiedad=array();

@@ -40,6 +40,24 @@ $(document).ready(function () {
     eliminarPropiedad(this.id);
   });
 
+  $('.propiedad-wrapper').on('click', '.propiedad .habilitar', function(event){
+    Administrador.habilitarPropiedad(this.id);
+    cargoPropiedades();
+    modal("propiedadHabilitada")
+  });
+
+  $('.propiedad-wrapper').on('click', '.propiedad .deshabilitar', function(event){
+    Administrador.deshabilitarPropiedad(this.id);
+    cargoPropiedades();
+    modal("propiedadDeshabilitada")
+  });
+
+  $('.propiedad-wrapper').on('click', '.propiedad .editar', function(event){
+    sessionStorage.removeItem("idPropiedadEditar")
+    sessionStorage.setItem("idPropiedadEditar", this.id);
+    location.href = 'backend.php';
+  });
+
   $('#buscador').on('keyup', function() {
     buscador(this.value);
   });
@@ -152,6 +170,7 @@ function cargoPropiedades(){
                           
                         </div>
                         <div class="buttons">
+                          <button class="deshabilitar" id=`+ propiedades[i] +`><i class="fas fa-times-circle"></i></button>
                           <button class="editar" id=`+ propiedades[i] +`><i class="fas fa-edit"></i></button>
                           <button class="borrarPropiedad" id=`+ propiedades[i] +`><i class="fas fa-trash-alt"></i></button>
                         </div>

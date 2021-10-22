@@ -33,7 +33,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "PHP/backend.php",
+          url: "/obededom/PHP/backend.php",
           data: { accion: 2 },
           dataType: 'json',
           success: function (data) {
@@ -49,7 +49,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "PHP/backend.php",
+          url: "/obededom/PHP/backend.php",
           data: { accion: 3 },
           dataType: 'json',
           success: function (data) {
@@ -65,7 +65,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "PHP/backend.php",
+          url: "/obededom/PHP/backend.php",
           data: { accion: 4, idDepartamento: idDepartamento },
           dataType: 'json',
           success: function (data) {
@@ -80,7 +80,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "PHP/backend.php",
+          url: "/obededom/PHP/backend.php",
           data: { accion: 5 },
           dataType: 'json',
           success: function (data) {
@@ -96,7 +96,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "PHP/backend.php",
+          url: "/obededom/PHP/backend.php",
           data: { accion: 6 },
           dataType: 'json',
           success: function (data) {
@@ -112,7 +112,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "PHP/backend.php",
+          url: "/obededom/PHP/backend.php",
           data: { accion: 7 },
           dataType: 'json',
           success: function (data) {
@@ -128,7 +128,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "PHP/backend.php",
+          url: "/obededom/PHP/backend.php",
           data: { accion: 8 },
           dataType: 'json',
           success: function (data) {
@@ -144,7 +144,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "PHP/backend.php",
+          url: "/obededom/PHP/backend.php",
           data: { accion: 9 },
           dataType: 'json',
           success: function (data) {
@@ -160,7 +160,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "PHP/backend.php",
+          url: "/obededom/PHP/backend.php",
           data: { accion: 10 },
           dataType: 'json',
           success: function (data) {
@@ -176,7 +176,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "PHP/backend.php",
+          url: "/obededom/PHP/backend.php",
           data: { accion: 11 },
           dataType: 'json',
           success: function (data) {
@@ -192,7 +192,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "PHP/backend.php",
+          url: "/obededom/PHP/backend.php",
           data: { accion: 12 },
           dataType: 'json',
           success: function (data) {
@@ -208,7 +208,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "PHP/backend.php",
+          url: "/obededom/PHP/backend.php",
           data: { accion: 13 },
           dataType: 'json',
           success: function (data) {
@@ -346,6 +346,15 @@ class AdministradorObj {
           data: { accion: 15, idPropiedad: idPropiedad},
         });
       }
+      
+      deshabilitarPropiedad(idPropiedad) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "/obededom/PHP/administrador.php",
+          data: { accion: 16, idPropiedad: idPropiedad},
+        });
+      }
 
       traerPropiedad(idPropiedad) {
         var Propiedades = [];
@@ -354,7 +363,7 @@ class AdministradorObj {
           async: false,
           url: "/obededom/PHP/administrador.php",
           dataType: 'json',
-          data: { accion: 16, idPropiedad: idPropiedad},
+          data: { accion: 17, idPropiedad: idPropiedad},
           success: function (data) {
             Propiedades = data;
           },

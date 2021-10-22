@@ -310,5 +310,49 @@ public function GuardarPropiedad($arrayJSON){
         return $arrayDatos;
 }
 
+    //trae seguridades de una propiedad especifica
+    public function ComfortPropiedad($idPropiedad){
+        $arrayComfort = array();
+        include "../Database/server.php";
+        $sentencia = '';
+        if ($sentencia = $mysqli->prepare("CALL TraigoComfortPropiedad(?);")){
+            $sentencia->bind_param('i', $idPropiedad);
+            if ($sentencia->execute()) {
+                $sentencia->bind_result($id_comfort);
+                while ($sentencia->fetch()) {
+                    array_push($arrayComfort, $id_comfort);
+                }
+            } else {
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        } else {
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+        return $arrayComfort;
+    }
+
+//trae seguridades de una propiedad especifica
+public function SeguridadPropiedad($idPropiedad){
+    $arraySeguridad=array();
+     include "../Database/server.php";
+     $sentencia = '';
+   if($sentencia = $mysqli->prepare("CALL TraigoSeguridadPropiedad(?);")) {   
+    $sentencia->bind_param('i', $idPropiedad);   
+       if ($sentencia->execute()) {    
+           $sentencia->bind_result($id_seguridad);
+                while ($sentencia->fetch()) {
+                    array_push($arraySeguridad,$id_seguridad);   
+                }
+            }else{
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }else{
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+        return $arraySeguridad;
 }
+
+}
+
+
 ?>

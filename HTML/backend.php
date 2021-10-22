@@ -21,6 +21,7 @@ if(!isset($_SESSION['Usuario'])){
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="/obededom/JS/backend.js"></script>
+    <script src="/obededom/JS/administrador.js"></script>
     <script src="/obededom/JS/functionsBackend.js"></script>
     <script src="/obededom/JS/modal.js"></script>
 
@@ -92,10 +93,10 @@ if(!isset($_SESSION['Usuario'])){
                             <p>¿Financia?</p>
                             <div class="checkbox-wrapper">
                                 <div class="checkbox">
-                                    <input type="radio" name="financia" id="" value="1"><p>Si</p>
+                                    <input type="radio" name="financia" id="financiasi" value="1"><p>Si</p>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="radio" name="financia" id="" checked value="0"><p>No</p>
+                                    <input type="radio" name="financia" id="financiano" checked value="0"><p>No</p>
                                 </div>
                             </div>
                         </div>
@@ -180,10 +181,10 @@ if(!isset($_SESSION['Usuario'])){
                             <p>¿Vista al Mar?</p>
                             <div class="checkbox-wrapper">
                                 <div class="checkbox">
-                                    <input type="radio" name="vistamar" value="1"><p>Si</p>
+                                    <input type="radio" name="vistamar" id="vistamarsi" value="1"><p>Si</p>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="radio" name="vistamar" value="0" checked><p>No</p>
+                                    <input type="radio" name="vistamar" id="vistamarno" value="0" checked><p>No</p>
                                 </div>
                             </div>
                         </div>
@@ -245,10 +246,10 @@ if(!isset($_SESSION['Usuario'])){
                             <p>¿Apto para oficina?</p>
                             <div class="checkbox-wrapper">
                                 <div class="checkbox">
-                                    <input type="radio" name="aptooficina" value="1"><p>Si</p>
+                                    <input type="radio" name="aptooficina" id="oficinasi" value="1"><p>Si</p>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="radio" name="aptooficina" value="0" checked><p>No</p>
+                                    <input type="radio" name="aptooficina" id="oficinano" value="0" checked><p>No</p>
                                 </div>
                             </div>
                         </div>
@@ -256,10 +257,10 @@ if(!isset($_SESSION['Usuario'])){
                             <p>¿Vivienda Social?</p>
                             <div class="checkbox-wrapper">
                                 <div class="checkbox">
-                                    <input type="radio" name="viviendasocial" value="1"><p>Si</p>
+                                    <input type="radio" name="viviendasocial" id="viviendasi" value="1"><p>Si</p>
                                 </div>
                                 <div class="checkbox">
-                                    <input type="radio" name="viviendasocial" value="0" checked><p>No</p>
+                                    <input type="radio" name="viviendasocial" id="viviendano" value="0" checked><p>No</p>
                                 </div>
                             </div>
                         </div>

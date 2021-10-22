@@ -50,6 +50,9 @@ switch ($_POST["accion"]) {
         echo json_encode($llamarFunction->HabilitarPropiedad($_POST["idPropiedad"]));
     break;
     case 16:
+        echo json_encode($llamarFunction->DeshabilitarPropiedad($_POST["idPropiedad"]));
+    break;
+    case 17:
         echo json_encode($llamarFunction->TraerPropiedad($_POST["idPropiedad"]));
     break;
 

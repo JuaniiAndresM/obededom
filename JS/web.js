@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $('#header').load('/obededom/web/header.html');
     $('#footer').load('/obededom/web/footer.html');
-    cargoPropiedades();
     createSlider();
 });
 
