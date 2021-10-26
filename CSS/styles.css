@@ -1251,6 +1251,13 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 .propiedad-wrapper .propiedad-right .gestor-img h3 {
   color: #666;
   margin: 10px;
+  margin-bottom: 5px;
+}
+
+.propiedad-wrapper .propiedad-right .gestor-img p {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .propiedad-wrapper .propiedad-right .gestor-img i {
@@ -1267,6 +1274,11 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .propiedad-wrapper .propiedad-right #upload-photo {
+  opacity: 0;
+  position: relative;
+}
+
+.propiedad-wrapper .propiedad-right #upload-pdf {
   opacity: 0;
   position: relative;
 }
@@ -1323,6 +1335,34 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
 }
 
 .propiedad-wrapper .propiedad-right .galeria .imagen button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.propiedad-wrapper .propiedad-right .pdf {
+  position: relative;
+}
+
+.propiedad-wrapper .propiedad-right .pdf button {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  background-color: #91009d;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.propiedad-wrapper .propiedad-right .pdf button i {
+  font-size: 1.1em;
+}
+
+.propiedad-wrapper .propiedad-right .pdf button:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }

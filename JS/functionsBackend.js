@@ -59,6 +59,9 @@ $(document).ready(function () {
     $('#file-input').click(function(){
         $("#upload-photo").click();
     });
+    $('#file-input-pdf').click(function(){
+        $("#upload-pdf").click();
+    });
 });
 
 function cargarOperaciones(){
