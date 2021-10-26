@@ -23,6 +23,10 @@ switch($numero_mensaje){
         $mensaje_1 = "Éxito!";
         $mensaje = "Se ha guardado la propiedad correctamente. Puede ver su nueva propiedad en el panel administrador.";
         break;
+    case 6:
+        $mensaje_1 = "Éxito!";
+        $mensaje = "Se ha modificado la propiedad correctamente.";
+    break;
     case "borraNomenclador":
         $mensaje_1 = "Éxito!";
         $mensaje = "Se ha borrado el nomenclador correctamente.";
