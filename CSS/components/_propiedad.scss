@@ -241,6 +241,19 @@ $color2: #91009d;
               }
             }
 
+            .comfort-list{
+              width: calc(100% - 40px);
+              display: flex;
+              align-items: center;
+              flex-wrap: wrap;
+
+              p{
+                min-width: 200px;
+                flex: 0 0 50%;
+              }
+
+            }
+
             .descripcion {
               width: calc(100% - 40px);
 
