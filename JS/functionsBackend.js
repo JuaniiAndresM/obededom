@@ -1,6 +1,7 @@
 let Backend = new BackendObj();
 let Administrador = new AdministradorObj();
 var añoActual = new Date().getFullYear()
+var idPropiedadEditar;
 
 $(document).ready(function () {
     //Carga los tipos de operacion
@@ -19,6 +20,7 @@ $(document).ready(function () {
     cargarPlantas();
     cargarComfort();
     cargarSeguridad();
+
     //carga el maximo de años con el año actual
     document.getElementById("fechaConstruccion").setAttribute("max", añoActual);
     //Carga una opcion default antes de cargar la localidad del departamento elegido
@@ -36,16 +38,22 @@ $(document).ready(function () {
         }
     });
 
-    $("#subirpropiedad").on('click', function() {
-        subirPropiedad();
-        });
-
     $("#subirborrador").on('click', function() {
         subirBorrador();
         });
 
-    if(sessionStorage.getItem("idPropiedadEditar")){
-        cargoDatos(sessionStorage.getItem("idPropiedadEditar"));
+    if(sessionStorage.getItem("idPropiedadEditar") !== null){
+        var idPropiedadEditar = sessionStorage.getItem("idPropiedadEditar");
+        cargoDatos(idPropiedadEditar);
+        $("#actualizarpropiedad").on('click', function() {
+            alert("hola")
+            subirPropiedad(idPropiedadEditar);
+            });
+        sessionStorage.removeItem("idPropiedadEditar")
+    }else{
+        $("#subirpropiedad").on('click', function() {
+            subirPropiedad();
+        });
     }
 });
 
@@ -255,7 +263,7 @@ function cargarSeguridad(){
     
 }
 
-function subirPropiedad(){
+function subirPropiedad(idPropiedadEditar){
     var comfortSeguridad;
     var mandarDatos = Backend;
     var arrayDatos = [];
@@ -319,19 +327,34 @@ function subirPropiedad(){
                     if( arrayComfort.length == 0 && arraySeguridad.length == 0){
                         modal(4);
                     }else{
+                        if(idPropiedadEditar != undefined){
+                            arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
+                                fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
+                                cantidadPlantas, extras, garantias, descripcion, estado, arrayComfort, arraySeguridad, mostrarPrecio, vistamar, idPropiedadEditar];
+                            mandarDatos.actualizarPropiedad(JSON.stringify(arrayDatos));
+                            modal(6);
+                        }else{
+                            arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
+                                fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
+                                cantidadPlantas, extras, garantias, descripcion, estado, arrayComfort, arraySeguridad, mostrarPrecio, vistamar];
+                            mandarDatos.guardarPropiedad(JSON.stringify(arrayDatos));
+                            modal(5);
+                        }
+                    }
+                }else{
+                    if(idPropiedadEditar != undefined){
                         arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
                             fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
-                             cantidadPlantas, extras, garantias, descripcion, estado, arrayComfort, arraySeguridad, mostrarPrecio, vistamar];
-                             console.log
+                            cantidadPlantas, extras, garantias, descripcion, estado, arrayComfort, arraySeguridad, mostrarPrecio, vistamar, idPropiedadEditar];
+                        mandarDatos.actualizarPropiedad(JSON.stringify(arrayDatos));
+                        modal(6);
+                    }else{
+                        arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
+                            fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
+                            cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar];
                         mandarDatos.guardarPropiedad(JSON.stringify(arrayDatos));
                         modal(5);
                     }
-                }else{
-                    arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
-                        fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
-                         cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar];
-                    mandarDatos.guardarPropiedad(JSON.stringify(arrayDatos));
-                    modal(5);
                 }
             }else{
                 modal(3);

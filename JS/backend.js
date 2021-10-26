@@ -257,6 +257,20 @@ class BackendObj {
         return Seguridad;
       }
 
+      actualizarPropiedad(arrayDatos) {
+        var resultado;
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "/obededom/PHP/backend.php",
+          data: { accion: 17, datosJSON: arrayDatos},
+          success: function (data) {
+            resultado = data;
+            console.log("estos son los datos: " + data)
+          },
+        });
+        return resultado;
+      }
 
 
 }
