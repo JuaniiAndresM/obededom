@@ -55,8 +55,11 @@ $(document).ready(function () {
             subirPropiedad();
         });
     }
-});
 
+    $('#file-input').click(function(){
+        $("#upload-photo").click();
+    });
+});
 
 function cargarOperaciones(){
     var arrayOperaciones = Backend.traerOperaciones();

@@ -1228,6 +1228,7 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
   max-width: 500px;
   width: 100%;
   height: 300px;
+  cursor: pointer;
   background-color: #fff;
   border: 2px solid #ccc;
   border-radius: 10px;
@@ -1260,7 +1261,68 @@ footer .footer-wrapper .footer-section3 .info-wrapper .info a .icon i {
   transition: 0.3s;
 }
 
-.propiedad-wrapper .propiedad-right .gestor-img i:hover {
+.propiedad-wrapper .propiedad-right .gestor-img:hover i {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.propiedad-wrapper .propiedad-right #upload-photo {
+  opacity: 0;
+  position: relative;
+}
+
+.propiedad-wrapper .propiedad-right .galeria {
+  max-width: 500px;
+  width: 100%;
+  height: 300px;
+  margin-top: 20px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  overflow: auto;
+}
+
+.propiedad-wrapper .propiedad-right .galeria .imagen {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  margin: 10px;
+  background-color: #555;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.propiedad-wrapper .propiedad-right .galeria .imagen img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.propiedad-wrapper .propiedad-right .galeria .imagen button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #91009d;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.propiedad-wrapper .propiedad-right .galeria .imagen button:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
