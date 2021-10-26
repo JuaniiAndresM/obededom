@@ -171,6 +171,7 @@ function cargoPropiedades(){
                         </div>
                         <div class="buttons">
                           <button class="deshabilitar" id=`+ propiedades[i] +`><i class="fas fa-times-circle"></i></button>
+                          <button class="vendido" id=`+ propiedades[i] +`><i class="fas fa-sign"></i></button>
                           <button class="editar" id=`+ propiedades[i] +`><i class="fas fa-edit"></i></button>
                           <button class="borrarPropiedad" id=`+ propiedades[i] +`><i class="fas fa-trash-alt"></i></button>
                         </div>
@@ -200,6 +201,7 @@ function cargoPropiedades(){
                           </div>
                           <div class="buttons">
                             <button class="habilitar" id=`+ propiedades[i] +`><i class="fas fa-check-circle"></i></button>
+                            <button class="vendido" id=`+ propiedades[i] +`><i class="fas fa-sign"></i></button>
                             <button class="editar" id=`+ propiedades[i] +`><i class="fas fa-edit"></i></button>
                             <button class="borrarPropiedad" id=`+ propiedades[i] +`><i class="fas fa-trash-alt"></i></button>
                           </div>
