@@ -59,8 +59,14 @@ $(document).ready(function () {
             subirPropiedad();
         });
     }
-});
 
+    $('#file-input').click(function(){
+        $("#upload-photo").click();
+    });
+    $('#file-input-pdf').click(function(){
+        $("#upload-pdf").click();
+    });
+});
 
 function cargarOperaciones(){
     var arrayOperaciones = Backend.traerOperaciones();

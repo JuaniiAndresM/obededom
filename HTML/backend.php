@@ -297,15 +297,60 @@ if(!isset($_SESSION['Usuario'])){
             <textarea name="descripcion" id="descripcion"></textarea>
 
             <h1><i class="fas fa-images"></i> Gestor de Imágenes</h1>
-            <div class="gestor-img">
-                <h3>Hacer un gestor de imágenes para subir mas de 10 imágenes.</h3>
+            <button class="gestor-img" id="file-input">
+                <h3>Haz click aquí para subir imagenes.</h3>
+                <p>0/15</p>
                 <i class="fas fa-plus-circle"></i>
+            </button>
+            <input type="file" name="upload-photo" id="upload-photo">
+
+            <div class="galeria">
+                <div class="imagen">
+                    <img src="/obededom/media/img/Ejemplo1.jpg" alt="">
+                    <button><i class="fas fa-times"></i></button>
+                </div>
+                <div class="imagen">
+                    <img src="/obededom/media/img/Ejemplo2.jpg" alt="">
+                    <button><i class="fas fa-times"></i></button>
+                </div>
+                <div class="imagen">
+                    <img src="/obededom/media/img/Ejemplo3.jpg" alt="">
+                    <button><i class="fas fa-times"></i></button>
+                </div>
+                <div class="imagen">
+                    <img src="/obededom/media/img/Ejemplo4.jpg" alt="">
+                    <button><i class="fas fa-times"></i></button>
+                </div>
+                <div class="imagen">
+                    <img src="/obededom/media/img/Ejemplo1.jpg" alt="">
+                    <button><i class="fas fa-times"></i></button>
+                </div>
+                <div class="imagen">
+                    <img src="/obededom/media/img/Ejemplo2.jpg" alt="">
+                    <button><i class="fas fa-times"></i></button>
+                </div>
+                <div class="imagen">
+                    <img src="/obededom/media/img/Ejemplo3.jpg" alt="">
+                    <button><i class="fas fa-times"></i></button>
+                </div>
+                <div class="imagen">
+                    <img src="/obededom/media/img/Ejemplo4.jpg" alt="">
+                    <button><i class="fas fa-times"></i></button>
+                </div>
             </div>
 
             <h1><i class="fas fa-file-pdf"></i> Gestor de Archivos</h1>
-            <div class="gestor-img">
-                <h3>Hacer un gestor de archivos para subir pdf.</h3>
+            <button class="gestor-img" id="file-input-pdf">
+                <h3>Haz click aquí para subir un pdf.</h3>
                 <i class="fas fa-plus-circle"></i>
+            </button>
+            <input type="file" name="upload-pdf" id="upload-pdf">
+
+            <div class="galeria pdf">
+
+                <embed src="/obededom/media/pdf/Ejemplo.pdf" width="100%" height="100%" />
+                <button><i class="fas fa-times"></i></button>
+
             </div>
 
             <h1><i class="fas fa-plus"></i> Extras</h1>

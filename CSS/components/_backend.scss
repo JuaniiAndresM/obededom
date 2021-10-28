@@ -217,6 +217,8 @@
       width: 100%;
       height: 300px;
 
+      cursor: pointer;
+
       background-color: #fff;
       border: 2px solid #ccc;
 
@@ -232,6 +234,12 @@
       h3 {
         color: #666;
         margin: 10px;
+        margin-bottom: 5px;
+      }
+      p{
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-bottom: 10px;
       }
       i {
         color: #666;
@@ -240,7 +248,100 @@
         cursor: pointer;
         transition: 0.3s;
       }
-      i:hover {
+    }
+    .gestor-img:hover i{
+      transform: scale(1.1);
+    }
+
+    #upload-photo{
+      opacity: 0;
+      position: relative;
+    }
+    #upload-pdf{
+      opacity: 0;
+      position: relative;
+    }
+
+    .galeria{
+      max-width: 500px;
+      width: 100%;
+      height: 300px;
+      margin-top: 20px;
+
+      background-color: #fff;
+      border: 2px solid #ccc;
+
+      border-radius: 10px;
+
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+
+      overflow: auto;
+
+      .imagen{
+        width: 100px;
+        height: 100px;
+
+        position: relative;
+
+        margin: 10px;
+        background-color: #555;
+        border-radius: 10px;
+        overflow: hidden;
+
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        button{
+          position: absolute;
+          top: 10px;
+          right: 10px;
+
+          background-color: $color2;
+          border-radius: 50%;
+
+          width: 20px;
+          height: 20px;
+          border: none;
+          color: white;
+
+          cursor: pointer;
+
+          transition: .3s;
+        }
+        button:hover{
+          transform: scale(1.1);
+        }
+      }
+    }
+    .pdf{
+      position: relative;
+      button{
+        position: absolute;
+        top: 13px;
+        left: 13px;
+
+        background-color: $color2;
+        border-radius: 50%;
+
+        width: 30px;
+        height: 30px;
+        border: none;
+        color: white;
+
+        cursor: pointer;
+
+        transition: .3s;
+
+        i{
+          font-size: 1.1em;
+        }
+      }
+      button:hover{
         transform: scale(1.1);
       }
     }
