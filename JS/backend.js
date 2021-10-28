@@ -74,7 +74,6 @@ class BackendObj {
           dataType: 'json',
           success: function (data) {
             Dormitorios = data;
-            console.log("estos son los dormitorios: " + data)
           },
         });
         return Dormitorios;
@@ -89,9 +88,7 @@ class BackendObj {
           data: { accion: 6 },
           dataType: 'json',
           success: function (data) {
-            Baños = data;
-            console.log("estos son los baños: " + data)
-          },
+            Baños = data;         },
         });
         return Baños;
       }
@@ -106,7 +103,6 @@ class BackendObj {
           dataType: 'json',
           success: function (data) {
             Garages = data;
-            console.log("estos son los Garages: " + data)
           },
         });
         return Garages;
@@ -121,9 +117,7 @@ class BackendObj {
           data: { accion: 8 },
           dataType: 'json',
           success: function (data) {
-            Distanciamar = data;
-            console.log("estos son los Distanciamar: " + data)
-          },
+            Distanciamar = data;          },
         });
         return Distanciamar;
       }
@@ -137,9 +131,7 @@ class BackendObj {
           data: { accion: 9 },
           dataType: 'json',
           success: function (data) {
-            Sobre = data;
-            console.log("estos son los Sobre: " + data)
-          },
+            Sobre = data;         },
         });
         return Sobre;
       }
@@ -154,7 +146,6 @@ class BackendObj {
           dataType: 'json',
           success: function (data) {
             Estados = data;
-            console.log("estos son los Estados: " + data)
           },
         });
         return Estados;
@@ -170,7 +161,6 @@ class BackendObj {
           dataType: 'json',
           success: function (data) {
             Plantas = data;
-            console.log("estos son los Plantas: " + data)
           },
         });
         return Plantas;
@@ -186,7 +176,6 @@ class BackendObj {
           dataType: 'json',
           success: function (data) {
             Comfort = data;
-            console.log("estos son los Comfort: " + data)
           },
         });
         return Comfort;
@@ -202,7 +191,6 @@ class BackendObj {
           dataType: 'json',
           success: function (data) {
             Seguridad = data;
-            console.log("estos son los Seguridad: " + data)
           },
         });
         return Seguridad;
@@ -218,7 +206,6 @@ class BackendObj {
           data: { accion: 14, datosJSON: arrayDatos},
           success: function (data) {
             resultado = data;
-            console.log("estos son los datos: " + data)
           },
         });
         return resultado;
@@ -265,9 +252,7 @@ class BackendObj {
           url: "/obededom/PHP/backend.php",
           data: { accion: 17, datosJSON: arrayDatos},
           success: function (data) {
-            resultado = data;
-            console.log("estos son los datos: " + data)
-          },
+            resultado = data;         },
         });
         return resultado;
       }

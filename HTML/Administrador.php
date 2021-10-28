@@ -355,7 +355,7 @@ if(!isset($_SESSION['Usuario'])){
         <h1 class="title"><i class="fas fa-envelope"></i> Bandeja de Entrada (5)</h1>
 
         <div class="boton-eliminar">
-          <a href=""><i class="fas fa-trash-alt"></i> Eliminar Todas</a>
+          <a onclick="mandarmail()"><i class="fas fa-trash-alt"></i> Eliminar Todas</a>
         </div>
 
         <div class="mensajes-wrapper">

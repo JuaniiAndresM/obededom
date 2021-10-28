@@ -647,3 +647,7 @@ function cerrarSesion(){
 
   location.reload();
 }
+
+function mandarmail(){
+  Administrador.mandarMail();
+}

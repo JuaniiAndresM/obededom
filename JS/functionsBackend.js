@@ -42,6 +42,10 @@ $(document).ready(function () {
         subirBorrador();
         });
 
+    $("#cancelar").on('click', function() {
+        location.href = 'Administrador.php';
+        });
+
     if(sessionStorage.getItem("idPropiedadEditar") !== null){
         var idPropiedadEditar = sessionStorage.getItem("idPropiedadEditar");
         cargoDatos(idPropiedadEditar);
@@ -330,13 +334,15 @@ function subirPropiedad(idPropiedadEditar){
                         if(idPropiedadEditar != undefined){
                             arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
                                 fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
-                                cantidadPlantas, extras, garantias, descripcion, estado, arrayComfort, arraySeguridad, mostrarPrecio, vistamar, idPropiedadEditar];
+                                cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar, idPropiedadEditar, arrayComfort, arraySeguridad];
+                                console.log(arrayDatos);
+                                alert("aaaa")
                             mandarDatos.actualizarPropiedad(JSON.stringify(arrayDatos));
                             modal(6);
                         }else{
                             arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
                                 fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
-                                cantidadPlantas, extras, garantias, descripcion, estado, arrayComfort, arraySeguridad, mostrarPrecio, vistamar];
+                                cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar, arrayComfort, arraySeguridad];
                             mandarDatos.guardarPropiedad(JSON.stringify(arrayDatos));
                             modal(5);
                         }
@@ -345,7 +351,9 @@ function subirPropiedad(idPropiedadEditar){
                     if(idPropiedadEditar != undefined){
                         arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
                             fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
-                            cantidadPlantas, extras, garantias, descripcion, estado, arrayComfort, arraySeguridad, mostrarPrecio, vistamar, idPropiedadEditar];
+                            cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar, idPropiedadEditar];
+                            console.log(arrayDatos)
+                            alert("aaaa")
                         mandarDatos.actualizarPropiedad(JSON.stringify(arrayDatos));
                         modal(6);
                     }else{
@@ -491,6 +499,7 @@ function subirBorrador(){
         document.getElementById('viviendano').checked = true;
     }
     $("#selectPlantas").val(propiedad[24]).change();
+    alert(comforts)
     if(comforts == "" && seguridades == ""){
         $("#checkboxcomfort").prop('checked', true);
         $("#section-comfort-seguridad").hide();

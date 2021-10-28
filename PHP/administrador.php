@@ -1,7 +1,9 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
 include "procedimientosAdministrador.php";
+include "mail.php";
 $llamarFunction = new DatosAdministrador();
+$llamarMail = new mails();
 
 switch ($_POST["accion"]) {
     case 1:
@@ -54,6 +56,9 @@ switch ($_POST["accion"]) {
     break;
     case 17:
         echo json_encode($llamarFunction->TraerPropiedad($_POST["idPropiedad"]));
+    break;
+    case 18:
+        $llamarMail->mailLink();
     break;
 
 }

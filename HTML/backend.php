@@ -313,8 +313,8 @@ if(!isset($_SESSION['Usuario'])){
 
             <div class="buttons">
                 <button id="subirpropiedad"><i class="fas fa-cart-plus"></i> Subir Propiedad</button>
-                <button id="subirborrador"><i class="fas fa-eraser"></i> Guardar como Borrador</button>
-                <button><i class="fas fa-ban"></i> Cancelar</button>
+                <!--<button id="subirborrador"><i class="fas fa-eraser"></i> Guardar como Borrador</button>-->
+                <button id="cancelar"><i class="fas fa-ban"></i> Cancelar</button>
             </div>
         </div>
     </div>

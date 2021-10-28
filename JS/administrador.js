@@ -370,5 +370,17 @@ class AdministradorObj {
         });
         return Propiedades;
       }
+
+      mandarMail() {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "/obededom/PHP/administrador.php",
+          data: { accion: 18},
+          success: function (data) {
+            console.log(data)
+          },
+        });
+      }
       
 }
