@@ -506,7 +506,7 @@ public function ActualizarPropiedad($arrayJSON){
 
                 // File path
                 $path = $upload_location.$filename;
-                $pathSQL = "/obededom/media/img/propiedad_".$idPropiedad."/".$filename;
+                $pathSQL = "/media/img/propiedad_".$idPropiedad."/".$filename;
 
                 // Upload file
                 if($_FILES['imagenes']['size'][$index] > 10*MB){
@@ -549,7 +549,7 @@ public function ActualizarPropiedad($arrayJSON){
             if($sentencia->execute()) {
                 $sentencia->bind_result($url);
                 if($sentencia->fetch()){
-                    $urlFinal = str_replace("/obededom", "..", $url);
+                    $urlFinal = str_replace("/media", "../media", $url);
                     unlink($urlFinal);
                 }
             }else{
@@ -604,7 +604,7 @@ public function ActualizarPropiedad($arrayJSON){
 
                 // File path
                 $path = $upload_location.$filename;
-                $pathSQL = "/obededom/media/pdf/".$filename;
+                $pathSQL = "/media/pdf/".$filename;
 
                 // Upload file
                 if($_FILES['pdf']['size'] > 10*1048576){
@@ -647,7 +647,7 @@ public function ActualizarPropiedad($arrayJSON){
                 $sentencia->bind_result($url);
                 if($sentencia->fetch()){
                     echo "algo";
-                    $urlFinal = str_replace("/obededom", "..", $url);
+                    $urlFinal = str_replace("/media", "../media", $url);
                     unlink($urlFinal);
                 }
             }else{

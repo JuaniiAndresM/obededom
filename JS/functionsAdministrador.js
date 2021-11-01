@@ -59,7 +59,7 @@ $(document).ready(function () {
   $('.propiedad-wrapper').on('click', '.propiedad .editar', function(event){
     sessionStorage.removeItem("idPropiedadEditar")
     sessionStorage.setItem("idPropiedadEditar", this.id);
-    location.href = '/obededom/HTML/backend.php';
+    location.href = '/HTML/backend.php';
   });
 
   $('#buscador').on('keyup', function() {
@@ -146,7 +146,7 @@ function cargoPropiedades(){
     if(imagenes.indexOf(propiedades[i], 1) != -1){
       urlImagen = imagenes[imagenes.indexOf(propiedades[i], 1) - 1]
     }else{
-      urlImagen = "/obededom/media/img/Ejemplo1.jpg";
+      urlImagen = "/media/img/Ejemplo1.jpg";
     }
 
     //comprueba si se muestra el precio

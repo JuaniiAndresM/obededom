@@ -108,7 +108,7 @@ switch($numero_mensaje){
 $modal = "  <div class='modal'>
                 <div class='modal-wrapper'>
                     <div class='modal-logo'>
-                        <img src='/obededom/media/svg/Logo.svg' alt=''>
+                        <img src='/media/svg/Logo.svg' alt=''>
                     </div>
                     <div class='modal-content'>
                         <h1>$mensaje_1</h1>

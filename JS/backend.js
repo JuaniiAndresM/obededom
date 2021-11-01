@@ -6,7 +6,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 1 },
           dataType: 'json',
           success: function (data) {
@@ -22,7 +22,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 2 },
           dataType: 'json',
           success: function (data) {
@@ -38,7 +38,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 3 },
           dataType: 'json',
           success: function (data) {
@@ -54,7 +54,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 4, idDepartamento: idDepartamento },
           dataType: 'json',
           success: function (data) {
@@ -69,7 +69,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 5 },
           dataType: 'json',
           success: function (data) {
@@ -84,7 +84,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 6 },
           dataType: 'json',
           success: function (data) {
@@ -98,7 +98,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 7 },
           dataType: 'json',
           success: function (data) {
@@ -113,7 +113,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 8 },
           dataType: 'json',
           success: function (data) {
@@ -127,7 +127,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 9 },
           dataType: 'json',
           success: function (data) {
@@ -141,7 +141,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 10 },
           dataType: 'json',
           success: function (data) {
@@ -156,7 +156,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 11 },
           dataType: 'json',
           success: function (data) {
@@ -171,7 +171,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 12 },
           dataType: 'json',
           success: function (data) {
@@ -186,7 +186,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 13 },
           dataType: 'json',
           success: function (data) {
@@ -201,7 +201,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 14, datosJSON: arrayDatos},
           success: function (idPropiedad) {
             imagenes.guardarImagenes(form_data, idPropiedad);
@@ -214,7 +214,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 15, idPropiedad: idPropiedad},
           dataType: 'json',
           success: function (data) {
@@ -229,7 +229,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 16, idPropiedad: idPropiedad},
           dataType: 'json',
           success: function (data) {
@@ -244,7 +244,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 17, datosJSON: arrayDatos},
           success: function (idPropiedad) {
             imagenes.guardarImagenes(form_data, idPropiedad);     
@@ -257,7 +257,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 18, idPropiedad: idPropiedad},
           dataType: 'json',
           success: function (data) {
@@ -272,7 +272,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 19},
           dataType: 'json',
           success: function (data) {
@@ -287,7 +287,7 @@ class BackendObj {
         form_id = form_data;
         form_id.append('idPropiedad',idPropiedad);
         $.ajax({
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           cache: false,
           contentType: false,
           processData: false,
@@ -303,7 +303,7 @@ class BackendObj {
 
       eliminarImagen(idImagen) {
         $.ajax({
-          url: "/obededom/PHP/backend.php",     
+          url: "/PHP/backend.php",     
           type: 'post',
           data: { accion: 20, idImagen: idImagen},
           success: function (response) {
@@ -314,7 +314,7 @@ class BackendObj {
       traerPDF(idPropiedad) {
         var url = "";
         $.ajax({
-          url: "/obededom/PHP/backend.php",     
+          url: "/PHP/backend.php",     
           async: false,
           type: 'post',
           data: { accion: 21, idPropiedad: idPropiedad},
@@ -328,7 +328,7 @@ class BackendObj {
 
       eliminarPDF(idPropiedad) {
         $.ajax({
-          url: "/obededom/PHP/backend.php",    
+          url: "/PHP/backend.php",    
           async: false, 
           type: 'post',
           data: { accion: 23, idPropiedad: idPropiedad},

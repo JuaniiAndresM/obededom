@@ -2,8 +2,8 @@ let Administrador = new AdministradorObj();
 let Backend = new BackendObj();
 
 $(document).ready(function () {
-  $('#header').load('/obededom/web/header.html');
-  $('#footer').load('/obededom/web/footer.html');
+  $('#header').load('/web/header.html');
+  $('#footer').load('/web/footer.html');
   if(sessionStorage.getItem("idPropiedad")){
     cargoPropiedad(sessionStorage.getItem("idPropiedad"));
   }else{

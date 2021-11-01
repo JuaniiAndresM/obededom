@@ -1,7 +1,7 @@
 function modal(numero_mensaje) {
   $.ajax({
     type: "POST",
-    url: "/obededom/Modal/modal.php",
+    url: "/Modal/modal.php",
     data: { numero_mensaje: numero_mensaje },
     success: function (response) {
       $(".modal").html(response);

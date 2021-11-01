@@ -2,8 +2,8 @@ Administrador = new AdministradorObj();
 Backend = new BackendObj();
 
 $(document).ready(function () {
-    $('#header').load('/obededom/web/header.html');
-    $('#footer').load('/obededom/web/footer.html');
+    $('#header').load('/web/header.html');
+    $('#footer').load('/web/footer.html');
     cargoPropiedades();
 });
 
@@ -26,7 +26,7 @@ function cargoPropiedades(){
           if(imagenes.indexOf(propiedades[i], 1) != -1){
             urlImagen = imagenes[imagenes.indexOf(propiedades[i], 1) - 1]
           }else{
-            urlImagen = "/obededom/media/img/Ejemplo1.jpg";
+            urlImagen = "/media/img/Ejemplo1.jpg";
           }
           //comprueba si se muestra el precio
           if(propiedades[i+30] == 1){
