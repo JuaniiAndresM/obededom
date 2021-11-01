@@ -57,7 +57,7 @@ if(!isset($_SESSION['Usuario'])){
                     <div class="panel-izquierdo">
                         <div class="input">
                             <p>Titulo de la Propiedad</p>
-                            <input type="text" name="titulo" id="tituloPropiedad">
+                            <input type="text" class="reset" name="titulo" id="tituloPropiedad">
                         </div>
                         <div class="input">
                             <p>Tipo de Operación</p>
@@ -70,7 +70,7 @@ if(!isset($_SESSION['Usuario'])){
                     <div class="panel-medio">
                         <div class="input">
                             <p>Precio de Venta en Dolares</p>
-                            <input type="number" name="precio" id="precioDolares">
+                            <input type="number" class="reset" name="precio" id="precioDolares">
                             <div class="checkbox" id="checkbox-precio">
                                 <input type="checkbox" name="" id="mostrarPrecio" checked>Mostrar precio de venta
                             </div>
@@ -141,7 +141,7 @@ if(!isset($_SESSION['Usuario'])){
                     <div class="panel-derecho">
                         <div class="input">
                             <p>Dirección de la Propiedad</p>
-                            <input type="text" name="direccion" id="direccion">
+                            <input type="text" class="reset" name="direccion" id="direccion">
                         </div>
                     </div>
 
@@ -159,7 +159,7 @@ if(!isset($_SESSION['Usuario'])){
                     <div class="panel-izquierdo">
                         <div class="input">
                             <p>Año de Construcción</p>
-                            <input type="number" name="añoconstruccion" id="fechaConstruccion" min="1000">
+                            <input type="number" class="reset" name="añoconstruccion" id="fechaConstruccion" min="1000">
                         </div>
                         <div class="input">
                             <p>Dormitorios</p>
@@ -198,15 +198,15 @@ if(!isset($_SESSION['Usuario'])){
                     <div class="panel-medio">
                         <div class="input">
                             <p>Metros Edificados</p>
-                            <input type="number" name="mts_edificados" id="metrosEdificados">
+                            <input type="number" class="reset" name="mts_edificados" id="metrosEdificados">
                         </div>
                         <div class="input">
                             <p>Metros de la Terraza</p>
-                            <input type="number" name="mts_terraza" id="metrosTerraza">
+                            <input type="number" class="reset" name="mts_terraza" id="metrosTerraza">
                         </div>
                         <div class="input">
                             <p>Metros del Terreno</p>
-                            <input type="number" name="mts_terreno" id="metrosTerreno">
+                            <input type="number" class="reset" name="mts_terreno" id="metrosTerreno">
                         </div>
                         <div class="input">
                             <p>Sobre</p>
@@ -299,44 +299,13 @@ if(!isset($_SESSION['Usuario'])){
             <h1><i class="fas fa-images"></i> Gestor de Imágenes</h1>
             <button class="gestor-img" id="file-input">
                 <h3>Haz click aquí para subir imagenes.</h3>
-                <p>0/15</p>
+                <p>(Tamaño máximo de 10MB)</p>
+                <p><span id="cantidadImagenes">0</span>/15</p>
                 <i class="fas fa-plus-circle"></i>
             </button>
-            <input type="file" name="upload-photo" id="upload-photo">
+            <input type="file" name="upload-photo" id="upload-photo" max-size="10" accept="image/png, image/jpeg" multiple>
 
-            <div class="galeria">
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo1.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo2.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo3.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo4.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo1.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo2.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo3.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo4.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
+            <div class="galeria" id="galeria">
             </div>
 
             <h1><i class="fas fa-file-pdf"></i> Gestor de Archivos</h1>
@@ -344,12 +313,12 @@ if(!isset($_SESSION['Usuario'])){
                 <h3>Haz click aquí para subir un pdf.</h3>
                 <i class="fas fa-plus-circle"></i>
             </button>
-            <input type="file" name="upload-pdf" id="upload-pdf">
+            <input type="file" name="upload-pdf" accept="application/pdf" id="upload-pdf">
 
-            <div class="galeria pdf">
+            <div class="galeria pdf" id="previewPDF">
 
-                <embed src="/obededom/media/pdf/Ejemplo.pdf" width="100%" height="100%" />
-                <button><i class="fas fa-times"></i></button>
+                <embed src="" width="100%" height="100%" id="pdf"/>
+                <button id="eliminarPDF"><i class="fas fa-times"></i></button>
 
             </div>
 

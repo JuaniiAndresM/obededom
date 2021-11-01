@@ -1,43 +1,30 @@
 let Administrador = new AdministradorObj();
+let Backend = new BackendObj();
 
 $(document).ready(function () {
+  $('#header').load('/obededom/web/header.html');
+  $('#footer').load('/obededom/web/footer.html');
   if(sessionStorage.getItem("idPropiedad")){
     cargoPropiedad(sessionStorage.getItem("idPropiedad"));
-    createSliderPropiedad();
   }else{
     location.href = 'Buscador.html';
   }
 });
 
-function createSliderPropiedad(){
-    new Glider(document.querySelector('.slider-content-propiedad'), {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        scrollLock: false,
-        dots: '.slider-indicators',
-        arrows: {
-            prev: '.slider-anterior',
-            next: '.slider-siguiente'
-        },
-        responsive: [
-            {
-              // screens greater than >= 775px
-              breakpoint: 1110,
-              settings: {
-
-                slidesToShow: '1',
-                slidesToScroll: '1',
-                itemWidth: 150,
-                duration: 0.25
-              }
-            }
-        ]
-    });
-}
-
 function cargoPropiedad(idPropiedad){
     var propiedad = Administrador.traerPropiedad(idPropiedad);
-    console.log(propiedad)
+    var comforts = Backend.traerComfortPropiedad(idPropiedad);
+    var seguridades = Backend.traerSeguridadPropiedad(idPropiedad);
+    var imagenes = Backend.traerImagenes(idPropiedad);
+    var pdf = Backend.traerPDF(idPropiedad);
+    console.log(imagenes);
+    for(i = 0; i < imagenes.length; i = i+2){
+      document.getElementById("sliderImagenes").innerHTML += `
+      <div class="img-propiedad">
+        <img src=` + imagenes[i+1] + ` alt="">
+      </div>
+      `;
+    }
     departamento = comprueboDepartamento(propiedad[7]);
     document.getElementById("tituloPropiedad").innerHTML = propiedad[1];
     //carga el precio de venta, y si está seteado para que no se muestre, pone precio a convenir.
@@ -86,6 +73,26 @@ function cargoPropiedad(idPropiedad){
     document.getElementById("distanciaMar").innerHTML = propiedad[20];
     document.getElementById("descripcion").innerHTML = propiedad[26];
     document.getElementById("garantias").innerHTML = propiedad[27];
+    if(comforts.length == 0){
+      $("#comfort").hide();
+    }else{
+      for(i = 0; i < comforts.length; i = i+2){
+        document.getElementById("listaComfort").innerHTML += "<p>- "+ comforts[i+1] +".</p>";
+      }
+    }
+    if(seguridades.length == 0){
+      $("#seguridad").hide();
+    }else{
+      for(i = 0; i < seguridades.length; i = i+2){
+        document.getElementById("listaSeguridad").innerHTML += "<p>- "+ seguridades[i+1] +".</p>";
+      } 
+    }
+    if(pdf !== ""){
+        document.getElementById("pdf").setAttribute("src", pdf);
+    }else{
+        $("#sectionPDF").remove();
+    }
+    createSliderPropiedad();
 }
 
 function comprueboDepartamento(idDepartamento){
@@ -131,3 +138,29 @@ function comprueboDepartamento(idDepartamento){
       default: "Error"
     }
   }
+
+  function createSliderPropiedad(){
+    new Glider(document.querySelector('.slider-content-propiedad'), {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        scrollLock: false,
+        dots: '.slider-indicators',
+        arrows: {
+            prev: '.slider-anterior',
+            next: '.slider-siguiente'
+        },
+        responsive: [
+            {
+              // screens greater than >= 775px
+              breakpoint: 1110,
+              settings: {
+
+                slidesToShow: '1',
+                slidesToScroll: '1',
+                itemWidth: 150,
+                duration: 0.25
+              }
+            }
+        ]
+    });
+}

@@ -22,6 +22,7 @@ $(document).ready(function () {
 });
 function cargoPropiedades(){
     var propiedades = Administrador.traerPropiedades();
+    var imagenes = Backend.traerImagen();
     var divPropiedades = document.getElementById("divPropiedades");
     var nuevaPropiedad = "";
     var departamento = "";
@@ -32,6 +33,12 @@ function cargoPropiedades(){
     for (var i = 0; i < propiedades.length; i = i+31){
       //comprueba que la propiedad esté habilitada
       if(propiedades[i+28] == 1){
+        //comprueba si tiene imagen
+        if(imagenes.indexOf(propiedades[i], 1) != -1){
+          urlImagen = imagenes[imagenes.indexOf(propiedades[i], 1) - 1]
+        }else{
+          urlImagen = "/obededom/media/img/Ejemplo1.jpg";
+        }
         //comprueba si se muestra el precio
         if(propiedades[i+30] == 1){
           precio = Number(propiedades[i+3]).toLocaleString()
@@ -50,7 +57,7 @@ function cargoPropiedades(){
           </div>
 
           <div class="card-img">
-            <img src="/obededom/media/img/Ejemplo1.jpg" alt="" />
+            <img src="`+ urlImagen +`" alt="" />
           </div>
           <div class="card-content">
             <h3>`+ propiedades[i+1] +`</h3>
@@ -89,7 +96,7 @@ function cargoPropiedades(){
           </div>
 
           <div class="card-img">
-            <img src="/obededom/media/img/Ejemplo1.jpg" alt="" />
+            <img src="`+ urlImagen +`" alt="" />
           </div>
           <div class="card-content">
             <h3>`+ propiedades[i+1] +`</h3>

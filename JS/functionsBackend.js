@@ -1,9 +1,115 @@
 let Backend = new BackendObj();
 let Administrador = new AdministradorObj();
 var añoActual = new Date().getFullYear()
+var form_data = new FormData();
+var contadorImagenes = 0;
 var idPropiedadEditar;
 
 $(document).ready(function () {
+    cargarTodo();
+    $("#galeria").hide();
+    $("#previewPDF").hide();
+    //carga el maximo de años con el año actual
+    document.getElementById("fechaConstruccion").setAttribute("max", añoActual);
+    //Carga una opcion default antes de cargar la localidad del departamento elegido
+    $("#selectLocalidades").empty().append($("<option></option>").attr({"value": 0,"selected": selected, 'disabled': true}).text('Elija un Departamento'));
+    //Carga las localidades del departamento que elija
+    $('#selectDepartamentos').on('change', function() {
+        cargarLocalidad(this.value);
+      });
+
+    
+
+    $("#checkboxcomfort").change(function() {
+    if(this.checked) {
+            $("#section-comfort-seguridad").hide();
+        }else{
+            $("#section-comfort-seguridad").show();
+        }
+    });
+
+    $("#subirborrador").on('click', function() {
+        subirBorrador();
+        });
+
+    $("#cancelar").on('click', function() {
+        if(sessionStorage.getItem("idPropiedadEditar") !== null){
+            sessionStorage.removeItem('idPropiedadEditar');
+        }
+        location.href = 'administrador.php';
+
+        });
+
+    if(sessionStorage.getItem("idPropiedadEditar") !== null){
+        var idPropiedadEditar = sessionStorage.getItem("idPropiedadEditar");
+        cargoDatos(idPropiedadEditar);
+        $("#actualizarpropiedad").on('click', function() {
+            subirPropiedad(idPropiedadEditar, form_data);
+            });
+    }else{
+        document.getElementById("eliminarPDF").setAttribute("onClick", "eliminarPDF()");
+    }
+
+    $("#subirpropiedad").on('click', function() {
+        subirPropiedad();
+    });
+
+    $('#file-input').click(function(){
+        $("#upload-photo").click();
+    });
+
+    $("#upload-photo").on('change', function() {
+        var tiposValidos = ['image/jpeg', 'image/png'];
+        if(contadorImagenes < 14){
+            var imagen = this.files;
+            for(var i = 0; i < imagen.length; i++){
+                if(imagen[i].size < 10000000){
+                    if(tiposValidos.includes(imagen[i]["type"])) {
+                        form_data.append("imagenes[]", imagen[i]);
+                        contadorImagenes++;
+                        if(contadorImagenes > 14){
+                            modal("muchasimagenes")
+                            break;
+                        }
+                    }else{
+                        modal("extensionValida")
+                    }
+                }else{
+                    modal("archivoGrande")
+                }
+            }
+            mostrarImagenes();
+        }else{
+            modal("muchasimagenes")
+        }
+    });
+    
+    $('#file-input-pdf').click(function(){
+        $("#upload-pdf").click();
+    });
+
+    $("#upload-pdf").on('change', function() {
+        var tiposValidos = ['application/pdf'];
+            var pdf = this.files;
+            console.log(pdf[0]);
+            if(pdf[0].size < 10000000){
+                if(tiposValidos.includes(pdf[0]["type"])) {
+                    form_data.delete("pdf");
+                    form_data.append("pdf", pdf[0]);
+                    document.getElementById("pdf").setAttribute("src", URL.createObjectURL(pdf[0]));
+                    $("#file-input-pdf").hide();
+                    $("#previewPDF").show();
+                }else{
+                    modal("extensionPDF")
+                }
+            }else{
+                modal("archivoGrande")
+            }
+    });
+
+});
+
+function cargarTodo(){
     //Carga los tipos de operacion
     cargarOperaciones();
     //Carga los tipos de propiedad
@@ -20,57 +126,12 @@ $(document).ready(function () {
     cargarPlantas();
     cargarComfort();
     cargarSeguridad();
-
-    //carga el maximo de años con el año actual
-    document.getElementById("fechaConstruccion").setAttribute("max", añoActual);
-    //Carga una opcion default antes de cargar la localidad del departamento elegido
-    $("#selectLocalidades").empty().append($("<option></option>").attr({"value": 0,"selected": selected, 'disabled': true}).text('Elija un Departamento'));
-    //Carga las localidades del departamento que elija
-    $('#selectDepartamentos').on('change', function() {
-        cargarLocalidad(this.value);
-      });
-
-    $("#checkboxcomfort").change(function() {
-    if(this.checked) {
-            $("#section-comfort-seguridad").hide();
-        }else{
-            $("#section-comfort-seguridad").show();
-        }
-    });
-
-    $("#subirborrador").on('click', function() {
-        subirBorrador();
-        });
-
-    $("#cancelar").on('click', function() {
-        location.href = 'Administrador.php';
-        });
-
-    if(sessionStorage.getItem("idPropiedadEditar") !== null){
-        var idPropiedadEditar = sessionStorage.getItem("idPropiedadEditar");
-        cargoDatos(idPropiedadEditar);
-        $("#actualizarpropiedad").on('click', function() {
-            alert("hola")
-            subirPropiedad(idPropiedadEditar);
-            });
-        sessionStorage.removeItem("idPropiedadEditar")
-    }else{
-        $("#subirpropiedad").on('click', function() {
-            subirPropiedad();
-        });
-    }
-
-    $('#file-input').click(function(){
-        $("#upload-photo").click();
-    });
-    $('#file-input-pdf').click(function(){
-        $("#upload-pdf").click();
-    });
-});
+}
 
 function cargarOperaciones(){
     var arrayOperaciones = Backend.traerOperaciones();
     var selectOperaciones = document.getElementById('selectOperaciones');
+    $("#selectOperaciones").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true}).text('Seleccione una Opción'));
     for (var i = 0; i < arrayOperaciones.length; i = i+2){
         var opt = document.createElement('option');
         opt.value = arrayOperaciones[i+1];
@@ -81,8 +142,8 @@ function cargarOperaciones(){
 
 function cargarTipoPropiedad(){
     var arrayTipoPropiedad = Backend.traerTiposPropiedad();
-    console.log(arrayTipoPropiedad);
     var selectTipoPropiedad = document.getElementById('selectTipoPropiedad');
+    $("#selectTipoPropiedad").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true}).text('Seleccione una Opción'));
     for (var i = 0; i < arrayTipoPropiedad.length; i = i+2){
         var opt = document.createElement('option');
         opt.value = arrayTipoPropiedad[i+1];
@@ -94,6 +155,7 @@ function cargarTipoPropiedad(){
 function cargarDepartamentos(){
     var arrayDepartamentos = Backend.traerDepartamentos();
     var selectDepartamentos = document.getElementById('selectDepartamentos');
+    $("#selectDepartamentos").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true}).text('Seleccione una Opción'));
     for (var i = 0; i < arrayDepartamentos.length; i = i+2){
         //crea un elemento option
         var opt = document.createElement('option');
@@ -109,7 +171,7 @@ function cargarDepartamentos(){
 function cargarLocalidad(idDepartamento){
     var arrayLocalidades = Backend.traerLocalidades(idDepartamento);
     var selectLocalidades = document.getElementById('selectLocalidades');
-    $("#selectLocalidades").empty().append($("<option></option>").attr({"value": 0,"selected": selected, 'disabled': true}).text('Seleccione una Opción'));
+    $("#selectLocalidades").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true}).text('Seleccione una Opción'));
     for (var i = 0; i < arrayLocalidades.length; i = i+2){
         //crea un elemento option
         var opt = document.createElement('option');
@@ -125,7 +187,7 @@ function cargarLocalidad(idDepartamento){
 function cargarDormitorios(){
     var arrayDormitorios = Backend.traerDormitorios();
     var selectDormitorios = document.getElementById('selectDormitorios');
-    $("#selectDormitorios").empty().append($("<option></option>").attr({"value": 0,"selected": selected, 'disabled': true}).text('Seleccione una Opción'));
+    $("#selectDormitorios").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true}).text('Seleccione una Opción'));
     for (var i = 0; i < arrayDormitorios.length-2; i = i+2){
             //crea un elemento option
             var opt = document.createElement('option');
@@ -146,7 +208,7 @@ function cargarDormitorios(){
 function cargarBaños(){
     var arrayBaños = Backend.traerBaños();
     var selectBaños = document.getElementById('selectBaños');
-    $("#selectBaños").empty().append($("<option></option>").attr({"value": 0,"selected": selected, 'disabled': true}).text('Seleccione una Opción'));
+    $("#selectBaños").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true}).text('Seleccione una Opción'));
     for (var i = 0; i < arrayBaños.length - 2; i = i+2){
         //crea un elemento option
         var opt = document.createElement('option');
@@ -167,7 +229,7 @@ function cargarBaños(){
 function cargarGarages(){
     var arrayGarages = Backend.traerGarages();
     var selectGarages = document.getElementById('selectGarages');
-    $("#selectGarages").empty().append($("<option></option>").attr({"value": 0,"selected": selected, 'disabled': true}).text('Seleccione una Opción'));
+    $("#selectGarages").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true}).text('Seleccione una Opción'));
     for (var i = 0; i < arrayGarages.length - 2; i = i+2){
         //crea un elemento option
         var opt = document.createElement('option');
@@ -188,7 +250,7 @@ function cargarGarages(){
 function cargarDistanciamar(){
     var arrayDistanciamar = Backend.traerDistanciamar();
     var selectDistanciamar = document.getElementById('selectDistanciamar');
-    $("#selectDistanciamar").empty().append($("<option></option>").attr({"value": 0,"selected": selected, 'disabled': true}).text('Seleccione una Opción'));
+    $("#selectDistanciamar").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true}).text('Seleccione una Opción'));
     var opt = document.createElement('option');
     opt.value = arrayDistanciamar[0];
     opt.text = arrayDistanciamar[1];
@@ -208,7 +270,7 @@ function cargarDistanciamar(){
 function cargarSobre(){
     var arraySobre = Backend.traerSobre();
     var selectSobre = document.getElementById('selectSobre');
-    $("#selectSobre").empty().append($("<option></option>").attr({"value": 0,"selected": selected, 'disabled': true}).text('Seleccione una Opción'));
+    $("#selectSobre").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true}).text('Seleccione una Opción'));
     for (var i = 0; i < arraySobre.length; i = i+2){
         //crea un elemento option
         var opt = document.createElement('option');
@@ -224,7 +286,7 @@ function cargarSobre(){
 function cargarEstado(){
     var arrayEstado = Backend.traerEstados();
     var selectEstado = document.getElementById('selectEstado');
-    $("#selectEstado").empty().append($("<option></option>").attr({"value": 0,"selected": selected, 'disabled': true}).text('Seleccione una Opción'));
+    $("#selectEstado").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true}).text('Seleccione una Opción'));
     for (var i = 0; i < arrayEstado.length; i = i+2){
         //crea un elemento option
         var opt = document.createElement('option');
@@ -240,7 +302,7 @@ function cargarEstado(){
 function cargarPlantas(){
     var arrayPlantas = Backend.traerPlantas();
     var selectPlantas = document.getElementById('selectPlantas');
-    $("#selectPlantas").empty().append($("<option></option>").attr({"value": 0,"selected": selected, 'disabled': true}).text('Seleccione una Opción'));
+    $("#selectPlantas").empty().append($("<option></option>").attr({"value": 0,"selected": true}).text('Seleccione una Opción'));
     for (var i = 0; i < arrayPlantas.length - 2; i = i+2){
         //crea un elemento option
         var opt = document.createElement('option');
@@ -326,59 +388,65 @@ function subirPropiedad(idPropiedadEditar){
     var descripcion = CKEDITOR.instances['descripcion'].getData();
     var extras = document.querySelector('input[name="extra"]').value;
     var estado = 1;
-    //comprueba que los selects no estén en la opcion default
-    if ( [tipoOperacion, tipoPropiedad, departamento, localidad, dormitorios, baños, garage, distanciaMar, propiedadSobre, estadoPropiedad, disposicion, orientacion, cantidadPlantas].indexOf("0") < 0 ) {
-        //comprueba que los otros campos no estén vacios
-        if ([tituloPropiedad, precioVenta, direccion, fechaConstruccion, metrosEdificados, metrosTerraza, metrosTerreno].indexOf("") < 0){
-            //comprueba que las garantias y la descripción tengan algo.
-            if([garantias, descripcion].indexOf("") < 0 ){
-                //verifica si seleccionó garantías o no
-                if(comfortSeguridad != ""){
-                    if( arrayComfort.length == 0 && arraySeguridad.length == 0){
-                        modal(4);
+    if(contadorImagenes != 0){
+        //comprueba que los selects no estén en la opcion default
+        if ( [tipoOperacion, tipoPropiedad, departamento, localidad, dormitorios, baños, garage, distanciaMar, propiedadSobre, estadoPropiedad, disposicion, orientacion, cantidadPlantas].indexOf("0") < 0 ) {
+            //comprueba que los otros campos no estén vacios
+            if ([tituloPropiedad, precioVenta, direccion, fechaConstruccion, metrosEdificados, metrosTerraza, metrosTerreno].indexOf("") < 0){
+                //comprueba que las garantias y la descripción tengan algo.
+                if([garantias, descripcion].indexOf("") < 0 ){
+                    //verifica si seleccionó garantías o no
+                    if(comfortSeguridad != ""){
+                        if( arrayComfort.length == 0 && arraySeguridad.length == 0){
+                            modal(4);
+                        }else{
+                            if(idPropiedadEditar != undefined){
+                                arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
+                                    fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
+                                    cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar, Number.parseInt(idPropiedadEditar), arrayComfort, arraySeguridad];
+                                    console.log(arrayDatos);
+                                mandarDatos.actualizarPropiedad(JSON.stringify(arrayDatos), form_data);
+                                modal(6);
+                                limpioFormulario()
+                            }else{
+                                arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
+                                    fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
+                                    cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar, arrayComfort, arraySeguridad];
+                                mandarDatos.guardarPropiedad(JSON.stringify(arrayDatos), form_data);
+                                modal(5);
+                                limpioFormulario()
+                            }
+                        }
                     }else{
                         if(idPropiedadEditar != undefined){
                             arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
                                 fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
-                                cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar, idPropiedadEditar, arrayComfort, arraySeguridad];
-                                console.log(arrayDatos);
-                                alert("aaaa")
-                            mandarDatos.actualizarPropiedad(JSON.stringify(arrayDatos));
+                                cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar, Number.parseInt(idPropiedadEditar)];
+                                console.log(arrayDatos)
+                            mandarDatos.actualizarPropiedad(JSON.stringify(arrayDatos), form_data);
                             modal(6);
+                            limpioFormulario()
                         }else{
                             arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
                                 fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
-                                cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar, arrayComfort, arraySeguridad];
-                            mandarDatos.guardarPropiedad(JSON.stringify(arrayDatos));
+                                cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar];
+                            mandarDatos.guardarPropiedad(JSON.stringify(arrayDatos), form_data);
                             modal(5);
+                            limpioFormulario()
                         }
                     }
                 }else{
-                    if(idPropiedadEditar != undefined){
-                        arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
-                            fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
-                            cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar, idPropiedadEditar];
-                            console.log(arrayDatos)
-                            alert("aaaa")
-                        mandarDatos.actualizarPropiedad(JSON.stringify(arrayDatos));
-                        modal(6);
-                    }else{
-                        arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
-                            fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
-                            cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar];
-                        mandarDatos.guardarPropiedad(JSON.stringify(arrayDatos));
-                        modal(5);
-                    }
+                    modal(3);
                 }
             }else{
-                modal(3);
+                modal(2);
             }
         }else{
-            modal(2);
+            modal(1);
+
         }
     }else{
-        modal(1);
-
+        modal("imagenes")
     }
     
 }
@@ -445,6 +513,19 @@ function subirBorrador(){
     var propiedad = Administrador.traerPropiedad(idPropiedad);
     var comforts = Backend.traerComfortPropiedad(idPropiedad);
     var seguridades = Backend.traerSeguridadPropiedad(idPropiedad);
+    var imagenes = Backend.traerImagenes(idPropiedad);
+    var pdf = Backend.traerPDF(idPropiedad);
+    for(i = 0; i < imagenes.length; i = i+2){
+        document.getElementById("galeria").innerHTML += `
+        <div class="imagen">
+            <img src="`+ imagenes[i+1] +`" alt="">
+            <button onClick="eliminarImagenSQL(this, `+ imagenes[i] +`)"><i class="fas fa-times"></i></button>
+        </div>
+        `;
+        contadorImagenes++;
+    }
+    document.getElementById("cantidadImagenes").innerHTML = contadorImagenes;
+    $("#galeria").show();
     $("#subirpropiedad").attr("id", "actualizarpropiedad");
     document.getElementById("actualizarpropiedad").innerHTML = "<i class='fas fa-save'></i> Guardar Cambios"
 
@@ -484,7 +565,7 @@ function subirBorrador(){
     }else{
         document.getElementById('vistamarno').checked = true;
     }
-    $("#selectDistanciamar").val(propiedad[15]).change();
+    $("#selectDistanciamar").val(propiedad[20]).change();
     $("#metrosEdificados").val(propiedad[21]).change();
     $("#metrosTerraza").val(propiedad[22]).change();
     $("#metrosTerreno").val(propiedad[23]).change();
@@ -505,7 +586,6 @@ function subirBorrador(){
         document.getElementById('viviendano').checked = true;
     }
     $("#selectPlantas").val(propiedad[24]).change();
-    alert(comforts)
     if(comforts == "" && seguridades == ""){
         $("#checkboxcomfort").prop('checked', true);
         $("#section-comfort-seguridad").hide();
@@ -518,6 +598,103 @@ function subirBorrador(){
             $( "#seguridad [value='"+ seguridades[i] +"']" ).prop('checked', true);
         } 
     }
+
+    if(comforts == "" && seguridades == ""){
+        $("#checkboxcomfort").prop('checked', true);
+        $("#section-comfort-seguridad").hide();
+    }else{
+        for(var i = 0; i < comforts.length; i++){
+            $( "#comfort [value='"+ comforts[i] +"']" ).prop('checked', true);
+        }
+    }
     CKEDITOR.instances['garantias'].setData(propiedad[26]);
     CKEDITOR.instances['descripcion'].setData(propiedad[27]);
+
+    if(pdf !== ""){
+        $("#previewPDF").show();
+        $("#file-input-pdf").hide();
+        document.getElementById("pdf").setAttribute("src", pdf);
+        document.getElementById("eliminarPDF").setAttribute("value", idPropiedad);
+        document.getElementById("eliminarPDF").setAttribute("onClick", "eliminarPDFSQL(this.value)");
+    }else{
+        document.getElementById("eliminarPDF").setAttribute("onClick", "eliminarPDF()");
+        $("#previewPDF").hide();
+        $("#file-input-pdf").show();
+    }
+}
+
+function mostrarImagenes(){
+    document.getElementById("cantidadImagenes").innerHTML = contadorImagenes;
+    var contenido = "";
+    imagenes = form_data.getAll("imagenes[]");
+    for(var i = 0; i < imagenes.length; i++){
+        contenido += `
+        <div class="imagen borrar">
+            <img src="`+ URL.createObjectURL(imagenes[i]) +`" alt="">
+            <button onClick="eliminarImagen(this, `+ i +`)"><i class="fas fa-times"></i></button>
+        </div>
+        `;
+    }
+    if(contadorImagenes > 0){
+        $("#galeria").show();
+    }else{
+        $("#galeria").hide();
+    }
+    $(".borrar").remove();
+    document.getElementById("galeria").innerHTML += contenido;
+};
+
+function eliminarImagen(element ,idImagen){
+    contadorImagenes = contadorImagenes - 1;
+    imagenes = form_data.getAll("imagenes[]");
+    imagenes.splice(idImagen, 1);
+    form_data.delete("imagenes[]");
+    for(var i = 0; i < imagenes.length; i++){
+        form_data.append("imagenes[]", imagenes[i]);
+    }
+    $(element).parent('div').remove();
+    mostrarImagenes();
+}
+
+function eliminarImagenSQL(element ,idImagen){
+    contadorImagenes = contadorImagenes - 1;
+    Backend.eliminarImagen(idImagen);
+    $(element).parent('div').remove();
+    mostrarImagenes();
+}
+
+function eliminarPDF(){
+    form_data.delete("pdf");
+    $("#previewPDF").hide();
+    $("#file-input-pdf").show();
+}
+
+function eliminarPDFSQL(idPropiedad){
+    Backend.eliminarPDF(idPropiedad);
+    document.getElementById("eliminarPDF").setAttribute("onClick", "eliminarPDF()");
+    $("#previewPDF").hide();
+    $("#file-input-pdf").show();
+}
+
+function limpioFormulario(){
+    cargarTodo();
+    form_data = new FormData();
+    $("#previewPDF").hide();
+    $("#file-input-pdf").show();
+    $("#selectLocalidades").empty().append($("<option></option>").attr({"value": 0,"selected": selected, 'disabled': true}).text('Elija un Departamento'));
+    document.getElementById("galeria").innerHTML = "";
+    contadorImagenes = 0;
+    document.getElementById("cantidadImagenes").innerHTML = contadorImagenes;
+    inputReset = document.getElementsByClassName("reset");
+    for(var i = 0; i < inputReset.length; i++){
+        inputReset[i].value='';
+    }
+    $("#galeria").hide();
+    if(sessionStorage.getItem("idPropiedadEditar") !== null){
+        sessionStorage.removeItem('idPropiedadEditar');
+        $("#actualizarpropiedad").attr("id", "subirpropiedad");
+        document.getElementById("subirpropiedad").innerHTML = "<i class='fas fa-cart-plus'></i> Subir Propiedad"
+    }
+    CKEDITOR.instances['garantias'].setData("");
+    CKEDITOR.instances['descripcion'].setData("");
 }

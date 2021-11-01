@@ -25,10 +25,15 @@ $(document).ready(function () {
         cargarFiltroLocalidad(e.target.options[e.target.selectedIndex].getAttribute('id'));
       }
     }
-  });
+  });        sessionStorage.removeItem('idPropiedadEditar');
 
   $('#CrearLocalidad').on('click', function() {
     crearLocalidad();
+  });
+
+  $('#crearPropiedad').on('click', function() {
+    sessionStorage.removeItem('idPropiedadEditar');
+    location.href = "backend.php";
   });
 
   $('.buttonAgregar').on('click', function() {
@@ -36,7 +41,6 @@ $(document).ready(function () {
   });
 
   $('.propiedad-wrapper').on('click', '.propiedad .borrarPropiedad', function(event){
-    alert("entró al boton xd" + this.id)
     eliminarPropiedad(this.id);
   });
 
@@ -55,7 +59,7 @@ $(document).ready(function () {
   $('.propiedad-wrapper').on('click', '.propiedad .editar', function(event){
     sessionStorage.removeItem("idPropiedadEditar")
     sessionStorage.setItem("idPropiedadEditar", this.id);
-    location.href = 'backend.php';
+    location.href = '/obededom/HTML/backend.php';
   });
 
   $('#buscador').on('keyup', function() {
@@ -128,15 +132,23 @@ function soporte(soporte){
 
 function cargoPropiedades(){
   var propiedades = Administrador.traerPropiedades();
+  var imagenes = Backend.traerImagen();
+  console.log(imagenes);
   var divPropiedades = document.getElementById("seccionPropiedades");
   var nuevaPropiedad = "";
   var departamento = "";
+  var urlImagen = "";
   var precio;
   //vacio los elementos anteriores
   divPropiedades.innerHTML = "";
   for (var i = 0; i < propiedades.length; i = i+31){
-    console.log(propiedades[i+28])
-    console.log(propiedades)
+    //comprueba si tiene imagen
+    if(imagenes.indexOf(propiedades[i], 1) != -1){
+      urlImagen = imagenes[imagenes.indexOf(propiedades[i], 1) - 1]
+    }else{
+      urlImagen = "/obededom/media/img/Ejemplo1.jpg";
+    }
+
     //comprueba si se muestra el precio
     if(propiedades[i+30] == 1){
       precio = propiedades[i+3]
@@ -151,7 +163,7 @@ function cargoPropiedades(){
                           <p><i class="fas fa-check-circle"></i> Activo</p>
                         </div>
                         <div class="card-img">
-                          <img src="/obededom/media/img/Ejemplo1.jpg" alt="" />
+                          <img src="`+ urlImagen +`" alt="" />
                         </div>
                         <div class="card-content">
                           <h2>`+ propiedades[i+1] +`</h2>
@@ -171,7 +183,6 @@ function cargoPropiedades(){
                         </div>
                         <div class="buttons">
                           <button class="deshabilitar" id=`+ propiedades[i] +`><i class="fas fa-times-circle"></i></button>
-                          <button class="vendido" id=`+ propiedades[i] +`><i class="fas fa-sign"></i></button>
                           <button class="editar" id=`+ propiedades[i] +`><i class="fas fa-edit"></i></button>
                           <button class="borrarPropiedad" id=`+ propiedades[i] +`><i class="fas fa-trash-alt"></i></button>
                         </div>
@@ -183,7 +194,7 @@ function cargoPropiedades(){
                           <p><i class="fas fa-times-circle"></i> Inactivo</p>
                         </div>
                         <div class="card-img">
-                          <img src="/obededom/media/img/Ejemplo1.jpg" alt="" />
+                          <img src="`+ urlImagen +`" alt="" />
                         </div>
                         <div class="card-content">
                           <h2>`+ propiedades[i+1] +`</h2>
@@ -201,7 +212,6 @@ function cargoPropiedades(){
                           </div>
                           <div class="buttons">
                             <button class="habilitar" id=`+ propiedades[i] +`><i class="fas fa-check-circle"></i></button>
-                            <button class="vendido" id=`+ propiedades[i] +`><i class="fas fa-sign"></i></button>
                             <button class="editar" id=`+ propiedades[i] +`><i class="fas fa-edit"></i></button>
                             <button class="borrarPropiedad" id=`+ propiedades[i] +`><i class="fas fa-trash-alt"></i></button>
                           </div>
@@ -210,8 +220,7 @@ function cargoPropiedades(){
     }
     divPropiedades.innerHTML += nuevaPropiedad;
   }
-}
-
+}//    var pdf = Backend.traerPDF(idPropiedad);
 function cargoFiltros(){
   //carga los tipos de propiedad
   var arrayTipoPropiedad = Backend.traerTiposPropiedad();

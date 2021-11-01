@@ -267,7 +267,9 @@ public function TraerSeguridad(){
 public function GuardarPropiedad($arrayJSON){
     $arrayDatos = json_decode($arrayJSON);
      include "../Database/server.php";
+     $pdf = "pdf/url";
      $sentencia = '';
+     $arrayComfort = [];
    if ($sentencia = $mysqli->prepare("CALL CrearPropiedad(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);")) {  
     $sentencia->bind_param('ssiiissssiiiisiissssiiiisssiii',$arrayDatos[0],$arrayDatos[1],$arrayDatos[2],$arrayDatos[3],$arrayDatos[4],$arrayDatos[5],$arrayDatos[6],$arrayDatos[7],$arrayDatos[8],$arrayDatos[9],$arrayDatos[10],$arrayDatos[11],$arrayDatos[12],$arrayDatos[13],$arrayDatos[14],$arrayDatos[15],$arrayDatos[16],$arrayDatos[17],$arrayDatos[18],$arrayDatos[19],$arrayDatos[20],$arrayDatos[21],$arrayDatos[22],$arrayDatos[23],$arrayDatos[24],$arrayDatos[25],$arrayDatos[26], $arrayDatos[27], $arrayDatos[28], $arrayDatos[29]); 
         if($sentencia->execute()) {
@@ -278,7 +280,7 @@ public function GuardarPropiedad($arrayJSON){
                     $arrayComfort = $arrayDatos[30];
                     $arraySeguridad = $arrayDatos[31];
                     //hace un for insertando los comfort con el id de la propiedad creada y el id de los comfort
-                    for($i=-1; $i<count($arrayComfort); $i++){
+                    for($i=0; $i<count($arrayComfort); $i++){
                         if ($sentencia = $mysqli->prepare("CALL InsertComfortPropiedad(?, ?);")) {
                             $sentencia->bind_param('ii', $id, $arrayComfort[$i]);
                             if($sentencia->execute()) {
@@ -307,7 +309,7 @@ public function GuardarPropiedad($arrayJSON){
         }else{
             throw new Exception('Error en prepare: ' . $mysqli->error);
         }
-        return $arrayDatos;
+        return $id;
 }
 
 //guarda la propiedad en la bdd
@@ -323,21 +325,17 @@ public function ActualizarPropiedad($arrayJSON){
                 if($eliminarComfortSeguridad = $mysqli->prepare("CALL EliminarComfortSeguridad(?);")) {
                     $eliminarComfortSeguridad->bind_param('i', $arrayDatos[30]);
                     if($eliminarComfortSeguridad->execute()) {
-                        echo "funciona el borrar comfort seguridad";
                     }else{
                         throw new Exception('Error en prepare: ' . $mysqli->error);
                     }
                 }
                 $arrayComfort = $arrayDatos[31];
                 $arraySeguridad = $arrayDatos[32];
-                echo "este es el count; ".count($arrayComfort);
-                print_r($arrayComfort);
                 //hace un for insertando los comfort con el id de la propiedad creada y el id de los comfort
                 for($i=0; $i<count($arrayComfort); $i++){
                     if ($sentencia = $mysqli->prepare("CALL InsertComfortPropiedad(?, ?);")) {
-                        $sentencia->bind_param('ii', $arrayDatos[30], $arrayComfort[$i]);
+                        $sentencia->bind_param('ii', $arrayDatos[31], $arrayComfort[$i]);
                         if($sentencia->execute()) {
-                            echo "funciona el agregar comfort";
                         }else{
                             throw new Exception('Error en prepare: ' . $mysqli->error);
                         }
@@ -357,7 +355,6 @@ public function ActualizarPropiedad($arrayJSON){
                 if($eliminarComfortSeguridad = $mysqli->prepare("CALL EliminarComfortSeguridad(?);")) {
                     $eliminarComfortSeguridad->bind_param('i', $arrayDatos[30]);
                     if($eliminarComfortSeguridad->execute()) {
-                        echo "funciona el borrar comfort seguridad";
                     }else{
                         throw new Exception('Error en prepare: ' . $mysqli->error);
                     }
@@ -371,6 +368,7 @@ public function ActualizarPropiedad($arrayJSON){
         }else{
             throw new Exception('Error en prepare: ' . $mysqli->error);
         }
+        return $arrayDatos[30];
 }
 
     //trae seguridades de una propiedad especifica
@@ -381,9 +379,9 @@ public function ActualizarPropiedad($arrayJSON){
         if ($sentencia = $mysqli->prepare("CALL TraigoComfortPropiedad(?);")){
             $sentencia->bind_param('i', $idPropiedad);
             if ($sentencia->execute()) {
-                $sentencia->bind_result($id_comfort);
+                $sentencia->bind_result($id_comfort, $tipo_comfort);
                 while ($sentencia->fetch()) {
-                    array_push($arrayComfort, $id_comfort);
+                    array_push($arrayComfort, $id_comfort, $tipo_comfort);
                 }
             } else {
                 throw new Exception('Error en prepare: ' . $mysqli->error);
@@ -394,17 +392,17 @@ public function ActualizarPropiedad($arrayJSON){
         return $arrayComfort;
     }
 
-//trae seguridades de una propiedad especifica
-public function SeguridadPropiedad($idPropiedad){
-    $arraySeguridad=array();
-     include "../Database/server.php";
-     $sentencia = '';
-   if($sentencia = $mysqli->prepare("CALL TraigoSeguridadPropiedad(?);")) {   
-    $sentencia->bind_param('i', $idPropiedad);   
-       if ($sentencia->execute()) {    
-           $sentencia->bind_result($id_seguridad);
+    //trae seguridades de una propiedad especifica
+    public function SeguridadPropiedad($idPropiedad){
+        $arraySeguridad=array();
+        include "../Database/server.php";
+        $sentencia = '';
+        if($sentencia = $mysqli->prepare("CALL TraigoSeguridadPropiedad(?);")) {
+            $sentencia->bind_param('i', $idPropiedad);   
+            if ($sentencia->execute()) {    
+            $sentencia->bind_result($id_seguridad, $tipo_seguridad);
                 while ($sentencia->fetch()) {
-                    array_push($arraySeguridad,$id_seguridad);   
+                    array_push($arraySeguridad,$id_seguridad, $tipo_seguridad);   
                 }
             }else{
                 throw new Exception('Error en prepare: ' . $mysqli->error);
@@ -413,7 +411,252 @@ public function SeguridadPropiedad($idPropiedad){
             throw new Exception('Error en prepare: ' . $mysqli->error);
         }
         return $arraySeguridad;
-}
+    }
+
+    //trae todas las imagenes de una propiedad
+    public function TraerImagenes($idPropiedad){
+    $arrayImagenes=array();
+    include "../Database/server.php";
+    $sentencia = '';
+    if ($sentencia = $mysqli->prepare("CALL TraigoImagenes(?);")) { 
+        $sentencia->bind_param('i', $idPropiedad);     
+        if ($sentencia->execute()) {    
+            $sentencia->bind_result($id_imagen, $imagen);
+            while ($sentencia->fetch()) {
+                array_push($arrayImagenes,$id_imagen, $imagen);   
+            }
+        }else{
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+    }else{
+        throw new Exception('Error en prepare: ' . $mysqli->error);
+    }
+    return $arrayImagenes;
+    }
+
+    //trae todas las imagenes de una propiedad
+    public function TraerImagen(){
+        $arrayImagenes=array();
+        include "../Database/server.php";
+        $sentencia = '';
+        if ($sentencia = $mysqli->prepare("CALL TraigoImagen();")) {   
+            if ($sentencia->execute()) {    
+                $sentencia->bind_result($imagen, $id_propiedad);
+                while($sentencia->fetch()) {
+                    array_push($arrayImagenes, $imagen, $id_propiedad);   
+                }
+            }else{
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }else{
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+        return $arrayImagenes;
+        }
+
+    public function GuardarImagenes($idPropiedad){
+        include "../Database/server.php";
+        $sentencia = '';
+        $archivoGrande = false;
+        $extensionInvalida = false;
+        define('MB', 1048576);
+
+        // Count total files
+        $countfiles = count($_FILES['imagenes']['name']);
+
+
+        // Crea directorio de la propiedad
+        if (!file_exists("../media/img/propiedad_".$idPropiedad)) {
+            mkdir("../media/img/propiedad_".$idPropiedad , true);
+        }
+        // Upload directory
+        $upload_location = "../media/img/propiedad_".$idPropiedad."/";
+
+        // To store uploaded files path
+        $files_arr = array();
+
+        // Loop all files
+        for($index = 0;$index < $countfiles;$index++){
+
+        if(isset($_FILES['imagenes']['name'][$index]) && $_FILES['imagenes']['name'][$index] != ''){
+            // File name
+            $index_file = $index;
+            $temp = explode(".", $_FILES["imagenes"]["name"][$index]);
+            $filecheck = $upload_location.'imagen_' . $index . '.*';
+            if(glob($filecheck)){
+                do{
+                    $index_file = $index_file + 1;
+                    $filename = 'imagen_' . $index_file . '.' . end($temp);
+                    $filecheck = $upload_location.'imagen_' . $index_file . '.*';
+                }while(glob($filecheck));
+            }else{
+                $temp = explode(".", $_FILES["imagenes"]["name"][$index]);
+                $filename = 'imagen_' . $index . '.' . end($temp);
+            }
+            //$filename = $_FILES['imagenes']['name'][$index];
+
+            // Get extension
+            $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+
+            // Valid image extension
+            $valid_ext = array("png","jpeg","jpg","jfif");
+
+            // Check extension
+            if(in_array($ext, $valid_ext)){
+
+                // File path
+                $path = $upload_location.$filename;
+                $pathSQL = "/obededom/media/img/propiedad_".$idPropiedad."/".$filename;
+
+                // Upload file
+                if($_FILES['imagenes']['size'][$index] > 10*MB){
+                    $archivoGrande = true;
+                }else{
+                    if(move_uploaded_file($_FILES['imagenes']['tmp_name'][$index],$path)){
+                        $files_arr[] = $path;
+                        if ($sentencia = $mysqli->prepare("CALL InsertImagen(?,?);")) {
+                            $sentencia->bind_param('is', $idPropiedad, $pathSQL);
+                            if ($sentencia->execute()) {
+                            }else{
+                                throw new Exception('Error en prepare: ' . $mysqli->error);
+                            }
+                        } else {
+                            throw new Exception('Error en prepare: ' . $mysqli->error);
+                        }
+                    }
+                }
+                
+            }else{
+                $extensionInvalida = true;
+            }
+        }
+        }
+        if($extensionInvalida){
+            echo "extensionValida";
+        }elseif($archivoGrande){ 
+            echo "archivoGrande";
+        }elseif ($archivoGrande && $extensionInvalida){
+            echo "archivoGV";
+        }
+        die;
+    }
+
+    public function EliminarImagen($idImagen){
+        include "../Database/server.php";
+        $sentencia = '';
+        if ($sentencia = $mysqli->prepare("CALL EliminarImagen(?);")) {
+            $sentencia->bind_param('i', $idImagen);
+            if($sentencia->execute()) {
+                $sentencia->bind_result($url);
+                if($sentencia->fetch()){
+                    $urlFinal = str_replace("/obededom", "..", $url);
+                    unlink($urlFinal);
+                }
+            }else{
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        } else {
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+    }
+
+    public function TraigoPDF($idPropiedad){
+        include "../Database/server.php";
+        $sentencia = '';
+        $urlPDF = "";
+        if ($sentencia = $mysqli->prepare("CALL TraigoPDF(?);")) {  
+            $sentencia->bind_param('i', $idPropiedad); 
+            if ($sentencia->execute()) {    
+                $sentencia->bind_result($pdf);
+                if($sentencia->fetch()) {
+                    $urlPDF = $pdf;
+                }
+            }else{
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }else{
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+        return $urlPDF;
+    }
+
+    public function GuardarPDF($idPropiedad){
+        include "../Database/server.php";
+        $sentencia = '';
+        $archivoGrande = false;
+        $extensionInvalida = false;
+        // Upload directory
+        $upload_location = "../media/pdf/";
+
+        if(isset($_FILES['pdf']['name']) && $_FILES['pdf']['name'] != ''){
+            // File name
+            $filename = 'propiedad_' . $idPropiedad . '.pdf';
+            //$filename = $_FILES['imagenes']['name'][$index];
+
+            // Get extension
+            $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+
+            // Valid pdf extension
+            $valid_ext = array("pdf");
+
+            // Check extension
+            if(in_array($ext, $valid_ext)){
+
+                // File path
+                $path = $upload_location.$filename;
+                $pathSQL = "/obededom/media/pdf/".$filename;
+
+                // Upload file
+                if($_FILES['pdf']['size'] > 10*1048576){
+                    $archivoGrande = true;
+                }else{
+                    if(move_uploaded_file($_FILES['pdf']['tmp_name'],$path)){
+                        if ($sentencia = $mysqli->prepare("CALL InsertPDF(?,?);")) {
+                            $sentencia->bind_param('is', $idPropiedad, $pathSQL);
+                            if ($sentencia->execute()) {
+                            }else{
+                                throw new Exception('Error en prepare: ' . $mysqli->error);
+                            }
+                        } else {
+                            throw new Exception('Error en prepare: ' . $mysqli->error);
+                        }
+                    }
+                }
+                
+            }else{
+                $extensionInvalida = true;
+            }
+        }
+        if($extensionInvalida){
+            echo "extensionPDF";
+        }elseif($archivoGrande){ 
+            echo "archivoGrande";
+        }elseif ($archivoGrande && $extensionInvalida){
+            echo "archivoGV";
+        }
+        die;
+    }
+
+    public function EliminarPDF($idPropiedad){
+        include "../Database/server.php";
+        $sentencia = '';
+        echo "entra";
+        if ($sentencia = $mysqli->prepare("CALL EliminarPDF(?);")) {
+            $sentencia->bind_param('i', $idPropiedad);
+            if($sentencia->execute()) {
+                $sentencia->bind_result($url);
+                if($sentencia->fetch()){
+                    echo "algo";
+                    $urlFinal = str_replace("/obededom", "..", $url);
+                    unlink($urlFinal);
+                }
+            }else{
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        } else {
+            throw new Exception('Error en prepare: ' . $mysqli->error);
+        }
+    }
 
 }
 

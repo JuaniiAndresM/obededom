@@ -160,8 +160,8 @@ if(!isset($_SESSION['Usuario'])){
             </select>
           </div>
         </div>
-        <div class="button-crear">
-          <a href="/obededom/Backend"><i class="fas fa-plus-circle"></i> Crear Propiedad</a>
+        <div class="button-crear" >
+          <a href="#" id="crearPropiedad"><i class="fas fa-plus-circle"></i> Crear Propiedad</a>
         </div>
 
         <div class="propiedad-wrapper" id="seccionPropiedades">
