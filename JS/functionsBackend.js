@@ -36,8 +36,7 @@ $(document).ready(function () {
         if(sessionStorage.getItem("idPropiedadEditar") !== null){
             sessionStorage.removeItem('idPropiedadEditar');
         }
-        location.href = 'administrador.php';
-
+        location.href = 'Administrador';
         });
 
     if(sessionStorage.getItem("idPropiedadEditar") !== null){
@@ -677,12 +676,13 @@ function eliminarPDFSQL(idPropiedad){
 }
 
 function limpioFormulario(){
-    cargarTodo();
     form_data = new FormData();
     $("#previewPDF").hide();
     $("#file-input-pdf").show();
     $("#selectLocalidades").empty().append($("<option></option>").attr({"value": 0,"selected": selected, 'disabled': true}).text('Elija un Departamento'));
     document.getElementById("galeria").innerHTML = "";
+    document.getElementById("selectDisposicion").value = "0";
+    document.getElementById("selectOrientacion").value = "0";
     contadorImagenes = 0;
     document.getElementById("cantidadImagenes").innerHTML = contadorImagenes;
     inputReset = document.getElementsByClassName("reset");
@@ -690,6 +690,8 @@ function limpioFormulario(){
         inputReset[i].value='';
     }
     $("#galeria").hide();
+    document.getElementById("comfort").innerHTML = "";
+    document.getElementById("seguridad").innerHTML = "";
     if(sessionStorage.getItem("idPropiedadEditar") !== null){
         sessionStorage.removeItem('idPropiedadEditar');
         $("#actualizarpropiedad").attr("id", "subirpropiedad");
@@ -697,4 +699,5 @@ function limpioFormulario(){
     }
     CKEDITOR.instances['garantias'].setData("");
     CKEDITOR.instances['descripcion'].setData("");
+    cargarTodo();
 }

@@ -279,7 +279,7 @@ function cargoPropiedades(){
     }
     if(filtroDormitorios !== ""){
       if(Number.isInteger(parseInt(filtroDormitorios))){
-        $('.card').filter('[data-dormitorios!="'+ filtroDormitorios +'"]').hide();
+        $('.card').filter('[data-habitaciones!="'+ filtroDormitorios +'"]').hide();
       }
     }
     if(filtroInodoros !== ""){
