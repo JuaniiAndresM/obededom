@@ -223,7 +223,7 @@ if(!isset($_SESSION['Usuario'])){
                             <select name="selectDisposicion" id="selectDisposicion">
                                 <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
                                 <option value="Al Frente">Al Frente</option>
-                                <option value="Inferior">Inferior</option>
+                                <option value="Inferior">Interior</option>
                                 <option value="Lateral">Lateral</option>
                                 <option value="Contrafrente">Contrafrente</option>
                             </select>
