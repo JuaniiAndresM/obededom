@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['Usuario'])){
-    header('Location: https://www.obededompropiedades.com.uy/Login');
+    header('Location: /obededom/Login');
 }
 ?>
 
@@ -12,7 +12,7 @@ if(!isset($_SESSION['Usuario'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="https://www.obededompropiedades.com.uy/media/svg/Logo.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="/obededom/media/svg/Logo.svg" type="image/x-icon" />
 
     <title>Obed-Edom | Nueva Propiedad</title>
 
@@ -20,13 +20,13 @@ if(!isset($_SESSION['Usuario'])){
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <script src="https://www.obededompropiedades.com.uy/JS/backend.js"></script>
-    <script src="https://www.obededompropiedades.com.uy/JS/administrador.js"></script>
-    <script src="https://www.obededompropiedades.com.uy/JS/functionsBackend.js"></script>
-    <script src="https://www.obededompropiedades.com.uy/JS/modal.js"></script>
+    <script src="/obededom/JS/backend.js"></script>
+    <script src="/obededom/JS/administrador.js"></script>
+    <script src="/obededom/JS/functionsBackend.js"></script>
+    <script src="/obededom/JS/modal.js"></script>
 
 
-    <link rel="stylesheet" href="https://www.obededompropiedades.com.uy/CSS/styles.css">
+    <link rel="stylesheet" href="/obededom/CSS/styles.css">
 </head>
 <body>
     <div class="modal"></div>
@@ -34,10 +34,10 @@ if(!isset($_SESSION['Usuario'])){
     <header>
         <div class="header-wrapper">
             <div class="header-icon">
-                <img src="https://www.obededompropiedades.com.uy/media/svg/Logo.svg" alt="">
+                <img src="/obededom/media/svg/Logo.svg" alt="">
             </div>
             <div class="header-links">
-                <a href="https://www.obededompropiedades.com.uy/Index.html" class="button"><i class="fas fa-arrow-circle-left"></i> Volver al Inicio</a>
+                <a href="/obededom/Index.html" class="button"><i class="fas fa-arrow-circle-left"></i> Volver al Inicio</a>
             </div>
         </div>
     </header>
@@ -65,6 +65,14 @@ if(!isset($_SESSION['Usuario'])){
                                 <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
                             </select>
                         </div>
+                        <div class="input">
+                            <p>Tipo de Precio</p>
+                            <select name="tipooperacion" id="selectOperaciones">
+                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="1">Pesos Uruguayos</option>
+                                <option value="2">Dolares</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="panel-medio">
@@ -75,6 +83,11 @@ if(!isset($_SESSION['Usuario'])){
                                 <input type="checkbox" name="" id="mostrarPrecio" checked>Mostrar precio de venta
                             </div>
                         </div>
+                        <div class="input">
+                            <p>Gastos Comunes</p>
+                            <input type="number" class="reset" name="precio" id="precioDolares">
+                        </div>
+                        
                     </div>
 
                     <div class="panel-derecho">
@@ -333,7 +346,7 @@ if(!isset($_SESSION['Usuario'])){
         </div>
     </div>
 
-    <script src="https://www.obededompropiedades.com.uy/Plugins/ckeditor/ckeditor.js"></script>
+    <script src="/obededom/Plugins/ckeditor/ckeditor.js"></script>
     <script>
         CKEDITOR.replace('garantias');
         CKEDITOR.replace('descripcion');
