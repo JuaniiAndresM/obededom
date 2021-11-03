@@ -69,8 +69,8 @@ if(!isset($_SESSION['Usuario'])){
                             <p>Tipo de Precio</p>
                             <select name="tipooperacion" id="selectOperaciones">
                                 <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
-                                <option value="1">Pesos Uruguayos</option>
-                                <option value="2">Dolares</option>
+                                <option value="1">Pesos Uruguayos - $</option>
+                                <option value="2">Dolares - U$S</option>
                             </select>
                         </div>
                     </div>
