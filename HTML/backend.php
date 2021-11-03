@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['Usuario'])){
-    header('Location: /obededom/Login');
+    header('Location: https://www.obededompropiedades.com.uy/Login');
 }
 ?>
 
@@ -12,7 +12,7 @@ if(!isset($_SESSION['Usuario'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="/obededom/media/svg/Logo.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://www.obededompropiedades.com.uy/media/svg/Logo.svg" type="image/x-icon" />
 
     <title>Obed-Edom | Nueva Propiedad</title>
 
@@ -20,13 +20,13 @@ if(!isset($_SESSION['Usuario'])){
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <script src="/obededom/JS/backend.js"></script>
-    <script src="/obededom/JS/administrador.js"></script>
-    <script src="/obededom/JS/functionsBackend.js"></script>
-    <script src="/obededom/JS/modal.js"></script>
+    <script src="https://www.obededompropiedades.com.uy/JS/backend.js"></script>
+    <script src="https://www.obededompropiedades.com.uy/JS/administrador.js"></script>
+    <script src="https://www.obededompropiedades.com.uy/JS/functionsBackend.js"></script>
+    <script src="https://www.obededompropiedades.com.uy/JS/modal.js"></script>
 
 
-    <link rel="stylesheet" href="/obededom/CSS/styles.css">
+    <link rel="stylesheet" href="https://www.obededompropiedades.com.uy/CSS/styles.css">
 </head>
 <body>
     <div class="modal"></div>
@@ -34,10 +34,10 @@ if(!isset($_SESSION['Usuario'])){
     <header>
         <div class="header-wrapper">
             <div class="header-icon">
-                <img src="/obededom/media/svg/Logo.svg" alt="">
+                <img src="https://www.obededompropiedades.com.uy/media/svg/Logo.svg" alt="">
             </div>
             <div class="header-links">
-                <a href="/obededom/Index.html" class="button"><i class="fas fa-arrow-circle-left"></i> Volver al Inicio</a>
+                <a href="https://www.obededompropiedades.com.uy/Index.html" class="button"><i class="fas fa-arrow-circle-left"></i> Volver al Inicio</a>
             </div>
         </div>
     </header>
@@ -57,7 +57,7 @@ if(!isset($_SESSION['Usuario'])){
                     <div class="panel-izquierdo">
                         <div class="input">
                             <p>Titulo de la Propiedad</p>
-                            <input type="text" name="titulo" id="tituloPropiedad">
+                            <input type="text" class="reset" name="titulo" id="tituloPropiedad">
                         </div>
                         <div class="input">
                             <p>Tipo de Operación</p>
@@ -70,7 +70,7 @@ if(!isset($_SESSION['Usuario'])){
                     <div class="panel-medio">
                         <div class="input">
                             <p>Precio de Venta en Dolares</p>
-                            <input type="number" name="precio" id="precioDolares">
+                            <input type="number" class="reset" name="precio" id="precioDolares">
                             <div class="checkbox" id="checkbox-precio">
                                 <input type="checkbox" name="" id="mostrarPrecio" checked>Mostrar precio de venta
                             </div>
@@ -141,7 +141,7 @@ if(!isset($_SESSION['Usuario'])){
                     <div class="panel-derecho">
                         <div class="input">
                             <p>Dirección de la Propiedad</p>
-                            <input type="text" name="direccion" id="direccion">
+                            <input type="text" class="reset" name="direccion" id="direccion">
                         </div>
                     </div>
 
@@ -159,7 +159,7 @@ if(!isset($_SESSION['Usuario'])){
                     <div class="panel-izquierdo">
                         <div class="input">
                             <p>Año de Construcción</p>
-                            <input type="number" name="añoconstruccion" id="fechaConstruccion" min="1000">
+                            <input type="number" class="reset" name="añoconstruccion" id="fechaConstruccion" min="1000">
                         </div>
                         <div class="input">
                             <p>Dormitorios</p>
@@ -198,15 +198,15 @@ if(!isset($_SESSION['Usuario'])){
                     <div class="panel-medio">
                         <div class="input">
                             <p>Metros Edificados</p>
-                            <input type="number" name="mts_edificados" id="metrosEdificados">
+                            <input type="number" class="reset" name="mts_edificados" id="metrosEdificados">
                         </div>
                         <div class="input">
                             <p>Metros de la Terraza</p>
-                            <input type="number" name="mts_terraza" id="metrosTerraza">
+                            <input type="number" class="reset" name="mts_terraza" id="metrosTerraza">
                         </div>
                         <div class="input">
                             <p>Metros del Terreno</p>
-                            <input type="number" name="mts_terreno" id="metrosTerreno">
+                            <input type="number" class="reset" name="mts_terreno" id="metrosTerreno">
                         </div>
                         <div class="input">
                             <p>Sobre</p>
@@ -299,44 +299,13 @@ if(!isset($_SESSION['Usuario'])){
             <h1><i class="fas fa-images"></i> Gestor de Imágenes</h1>
             <button class="gestor-img" id="file-input">
                 <h3>Haz click aquí para subir imagenes.</h3>
-                <p>0/15</p>
+                <p>(Tamaño máximo de 10MB)</p>
+                <p><span id="cantidadImagenes">0</span>/15</p>
                 <i class="fas fa-plus-circle"></i>
             </button>
-            <input type="file" name="upload-photo" id="upload-photo">
+            <input type="file" name="upload-photo" id="upload-photo" max-size="10" accept="image/png, image/jpeg" multiple>
 
-            <div class="galeria">
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo1.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo2.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo3.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo4.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo1.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo2.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo3.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
-                <div class="imagen">
-                    <img src="/obededom/media/img/Ejemplo4.jpg" alt="">
-                    <button><i class="fas fa-times"></i></button>
-                </div>
+            <div class="galeria" id="galeria">
             </div>
 
             <h1><i class="fas fa-file-pdf"></i> Gestor de Archivos</h1>
@@ -344,12 +313,12 @@ if(!isset($_SESSION['Usuario'])){
                 <h3>Haz click aquí para subir un pdf.</h3>
                 <i class="fas fa-plus-circle"></i>
             </button>
-            <input type="file" name="upload-pdf" id="upload-pdf">
+            <input type="file" name="upload-pdf" accept="application/pdf" id="upload-pdf">
 
-            <div class="galeria pdf">
+            <div class="galeria pdf" id="previewPDF">
 
-                <embed src="/obededom/media/pdf/Ejemplo.pdf" width="100%" height="100%" />
-                <button><i class="fas fa-times"></i></button>
+                <embed src="" width="100%" height="100%" id="pdf"/>
+                <button id="eliminarPDF"><i class="fas fa-times"></i></button>
 
             </div>
 
@@ -358,13 +327,13 @@ if(!isset($_SESSION['Usuario'])){
 
             <div class="buttons">
                 <button id="subirpropiedad"><i class="fas fa-cart-plus"></i> Subir Propiedad</button>
-                <button id="subirborrador"><i class="fas fa-eraser"></i> Guardar como Borrador</button>
-                <button><i class="fas fa-ban"></i> Cancelar</button>
+                <!--<button id="subirborrador"><i class="fas fa-eraser"></i> Guardar como Borrador</button>-->
+                <button id="cancelar"><i class="fas fa-ban"></i> Cancelar</button>
             </div>
         </div>
     </div>
 
-    <script src="/obededom/Plugins/ckeditor/ckeditor.js"></script>
+    <script src="https://www.obededompropiedades.com.uy/Plugins/ckeditor/ckeditor.js"></script>
     <script>
         CKEDITOR.replace('garantias');
         CKEDITOR.replace('descripcion');

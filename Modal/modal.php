@@ -72,13 +72,43 @@ switch($numero_mensaje){
         $mensaje_1 = "Login:";
         $mensaje = "El usuario o contraseña no es correcto.";
         break;
+
+    case "imagenes":
+        $mensaje_1 = "Error:";
+        $mensaje = "Debe subir al menos una imagen.";
+        break;
+
+    case "extensionValida":
+        $mensaje_1 = "Error:";
+        $mensaje = "Una de las imágenes no tiene la extensión correcta. Asegurese de subir archivos con extensiónes .png, .jpg o .jpeg";
+        break;
+
+    case "extensionPDF":
+        $mensaje_1 = "Error:";
+        $mensaje = "Debe subir un archivo PDF.";
+        break;
+
+    case "archivoGrande":
+        $mensaje_1 = "Error:";
+        $mensaje = "Una de las imágenes subidas supera el tamaño aceptado. Asegurese de que los archivos no superen los 10MB.";
+        break;
+
+    case "archivoGV":
+        $mensaje_1 = "Error:";
+        $mensaje = "Varios archivos tienen extensiónes invalidas o superan el tamaño máximo. Por favor, asegúrese de seguir los requerimientos especificados.";
+        break;
+
+    case "muchasimagenes":
+        $mensaje_1 = "Error:";
+        $mensaje = "Solo se permiten subir 15 imágenes por propiedad.";
+        break;
 }
 
 
 $modal = "  <div class='modal'>
                 <div class='modal-wrapper'>
                     <div class='modal-logo'>
-                        <img src='/obededom/media/svg/Logo.svg' alt=''>
+                        <img src='/media/svg/Logo.svg' alt=''>
                     </div>
                     <div class='modal-content'>
                         <h1>$mensaje_1</h1>

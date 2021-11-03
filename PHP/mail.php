@@ -24,56 +24,72 @@ class mails
             $mail->Port = 587;
             $mail->SMTPSecure = 'tls'; 
             $mail->SMTPAuth = true;
-            $mail->Username = 'sasa.it.software@gmail.com';
-            $mail->Password = 'sasasoftware2';
-            $mail->setFrom('sasa.it.software@gmail.com');
-            $mail->addAddress($_SESSION["mail"]);
-            $mail->Subject = 'Recuperar contraseña';
-            $mail->AddEmbeddedImage('../../media/img/logos/Logonombre.png','prueba','../../media/img/logos/Logonombre.png');
-            $mail->msgHTML("<html>
+            $mail->Username = 'obededomorganizacion@gmail.com';
+            $mail->Password = 'malbec2003';
+            $mail->setFrom('obededomorganizacion@gmail.com');
+            $mail->addAddress('obededomorganizacion@gmail.com');
+            $mail->Subject = 'Nueva Consulta';
+            //$mail->AddEmbeddedImage('../../media/img/logos/Logonombre.png','prueba','../../media/img/logos/Logonombre.png');
+            $mail->msgHTML('
+            <!DOCTYPE html>
+            <html lang="en">
             <head>
-                <meta charset='UTF-8'>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Template | Mail</title>
             </head>
             <body>
-                <div style='border-radius: 15px;
-                width: 560px;
-                height: 435px;
-                background-color: #433f3b;'>
-                <img src='cid:prueba'
-                style='margin-top: 30px; 
-                width: 330px; 
-                margin-left: 115px;'> 
-                <p style='color:white;
-                text-align: center;
-                margin-top: 25px; 
-                font-size: 20px; '>El usuario ".$_SESSION['usuario']." ha solicitado un cambio de contraseña</p>
-                <p style='color:white; 
-                font-size: 20px; 
-                margin-top: 25px; 
-                text-align: center;'>Tu código es: </p>
-                <p 
-                style='
-                color:white; 
-                margin-top: 10px; 
-                font-size: 30px; 
-                text-align: center;'>".$_SESSION['codigo']."</p>
-                <hr style='width: 75%;'>
-                <a href='http://179.27.156.47/chessiep/usuario/recuperarPWD.html' 
-                style='color:white;
-                text-decoration:none;
-                margin-left: 175px;
-                padding: 15px;
-                display: inherit;
-                text-align: center;
-                width: 200px;
-                border-radius: 30px;
-                background-color: #85603f; 
-                margin-top: 18px;
-                font-size: 15px;
-                 '>Cambiar mi contraseña</a>
+                <div class="mail" style="max-width: 600px; background: #7200ff;">
+                    <table style="width: 100%; background: linear-gradient(120deg, #64006d, #ea00ff); border: none;" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td style="padding: 20px; text-align: center;">
+                                <img src="https://i.imgur.com/tFHUeCa.png" alt="" style="max-width: 150px; margin-bottom: 20px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img
+                                    style="width: 100%; height: 100px; margin: 0; padding: 0; vertical-align: middle;"
+                                    class="vector-top"
+                                    src="https://i.imgur.com/UHCg5RQ.png"
+                                    alt=""
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="mail-content" style="width: 100%; padding: 40px 0; margin-top: -120px; background: white;">
+                                    <h1 style="width: 80%; margin: 20px auto; color: #91009d; font-family: Arial;">Nueva Solicitud de Contacto</h1>
+                                    <p style="width: 80%; margin: 20px auto; font-family: Arial; color: #555;">
+                                        <b>Consulta</b>: Venta
+                                    </p>
+                                    <p style="width: 80%; margin: 20px auto; font-family: Arial; color: #555;">
+                                        <b>Nombre</b>: Juan
+                                    </p>
+                                    <p style="width: 80%; margin: 20px auto; font-family: Arial; color: #555;">
+                                        <b>Correo Electronico</b>: ejemplo@gmail.com
+                                    </p>
+                                    <p style="width: 80%; margin: 20px auto; font-family: Arial; color: #555;">
+                                        <b>Celular / Telefono</b>: 099487923
+                                    </p>
+                                    <p style="width: 80%; margin: 20px auto; font-family: Arial; color: #555;">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe similique adipisci numquam veritatis sed nihil harum quidem nisi culpa in!
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <div class="mail-footer" style="width: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; background: #91009d;">
+                                <p style="color: #ddd; font-size: 1em; margin: 5px auto; font-family: Arial;">Copyright © 2021 <b style="font-weight: normal; color: white;">Obed-Edom</b>. Todos los derechos reservados.</p>
+                            </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </body>
-            </html>");
+            </html>');
             $mail->isHTML(true); 
             //$mail->AltBody = 'HTML messaging not supported';
             if(!$mail->send()){

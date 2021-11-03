@@ -232,7 +232,8 @@ class  DatosAdministrador{
             if ($sentencia = $mysqli->prepare("CALL EliminarPropiedad(?);")) {
                 $sentencia->bind_param('i', $idPropiedad);
                 if ($sentencia->execute()) {
-                    echo "Funciona";
+                    array_map('unlink', glob("../media/img/propiedad_".$idPropiedad."/*.*"));
+                    rmdir("../media/img/propiedad_".$idPropiedad);
                 }else{
                     throw new Exception('Error en prepare: ' . $mysqli->error);
                 }

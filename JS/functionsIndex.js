@@ -1,16 +1,19 @@
 Administrador = new AdministradorObj();
+Backend = new BackendObj();
 
 $(document).ready(function () {
-    $('#header').load('/obededom/web/header.html');
-    $('#footer').load('/obededom/web/footer.html');
+    $('#header').load('/web/header.html');
+    $('#footer').load('/web/footer.html');
     cargoPropiedades();
 });
 
 function cargoPropiedades(){
     var propiedades = Administrador.traerPropiedadesIndex();
+    var imagenes = Backend.traerImagen();
     var divPropiedades = document.getElementById("slider-content");
     var nuevaPropiedad = "";
     var departamento = "";
+    var urlImagen = "";
     var precio = "";
     var contadorPropiedades = 0;
     //vacio los elementos anteriores
@@ -19,6 +22,12 @@ function cargoPropiedades(){
       if(contadorPropiedades <= 11){
         //comprueba que la propiedad esté habilitada
         if(propiedades[i+28] == 1){
+          //comprueba si tiene imagen
+          if(imagenes.indexOf(propiedades[i], 1) != -1){
+            urlImagen = imagenes[imagenes.indexOf(propiedades[i], 1) - 1]
+          }else{
+            urlImagen = "/media/img/Ejemplo1.jpg";
+          }
           //comprueba si se muestra el precio
           if(propiedades[i+30] == 1){
             precio = Number(propiedades[i+3]).toLocaleString()
@@ -35,7 +44,7 @@ function cargoPropiedades(){
             </div>
     
             <div class="card-img">
-              <img src="/obededom/media/img/Ejemplo1.jpg" alt="" />
+              <img src="`+ urlImagen +`" alt="" />
             </div>
             <div class="card-content">
               <h3>`+ propiedades[i+1] +`</h3>
@@ -74,7 +83,7 @@ function cargoPropiedades(){
             </div>
     
             <div class="card-img">
-              <img src="/obededom/media/img/Ejemplo1.jpg" alt="" />
+              <img src="`+ urlImagen +`" alt="" />
             </div>
             <div class="card-content">
               <h3>`+ propiedades[i+1] +`</h3>

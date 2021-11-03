@@ -6,7 +6,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 1 },
           dataType: 'json',
           success: function (data) {
@@ -22,7 +22,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 2 },
           dataType: 'json',
           success: function (data) {
@@ -38,7 +38,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 3 },
           dataType: 'json',
           success: function (data) {
@@ -54,7 +54,7 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 4, idDepartamento: idDepartamento },
           dataType: 'json',
           success: function (data) {
@@ -69,12 +69,11 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 5 },
           dataType: 'json',
           success: function (data) {
             Dormitorios = data;
-            console.log("estos son los dormitorios: " + data)
           },
         });
         return Dormitorios;
@@ -85,13 +84,11 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 6 },
           dataType: 'json',
           success: function (data) {
-            Baños = data;
-            console.log("estos son los baños: " + data)
-          },
+            Baños = data;         },
         });
         return Baños;
       }
@@ -101,12 +98,11 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 7 },
           dataType: 'json',
           success: function (data) {
             Garages = data;
-            console.log("estos son los Garages: " + data)
           },
         });
         return Garages;
@@ -117,13 +113,11 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 8 },
           dataType: 'json',
           success: function (data) {
-            Distanciamar = data;
-            console.log("estos son los Distanciamar: " + data)
-          },
+            Distanciamar = data;          },
         });
         return Distanciamar;
       }
@@ -133,13 +127,11 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 9 },
           dataType: 'json',
           success: function (data) {
-            Sobre = data;
-            console.log("estos son los Sobre: " + data)
-          },
+            Sobre = data;         },
         });
         return Sobre;
       }
@@ -149,12 +141,11 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 10 },
           dataType: 'json',
           success: function (data) {
             Estados = data;
-            console.log("estos son los Estados: " + data)
           },
         });
         return Estados;
@@ -165,12 +156,11 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 11 },
           dataType: 'json',
           success: function (data) {
             Plantas = data;
-            console.log("estos son los Plantas: " + data)
           },
         });
         return Plantas;
@@ -181,12 +171,11 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 12 },
           dataType: 'json',
           success: function (data) {
             Comfort = data;
-            console.log("estos son los Comfort: " + data)
           },
         });
         return Comfort;
@@ -197,31 +186,27 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 13 },
           dataType: 'json',
           success: function (data) {
             Seguridad = data;
-            console.log("estos son los Seguridad: " + data)
           },
         });
         return Seguridad;
       }
 
-      guardarPropiedad(arrayDatos) {
-        console.log(arrayDatos)
-        var resultado;
+      guardarPropiedad(arrayDatos, form_data) {
+        var imagenes = this;
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 14, datosJSON: arrayDatos},
-          success: function (data) {
-            resultado = data;
-            console.log("estos son los datos: " + data)
+          success: function (idPropiedad) {
+            imagenes.guardarImagenes(form_data, idPropiedad);
           },
         });
-        return resultado;
       }
 
       traerComfortPropiedad(idPropiedad) {
@@ -229,13 +214,11 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 15, idPropiedad: idPropiedad},
           dataType: 'json',
           success: function (data) {
             Comfort = data;
-            console.log(idPropiedad)
-            console.log("comfort de la propiedad: " + data)
           },
         });
         return Comfort;
@@ -246,30 +229,112 @@ class BackendObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 16, idPropiedad: idPropiedad},
           dataType: 'json',
           success: function (data) {
             Seguridad = data;
-            console.log("seguridad de la propiedad: " + data)
           },
         });
         return Seguridad;
       }
 
-      actualizarPropiedad(arrayDatos) {
-        var resultado;
+      actualizarPropiedad(arrayDatos, form_data) {
+        var imagenes = this;
         $.ajax({
           type: "POST",
           async: false,
-          url: "/obededom/PHP/backend.php",
+          url: "/PHP/backend.php",
           data: { accion: 17, datosJSON: arrayDatos},
-          success: function (data) {
-            resultado = data;
-            console.log("estos son los datos: " + data)
+          success: function (idPropiedad) {
+            imagenes.guardarImagenes(form_data, idPropiedad);     
           },
         });
-        return resultado;
+      }
+
+      traerImagenes(idPropiedad) {
+        var Imagenes = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "/PHP/backend.php",
+          data: { accion: 18, idPropiedad: idPropiedad},
+          dataType: 'json',
+          success: function (data) {
+            Imagenes = data;
+          },
+        });
+        return Imagenes;
+      }
+
+      traerImagen() {
+        var Imagen = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "/PHP/backend.php",
+          data: { accion: 19},
+          dataType: 'json',
+          success: function (data) {
+            Imagen = data;
+          },
+        });
+        return Imagen;
+      }
+
+      guardarImagenes(form_data, idPropiedad) {
+        var form_id = new FormData();
+        form_id = form_data;
+        form_id.append('idPropiedad',idPropiedad);
+        $.ajax({
+          url: "/PHP/backend.php",
+          cache: false,
+          contentType: false,
+          processData: false,
+          data: form_data,
+          type: 'post',
+          success: function (response) {
+            if(response !== ""){
+              modal(response);
+            }
+          },
+        });
+      }
+
+      eliminarImagen(idImagen) {
+        $.ajax({
+          url: "/PHP/backend.php",     
+          type: 'post',
+          data: { accion: 20, idImagen: idImagen},
+          success: function (response) {
+          },
+        });
+      }
+
+      traerPDF(idPropiedad) {
+        var url = "";
+        $.ajax({
+          url: "/PHP/backend.php",     
+          async: false,
+          type: 'post',
+          data: { accion: 21, idPropiedad: idPropiedad},
+          dataType: 'json',
+          success: function (data) {
+            url = data;
+          },
+        });
+        return url;
+      }
+
+      eliminarPDF(idPropiedad) {
+        $.ajax({
+          url: "/PHP/backend.php",    
+          async: false, 
+          type: 'post',
+          data: { accion: 23, idPropiedad: idPropiedad},
+          success: function (response) {
+          }
+        });
       }
 
 
