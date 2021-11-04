@@ -67,19 +67,13 @@ if(isset($_POST["accion"])){
         case 21:
             echo json_encode($llamarFunction->TraigoPDF($_POST['idPropiedad']));
         break;
+        case 22:
+            echo $llamarFunction->GuardarImagenes($_POST['idPropiedad']);    
+        break;
         case 23:
             echo json_encode($llamarFunction->EliminarPDF($_POST['idPropiedad']));
         break;
     }
 }
-
-if(isset($_FILES['imagenes[]'])){
-    echo $llamarFunction->GuardarImagenes($_POST['idPropiedad']);
-}
-if(isset($_FILES['pdf'])){
-    echo $llamarFunction->GuardarPDF($_POST['idPropiedad']);
-}
-
-
 
 ?>

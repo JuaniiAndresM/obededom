@@ -334,7 +334,7 @@ public function ActualizarPropiedad($arrayJSON){
                 //hace un for insertando los comfort con el id de la propiedad creada y el id de los comfort
                 for($i=0; $i<count($arrayComfort); $i++){
                     if ($sentencia = $mysqli->prepare("CALL InsertComfortPropiedad(?, ?);")) {
-                        $sentencia->bind_param('ii', $arrayDatos[31], $arrayComfort[$i]);
+                        $sentencia->bind_param('ii', $arrayDatos[30], $arrayComfort[$i]);
                         if($sentencia->execute()) {
                         }else{
                             throw new Exception('Error en prepare: ' . $mysqli->error);
@@ -459,15 +459,15 @@ public function ActualizarPropiedad($arrayJSON){
         $sentencia = '';
         $archivoGrande = false;
         $extensionInvalida = false;
+        $llamarFunction = new DatosBackend();
         define('MB', 1048576);
 
         // Count total files
         $countfiles = count($_FILES['imagenes']['name']);
 
-
         // Crea directorio de la propiedad
         if (!file_exists("../media/img/propiedad_".$idPropiedad)) {
-            mkdir("../media/img/propiedad_".$idPropiedad , true);
+            mkdir("../media/img/propiedad_".$idPropiedad ,0777 ,true);
         }
         // Upload directory
         $upload_location = "../media/img/propiedad_".$idPropiedad."/";
@@ -517,6 +517,9 @@ public function ActualizarPropiedad($arrayJSON){
                         if ($sentencia = $mysqli->prepare("CALL InsertImagen(?,?);")) {
                             $sentencia->bind_param('is', $idPropiedad, $pathSQL);
                             if ($sentencia->execute()) {
+                                if(isset($_FILES['pdf']['name']) && $_FILES['pdf']['name'] != ''){
+                                    echo $llamarFunction->GuardarPDF($_POST['idPropiedad']);
+                                }
                             }else{
                                 throw new Exception('Error en prepare: ' . $mysqli->error);
                             }
@@ -587,6 +590,7 @@ public function ActualizarPropiedad($arrayJSON){
         $extensionInvalida = false;
         // Upload directory
         $upload_location = "../media/pdf/";
+        echo "entra al pdf";
 
         if(isset($_FILES['pdf']['name']) && $_FILES['pdf']['name'] != ''){
             // File name

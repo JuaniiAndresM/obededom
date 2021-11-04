@@ -25,7 +25,7 @@ $(document).ready(function () {
         cargarFiltroLocalidad(e.target.options[e.target.selectedIndex].getAttribute('id'));
       }
     }
-  });        sessionStorage.removeItem('idPropiedadEditar');
+  });
 
   $('#CrearLocalidad').on('click', function() {
     crearLocalidad();
@@ -33,7 +33,7 @@ $(document).ready(function () {
 
   $('#crearPropiedad').on('click', function() {
     sessionStorage.removeItem('idPropiedadEditar');
-    location.href = "backend.php";
+    location.href = "Backend";
   });
 
   $('.buttonAgregar').on('click', function() {
@@ -59,7 +59,7 @@ $(document).ready(function () {
   $('.propiedad-wrapper').on('click', '.propiedad .editar', function(event){
     sessionStorage.removeItem("idPropiedadEditar")
     sessionStorage.setItem("idPropiedadEditar", this.id);
-    location.href = '/HTML/backend.php';
+    location.href = 'Backend';
   });
 
   $('#buscador').on('keyup', function() {

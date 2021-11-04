@@ -286,6 +286,7 @@ class BackendObj {
         var form_id = new FormData();
         form_id = form_data;
         form_id.append('idPropiedad',idPropiedad);
+        form_id.append('accion', 22);
         $.ajax({
           url: "/PHP/backend.php",
           cache: false,
@@ -298,6 +299,10 @@ class BackendObj {
               modal(response);
             }
           },
+          error: function(XMLHttpRequest, textStatus, errorThrown) { 
+              alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+              console.log(XMLHttpRequest);
+          }  
         });
       }
 

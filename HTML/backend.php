@@ -37,7 +37,7 @@ if(!isset($_SESSION['Usuario'])){
                 <img src="/obededom/media/svg/Logo.svg" alt="">
             </div>
             <div class="header-links">
-                <a href="/obededom/Index.html" class="button"><i class="fas fa-arrow-circle-left"></i> Volver al Inicio</a>
+                <a href="Administrador" class="button"><i class="fas fa-arrow-circle-left"></i> Volver al Inicio</a>
             </div>
         </div>
     </header>
