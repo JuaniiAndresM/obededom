@@ -67,7 +67,7 @@ if(!isset($_SESSION['Usuario'])){
                         </div>
                         <div class="input">
                             <p>Tipo de Precio</p>
-                            <select name="tipooperacion" id="selectOperaciones">
+                            <select name="tipoPrecio" id="selectTipoPrecio">
                                 <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
                                 <option value="1">Pesos Uruguayos - $</option>
                                 <option value="2">Dolares - U$S</option>
@@ -77,7 +77,7 @@ if(!isset($_SESSION['Usuario'])){
 
                     <div class="panel-medio">
                         <div class="input">
-                            <p>Precio de Venta en Dolares</p>
+                            <p>Precio de Venta</p>
                             <input type="number" class="reset" name="precio" id="precioDolares">
                             <div class="checkbox" id="checkbox-precio">
                                 <input type="checkbox" name="" id="mostrarPrecio" checked>Mostrar precio de venta
@@ -85,7 +85,7 @@ if(!isset($_SESSION['Usuario'])){
                         </div>
                         <div class="input">
                             <p>Gastos Comunes</p>
-                            <input type="number" class="reset" name="precio" id="precioDolares">
+                            <input type="number" class="reset" name="gastosComunes" id="gastosComunes">
                         </div>
                         
                     </div>

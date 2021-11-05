@@ -340,6 +340,7 @@ function subirPropiedad(idPropiedadEditar){
     var arrayDatos = [];
     var tituloPropiedad = document.getElementById('tituloPropiedad').value;
     var tipoOperacion = document.getElementById('selectOperaciones').value;
+    var tipoPrecio = document.getElementById('selectTipoPrecio').value;
     var precioVenta = document.getElementById('precioDolares').value;
     var mostrarPrecio = $('#mostrarPrecio').is(":checked");
     if(mostrarPrecio == true){
@@ -347,6 +348,7 @@ function subirPropiedad(idPropiedadEditar){
     }else{
         mostrarPrecio = 0
     }
+    var gastosComunes = document.getElementById('gastosComunes').value;
     var permuta = document.querySelector('input[name="permuta"]:checked').value;
     var financia = document.querySelector('input[name="financia"]:checked').value;
     var tipoPropiedad = document.getElementById('selectTipoPropiedad').value;
@@ -389,9 +391,9 @@ function subirPropiedad(idPropiedadEditar){
     var estado = 1;
     if(contadorImagenes != 0){
         //comprueba que los selects no estén en la opcion default
-        if ( [tipoOperacion, tipoPropiedad, departamento, localidad, dormitorios, baños, garage, distanciaMar, propiedadSobre, estadoPropiedad, disposicion, orientacion, cantidadPlantas].indexOf("0") < 0 ) {
+        if ( [tipoOperacion, tipoPropiedad, tipoPrecio, departamento, localidad, dormitorios, baños, garage, distanciaMar, propiedadSobre, estadoPropiedad, disposicion, orientacion, cantidadPlantas].indexOf("0") < 0 ) {
             //comprueba que los otros campos no estén vacios
-            if ([tituloPropiedad, precioVenta, direccion, fechaConstruccion, metrosEdificados, metrosTerraza, metrosTerreno].indexOf("") < 0){
+            if ([tituloPropiedad, precioVenta, gastosComunes, direccion, fechaConstruccion, metrosEdificados, metrosTerraza, metrosTerreno].indexOf("") < 0){
                 //comprueba que las garantias y la descripción tengan algo.
                 if([garantias, descripcion].indexOf("") < 0 ){
                     //verifica si seleccionó garantías o no
@@ -401,16 +403,17 @@ function subirPropiedad(idPropiedadEditar){
                         }else{
                             if(idPropiedadEditar != undefined){
                                 arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
-                                    fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
-                                    cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar, Number.parseInt(idPropiedadEditar), arrayComfort, arraySeguridad];
-                                    console.log(arrayDatos);
+                                    fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, 
+                                    distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno, cantidadPlantas, extras, garantias, descripcion, estado, 
+                                    mostrarPrecio, vistamar, Number.parseInt(idPropiedadEditar), tipoPrecio, gastosComunes, arrayComfort, arraySeguridad];
                                 mandarDatos.actualizarPropiedad(JSON.stringify(arrayDatos), form_data);
                                 modal(6);
                                 limpioFormulario()
                             }else{
                                 arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
-                                    fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
-                                    cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar, arrayComfort, arraySeguridad];
+                                    fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, 
+                                    distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
+                                    cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar, tipoPrecio, gastosComunes, arrayComfort, arraySeguridad,];
                                 mandarDatos.guardarPropiedad(JSON.stringify(arrayDatos), form_data);
                                 modal(5);
                                 limpioFormulario()
@@ -420,15 +423,14 @@ function subirPropiedad(idPropiedadEditar){
                         if(idPropiedadEditar != undefined){
                             arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
                                 fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
-                                cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar, Number.parseInt(idPropiedadEditar)];
-                                console.log(arrayDatos)
+                                cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar, Number.parseInt(idPropiedadEditar), tipoPrecio, gastosComunes];
                             mandarDatos.actualizarPropiedad(JSON.stringify(arrayDatos), form_data);
                             modal(6);
                             limpioFormulario()
                         }else{
                             arrayDatos = [tituloPropiedad, tipoOperacion, precioVenta, permuta, financia, tipoPropiedad, departamento, localidad, direccion,
                                 fechaConstruccion, dormitorios, baños ,garage ,estadoPropiedad, aptoOficina, viviendaSocial, disposicion, orientacion, propiedadSobre, distanciaMar, metrosEdificados ,metrosTerraza ,metrosTerreno,
-                                cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar];
+                                cantidadPlantas, extras, garantias, descripcion, estado, mostrarPrecio, vistamar, tipoPrecio, gastosComunes];
                             mandarDatos.guardarPropiedad(JSON.stringify(arrayDatos), form_data);
                             modal(5);
                             limpioFormulario()

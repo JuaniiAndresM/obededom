@@ -102,6 +102,21 @@ switch($numero_mensaje){
         $mensaje_1 = "Error:";
         $mensaje = "Solo se permiten subir 15 imágenes por propiedad.";
         break;
+
+    case "seleccionarDepartamento":
+        $mensaje_1 = "Error:";
+        $mensaje = "Debe seleccionar un departamento para agregar una localidad..";
+        break;
+
+    case "localidadLargo":
+        $mensaje_1 = "Error:";
+        $mensaje = "El nombre ingresado para la localidad es demasiado largo.";
+        break;
+
+    case "ingresarNombreLocalidad":
+        $mensaje_1 = "Error:";
+        $mensaje = "Debe ingresar un nuevo nombre para la localidad.";
+        break;
 }
 
 

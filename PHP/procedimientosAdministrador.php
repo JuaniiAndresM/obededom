@@ -7,9 +7,9 @@ class  DatosAdministrador{
         $sentencia = '';
         if ($sentencia = $mysqli->prepare("CALL TraigoPropiedades();")) {   
           if ($sentencia->execute()) {    
-              $sentencia->bind_result($id_propiedad,$titulo,$tipo_operacion,$precio_venta,$permuta,$financia,$tipo_propiedad,$departamento,$localidad,$direccion,$fecha_construccion,$dormitorios,$baños,$garage,$estado,$oficina,$vivienda_social,$disposicion,$orientacion,$sobre,$distancia_mar,$metros_edificados,$metros_terraza,$metros_terreno,$plantas,$extras,$garantias,$descripcion_propiedad,$activo,$vista_mar,$mostrar_precio);
+              $sentencia->bind_result($id_propiedad,$titulo,$tipo_operacion,$precio_venta,$gastos_comunes,$permuta,$financia,$tipo_propiedad,$departamento,$localidad,$direccion,$fecha_construccion,$dormitorios,$baños,$garage,$estado,$oficina,$vivienda_social,$disposicion,$orientacion,$sobre,$distancia_mar,$metros_edificados,$metros_terraza,$metros_terreno,$plantas,$extras,$garantias,$descripcion_propiedad,$activo,$vista_mar,$mostrar_precio,$tipo_precio);
                    while ($sentencia->fetch()) {
-                       array_push($arrayPropiedades,$id_propiedad,$titulo,$tipo_operacion,$precio_venta,$permuta,$financia,$tipo_propiedad,$departamento,$localidad,$direccion,$fecha_construccion,$dormitorios,$baños,$garage,$estado,$oficina,$vivienda_social,$disposicion,$orientacion,$sobre,$distancia_mar,$metros_edificados,$metros_terraza,$metros_terreno,$plantas,$extras,$garantias,$descripcion_propiedad,$activo,$vista_mar,$mostrar_precio);   
+                       array_push($arrayPropiedades,$id_propiedad,$titulo,$tipo_operacion,$precio_venta,$permuta,$financia,$tipo_propiedad,$departamento,$localidad,$direccion,$fecha_construccion,$dormitorios,$baños,$garage,$estado,$oficina,$vivienda_social,$disposicion,$orientacion,$sobre,$distancia_mar,$metros_edificados,$metros_terraza,$metros_terreno,$plantas,$extras,$garantias,$descripcion_propiedad,$activo,$vista_mar,$mostrar_precio,$gastos_comunes,$tipo_precio);   
                    }
                }else{
                    throw new Exception('Error en prepare: ' . $mysqli->error);
@@ -284,9 +284,9 @@ class  DatosAdministrador{
             if ($sentencia = $mysqli->prepare("CALL TraigoPropiedad(?);")) {   
                 $sentencia->bind_param('i', $idPropiedad);
               if ($sentencia->execute()) {    
-                  $sentencia->bind_result($id_propiedad,$titulo,$tipo_operacion,$precio_venta,$permuta,$financia,$tipo_propiedad,$departamento,$localidad,$direccion,$fecha_construccion,$dormitorios,$baños,$garage,$estado,$oficina,$vivienda_social,$disposicion,$orientacion,$sobre,$distancia_mar,$metros_edificados,$metros_terraza,$metros_terreno,$plantas,$extras,$garantias,$descripcion_propiedad,$activo,$vista_mar,$mostrar_precio);
+                  $sentencia->bind_result($id_propiedad,$titulo,$tipo_operacion,$precio_venta,$gastos_comunes,$permuta,$financia,$tipo_propiedad,$departamento,$localidad,$direccion,$fecha_construccion,$dormitorios,$baños,$garage,$estado,$oficina,$vivienda_social,$disposicion,$orientacion,$sobre,$distancia_mar,$metros_edificados,$metros_terraza,$metros_terreno,$plantas,$extras,$garantias,$descripcion_propiedad,$activo,$vista_mar,$mostrar_precio, $tipo_precio);
                        while ($sentencia->fetch()) {
-                           array_push($arrayPropiedad,$id_propiedad,$titulo,$tipo_operacion,$precio_venta,$permuta,$financia,$tipo_propiedad,$departamento,$localidad,$direccion,$fecha_construccion,$dormitorios,$baños,$garage,$estado,$oficina,$vivienda_social,$disposicion,$orientacion,$sobre,$distancia_mar,$metros_edificados,$metros_terraza,$metros_terreno,$plantas,$extras,$garantias,$descripcion_propiedad,$activo,$vista_mar,$mostrar_precio);   
+                           array_push($arrayPropiedad,$id_propiedad,$titulo,$tipo_operacion,$precio_venta,$permuta,$financia,$tipo_propiedad,$departamento,$localidad,$direccion,$fecha_construccion,$dormitorios,$baños,$garage,$estado,$oficina,$vivienda_social,$disposicion,$orientacion,$sobre,$distancia_mar,$metros_edificados,$metros_terraza,$metros_terreno,$plantas,$extras,$garantias,$descripcion_propiedad,$activo,$vista_mar,$mostrar_precio,$gastos_comunes, $tipo_precio);   
                        }
                    }else{
                        throw new Exception('Error en prepare: ' . $mysqli->error);

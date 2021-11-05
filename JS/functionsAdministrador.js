@@ -141,7 +141,7 @@ function cargoPropiedades(){
   var precio;
   //vacio los elementos anteriores
   divPropiedades.innerHTML = "";
-  for (var i = 0; i < propiedades.length; i = i+31){
+  for (var i = 0; i < propiedades.length; i = i+33){
     //comprueba si tiene imagen
     if(imagenes.indexOf(propiedades[i], 1) != -1){
       urlImagen = imagenes[imagenes.indexOf(propiedades[i], 1) - 1]
@@ -472,7 +472,7 @@ function crearLocalidad(){
   var nuevaLocalidad = document.getElementById("NuevaLocalidad").value
   if(departamento != 0){
     if(nuevaLocalidad == "" || nuevaLocalidad == null){
-      alert("error de que debe escribir el nombre de la nueva localidad")
+      modal("ingresarNombreLocalidad")
     }else{
       if(nuevaLocalidad.length < 30){
         //crea la localidad
@@ -480,11 +480,11 @@ function crearLocalidad(){
         //recarga las localidades para mostrar lo nuevo
         cargarLocalidad(departamento);
       }else{
-        alert("error del nombre de la localidad es muy largo")
+        modal("seleccionarDepartamento")
       }
     }
   }else{
-    alert("acá va el error de que debe seleccionar un departamento")
+    modal("localidadLargo")
   }
 }
 
