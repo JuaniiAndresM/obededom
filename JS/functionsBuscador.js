@@ -47,6 +47,12 @@ function cargoPropiedades(){
           precio = "Convenir";
           precioFiltro = "Convenir";
         }
+        //comprueba la moneda
+        if(propiedades[i+32] == 1){
+          moneda = "$"
+        }else if(propiedades[i+32] == 2){
+          moneda = "U$S"
+        }
         //comprueba el estado de la propiedad
         if(propiedades[i+2] == "Alquiler" || propiedades[i+2] == "Alquiler Temporal"){
           departamento = comprueboDepartamento(propiedades[i+7]);
@@ -82,7 +88,7 @@ function cargoPropiedades(){
 
             <div class="precio">
               <button class="verPropiedad" id=`+ propiedades[i] +`><i class="fas fa-home"></i> Ver más</button>
-              <h1>U$S `+ precio +`</h1>
+              <h1>`+ moneda +` `+ precio +`</h1>
             </div>
           </div>
         </div>`;
@@ -121,7 +127,7 @@ function cargoPropiedades(){
 
             <div class="precio">
               <button class="verPropiedad" id=`+ propiedades[i] +`><i class="fas fa-home"></i> Ver más</button>
-              <h1>U$S `+ precio +`</h1>
+              <h1>`+ moneda +` `+ precio +`</h1>
             </div>
           </div>
         </div>`;

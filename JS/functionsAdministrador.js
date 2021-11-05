@@ -155,6 +155,13 @@ function cargoPropiedades(){
     }else{
       precio = "A Convenir"
     }
+
+    //comprueba la moneda
+    if(propiedades[i+32] == 1){
+      moneda = "$"
+    }else if(propiedades[i+32] == 2){
+      moneda = "U$S"
+    }
     //comprueba el estado de la propiedad
     if(propiedades[i+28] == 1){
       departamento = comprueboDepartamento(propiedades[i+7]);
@@ -177,7 +184,7 @@ function cargoPropiedades(){
                           </div>
                           <div class="precio">
                             <hr>
-                            <p>U$S <span id="precioDolares">`+ precio +`</span></p>
+                            <p><span id="tipoPrecio">`+ moneda +`</span> <span id="precioDolares">`+ precio +`</span></p>
                           </div>
                           
                         </div>
@@ -208,7 +215,7 @@ function cargoPropiedades(){
                           </div>
                           <div class="precio">
                             <hr>
-                            <p>U$S <span id="precioDolares">`+ precio +`</span></p>
+                            <p><span id="tipoPrecio">`+ moneda +`</span> <span id="precioDolares">`+ precio +`</span></p>
                           </div>
                           <div class="buttons">
                             <button class="habilitar" id=`+ propiedades[i] +`><i class="fas fa-check-circle"></i></button>
@@ -328,6 +335,8 @@ function buscador(value) {
 }
 
 function cargoNomencladores(){
+  document.getElementById("Localidades").innerHTML = "";
+
   //cargo el tipo de Propiedad
   var tipoPropiedad = Administrador.traerTiposPropiedad();
   var divtipoPropiedad = document.getElementById("tipoPropiedad");
@@ -343,6 +352,7 @@ function cargoNomencladores(){
   var arrayDepartamentos = Administrador.traerDepartamentos();
   var selectDepartamentos = document.getElementById('selectDepartamentos');
   $("#selectDepartamentos").empty();
+  $("#selectDepartamentos").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true}).text('Elija un Departamento'));
   for (var i = 0; i < arrayDepartamentos.length; i = i+2){
       //crea un elemento option
       var opt = document.createElement('option');
@@ -493,7 +503,7 @@ function crearNomenclador(nomenclador){
   switch(nomenclador){
     case "0":
       var nuevoTipoPropiedad = document.getElementById("nuevoTipoPropiedad").value;
-      if(nuevoTipoPropiedad === "" || nuevoTipoPropiedad === null || nuevoTipoPropiedad == 0){
+      if(nuevoTipoPropiedad === "" || nuevoTipoPropiedad === null){
         modal("nomencladorIncompleto")
       }else{
         if(nuevoTipoPropiedad.length < 60){
@@ -507,7 +517,7 @@ function crearNomenclador(nomenclador){
       break;
     case "1":
       var nuevoDormitorio = document.getElementById("nuevoDormitorio").value;
-      if(nuevoDormitorio === "" || nuevoDormitorio == 0 || nuevoDormitorio == null){
+      if(nuevoDormitorio === "" || nuevoDormitorio == null){
         modal("nomencladorIncompleto")
       }else{
         if(!isNaN(nuevoDormitorio)){
@@ -595,7 +605,7 @@ function crearNomenclador(nomenclador){
       break;
     case "7":
       var nuevaPlanta = document.getElementById("nuevaPlanta").value;
-      if(nuevaPlanta === "" || nuevaPlanta == 0 || nuevaPlanta == null){
+      if(nuevaPlanta === "" || nuevaPlanta == null){
         modal("nomencladorIncompleto")
       }else{
 

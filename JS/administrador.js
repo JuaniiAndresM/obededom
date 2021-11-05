@@ -85,7 +85,6 @@ class AdministradorObj {
           dataType: 'json',
           success: function (data) {
             Dormitorios = data;
-            console.log("estos son los dormitorios: " + data)
           },
         });
         return Dormitorios;
@@ -101,7 +100,6 @@ class AdministradorObj {
           dataType: 'json',
           success: function (data) {
             Baños = data;
-            console.log("estos son los baños: " + data)
           },
         });
         return Baños;
@@ -117,7 +115,6 @@ class AdministradorObj {
           dataType: 'json',
           success: function (data) {
             Garages = data;
-            console.log("estos son los Garages: " + data)
           },
         });
         return Garages;
@@ -133,7 +130,6 @@ class AdministradorObj {
           dataType: 'json',
           success: function (data) {
             Distanciamar = data;
-            console.log("estos son los Distanciamar: " + data)
           },
         });
         return Distanciamar;
@@ -149,7 +145,6 @@ class AdministradorObj {
           dataType: 'json',
           success: function (data) {
             Sobre = data;
-            console.log("estos son los Sobre: " + data)
           },
         });
         return Sobre;
@@ -165,7 +160,6 @@ class AdministradorObj {
           dataType: 'json',
           success: function (data) {
             Estados = data;
-            console.log("estos son los Estados: " + data)
           },
         });
         return Estados;
@@ -181,7 +175,6 @@ class AdministradorObj {
           dataType: 'json',
           success: function (data) {
             Plantas = data;
-            console.log("estos son los Plantas: " + data)
           },
         });
         return Plantas;
@@ -197,7 +190,6 @@ class AdministradorObj {
           dataType: 'json',
           success: function (data) {
             Comfort = data;
-            console.log("estos son los Comfort: " + data)
           },
         });
         return Comfort;
@@ -213,7 +205,6 @@ class AdministradorObj {
           dataType: 'json',
           success: function (data) {
             Seguridad = data;
-            console.log("estos son los Seguridad: " + data)
           },
         });
         return Seguridad;
@@ -326,6 +317,9 @@ class AdministradorObj {
           async: false,
           url: "/PHP/administrador.php",
           data: { accion: 13, tipoNomenclador: tipoNomenclador, idNomenclador: idNomenclador},
+          success: function (data) {
+            console.log(data);
+          },
         });
       }
 

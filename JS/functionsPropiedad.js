@@ -29,6 +29,13 @@ function cargoPropiedad(idPropiedad){
     document.getElementById("tituloPropiedad").innerHTML = propiedad[1];
     //carga el precio de venta, y si está seteado para que no se muestre, pone precio a convenir.
     if(propiedad[30] == 1){
+        //comprueba la moneda
+        if(propiedad[32] == 1){
+          moneda = "$"
+        }else if(propiedad[32] == 2){
+          moneda = "U$S"
+        }
+        document.getElementById("tipoMoneda").innerHTML = moneda;
         document.getElementById("precioVenta").innerHTML = Number(propiedad[3]).toLocaleString()
     }else{
     document.getElementById("precioVenta").innerHTML = "A Convenir"
@@ -52,6 +59,7 @@ function cargoPropiedad(idPropiedad){
     document.getElementById("fechaConstruccion").innerHTML = propiedad[10];
     document.getElementById("plantas").innerHTML = propiedad[24];
     document.getElementById("propiedadSobre").innerHTML = propiedad[19];
+    document.getElementById("gastosComunes").innerHTML = propiedad[31];
     //comprueba si es apto para oficina
     if(propiedad[15] == 1){
         document.getElementById("aptoOficina").innerHTML = "Si";
@@ -71,8 +79,8 @@ function cargoPropiedad(idPropiedad){
         document.getElementById("vistaMar").innerHTML = "No";
     }
     document.getElementById("distanciaMar").innerHTML = propiedad[20];
-    document.getElementById("descripcion").innerHTML = propiedad[26];
-    document.getElementById("garantias").innerHTML = propiedad[27];
+    document.getElementById("descripcion").innerHTML = propiedad[27];
+    document.getElementById("garantias").innerHTML = propiedad[26];
     if(comforts.length == 0){
       $("#comfort").hide();
     }else{

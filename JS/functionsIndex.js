@@ -30,6 +30,12 @@ function cargoPropiedades(){
           }
           //comprueba si se muestra el precio
           if(propiedades[i+30] == 1){
+            //comprueba la moneda
+            if(propiedades[i+32] == 1){
+              moneda = "$"
+            }else if(propiedades[i+32] == 2){
+              moneda = "U$S"
+            }
             precio = Number(propiedades[i+3]).toLocaleString()
           }else{
             precio = "Convenir"
@@ -69,7 +75,7 @@ function cargoPropiedades(){
     
               <div class="precio">
                 <button class="verPropiedad" onClick="verPropiedad(this.id)" id=`+ propiedades[i] +`><i class="fas fa-home"></i> Ver más</button>
-                <h1>U$S `+ precio +`</h1>
+                <h1>`+ moneda +` `+ precio +`</h1>
               </div>
             </div>
           </div>`;
@@ -108,7 +114,7 @@ function cargoPropiedades(){
     
               <div class="precio">
                 <button class="verPropiedad" onClick="verPropiedad(this.id)" id=`+ propiedades[i] +`><i class="fas fa-home"></i> Ver más</button>
-                <h1>U$S `+ precio +`</h1>
+                <h1>`+ moneda +` `+ precio +`</h1>
               </div>
             </div>
           </div>`;
