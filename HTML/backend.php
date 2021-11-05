@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['Usuario'])){
-    header('Location: /obededom/Login');
+    header('Location: /Login');
 }
 ?>
 
@@ -12,7 +12,7 @@ if(!isset($_SESSION['Usuario'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="/obededom/media/svg/Logo.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="/media/svg/Logo.svg" type="image/x-icon" />
 
     <title>Obed-Edom | Nueva Propiedad</title>
 
@@ -20,13 +20,13 @@ if(!isset($_SESSION['Usuario'])){
     <script src="https://kit.fontawesome.com/1e193e3a23.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <script src="/obededom/JS/backend.js"></script>
-    <script src="/obededom/JS/administrador.js"></script>
-    <script src="/obededom/JS/functionsBackend.js"></script>
-    <script src="/obededom/JS/modal.js"></script>
+    <script src="/JS/backend.js"></script>
+    <script src="/JS/administrador.js"></script>
+    <script src="/JS/functionsBackend.js"></script>
+    <script src="/JS/modal.js"></script>
 
 
-    <link rel="stylesheet" href="/obededom/CSS/styles.css">
+    <link rel="stylesheet" href="/CSS/styles.css">
 </head>
 <body>
     <div class="modal"></div>
@@ -34,7 +34,7 @@ if(!isset($_SESSION['Usuario'])){
     <header>
         <div class="header-wrapper">
             <div class="header-icon">
-                <img src="/obededom/media/svg/Logo.svg" alt="">
+                <img src="/media/svg/Logo.svg" alt="">
             </div>
             <div class="header-links">
                 <a href="Administrador" class="button"><i class="fas fa-arrow-circle-left"></i> Volver al Inicio</a>
@@ -62,13 +62,13 @@ if(!isset($_SESSION['Usuario'])){
                         <div class="input">
                             <p>Tipo de Operación</p>
                             <select name="tipooperacion" id="selectOperaciones">
-                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="-99" id="selected" selected disabled>Seleccione una Opción</option>
                             </select>
                         </div>
                         <div class="input">
                             <p>Tipo de Precio</p>
-                            <select name="tipooperacion" id="selectOperaciones">
-                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                            <select name="tipoPrecio" id="selectTipoPrecio">
+                                <option value="-99" id="selected" selected disabled>Seleccione una Opción</option>
                                 <option value="1">Pesos Uruguayos - $</option>
                                 <option value="2">Dolares - U$S</option>
                             </select>
@@ -77,15 +77,15 @@ if(!isset($_SESSION['Usuario'])){
 
                     <div class="panel-medio">
                         <div class="input">
-                            <p>Precio de Venta en Dolares</p>
+                            <p>Precio de Venta</p>
                             <input type="number" class="reset" name="precio" id="precioDolares">
                             <div class="checkbox" id="checkbox-precio">
                                 <input type="checkbox" name="" id="mostrarPrecio" checked>Mostrar precio de venta
                             </div>
                         </div>
                         <div class="input">
-                            <p>Gastos Comunes</p>
-                            <input type="number" class="reset" name="precio" id="precioDolares">
+                            <p>Gastos Comunes (en pesos Uruguayos)</p>
+                            <input type="number" class="reset" name="gastosComunes" id="gastosComunes">
                         </div>
                         
                     </div>
@@ -131,7 +131,7 @@ if(!isset($_SESSION['Usuario'])){
                         <div class="input">
                             <p>Tipo de Propiedad</p>
                             <select name="tipopropiedad" id="selectTipoPropiedad">
-                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="-99" id="selected" selected disabled>Seleccione una Opción</option>
                             </select>
                         </div>
                     </div>
@@ -140,13 +140,13 @@ if(!isset($_SESSION['Usuario'])){
                         <div class="input">
                             <p>Departamento</p>
                             <select name="departamento" id="selectDepartamentos">
-                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="-99" id="selected" selected disabled>Seleccione una Opción</option>
                             </select>
                         </div>
                         <div class="input">
                             <p>Localidad / Barrio</p>
                             <select name="departamento" id="selectLocalidades">
-                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="-99" id="selected" selected disabled>Seleccione una Opción</option>
                             </select>
                         </div>
                     </div>
@@ -177,7 +177,7 @@ if(!isset($_SESSION['Usuario'])){
                         <div class="input">
                             <p>Dormitorios</p>
                             <select name="dormitorios" id="selectDormitorios">
-                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="-99" id="selected" selected disabled>Seleccione una Opción</option>
                             </select>
                         </div>
                         <div class="input">
@@ -234,7 +234,7 @@ if(!isset($_SESSION['Usuario'])){
                         <div class="input">
                             <p>Disposición</p>
                             <select name="selectDisposicion" id="selectDisposicion">
-                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="-99" id="selected" selected disabled>Seleccione una Opción</option>
                                 <option value="Al Frente">Al Frente</option>
                                 <option value="Inferior">Interior</option>
                                 <option value="Lateral">Lateral</option>
@@ -248,7 +248,7 @@ if(!isset($_SESSION['Usuario'])){
                         <div class="input">
                             <p>Orientación</p>
                             <select name="orientacion" id="selectOrientacion">
-                                <option value="0" id="selected" selected disabled>Seleccione una Opción</option>
+                                <option value="-99" id="selected" selected disabled>Seleccione una Opción</option>
                                 <option value="N">N</option>
                                 <option value="S">S</option>
                                 <option value="E">E</option>
@@ -346,7 +346,7 @@ if(!isset($_SESSION['Usuario'])){
         </div>
     </div>
 
-    <script src="/obededom/Plugins/ckeditor/ckeditor.js"></script>
+    <script src="/Plugins/ckeditor/ckeditor.js"></script>
     <script>
         CKEDITOR.replace('garantias');
         CKEDITOR.replace('descripcion');

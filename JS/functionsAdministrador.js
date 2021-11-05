@@ -141,7 +141,7 @@ function cargoPropiedades(){
   var precio;
   //vacio los elementos anteriores
   divPropiedades.innerHTML = "";
-  for (var i = 0; i < propiedades.length; i = i+31){
+  for (var i = 0; i < propiedades.length; i = i+33){
     //comprueba si tiene imagen
     if(imagenes.indexOf(propiedades[i], 1) != -1){
       urlImagen = imagenes[imagenes.indexOf(propiedades[i], 1) - 1]
@@ -154,6 +154,13 @@ function cargoPropiedades(){
       precio = propiedades[i+3]
     }else{
       precio = "A Convenir"
+    }
+
+    //comprueba la moneda
+    if(propiedades[i+32] == 1){
+      moneda = "$"
+    }else if(propiedades[i+32] == 2){
+      moneda = "U$S"
     }
     //comprueba el estado de la propiedad
     if(propiedades[i+28] == 1){
@@ -177,7 +184,7 @@ function cargoPropiedades(){
                           </div>
                           <div class="precio">
                             <hr>
-                            <p>U$S <span id="precioDolares">`+ precio +`</span></p>
+                            <p><span id="tipoPrecio">`+ moneda +`</span> <span id="precioDolares">`+ precio +`</span></p>
                           </div>
                           
                         </div>
@@ -208,7 +215,7 @@ function cargoPropiedades(){
                           </div>
                           <div class="precio">
                             <hr>
-                            <p>U$S <span id="precioDolares">`+ precio +`</span></p>
+                            <p><span id="tipoPrecio">`+ moneda +`</span> <span id="precioDolares">`+ precio +`</span></p>
                           </div>
                           <div class="buttons">
                             <button class="habilitar" id=`+ propiedades[i] +`><i class="fas fa-check-circle"></i></button>
@@ -328,6 +335,8 @@ function buscador(value) {
 }
 
 function cargoNomencladores(){
+  document.getElementById("Localidades").innerHTML = "";
+
   //cargo el tipo de Propiedad
   var tipoPropiedad = Administrador.traerTiposPropiedad();
   var divtipoPropiedad = document.getElementById("tipoPropiedad");
@@ -343,6 +352,7 @@ function cargoNomencladores(){
   var arrayDepartamentos = Administrador.traerDepartamentos();
   var selectDepartamentos = document.getElementById('selectDepartamentos');
   $("#selectDepartamentos").empty();
+  $("#selectDepartamentos").empty().append($("<option></option>").attr({"value": 0,"selected": true, 'disabled': true}).text('Elija un Departamento'));
   for (var i = 0; i < arrayDepartamentos.length; i = i+2){
       //crea un elemento option
       var opt = document.createElement('option');
@@ -472,7 +482,7 @@ function crearLocalidad(){
   var nuevaLocalidad = document.getElementById("NuevaLocalidad").value
   if(departamento != 0){
     if(nuevaLocalidad == "" || nuevaLocalidad == null){
-      alert("error de que debe escribir el nombre de la nueva localidad")
+      modal("ingresarNombreLocalidad")
     }else{
       if(nuevaLocalidad.length < 30){
         //crea la localidad
@@ -480,11 +490,11 @@ function crearLocalidad(){
         //recarga las localidades para mostrar lo nuevo
         cargarLocalidad(departamento);
       }else{
-        alert("error del nombre de la localidad es muy largo")
+        modal("seleccionarDepartamento")
       }
     }
   }else{
-    alert("acá va el error de que debe seleccionar un departamento")
+    modal("localidadLargo")
   }
 }
 
@@ -493,7 +503,7 @@ function crearNomenclador(nomenclador){
   switch(nomenclador){
     case "0":
       var nuevoTipoPropiedad = document.getElementById("nuevoTipoPropiedad").value;
-      if(nuevoTipoPropiedad === "" || nuevoTipoPropiedad === null || nuevoTipoPropiedad == 0){
+      if(nuevoTipoPropiedad === "" || nuevoTipoPropiedad === null){
         modal("nomencladorIncompleto")
       }else{
         if(nuevoTipoPropiedad.length < 60){
@@ -507,7 +517,7 @@ function crearNomenclador(nomenclador){
       break;
     case "1":
       var nuevoDormitorio = document.getElementById("nuevoDormitorio").value;
-      if(nuevoDormitorio === "" || nuevoDormitorio == 0 || nuevoDormitorio == null){
+      if(nuevoDormitorio === "" || nuevoDormitorio == null){
         modal("nomencladorIncompleto")
       }else{
         if(!isNaN(nuevoDormitorio)){
@@ -595,7 +605,7 @@ function crearNomenclador(nomenclador){
       break;
     case "7":
       var nuevaPlanta = document.getElementById("nuevaPlanta").value;
-      if(nuevaPlanta === "" || nuevaPlanta == 0 || nuevaPlanta == null){
+      if(nuevaPlanta === "" || nuevaPlanta == null){
         modal("nomencladorIncompleto")
       }else{
 
