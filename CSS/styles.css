@@ -28,6 +28,10 @@
   background: #6c1774;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /*-----------------------------
 
 Import CSS
