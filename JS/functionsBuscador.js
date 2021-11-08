@@ -14,7 +14,7 @@ $(document).ready(function () {
     });
     //mando a propiedad especifica
     $('.propiedades').on('click', '.card .card-content .precio .verPropiedad', function() {
-      location.href = 'Propiedad.html?p='+this.id;
+      location.href = 'Propiedad/'+ this.id;
     });
     
 

@@ -1,3 +1,12 @@
+<?php
+if(isset($_GET['p'])){
+  echo $_GET['p'];
+}else{
+  //header('Location: /Buscar');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

@@ -9,7 +9,7 @@ $(document).ready(function () {
   if(urlParams.get('p')){
     cargoPropiedad(urlParams.get('p'));
   }else{
-    location.href = 'Buscador.html';
+    location.href = '/Buscar';
   }
 });
 
