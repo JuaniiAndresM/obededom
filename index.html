@@ -81,13 +81,13 @@
             <h2>Contacto</h2>
             <h3>¿Tienes alguna consulta?</h3>
             <p>Llena el formulario y te contestaremos a la brevedad.</p>
-            <form action="">
+            <form id="formConsulta">
               <label for="Nombre">Nombre</label>
-              <input type="text" name="Nombre" />
+              <input type="text" name="Nombre" id="nombre" />
               <label for="">Correo Electrónico</label>
-              <input type="email" name="Email" />
+              <input type="email" name="Email" id="mail" />
               <label for="">Tipo de Consulta</label>
-              <select name="consulta" id="">
+              <select name="consulta" id="tipoConsulta">
                 <option value="0" disabled selected>
                   Seleccione una Opción
                 </option>
@@ -96,8 +96,8 @@
                 <option value="3">Consultoría</option>
               </select>
               <label for="comentario">Comentario</label>
-              <textarea name="comentario"></textarea>
-              <input type="submit" value="Enviar" />
+              <textarea name="comentario" id="comentario"></textarea>
+              <input type="submit" id="botonConsulta"/>
             </form>
           </div>
           <div class="contacto-right">

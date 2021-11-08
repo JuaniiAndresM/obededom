@@ -631,13 +631,6 @@ public function ActualizarPropiedad($arrayJSON){
                 $extensionInvalida = true;
             }
         }
-        if($extensionInvalida){
-            echo "extensionPDF";
-        }elseif($archivoGrande){ 
-            echo "archivoGrande";
-        }elseif ($archivoGrande && $extensionInvalida){
-            echo "archivoGV";
-        }
         die;
     }
 

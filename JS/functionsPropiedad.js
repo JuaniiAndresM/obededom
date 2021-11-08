@@ -1,11 +1,13 @@
 let Administrador = new AdministradorObj();
 let Backend = new BackendObj();
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
 
 $(document).ready(function () {
   $('#header').load('/web/header.html');
   $('#footer').load('/web/footer.html');
-  if(sessionStorage.getItem("idPropiedad")){
-    cargoPropiedad(sessionStorage.getItem("idPropiedad"));
+  if(urlParams.get('p')){
+    cargoPropiedad(urlParams.get('p'));
   }else{
     location.href = 'Buscador.html';
   }

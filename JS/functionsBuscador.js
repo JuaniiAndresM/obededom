@@ -14,8 +14,7 @@ $(document).ready(function () {
     });
     //mando a propiedad especifica
     $('.propiedades').on('click', '.card .card-content .precio .verPropiedad', function() {
-      sessionStorage.setItem("idPropiedad", this.id);
-      location.href = 'Propiedad.html';
+      location.href = 'Propiedad.html?p='+this.id;
     });
     
 
@@ -30,7 +29,7 @@ function cargoPropiedades(){
     var precioFiltro = "";
     //vacio los elementos anteriores
     divPropiedades.innerHTML = "";
-    for (var i = 0; i < propiedades.length; i = i+31){
+    for (var i = 0; i < propiedades.length; i = i+33){
       //comprueba que la propiedad esté habilitada
       if(propiedades[i+28] == 1){
         //comprueba si tiene imagen

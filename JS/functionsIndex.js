@@ -5,6 +5,10 @@ $(document).ready(function () {
     $('#header').load('/web/header.html');
     $('#footer').load('/web/footer.html');
     cargoPropiedades();
+
+    $("#botonConsulta").on('click', function() {
+      mandarMail();
+      });
 });
 
 function cargoPropiedades(){
@@ -18,7 +22,7 @@ function cargoPropiedades(){
     var contadorPropiedades = 0;
     //vacio los elementos anteriores
     divPropiedades.innerHTML = "";
-    for (var i = 0; i < propiedades.length; i = i+31){
+    for (var i = 0; i < propiedades.length; i = i+33){
       if(contadorPropiedades <= 11){
         //comprueba que la propiedad esté habilitada
         if(propiedades[i+28] == 1){
@@ -171,6 +175,21 @@ function cargoPropiedades(){
   }
   
   function verPropiedad(id){
-    sessionStorage.setItem("idPropiedad", id);
-    location.href = 'HTML/Propiedad.html';
+    location.href = 'HTML/Propiedad.html?p='+id;
+  }
+
+  function mandarMail(){
+    var nombre = document.getElementById("nombre").value;
+    var mail = document.getElementById("mail").value;
+    var tipoConsulta = document.getElementById("tipoConsulta").value;
+    var comentario = document.getElementById("comentario").value;
+    if([nombre, mail, comentario].indexOf("") < 0){
+      if(tipoConsulta != -99){
+        
+      }else{
+        alert("debe seleccionar un tipo de consulta")
+      }
+    }else{
+      alert("debe completar todos los campos")
+    }
   }
