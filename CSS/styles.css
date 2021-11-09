@@ -466,13 +466,13 @@ footer .footer-section4 {
 }
 
 footer .footer-section4 a {
-  color: white;
+  color: #f7c70f;
   text-decoration: none;
   font-weight: bold;
 }
 
 footer .footer-section4 a:hover {
-  color: #ccc;
+  color: #bd9100;
 }
 
 .landing {
