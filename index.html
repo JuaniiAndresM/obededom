@@ -14,17 +14,18 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css"
     />
-    <link rel="stylesheet" href="/CSS/styles.css" />
+    <link rel="stylesheet" href="CSS/styles.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script
       src="https://kit.fontawesome.com/1e193e3a23.js"
       crossorigin="anonymous"
     ></script>
-    <script src="/JS/administrador.js"></script>
-    <script src="/JS/backend.js"></script>
-    <script src="/JS/functionsIndex.js"></script>
-    <script src="/JS/web.js"></script>
+    <script src="JS/administrador.js"></script>
+    <script src="JS/backend.js"></script>
+    <script src="JS/functionsBuscador.js"></script>
+    <script src="JS/functionsIndex.js"></script>
+    <script src="JS/web.js"></script>
 
 
     <title>Obed-Edom | Inicio</title>
@@ -33,25 +34,56 @@
     <div id="header"></div>
 
     <section class="landing" id="Buscador">
-      <img class="background" src="/media/img/Background.png" alt="" />
+      <img class="background" src="media/img/Background.png" alt="" />
 
       <div class="buscador-content">
-        <div class="buscador">
+<div class="buscador">
           <h1 class="title">Buscá aquí el hogar de tus sueños.</h1>
 
           <div class="buscar">
-            <a href="HTML/Buscador.html"><i class="fas fa-search-location"></i> Buscar Propiedades</a>
+            <div class="select">
+              <i class="fas fa-sign"></i>
+              <select name="" id="">
+                <option value="" selected>Tipo de Operación</option>
+                <option value="">Venta</option>
+                <option value="">Alquiler</option>
+                <option value="">Alquiler Temporal</option>
+              </select>
+            </div>
+
+            <div class="select">
+              <i class="fas fa-home"></i>
+              <select name="" id="filtroTipoPropiedad">
+              </select>
+            </div>
+
+            <div class="select">
+              <i class="fas fa-map-marker-alt"></i>
+              <select name="" id="filtroDepartamento">
+              </select>
+            </div>
+
+            <div class="select">
+              <i class="fas fa-map"></i>
+              <select name="" id="">
+                <option value="" selected>Localidad</option>
+                <option value="">Casabó</option>
+                <option value="">Solymar</option>
+                <option value="">El Pinar</option>
+              </select>
+            </div>
+
+            <a href="">Buscar</a>
           </div>
-        </div>
-      </div>
+        </div>      </div>
     </section>
 
     <section class="cards">
-      <img class="wave" src="/media/svg/Wave.svg" alt="" />
+      <img class="wave" src="media/svg/Wave.svg" alt="" />
 
       <div class="slider">
         <h1 class="title">Propiedades Destacadas</h1>
-        <hr />
+        <hr/>
 
         <div class="slider-wrapper">
           <button aria-label="Anterior" class="slider-anterior">
@@ -69,11 +101,11 @@
         <div role="tablist" class="slider-indicators"></div>
       </div>
 
-      <img class="wave-reverse" src="/media/svg/Wave.svg" alt="" />
+      <img class="wave-reverse" src="media/svg/Wave.svg" alt="" />
     </section>
 
     <section class="contacto" id="Contacto">
-      <img class="wave" src="/media/svg/Wave.svg" alt="" />
+      <img class="wave" src="media/svg/Wave.svg" alt="" />
 
       <div class="contacto-content">
         <div class="contacto-wrapper">
@@ -114,7 +146,7 @@
         </div>
       </div>
 
-      <img class="wave-reverse" src="/media/svg/Wave.svg" alt="" />
+      <img class="wave-reverse" src="media/svg/Wave.svg" alt="" />
     </section>
 
     <div id="footer #Nosotros"></div>

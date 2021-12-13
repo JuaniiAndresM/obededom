@@ -1,4 +1,3 @@
-Options +FollowSymLinks
 RewriteEngine on
 
 DirectoryIndex index.html
@@ -6,19 +5,19 @@ DirectoryIndex index.html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} !^www\. [NC]
-RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+#RewriteCond %{HTTPS} off [OR]
+#RewriteCond %{HTTP_HOST} !^www. [NC]
+#RewriteCond %{HTTP_HOST} ^(?:www.)?(.+)$ [NC]
 
-RewriteRule ^ https://www.%1%{REQUEST_URI} [L,NE,R=301]
+#RewriteRule ^ https://www./%1%%7BREQUEST_URI%7D [L,NE,R=301]
 
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
+RewriteRule ^([^.]+)$ $1.html [NC,L]
 
-RewriteRule ^Login /Form/Login.php
-RewriteRule ^Administrador /HTML/Administrador.php
-RewriteRule ^Backend /HTML/backend.php
-RewriteRule ^Buscar /HTML/Buscador
-RewriteRule ^Propiedad /HTML/Propiedad
+RewriteRule ^Login /obededom/Form/Login.php
+RewriteRule ^Administrador /obededom/HTML/Administrador.php
+RewriteRule ^Backend /obededom/HTML/backend.php
+RewriteRule ^Buscar /obededom/HTML/Buscador
+RewriteRule ^Propiedad /obededom/HTML/Propiedad
 
 ErrorDocument 404 /Error/404.html
 ErrorDocument 403 /Error/403.html

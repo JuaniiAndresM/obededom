@@ -1,4 +1,4 @@
-
+ 
 
 $(document).ready(function () {
     //cargo propiedades
@@ -197,10 +197,18 @@ function cargoPropiedades(){
     }
   }
 
-  function cargoFiltros(){
+  function cargoFiltros(v){
+    //la variable "v" indica si se esta ejecutando desde la index o desde el buscador
     //carga los tipos de propiedad
+
     var arrayTipoPropiedad = Backend.traerTiposPropiedad();
-    $("#filtroTipoPropiedad").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Todos'));
+
+    if(v == 1){
+      $("#filtroTipoPropiedad").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Tipo de Propiedad'));
+    }else{
+      $("#filtroTipoPropiedad").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Todos'));
+    }
+
     var selectTipoPropiedad = document.getElementById('filtroTipoPropiedad');
     for (var i = 0; i < arrayTipoPropiedad.length; i = i+2){
         var opt = document.createElement('option');
@@ -208,9 +216,17 @@ function cargoPropiedades(){
         opt.text = arrayTipoPropiedad[i+1];
         selectTipoPropiedad.appendChild(opt);
     }
+
     //carga los departamentos
+
     var arrayDepartamentos = Backend.traerDepartamentos();
-    $("#filtroDepartamento").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Todos'));
+
+    if(v == 1){
+      $("#filtroDepartamento").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Departamento'));
+    }else{
+      $("#filtroDepartamento").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Todos'));
+    }
+
     var selectDepartamentos = document.getElementById('filtroDepartamento');
     for (var i = 0; i < arrayDepartamentos.length; i = i+2){
         //crea un elemento option

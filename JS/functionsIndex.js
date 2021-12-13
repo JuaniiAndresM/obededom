@@ -4,8 +4,8 @@ Backend = new BackendObj();
 $(document).ready(function () {
     $('#header').load('/web/header.html');
     $('#footer').load('/web/footer.html');
+    cargoFiltros(1);
     cargoPropiedades();
-
     $("#botonConsulta").on('click', function() {
       mandarMail();
       });
