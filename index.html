@@ -27,6 +27,8 @@
     <script src="JS/functionsIndex.js"></script>
     <script src="JS/web.js"></script>
 
+    <script></script>
+
 
     <title>Obed-Edom | Inicio</title>
   </head>
@@ -43,62 +45,34 @@
           <div class="buscar">
             <div class="select">
               <i class="fas fa-sign"></i>
-<<<<<<< HEAD
               <select name="" id="">
                 <option value="" selected>Tipo de Operación</option>
                 <option value="">Venta</option>
                 <option value="">Alquiler</option>
                 <option value="">Alquiler Temporal</option>
-=======
-              <select class="filtros" id="filtroOperacion">
-                <option value="-1" selected>Todos</option>
-                <option value="Venta">Venta</option>
-                <option value="Alquiler">Alquiler</option>
-                <option value="Alquiler">Alquiler Temporal</option>
->>>>>>> 8dbfc234a4bf65a0a1cb44b7b723010974f0b886
               </select>
             </div>
 
             <div class="select">
               <i class="fas fa-home"></i>
-<<<<<<< HEAD
               <select name="" id="filtroTipoPropiedad">
-=======
-              <select class="filtros" id="filtroTipo">
->>>>>>> 8dbfc234a4bf65a0a1cb44b7b723010974f0b886
               </select>
             </div>
 
             <div class="select">
               <i class="fas fa-map-marker-alt"></i>
-<<<<<<< HEAD
               <select name="" id="filtroDepartamento">
-=======
-              <select class="filtros" id="filtroDepartamento">
->>>>>>> 8dbfc234a4bf65a0a1cb44b7b723010974f0b886
               </select>
             </div>
 
             <div class="select">
               <i class="fas fa-map"></i>
-<<<<<<< HEAD
-              <select name="" id="">
-                <option value="" selected>Localidad</option>
-                <option value="">Casabó</option>
-                <option value="">Solymar</option>
-                <option value="">El Pinar</option>
+              <select name="" id="filtroLocalidad">
+                <option value="-1" selected>Seleccione un Departamento</option>
               </select>
             </div>
 
             <a href="">Buscar</a>
-=======
-              <select class="filtros" id="filtroLocalidad">
-                <option value="" selected>Todos</option>
-              </select>
-            </div>
-
-            <a id="buscarPropiedad"><i class="fas fa-search-location"></i> Buscar Propiedades</a>
->>>>>>> 8dbfc234a4bf65a0a1cb44b7b723010974f0b886
           </div>
         </div>      </div>
     </section>
@@ -138,13 +112,13 @@
             <h2>Contacto</h2>
             <h3>¿Tienes alguna consulta?</h3>
             <p>Llena el formulario y te contestaremos a la brevedad.</p>
-            <form>
+            <form id="formConsulta">
               <label for="Nombre">Nombre</label>
-              <input type="text" name="Nombre" />
+              <input type="text" name="Nombre" id="nombre" />
               <label for="">Correo Electrónico</label>
-              <input type="email" name="Email" />
+              <input type="email" name="Email" id="mail" />
               <label for="">Tipo de Consulta</label>
-              <select name="consulta" id="">
+              <select name="consulta" id="tipoConsulta">
                 <option value="0" disabled selected>
                   Seleccione una Opción
                 </option>
@@ -153,8 +127,8 @@
                 <option value="3">Consultoría</option>
               </select>
               <label for="comentario">Comentario</label>
-              <textarea name="comentario"></textarea>
-              <input type="submit" value="Enviar" id="botonConsulta"/>
+              <textarea name="comentario" id="comentario"></textarea>
+              <input type="submit" id="botonConsulta"/>
             </form>
           </div>
           <div class="contacto-right">
@@ -174,7 +148,7 @@
       <img class="wave-reverse" src="media/svg/Wave.svg" alt="" />
     </section>
 
-    <div id="footer"></div>
+    <div id="footer #Nosotros"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
   </body>
