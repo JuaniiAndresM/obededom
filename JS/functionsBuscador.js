@@ -16,6 +16,10 @@ $(document).ready(function () {
     $('.propiedades').on('click', '.card .card-content .precio .verPropiedad', function() {
       location.href = 'Propiedad?p='+ this.id;
     });
+
+    if(localStorage.getItem('parametros')){
+      filtrarPropiedadIndex();
+    }
     
 
 });
@@ -49,14 +53,16 @@ function cargoPropiedades(){
         //comprueba la moneda
         if(propiedades[i+32] == 1){
           moneda = "$"
+          monedaFiltro = "pesos"
         }else if(propiedades[i+32] == 2){
           moneda = "U$S"
+          monedaFiltro = "dolares"
         }
         //comprueba el estado de la propiedad
         if(propiedades[i+2] == "Alquiler" || propiedades[i+2] == "Alquiler Temporal"){
           departamento = comprueboDepartamento(propiedades[i+7]);
           nuevaPropiedad = `
-          <div class="card" id=`+ propiedades[i] +` data-tipo-operacion=`+ propiedades[i+2].split(" ").join("") +` data-tipo-propiedad=`+ propiedades[i+6].split(" ").join("") +` data-departamento=`+ departamento.split(" ").join("") +` data-localidad=`+ propiedades[i+8].split(" ").join("") +` data-precio=`+ precioFiltro +` data-construccion=`+ propiedades[i+10] +` data-habitaciones=`+ propiedades[i+11] +` data-inodoros=`+ propiedades[i+12] +`>
+          <div class="card" id=`+ propiedades[i] +` data-tipo-operacion=`+ propiedades[i+2].split(" ").join("") +` data-tipo-propiedad=`+ propiedades[i+6].split(" ").join("") +` data-departamento=`+ departamento.split(" ").join("") +` data-localidad=`+ propiedades[i+8].split(" ").join("") +` data-moneda=`+ monedaFiltro +` data-precio=`+ precioFiltro +` data-construccion=`+ propiedades[i+10] +` data-habitaciones=`+ propiedades[i+11] +` data-inodoros=`+ propiedades[i+12] +`>
           <div class="estado alquiler">
             <h2><i class="fas fa-key"></i> Alquiler</h2>
           </div>
@@ -95,7 +101,7 @@ function cargoPropiedades(){
           departamento = comprueboDepartamento(propiedades[i+7]);
           nuevaPropiedad = 
           `
-          <div class="card" id=`+ propiedades[i] +` data-tipo-operacion=`+ propiedades[i+2].split(" ").join("") +` data-tipo-propiedad=`+ propiedades[i+6].split(" ").join("") +` data-departamento=`+ departamento.split(" ").join("") +` data-localidad=`+ propiedades[i+8].split(" ").join("") +` data-precio=`+ precioFiltro +` data-construccion=`+ propiedades[i+10] +` data-habitaciones=`+ propiedades[i+11] +` data-inodoros=`+ propiedades[i+12] +`>
+          <div class="card" id=`+ propiedades[i] +` data-tipo-operacion=`+ propiedades[i+2].split(" ").join("") +` data-tipo-propiedad=`+ propiedades[i+6].split(" ").join("") +` data-departamento=`+ departamento.split(" ").join("") +` data-localidad=`+ propiedades[i+8].split(" ").join("") +` data-moneda=`+ monedaFiltro +` data-precio=`+ precioFiltro +` data-construccion=`+ propiedades[i+10] +` data-habitaciones=`+ propiedades[i+11] +` data-inodoros=`+ propiedades[i+12] +`>
           <div class="estado venta">
               <h2><i class="fas fa-shopping-cart"></i> Venta</h2>
           </div>
@@ -242,6 +248,29 @@ function cargoPropiedades(){
     }
   }
 
+  function filtrarPropiedadIndex(){
+    parametros = JSON.parse(localStorage.getItem('parametros'));
+    $('.card').show();
+    if(parametros["filtroOperacion"] != -1){
+      $('.card').filter('[data-tipo-operacion!="'+ parametros["filtroOperacion"] +'"]').hide();
+      document.getElementById("filtroTipoOperacion").value = parametros["filtroOperacion"];
+    }
+    if(parametros["filtroTipo"] != -1){
+      $('.card').filter('[data-tipo-propiedad!="'+ parametros["filtroTipo"] +'"]').hide();
+      document.getElementById("filtroTipoPropiedad").value = parametros["filtroTipo"];
+    }
+    if(parametros["filtroDepartamento"] != -1){
+      $('.card').filter('[data-departamento!="'+ parametros["filtroDepartamento"] +'"]').hide();
+      document.getElementById("filtroDepartamento").value = parametros["filtroDepartamento"];
+      cargarFiltroLocalidad(Number.parseInt(parametros["idDepartamento"]));
+      if(parametros["filtroLocalidad"] != -1){
+        $('.card').filter('[data-localidad!="'+ parametros["filtroLocalidad"] +'"]').hide();
+        document.getElementById("filtroLocalidad").value = parametros["filtroLocalidad"];
+      }
+    }
+    localStorage.removeItem('parametros');
+  }
+
   function filtrarPropiedad(){
     propiedades = document.getElementsByClassName("card");
     filtroBuscador = document.getElementById("buscadorIndex").value;
@@ -249,6 +278,7 @@ function cargoPropiedades(){
     filtroTipoPropiedad = document.getElementById("filtroTipoPropiedad").value;
     filtroDepartamento = document.getElementById("filtroDepartamento").value;
     filtroLocalidad = document.getElementById("filtroLocalidad").value;
+    filtroMoneda = document.getElementById("filtroMoneda").value;
     filtroPrecio = document.getElementById("filtroPrecio").value;
     filtroConstruccion = document.getElementById("filtroConstruccion").value;
     filtroDormitorios = document.getElementById("filtroDormitorios").value;
@@ -268,6 +298,9 @@ function cargoPropiedades(){
       if(filtroLocalidad != -1){
         $('.card').filter('[data-localidad!="'+ filtroLocalidad +'"]').hide();
       }
+    }
+    if(filtroMoneda != -1){
+      $('.card').filter('[data-moneda!="'+ filtroMoneda +'"]').hide();
     }
     if(filtroPrecio !== ""){
       $('.card').filter('[data-precio="Convenir"]').hide();

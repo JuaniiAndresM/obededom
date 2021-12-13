@@ -40,7 +40,36 @@
           <h1 class="title">Buscá aquí el hogar de tus sueños.</h1>
 
           <div class="buscar">
-            <a href="HTML/Buscador.html"><i class="fas fa-search-location"></i> Buscar Propiedades</a>
+            <div class="select">
+              <i class="fas fa-sign"></i>
+              <select class="filtros" id="filtroOperacion">
+                <option value="-1" selected>Todos</option>
+                <option value="Venta">Venta</option>
+                <option value="Alquiler">Alquiler</option>
+                <option value="Alquiler">Alquiler Temporal</option>
+              </select>
+            </div>
+
+            <div class="select">
+              <i class="fas fa-home"></i>
+              <select class="filtros" id="filtroTipo">
+              </select>
+            </div>
+
+            <div class="select">
+              <i class="fas fa-map-marker-alt"></i>
+              <select class="filtros" id="filtroDepartamento">
+              </select>
+            </div>
+
+            <div class="select">
+              <i class="fas fa-map"></i>
+              <select class="filtros" id="filtroLocalidad">
+                <option value="" selected>Todos</option>
+              </select>
+            </div>
+
+            <a id="buscarPropiedad"><i class="fas fa-search-location"></i> Buscar Propiedades</a>
           </div>
         </div>
       </div>
@@ -81,13 +110,13 @@
             <h2>Contacto</h2>
             <h3>¿Tienes alguna consulta?</h3>
             <p>Llena el formulario y te contestaremos a la brevedad.</p>
-            <form id="formConsulta">
+            <form>
               <label for="Nombre">Nombre</label>
-              <input type="text" name="Nombre" id="nombre" />
+              <input type="text" name="Nombre" />
               <label for="">Correo Electrónico</label>
-              <input type="email" name="Email" id="mail" />
+              <input type="email" name="Email" />
               <label for="">Tipo de Consulta</label>
-              <select name="consulta" id="tipoConsulta">
+              <select name="consulta" id="">
                 <option value="0" disabled selected>
                   Seleccione una Opción
                 </option>
@@ -96,8 +125,8 @@
                 <option value="3">Consultoría</option>
               </select>
               <label for="comentario">Comentario</label>
-              <textarea name="comentario" id="comentario"></textarea>
-              <input type="submit" id="botonConsulta"/>
+              <textarea name="comentario"></textarea>
+              <input type="submit" value="Enviar" id="botonConsulta"/>
             </form>
           </div>
           <div class="contacto-right">
@@ -117,7 +146,7 @@
       <img class="wave-reverse" src="/media/svg/Wave.svg" alt="" />
     </section>
 
-    <div id="footer #Nosotros"></div>
+    <div id="footer"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
   </body>

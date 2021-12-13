@@ -117,6 +117,16 @@ switch($numero_mensaje){
         $mensaje_1 = "Error:";
         $mensaje = "Debe ingresar un nuevo nombre para la localidad.";
         break;
+
+    case "mensajeEliminado":
+        $mensaje_1 = "Éxito!";
+        $mensaje = "El mensaje se ha eliminado.";
+        break;
+
+    case "bandejaLimpiada":
+        $mensaje_1 = "Éxito!";
+        $mensaje = "Todos los mensajes han sido eliminados.";
+        break;
 }
 
 
