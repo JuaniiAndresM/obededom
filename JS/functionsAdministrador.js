@@ -7,10 +7,10 @@ $(document).ready(function () {
   $(".content-nomencladores").hide();
   $(".content-mensajes").hide();
   $(".content-soporte").hide();
-
   $('#selectDepartamentos').on('change', function() {
     cargarLocalidad(this.value);
   });
+  cargarCantidadMensajes();
   
   //filtros
   $('.filtro').on('change', function(e) {
@@ -72,6 +72,18 @@ $(document).ready(function () {
     cargoNomencladores();
   });
 
+  $('.mensajes-wrapper').on('click', '.mensaje .eliminarMensaje', function(event){
+    eliminarMensaje(this.getAttribute('data-mensaje'));
+    cargarMensajes();
+    cargarCantidadMensajes()
+  });
+
+  $('#limpiarMensajes').on('click', function(event){
+    limpiarMensajes();
+    cargarMensajes();
+    cargarCantidadMensajes()
+  });
+
 });
 
 function desplegar() {
@@ -104,6 +116,7 @@ function seccion(seccion) {
     $(".content-nomencladores").hide();
     $(".content-mensajes").show();
     $(".content-soporte").hide();
+    cargarMensajes();
   } else if (seccion == "inicio") {
     $(".content-inicio").show();
     $(".content-propiedades").hide();
@@ -669,4 +682,61 @@ function cerrarSesion(){
 
 function mandarmail(){
   Administrador.mandarMail();
+}
+
+function cargarCantidadMensajes(){
+  var mensajes = Administrador.traerMensajes();
+  var cantMensajes = mensajes.length/3;
+  if(cantMensajes == 0){
+    $("#cantMensajesMenu").hide();
+    document.getElementById("cantMensajes").innerHTML = cantMensajes;
+  }else{
+    $("#cantMensajesMenu").show();
+    document.getElementById("cantMensajes").innerHTML = cantMensajes;
+    document.getElementById("cantMensajesMenu").innerHTML = cantMensajes;
+  }
+
+}
+
+function cargarMensajes(){
+  cargarCantidadMensajes();
+  var mensajes = Administrador.traerMensajes();
+  var divMensajes = document.getElementById("divMensajes");
+  var icono = "";
+  var nuevoMensaje = "";
+  //vacio los elementos anteriores
+  divMensajes.innerHTML = "";
+  for (var i = 0; i < mensajes.length; i = i+3){
+    switch(mensajes[i+2]){
+      case 0:
+        icono = "far fa-envelope-open";
+        break;
+      case 1:
+        icono = "fas fa-key";
+        break;
+      case 2:
+        icono = "fas fa-home";
+        break;
+    }
+    nuevoMensaje += 
+      `<div class="mensaje">
+            <button class="eliminarMensaje" data-mensaje=` + mensajes[i] + `><i class="fas fa-times"></i></button>
+            <i class="`+ icono +`"></i>
+            <h1>Tienes una nueva consulta sobre:</h1>
+            <p>`+ mensajes[i+1] +`</p>
+          </div>`
+    }
+    divMensajes.innerHTML = nuevoMensaje;
+}
+
+function eliminarMensaje(idMensaje){
+  Administrador.eliminarMensaje(idMensaje);
+  modal("mensajeEliminado")
+  cargarMensajes();
+}
+
+function limpiarMensajes(){
+  Administrador.eliminarMensajes();
+  modal("bandejaLimpiada")
+  cargarMensajes();
 }

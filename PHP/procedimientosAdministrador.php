@@ -296,5 +296,57 @@ class  DatosAdministrador{
                }
                return $arrayPropiedad;
         }
+
+        //trae una propiedad especifica (se usa para propiedad.html)
+        public function TraerMensajes(){
+            $arrayMensajes=array();
+            include "../Database/server.php";
+            $sentencia = '';
+            if ($sentencia = $mysqli->prepare("CALL TraigoMensajes();")) {   
+              if ($sentencia->execute()) {    
+                  $sentencia->bind_result($id_mensaje, $cont_mensaje, $tipo_mensaje);
+                       while ($sentencia->fetch()) {
+                           array_push($arrayMensajes, $id_mensaje, $cont_mensaje, $tipo_mensaje);   
+                       }
+                   }else{
+                       throw new Exception('Error en prepare: ' . $mysqli->error);
+                   }
+               }else{
+                   throw new Exception('Error en prepare: ' . $mysqli->error);
+               }
+               return $arrayMensajes;
+        }
+
+        //elimina un mensaje
+        public function EliminarMensaje($idMensaje){
+            include "../Database/server.php";
+            $sentencia = '';
+            if ($sentencia = $mysqli->prepare("CALL EliminarMensaje(?);")) {
+                $sentencia->bind_param('i', $idMensaje);
+                if ($sentencia->execute()) {
+                    echo 1;
+                }else{
+                    throw new Exception('Error en prepare: ' . $mysqli->error);
+                }
+            } else {
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }
+
+        //elimina un mensaje
+        public function EliminarTodosMensajes(){
+            include "../Database/server.php";
+            $sentencia = '';
+            if ($sentencia = $mysqli->prepare("CALL EliminarTodosMensajes();")) {
+                if ($sentencia->execute()) {
+                    echo 1;
+                }else{
+                    throw new Exception('Error en prepare: ' . $mysqli->error);
+                }
+            } else {
+                throw new Exception('Error en prepare: ' . $mysqli->error);
+            }
+        }
+        
 }
 ?>

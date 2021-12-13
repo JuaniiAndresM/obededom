@@ -64,7 +64,7 @@ if(!isset($_SESSION['Usuario'])){
         <button onclick="seccion('mensajes')" class="icon">
           <i class="fas fa-envelope"></i>
           <p>Bandeja de Entrada</p>
-          <div class="not-mensajes">
+          <div class="not-mensajes" id="cantMensajesMenu">
             5
           </div>
         </button>
@@ -165,70 +165,6 @@ if(!isset($_SESSION['Usuario'])){
         </div>
 
         <div class="propiedad-wrapper" id="seccionPropiedades">
-
-
-          <div class="propiedad">
-            <div class="estado">
-              <p><i class="fas fa-check-circle"></i> Activo</p>
-            </div>
-            <div class="card-img">
-              <img src="https://www.obededompropiedades.com.uy/media/img/Ejemplo1.jpg" alt="" />
-            </div>
-            <div class="card-content">
-              <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
-
-              <div class="tipo">
-                <p>Casa</p>
-              </div>
-
-              <div class="direccion">
-                <p><i class="fas fa-map-marker-alt"></i> Lorem ipsum dolor sit amet, <span id="localidad">El Pinar</span>, <span id="departamento">Canelones</span></p>
-              </div>
-              <div class="precio">
-                <hr>
-                <p>U$S <span id="precioDolares">26.000</span></p>
-              </div>
-              
-            </div>
-            
-            <div class="buttons">
-              <button class="editar" id=""><i class="fas fa-edit"></i></button>
-              <button class="borrar" id=""><i class="fas fa-trash-alt"></i></button>
-            </div>
-          </div>
-
-
-          <div class="propiedad">
-            <div class="estado inactivo">
-              <p><i class="fas fa-times-circle"></i> Inactivo</p>
-            </div>
-            <div class="card-img">
-              <img src="https://www.obededompropiedades.com.uy/media/img/Ejemplo2.jpg" alt="" />
-            </div>
-            <div class="card-content">
-              <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
-
-              <div class="tipo">
-                <p>Casa</p>
-              </div>
-
-              <div class="direccion">
-                <p><i class="fas fa-map-marker-alt"></i> Lorem ipsum dolor sit amet, El Pinar, Canelones</p>
-              </div>
-              <div class="precio">
-                <hr>
-                <p>U$S 34.200</p>
-              </div>
-            </div>
-            
-            <div class="buttons">
-              <button><i class="fas fa-check-circle"></i></button>
-              <button><i class="fas fa-edit"></i></button>
-              <button><i class="fas fa-trash-alt"></i></button>
-            </div>
-          </div>
-
-
         </div>
       </div>
 
@@ -352,44 +288,13 @@ if(!isset($_SESSION['Usuario'])){
         </div>
       </div>
       <div class="content-mensajes">
-        <h1 class="title"><i class="fas fa-envelope"></i> Bandeja de Entrada (5)</h1>
+        <h1 class="title"><i class="fas fa-envelope"></i> Bandeja de Entrada (<span id="cantMensajes">5</span>)</h1>
 
         <div class="boton-eliminar">
-          <a onclick="mandarmail()"><i class="fas fa-trash-alt"></i> Eliminar Todas</a>
+          <a class="button" id="limpiarMensajes"><i class="fas fa-trash-alt"></i> Eliminar Todas</a>
         </div>
 
-        <div class="mensajes-wrapper">
-          <div class="mensaje">
-            <button><i class="fas fa-times"></i></button>
-            <i class="fas fa-home"></i>
-            <h1>Tienes una nueva consulta sobre:</h1>
-            <p>Casa El Pinar 2 plantas...</p>
-          </div>
-          <div class="mensaje">
-            <button><i class="fas fa-times"></i></button>
-            <i class="fas fa-home"></i>
-            <h1>Tienes una nueva consulta sobre:</h1>
-            <p>Alquiler Solymar...</p>
-          </div>
-          <div class="mensaje">
-            <button><i class="fas fa-times"></i></button>
-            <i class="far fa-envelope-open"></i>
-            <h1>Tienes una nueva consulta sobre:</h1>
-            <p>Casa El Pinar 2 plantas...</p>
-          </div>
-          <div class="mensaje">
-            <button><i class="fas fa-times"></i></button>
-            <i class="far fa-envelope-open"></i>
-            <h1>Tienes una nueva consulta sobre:</h1>
-            <p>Casa El Pinar 2 plantas...</p>
-          </div>
-          <div class="mensaje">
-            <button><i class="fas fa-times"></i></button>
-            <i class="far fa-envelope-open"></i>
-            <h1>Tienes una nueva consulta sobre:</h1>
-            <p>Casa El Pinar 2 plantas...</p>
-          </div>
-
+        <div class="mensajes-wrapper" id="divMensajes">
         </div>
       </div>
 

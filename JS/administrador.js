@@ -376,5 +376,45 @@ class AdministradorObj {
           },
         });
       }
+
+      traerMensajes() {
+        var Mensajes = [];
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "/PHP/administrador.php",
+          data: { accion: 19},
+          dataType: 'json',
+          success: function (data) {
+            Mensajes = data;
+            console.log(data)
+          },
+        });
+        return Mensajes;
+      }
+
+      eliminarMensaje(idMensaje) {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "/PHP/administrador.php",
+          data: { accion: 20, idMensaje: idMensaje},
+          success: function (data) {
+            console.log(data)
+          },
+        });
+      }
+
+      eliminarMensajes() {
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "/PHP/administrador.php",
+          data: { accion: 21},
+          success: function (data) {
+            console.log(data)
+          },
+        });
+      }
       
 }

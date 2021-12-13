@@ -4,8 +4,22 @@ Backend = new BackendObj();
 $(document).ready(function () {
     $('#header').load('/web/header.html');
     $('#footer').load('/web/footer.html');
+<<<<<<< HEAD
     cargoFiltros(1);
     cargoPropiedades();
+=======
+    cargoFiltros();
+    cargoPropiedades();
+
+    $('#filtroDepartamento').on('change', function() {
+      cargarFiltroLocalidad(this.value);
+    });
+
+    $('#buscarPropiedad').on('click', function() {
+      buscarPropiedad();
+    });
+
+>>>>>>> 8dbfc234a4bf65a0a1cb44b7b723010974f0b886
     $("#botonConsulta").on('click', function() {
       mandarMail();
       });
@@ -22,7 +36,7 @@ function cargoPropiedades(){
     var contadorPropiedades = 0;
     //vacio los elementos anteriores
     divPropiedades.innerHTML = "";
-    for (var i = 0; i < propiedades.length; i = i+33){
+    for (var i = 0; i < 297; i = i+33){
       if(contadorPropiedades <= 11){
         //comprueba que la propiedad esté habilitada
         if(propiedades[i+28] == 1){
@@ -129,6 +143,52 @@ function cargoPropiedades(){
       }
     }
   }
+
+  function cargoFiltros(){
+    //carga los tipos de propiedad
+    var arrayTipoPropiedad = Backend.traerTiposPropiedad();
+    $("#filtroTipo").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Todos'));
+    var selectTipoPropiedad = document.getElementById('filtroTipo');
+    for (var i = 0; i < arrayTipoPropiedad.length; i = i+2){
+        var opt = document.createElement('option');
+        opt.value = arrayTipoPropiedad[i+1].split(" ").join("");
+        opt.text = arrayTipoPropiedad[i+1];
+        selectTipoPropiedad.appendChild(opt);
+    }
+    //carga los departamentos
+    var arrayDepartamentos = Backend.traerDepartamentos();
+    $("#filtroDepartamento").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Todos'));
+    var selectDepartamentos = document.getElementById('filtroDepartamento');
+    for (var i = 0; i < arrayDepartamentos.length; i = i+2){
+        //crea un elemento option
+        var opt = document.createElement('option');
+        opt.id = arrayDepartamentos[i];
+        //le agrega el id del departamento al value
+        opt.value = arrayDepartamentos[i];
+        //le agrega el nombre del departamento al option
+        opt.text = arrayDepartamentos[i+1];
+        //agrega el elemento al elemento con la id selectDepartamento
+        selectDepartamentos.appendChild(opt);
+    }
+  }
+
+  
+function cargarFiltroLocalidad(idDepartamento){
+  var arrayLocalidades = Backend.traerLocalidades(idDepartamento);
+  var selectLocalidades;
+  selectLocalidades = document.getElementById('filtroLocalidad')
+  $("#filtroLocalidad").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Todos'));
+  for (var i = 0; i < arrayLocalidades.length; i = i+2){
+      //crea un elemento option
+      var opt = document.createElement('option');
+      //le agrega el id de la localidad al value
+      opt.value = arrayLocalidades[i+1].split(" ").join("");
+      //le agrega el nombre de la localidad al option
+      opt.text = arrayLocalidades[i+1];
+      //agrega el elemento al elemento con la id selectLocalidades
+      selectLocalidades.appendChild(opt);
+  }
+}
   
   function comprueboDepartamento(idDepartamento){
     switch(parseInt(idDepartamento)){
@@ -193,3 +253,38 @@ function cargoPropiedades(){
       alert("debe completar todos los campos")
     }
   }
+
+  function buscarPropiedad(){
+    filtroOperacion = document.getElementById("filtroOperacion").value;
+    filtroTipo = document.getElementById("filtroTipo").value;
+    filtroDepartamento = comprueboDepartamento(document.getElementById("filtroDepartamento").value).split(" ").join("");
+    filtroLocalidad = document.getElementById("filtroLocalidad").value;
+    parametros = {filtroOperacion: "", filtroTipo: "", filtroDepartamento: "", idDepartamento: "", filtroLocalidad: ""};
+
+    if(filtroOperacion != -1){
+      parametros["filtroOperacion"] = filtroOperacion;
+    }else{
+      parametros["filtroOperacion"] = -1;
+    }
+
+    if(filtroTipo != -1){
+      parametros["filtroTipo"] = filtroTipo;
+    }else{
+      parametros["filtroTipo"] = -1;
+    }
+
+    if(filtroDepartamento != undefined){
+      parametros["filtroDepartamento"] = filtroDepartamento;
+      parametros["idDepartamento"] = document.getElementById("filtroDepartamento").value;
+    }else{
+      parametros["filtroDepartamento"] = -1;
+    }
+
+    if(filtroLocalidad != -1){
+      parametros["filtroLocalidad"] = filtroLocalidad;
+    }else{
+      parametros["filtroLocalidad"] = -1;
+    }
+    localStorage.setItem("parametros", JSON.stringify(parametros));
+    location.href = 'Buscar';
+  } 

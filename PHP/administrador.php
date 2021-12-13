@@ -1,9 +1,12 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 header('Content-Type: text/html; charset=UTF-8');
 include "procedimientosAdministrador.php";
-include "mail.php";
+//include "mail.php";
 $llamarFunction = new DatosAdministrador();
-$llamarMail = new mails();
+//$llamarMail = new mails();
 
 switch ($_POST["accion"]) {
     case 1:
@@ -58,7 +61,16 @@ switch ($_POST["accion"]) {
         echo json_encode($llamarFunction->TraerPropiedad($_POST["idPropiedad"]));
     break;
     case 18:
-        $llamarMail->mailLink();
+        //$llamarMail->mailLink();
+    break;
+    case 19:
+        echo json_encode($llamarFunction->TraerMensajes());
+    break;
+    case 20:
+        echo json_encode($llamarFunction->EliminarMensaje($_POST["idMensaje"]));
+    break;
+    case 21:
+        echo json_encode($llamarFunction->EliminarTodosMensajes());
     break;
 
 }
