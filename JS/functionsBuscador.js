@@ -361,4 +361,5 @@ function cargoPropiedades(){
         $('.card').filter('[data-inodoros!="'+ filtroInodoros +'"]').hide();
       }
     }
+    sessionStorage.clear()
   }
