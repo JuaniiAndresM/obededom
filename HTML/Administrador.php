@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['Usuario'])){
-    header('Location: https://www.obededompropiedades.com.uy/Login');
+    header('Location: /obededom/Login');
 }
 ?>
 
@@ -13,12 +13,12 @@ if(!isset($_SESSION['Usuario'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="https://www.obededompropiedades.com.uy/media/svg/Logo.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="/obededom/media/svg/Logo.svg" type="image/x-icon" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css"
     />
-    <link rel="stylesheet" href="https://www.obededompropiedades.com.uy/CSS/styles.css" />
+    <link rel="stylesheet" href="/obededom/CSS/styles.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script
@@ -26,12 +26,12 @@ if(!isset($_SESSION['Usuario'])){
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://www.obededompropiedades.com.uy/JS/web.js"></script>
-    <script src="https://www.obededompropiedades.com.uy/JS/modal.js"></script>
-    <script src="https://www.obededompropiedades.com.uy/JS/backend.js"></script>
-    <script src="https://www.obededompropiedades.com.uy/JS/administrador.js"></script>
-    <script src="https://www.obededompropiedades.com.uy/JS/functionsAdministrador.js"></script>
-    <script src="https://www.obededompropiedades.com.uy/Form/JS/Usuario.js"></script>
+    <script src="/obededom/JS/web.js"></script>
+    <script src="/obededom/JS/modal.js"></script>
+    <script src="/obededom/JS/backend.js"></script>
+    <script src="/obededom/JS/administrador.js"></script>
+    <script src="/obededom/JS/functionsAdministrador.js"></script>
+    <script src="/obededom/Form/JS/Usuario.js"></script>
 
     <title>Obed-Edom | Administrador</title>
   </head>
@@ -76,7 +76,7 @@ if(!isset($_SESSION['Usuario'])){
       <div class="profile">
         <div class="icon">
           <div class="img">
-            <img src="https://www.obededompropiedades.com.uy/media/svg/Logo.svg" alt="" />
+            <img src="/obededom/media/svg/Logo.svg" alt="" />
           </div>
           <div class="profile-info">
             <h2>Obed-Edom</h2>
@@ -93,7 +93,7 @@ if(!isset($_SESSION['Usuario'])){
     <section class="admin-panel">
       <div class="content-inicio">
         <div class="inicio-wrapper">
-          <img src="https://www.obededompropiedades.com.uy/media/svg/Logo.svg" alt="" />
+          <img src="/obededom/media/svg/Logo.svg" alt="" />
           <h1>Bienvenid@ al panel de <b>Administrador</b>.</h1>
           <p>
             Aquí podras modificar las propiedades, agregar o eliminar
