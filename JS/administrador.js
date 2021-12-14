@@ -397,7 +397,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 20, idMensaje: idMensaje},
           success: function (data) {
             console.log(data)
@@ -409,7 +409,7 @@ class AdministradorObj {
         $.ajax({
           type: "POST",
           async: false,
-          url: "/PHP/administrador.php",
+          url: "/obededom/PHP/administrador.php",
           data: { accion: 21},
           success: function (data) {
             console.log(data)

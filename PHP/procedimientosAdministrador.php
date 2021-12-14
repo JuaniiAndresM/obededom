@@ -337,7 +337,7 @@ class  DatosAdministrador{
         public function EliminarTodosMensajes(){
             include "../Database/server.php";
             $sentencia = '';
-            if ($sentencia = $mysqli->prepare("CALL EliminarTodosMensajes();")) {
+            if ($sentencia = $mysqli->prepare("CALL EliminarMensajes();")) {
                 if ($sentencia->execute()) {
                     echo 1;
                 }else{
