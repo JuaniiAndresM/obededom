@@ -22,7 +22,7 @@ function cargoPropiedades(){
     var contadorPropiedades = 0;
     //vacio los elementos anteriores
     divPropiedades.innerHTML = "";
-    for (var i = 0; i < propiedades.length; i = i+33){
+    for (var i = 0; i < 231; i = i+33){
       if(contadorPropiedades <= 11){
         //comprueba que la propiedad esté habilitada
         if(propiedades[i+28] == 1){
