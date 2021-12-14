@@ -175,7 +175,7 @@ function cargoPropiedades(){
   }
   
   function verPropiedad(id){
-    location.href = 'HTML/Propiedad.html?p='+id;
+    location.href = 'Propiedad?p='+id;
   }
 
   function mandarMail(){
@@ -202,13 +202,13 @@ function buscadorIndex(){
   });
 
   $('#btnBuscarIndex').on('click', function(e) {
-
+    //guardo los filtros que selecciona en la index para utilizarlos en el buscador.
     sessionStorage.setItem('buscadorIndex',1)
     sessionStorage.setItem('tipoOperacion',document.getElementById('filtroTipoOperacion').value)
     sessionStorage.setItem('tipoPropiedad',document.getElementById('filtroTipoPropiedad').value)
     sessionStorage.setItem('Departamento',document.getElementById('filtroDepartamento').value)
     sessionStorage.setItem('Localidad',document.getElementById('filtroLocalidad').value)
-
+    //redirecciona al buscador
     location.assign("/obededom/HTML/Buscador.html");
   });
 }

@@ -2,12 +2,6 @@
 
 $(document).ready(function () {
     //cargo propiedades
-    console.log(sessionStorage.getItem("buscadorIndex"))
-    console.log(sessionStorage.getItem("tipoOperacion"))
-    console.log(sessionStorage.getItem("tipoPropiedad"))
-    console.log(sessionStorage.getItem("Departamento"))
-    console.log(sessionStorage.getItem("Localidad"))
-
     cargoPropiedades()
     cargoFiltros()
     //carga las localidades cuando cambia el departamento
