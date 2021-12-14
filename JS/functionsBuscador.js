@@ -2,6 +2,12 @@
 
 $(document).ready(function () {
     //cargo propiedades
+    console.log(sessionStorage.getItem("buscadorIndex"))
+    console.log(sessionStorage.getItem("tipoOperacion"))
+    console.log(sessionStorage.getItem("tipoPropiedad"))
+    console.log(sessionStorage.getItem("Departamento"))
+    console.log(sessionStorage.getItem("Localidad"))
+
     cargoPropiedades()
     cargoFiltros()
     //carga las localidades cuando cambia el departamento
@@ -21,6 +27,9 @@ $(document).ready(function () {
       filtrarPropiedadIndex();
     }
     
+    if(sessionStorage.getItem("buscadorIndex") == 1){
+      filtrarPropiedad(1);
+    }
 
 });
 function cargoPropiedades(){
@@ -203,13 +212,13 @@ function cargoPropiedades(){
     }
   }
 
-  function cargoFiltros(v){
-    //la variable "v" indica si se esta ejecutando desde la index o desde el buscador
+  function cargoFiltros(FIndex){
+    //la variable "FIndex" indica si se esta ejecutando desde la index o desde el buscador
     //carga los tipos de propiedad
 
     var arrayTipoPropiedad = Backend.traerTiposPropiedad();
 
-    if(v == 1){
+    if(FIndex == 1){
       $("#filtroTipoPropiedad").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Tipo de Propiedad'));
     }else{
       $("#filtroTipoPropiedad").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Todos'));
@@ -227,7 +236,7 @@ function cargoPropiedades(){
 
     var arrayDepartamentos = Backend.traerDepartamentos();
 
-    if(v == 1){
+    if(FIndex == 1){
       $("#filtroDepartamento").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Departamento'));
     }else{
       $("#filtroDepartamento").empty().append($("<option></option>").attr({"value": -1,"selected": true}).text('Todos'));
@@ -287,18 +296,29 @@ function cargoPropiedades(){
     localStorage.removeItem('parametros');
   }
 
-  function filtrarPropiedad(){
+  function filtrarPropiedad(filtrosIndex){
+
     propiedades = document.getElementsByClassName("card");
+
+    if(filtrosIndex == 1){
+      filtroTipoOperacion = sessionStorage.getItem("tipoOperacion");
+      filtroTipoPropiedad = sessionStorage.getItem("tipoPropiedad");
+      filtroDepartamento = sessionStorage.getItem("Departamento");
+      filtroLocalidad = sessionStorage.getItem("Localidad");
+    }else{
+      filtroTipoOperacion = document.getElementById("filtroTipoOperacion").value;
+      filtroTipoPropiedad = document.getElementById("filtroTipoPropiedad").value;
+      filtroDepartamento = document.getElementById("filtroDepartamento").value;
+      filtroLocalidad = document.getElementById("filtroLocalidad").value;
+    }
+    
     filtroBuscador = document.getElementById("buscadorIndex").value;
-    filtroTipoOperacion = document.getElementById("filtroTipoOperacion").value;
-    filtroTipoPropiedad = document.getElementById("filtroTipoPropiedad").value;
-    filtroDepartamento = document.getElementById("filtroDepartamento").value;
-    filtroLocalidad = document.getElementById("filtroLocalidad").value;
     filtroMoneda = document.getElementById("filtroMoneda").value;
     filtroPrecio = document.getElementById("filtroPrecio").value;
     filtroConstruccion = document.getElementById("filtroConstruccion").value;
     filtroDormitorios = document.getElementById("filtroDormitorios").value;
     filtroInodoros = document.getElementById("filtroInodoros").value;
+
     $('.card').show();
     if(filtroBuscador !== ""){
       buscador(filtroBuscador);

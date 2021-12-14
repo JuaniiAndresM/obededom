@@ -21,6 +21,7 @@
       src="https://kit.fontawesome.com/1e193e3a23.js"
       crossorigin="anonymous"
     ></script>
+    <script type="text/javascript">sessionStorage.clear()</script>
     <script src="JS/administrador.js"></script>
     <script src="JS/backend.js"></script>
     <script src="JS/functionsBuscador.js"></script>
@@ -45,11 +46,11 @@
           <div class="buscar">
             <div class="select">
               <i class="fas fa-sign"></i>
-              <select name="" id="">
-                <option value="" selected>Tipo de Operación</option>
-                <option value="">Venta</option>
-                <option value="">Alquiler</option>
-                <option value="">Alquiler Temporal</option>
+              <select name="" id="filtroTipoOperacion">
+                <option value="-1" selected>Tipo de Operación</option>
+                <option value="Venta">Venta</option>
+                <option value="Alquiler">Alquiler</option>
+                <option value="AlquilerTemporal">Alquiler Temporal</option>
               </select>
             </div>
 
@@ -72,7 +73,7 @@
               </select>
             </div>
 
-            <a href="">Buscar</a>
+            <a id="btnBuscarIndex">Buscar</a>
           </div>
         </div>      </div>
     </section>

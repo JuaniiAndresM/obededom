@@ -4,14 +4,11 @@ Backend = new BackendObj();
 $(document).ready(function () {
     $('#header').load('/web/header.html');
     $('#footer').load('/web/footer.html');
-    cargoFiltros(1);
-    cargoPropiedades();
+    buscadorIndex()
     $("#botonConsulta").on('click', function() {
       mandarMail();
       });
-    $('#filtroDepartamento').on('change', function(e) {
-      cargarFiltroLocalidad(e.target.options[e.target.selectedIndex].getAttribute('id'));
-    });
+
 });
 
 function cargoPropiedades(){
@@ -196,3 +193,22 @@ function cargoPropiedades(){
       alert("debe completar todos los campos")
     }
   }
+
+function buscadorIndex(){
+  cargoFiltros(1);
+  cargoPropiedades();
+  $('#filtroDepartamento').on('change', function(e) {
+    cargarFiltroLocalidad(e.target.options[e.target.selectedIndex].getAttribute('id'));
+  });
+
+  $('#btnBuscarIndex').on('click', function(e) {
+
+    sessionStorage.setItem('buscadorIndex',1)
+    sessionStorage.setItem('tipoOperacion',document.getElementById('filtroTipoOperacion').value)
+    sessionStorage.setItem('tipoPropiedad',document.getElementById('filtroTipoPropiedad').value)
+    sessionStorage.setItem('Departamento',document.getElementById('filtroDepartamento').value)
+    sessionStorage.setItem('Localidad',document.getElementById('filtroLocalidad').value)
+
+    location.assign("/obededom/HTML/Buscador.html");
+  });
+}
