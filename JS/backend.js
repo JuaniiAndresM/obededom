@@ -341,6 +341,20 @@ class BackendObj {
           }
         });
       }
-
+    //Envia los datos de la consulta
+    datosConsultas(nombre,mail,tipoConsulta,comentario) {
+        let estado;
+        $.ajax({
+          type: "POST",
+          async: false,
+          url: "/obededom/PHP/backend.php",
+          data: { accion: 24,nombre: nombre, mail: mail, tipoConsulta: tipoConsulta, comentario: comentario},
+          dataType: 'json',
+          success: function (data) {
+            estado = data;
+          },
+        });
+        return estado;
+    }
 
 }

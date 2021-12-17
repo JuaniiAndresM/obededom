@@ -23,6 +23,7 @@ function cargoPropiedades(){
     //vacio los elementos anteriores
     divPropiedades.innerHTML = "";
     for (var i = 0; i < 231; i = i+33){
+
       if(contadorPropiedades <= 11){
         //comprueba que la propiedad esté habilitada
         if(propiedades[i+28] == 1){
@@ -184,8 +185,8 @@ function cargoPropiedades(){
     var tipoConsulta = document.getElementById("tipoConsulta").value;
     var comentario = document.getElementById("comentario").value;
     if([nombre, mail, comentario].indexOf("") < 0){
-      if(tipoConsulta != -99){
-        
+      if(tipoConsulta != 0){
+        console.log(Backend.datosConsultas(nombre,mail,tipoConsulta,comentario))
       }else{
         alert("debe seleccionar un tipo de consulta")
       }

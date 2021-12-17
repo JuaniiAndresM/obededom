@@ -655,6 +655,19 @@ public function ActualizarPropiedad($arrayJSON){
         }
     }
 
+    public function consulta($nombre,$mail,$tipoConsulta,$comentario){
+        $datos = array(
+            "nombre"=>$nombre,
+            "mail"=>$mail,
+            "tipoConsulta"=>$tipoConsulta,
+            "comentario"=>$comentario
+        );
+        /*
+         codigo del formulario de consultas
+        */
+        return $datos;
+    }
+
 }
 
 
