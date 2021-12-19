@@ -707,7 +707,7 @@ public function ActualizarPropiedad($arrayJSON){
                 $sentencia = $mysqli->prepare("CALL InsertMensaje(?,?);");
                 $sentencia->bind_param('si', $comentario,$tipoConsulta);
                 $sentencia->execute();
-                $estado = "Consulta guardada con exito...";
+                $estado = 1;
             }
         }
         return $estado;

@@ -184,7 +184,12 @@ function cargoPropiedades(){
     var mail = document.getElementById("mail").value;
     var tipoConsulta = document.getElementById("tipoConsulta").value;
     var comentario = document.getElementById("comentario").value;
-    console.log(Backend.datosConsultas(nombre,mail,tipoConsulta,comentario))
+    if(Backend.datosConsultas(nombre,mail,tipoConsulta,comentario) == 1){
+      $('#nombre').val("");
+      $('#mail').val("");
+      $('#tipoConsulta').val(0);
+      $('#comentario').val("");
+    }
   }
 
 function buscadorIndex(){
