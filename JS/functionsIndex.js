@@ -184,15 +184,7 @@ function cargoPropiedades(){
     var mail = document.getElementById("mail").value;
     var tipoConsulta = document.getElementById("tipoConsulta").value;
     var comentario = document.getElementById("comentario").value;
-    if([nombre, mail, comentario].indexOf("") < 0){
-      if(tipoConsulta != 0){
-        console.log(Backend.datosConsultas(nombre,mail,tipoConsulta,comentario))
-      }else{
-        alert("debe seleccionar un tipo de consulta")
-      }
-    }else{
-      alert("debe completar todos los campos")
-    }
+    console.log(Backend.datosConsultas(nombre,mail,tipoConsulta,comentario))
   }
 
 function buscadorIndex(){

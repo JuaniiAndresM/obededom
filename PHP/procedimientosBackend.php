@@ -656,16 +656,61 @@ public function ActualizarPropiedad($arrayJSON){
     }
 
     public function consulta($nombre,$mail,$tipoConsulta,$comentario){
-        $datos = array(
-            "nombre"=>$nombre,
-            "mail"=>$mail,
-            "tipoConsulta"=>$tipoConsulta,
-            "comentario"=>$comentario
-        );
-        /*
-         codigo del formulario de consultas
-        */
-        return $datos;
+        $error = null;
+        $datos = array();
+        $estado = array();
+        $contador = 0;
+        array_push($datos, $nombre, $mail, $tipoConsulta, $comentario);
+
+        // Valido si hay campos vacios y si hay los indico con un numero de error: Error-0 -> Nombre vacio, Error-1 -> Mail vacio, Error-2 -> Tipo de consulta vacio, Error-3 -> Comentario vacio.
+        foreach ($datos as $controlador) {
+            if($controlador == null || $controlador == 0){
+                switch ($contador) {
+                    case 0:
+                        array_push($estado, "Error-0");
+                        break;
+                    case 1:
+                        array_push($estado, "Error-1");
+                        break;         
+                    case 2:                        
+                        array_push($estado, "Error-2");
+                        break;                    
+                    case 3:
+                        array_push($estado, "Error-3");
+                        break;
+                }
+            }
+            $contador++;
+        }
+
+        // Si no hay campos vacios valido el nombre y el mail.
+        if ($estado == null) {
+
+            $PRAMETROS_MAIL = "/^\w*(@gmail.com)|(@hotmail.com)|(@yahoo.com){1}$/i";
+            $PRAMETROS_NAME = "/^[a-zA-Z][a-zA-Z\s]+$/i";
+
+            if (!preg_match($PRAMETROS_NAME, $nombre)) {
+                array_push($estado, 0);
+            } else {
+                array_push($estado, 1);
+            }
+
+            if (!preg_match($PRAMETROS_MAIL, $mail)) {
+                array_push($estado, 0);
+            } else {
+                array_push($estado, 1);
+            }
+            // Si el nombre y el mail son correctos guardo la consulta
+            if ($estado[0] == 1 && $estado[1] == 1) {
+                //guardo la consulta
+                include "../Database/server.php";
+                $sentencia = $mysqli->prepare("CALL InsertMensaje(?,?);");
+                $sentencia->bind_param('si', $comentario,$tipoConsulta);
+                $sentencia->execute();
+                $estado = "Consulta guardada con exito...";
+            }
+        }
+        return $estado;
     }
 
 }
