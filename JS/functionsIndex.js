@@ -184,7 +184,7 @@ function cargoPropiedades(){
     var mail = document.getElementById("mail").value;
     var tipoConsulta = document.getElementById("tipoConsulta").value;
     var comentario = document.getElementById("comentario").value;
-    if(Backend.datosConsultas(nombre,mail,tipoConsulta,comentario) == 1){
+    if(Backend.datosConsultas(0,nombre,mail,null,tipoConsulta,comentario) == 1){
       $('#nombre').val("");
       $('#mail').val("");
       $('#tipoConsulta').val(0);

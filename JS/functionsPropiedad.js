@@ -11,6 +11,10 @@ $(document).ready(function () {
   }else{
     location.href = '/Buscar';
   }
+
+  $("#botonConsulta").on('click', function() {
+    enviarConsulta();
+  });
 });
 
 function cargoPropiedad(idPropiedad){
@@ -174,3 +178,17 @@ function comprueboDepartamento(idDepartamento){
         ]
     });
 }
+
+  function enviarConsulta(){
+    var propiedad = window.location;
+    var nombre = document.getElementById("nombre").value;
+    var mail = document.getElementById("mail").value;
+    var telefono = document.getElementById("telefono").value;
+    var comentario = document.getElementById("comentario").value + "  Propiedad -> " +propiedad;
+    if(Backend.datosConsultas(1,nombre,mail,telefono,null,comentario) == 1){
+      $('#nombre').val("");
+      $('#mail').val("");
+      $('#telefono').val("");
+      $('#comentario').val("");
+    }
+  }

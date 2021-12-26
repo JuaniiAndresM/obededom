@@ -74,7 +74,12 @@ if(isset($_POST["accion"])){
             echo json_encode($llamarFunction->EliminarPDF($_POST['idPropiedad']));
         break;
         case 24:
-            echo json_encode($llamarFunction->consulta($_POST['nombre'],$_POST['mail'],$_POST['tipoConsulta'],$_POST['comentario']));
+            if ($_POST['formulario'] == 0) {
+                echo json_encode($llamarFunction->consulta(0,$_POST['nombre'],$_POST['mail'],null,$_POST['tipoConsulta'],$_POST['comentario']));
+            } else {
+                echo json_encode($llamarFunction->consulta(1,$_POST['nombre'],$_POST['mail'],$_POST['telefono'],null,$_POST['comentario']));
+            }
+            
         break;
     }
 }

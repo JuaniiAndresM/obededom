@@ -655,14 +655,27 @@ public function ActualizarPropiedad($arrayJSON){
         }
     }
 
-    public function consulta($nombre,$mail,$tipoConsulta,$comentario){
+    public function consulta($formulario,$nombre,$mail,$telefono,$tipoConsulta,$comentario){
+        /*
+        $formulario- Indica de que formulario viene --> 0- Formulario de consultas de la index. 
+                                                        1- Formulario de consulta de propiedad.
+        */
+        $consulta_Propiedad = 3;
         $error = null;
         $datos = array();
         $estado = array();
         $contador = 0;
-        array_push($datos, $nombre, $mail, $tipoConsulta, $comentario);
 
-        // Valido si hay campos vacios y si hay los indico con un numero de error: Error-0 -> Nombre vacio, Error-1 -> Mail vacio, Error-2 -> Tipo de consulta vacio, Error-3 -> Comentario vacio.
+        if ($formulario == 0) {
+            array_push($datos, $nombre, $mail, $tipoConsulta, $comentario);
+        } else {
+            array_push($datos, $nombre, $mail, $telefono, $comentario);
+        }
+        /* Valido si hay campos vacios y si hay los indico con un numero de error: Error-0 -> Nombre vacio.
+                                                                                   Error-1 -> Mail vacio.
+                                                                                   Error-2 -> Tipo de consulta vacio.
+                                                                                   Error-3 -> Comentario vacio.
+        */ 
         foreach ($datos as $controlador) {
             if($controlador == null || $controlador == 0){
                 switch ($contador) {
@@ -700,16 +713,27 @@ public function ActualizarPropiedad($arrayJSON){
             } else {
                 array_push($estado, 1);
             }
+
             // Si el nombre y el mail son correctos guardo la consulta
             if ($estado[0] == 1 && $estado[1] == 1) {
                 //guardo la consulta
                 include "../Database/server.php";
                 $sentencia = $mysqli->prepare("CALL InsertMensaje(?,?);");
-                $sentencia->bind_param('si', $comentario,$tipoConsulta);
+                
+                if ($formulario == 0) {
+                    $sentencia->bind_param('si', $comentario,$tipoConsulta);
+                    //envio mail
+                    include_once "mail.php";
+                    mailLink($tipoConsulta);
+                } else {
+                    $sentencia->bind_param('si', $comentario,$consulta_Propiedad);
+                }
                 $sentencia->execute();
+
                 $estado = 1;
             }
-        }
+        } 
+        
         return $estado;
     }
 

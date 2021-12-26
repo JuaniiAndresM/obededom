@@ -7,7 +7,7 @@
 
 class mails
 {
-    public static function mailLink(){
+    public static function mailLink($tipoMail){
         $mail = new PHPMailer(true);
         $mail->CharSet = 'UTF-8';
         $mail->isSMTP(); 
@@ -27,7 +27,13 @@ class mails
             $mail->Username = 'obededomorganizacion@gmail.com';
             $mail->Password = 'malbec2003';
             $mail->setFrom('obededomorganizacion@gmail.com');
-            $mail->addAddress('obededomorganizacion@gmail.com');
+            if ($tipoMail == 1) {
+                $mail->addAddress('ventas@obededompropiedades.com.uy');
+            } else if ($tipoMail == 2) {
+                $mail->addAddress('alquileres@obededompropiedades.com.uy');.
+            } else {
+                $mail->addAddress('consultas@obededompropiedades.com.uy');
+            }
             $mail->Subject = 'Nueva Consulta';
             //$mail->AddEmbeddedImage('../../media/img/logos/Logonombre.png','prueba','../../media/img/logos/Logonombre.png');
             $mail->msgHTML('

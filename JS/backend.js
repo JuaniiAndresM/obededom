@@ -342,13 +342,13 @@ class BackendObj {
         });
       }
     //Envia los datos de la consulta
-    datosConsultas(nombre,mail,tipoConsulta,comentario) {
+    datosConsultas(formulario,nombre,mail,telefono,tipoConsulta,comentario) {
         let estado;
         $.ajax({
           type: "POST",
           async: false,
           url: "/obededom/PHP/backend.php",
-          data: { accion: 24,nombre: nombre, mail: mail, tipoConsulta: tipoConsulta, comentario: comentario},
+          data: { accion: 24, formulario: formulario, nombre: nombre, mail: mail, telefono: telefono, tipoConsulta: tipoConsulta, comentario: comentario},
           dataType: 'json',
           success: function (data) {
             estado = data;
